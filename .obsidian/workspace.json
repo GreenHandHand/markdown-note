@@ -11,8 +11,12 @@
             "id": "95d6e01189d8a951",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "深度学习/循环神经网络.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -97,6 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "深度学习/循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "深度学习/循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,15 +148,17 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "深度学习/循环神经网络.md"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,8 +171,10 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "03e03384561a4479",
+  "active": "00363296747ac1a9",
   "lastOpenFiles": [
+    "深度学习/现代循环神经网络.md",
+    "README.md",
     "new/随机过程/随机过程课本笔记.md",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程/随机过程准备知识.md",
@@ -186,7 +196,6 @@
     "new/image/Pasted image 20230526205958.png",
     "new/image",
     "new",
-    "深度学习/现代循环神经网络.md",
     "深度学习/多层感知机.md",
     "深度学习/预备知识.md",
     "深度学习/深度学习概念与感知机.md",
@@ -205,7 +214,6 @@
     "机器学习/决策树.md",
     "机器学习/聚类.md",
     "机器学习/最大熵模型.md",
-    "机器学习/隐马尔可夫模型.md",
     "数据库.canvas",
     "随机过程/随机过程讲义.pdf",
     "image/utils.py",

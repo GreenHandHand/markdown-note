@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "循环神经网络",
+      "path": "深度学习/循环神经网络.md"
+    },
+    {
       "basename": "现代循环神经网络",
       "path": "深度学习/现代循环神经网络.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "多层感知机",
@@ -27,10 +35,6 @@
     {
       "basename": "多目标优化问题",
       "path": "最优化/多目标最优化/多目标优化问题.md"
-    },
-    {
-      "basename": "循环神经网络",
-      "path": "深度学习/循环神经网络.md"
     },
     {
       "basename": "深度学习计算",
@@ -195,10 +199,6 @@
     {
       "basename": "最优化",
       "path": "最优化/最优化.md"
-    },
-    {
-      "basename": "卷积神经网络",
-      "path": "深度学习/卷积神经网络.md"
     }
   ],
   "omittedPaths": [],
