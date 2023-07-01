@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "现代循环神经网络",
+      "path": "深度学习/现代循环神经网络.md"
+    },
+    {
+      "basename": "多层感知机",
+      "path": "深度学习/多层感知机.md"
+    },
+    {
+      "basename": "预备知识",
+      "path": "深度学习/预备知识.md"
+    },
+    {
+      "basename": "深度学习概念与感知机",
+      "path": "深度学习/深度学习概念与感知机.md"
+    },
+    {
+      "basename": "机器学习简介",
+      "path": "深度学习/机器学习简介.md"
+    },
+    {
+      "basename": "如何训练一个模型",
+      "path": "深度学习/如何训练一个模型.md"
+    },
+    {
+      "basename": "多目标优化问题",
+      "path": "最优化/多目标最优化/多目标优化问题.md"
+    },
+    {
+      "basename": "循环神经网络",
+      "path": "深度学习/循环神经网络.md"
+    },
+    {
+      "basename": "深度学习计算",
+      "path": "深度学习/深度学习计算.md"
+    },
+    {
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
+      "basename": "数据预处理专题",
+      "path": "数据预处理专题.md"
+    },
+    {
+      "basename": "支持向量机",
+      "path": "机器学习/支持向量机.md"
+    },
+    {
+      "basename": "登山搜索",
+      "path": "最优化/搜索算法/登山搜索.md"
+    },
+    {
+      "basename": "模拟退火算法",
+      "path": "最优化/搜索算法/模拟退火算法.md"
+    },
+    {
+      "basename": "感知机",
+      "path": "机器学习/感知机.md"
+    },
+    {
+      "basename": "朴素贝叶斯",
+      "path": "机器学习/朴素贝叶斯.md"
+    },
+    {
+      "basename": "决策树",
+      "path": "机器学习/决策树.md"
+    },
+    {
+      "basename": "聚类",
+      "path": "机器学习/聚类.md"
+    },
+    {
+      "basename": "最大熵模型",
+      "path": "机器学习/最大熵模型.md"
+    },
+    {
+      "basename": "隐马尔可夫模型",
+      "path": "机器学习/隐马尔可夫模型.md"
+    },
+    {
+      "basename": "谱聚类",
+      "path": "机器学习/谱聚类.md"
+    },
+    {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
+      "basename": "潜在狄利克雷分配",
+      "path": "机器学习/潜在狄利克雷分配.md"
+    },
+    {
+      "basename": "条件随机场",
+      "path": "机器学习/条件随机场.md"
+    },
+    {
+      "basename": "线性模型",
+      "path": "机器学习/线性模型.md"
+    },
+    {
+      "basename": "k 近邻",
+      "path": "机器学习/k 近邻.md"
+    },
+    {
+      "basename": "REINFROCE算法",
+      "path": "强化学习/REINFROCE算法.md"
+    },
+    {
+      "basename": "马尔科夫决策过程",
+      "path": "强化学习/马尔科夫决策过程.md"
+    },
+    {
+      "basename": "DQN改进算法",
+      "path": "强化学习/DQN改进算法.md"
+    },
+    {
+      "basename": "Dyna-Q算法",
+      "path": "强化学习/Dyna-Q算法.md"
+    },
+    {
+      "basename": "贝叶斯网络",
+      "path": "机器学习/贝叶斯网络.md"
+    },
+    {
+      "basename": "数据库",
+      "path": "数据库/数据库.md"
+    },
+    {
+      "basename": "蚁群优化算法",
+      "path": "最优化/群体智能算法/蚁群优化算法.md"
+    },
+    {
+      "basename": "粒子群优化算法",
+      "path": "最优化/群体智能算法/粒子群优化算法.md"
+    },
+    {
+      "basename": "群体智能算法",
+      "path": "最优化/群体智能算法/群体智能算法.md"
+    },
+    {
+      "basename": "Actor-Critic算法",
+      "path": "强化学习/Actor-Critic算法.md"
+    },
+    {
+      "basename": "DQN算法",
+      "path": "强化学习/DQN算法.md"
+    },
+    {
+      "basename": "时序差分算法",
+      "path": "强化学习/时序差分算法.md"
+    },
+    {
+      "basename": "动态规划算法",
+      "path": "强化学习/动态规划算法.md"
+    },
+    {
+      "basename": "Markov链",
+      "path": "随机过程/Markov链.md"
+    },
+    {
+      "basename": "条件期望",
+      "path": "随机过程/条件期望.md"
+    },
+    {
+      "basename": "随机过程",
+      "path": "随机过程/随机过程.md"
+    },
+    {
+      "basename": "随机过程讲义",
+      "path": "随机过程/随机过程讲义.pdf"
+    },
+    {
+      "basename": "EM 算法",
+      "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "AdaBoost",
+      "path": "机器学习/AdaBoost.md"
+    },
+    {
+      "basename": "进化算法综述",
+      "path": "最优化/进化算法/进化算法综述.md"
+    },
+    {
+      "basename": "差分进化算法",
+      "path": "最优化/进化算法/差分进化算法.md"
+    },
+    {
+      "basename": "A star算法",
+      "path": "最优化/搜索算法/A star算法.md"
+    },
+    {
+      "basename": "最优化",
+      "path": "最优化/最优化.md"
+    },
+    {
+      "basename": "卷积神经网络",
+      "path": "深度学习/卷积神经网络.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}

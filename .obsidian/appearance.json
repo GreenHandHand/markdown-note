@@ -1,0 +1,14 @@
+{
+  "accentColor": "",
+  "theme": "moonstone",
+  "cssTheme": "Blue Topaz",
+  "monospaceFontFamily": "Consolas",
+  "textFontFamily": "霞鹜文楷等宽,霞鹜文楷,微软雅黑",
+  "baseFontSize": 19,
+  "translucency": false,
+  "nativeMenus": false,
+  "showViewHeader": true,
+  "enabledCssSnippets": [
+    "style"
+  ]
+}
