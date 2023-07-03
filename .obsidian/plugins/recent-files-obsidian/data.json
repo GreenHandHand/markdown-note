@@ -5,6 +5,10 @@
       "path": "深度学习/现代循环神经网络.md"
     },
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "循环神经网络",
       "path": "深度学习/循环神经网络.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "数据预处理专题",
       "path": "数据预处理专题.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "多层感知机",
