@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "现代循环神经网络",
+      "path": "深度学习/现代循环神经网络.md"
+    },
+    {
       "basename": "循环神经网络",
       "path": "深度学习/循环神经网络.md"
     },
     {
-      "basename": "现代循环神经网络",
-      "path": "深度学习/现代循环神经网络.md"
+      "basename": "预备知识",
+      "path": "深度学习/预备知识.md"
+    },
+    {
+      "basename": "数据预处理专题",
+      "path": "数据预处理专题.md"
     },
     {
       "basename": "README",
@@ -15,10 +23,6 @@
     {
       "basename": "多层感知机",
       "path": "深度学习/多层感知机.md"
-    },
-    {
-      "basename": "预备知识",
-      "path": "深度学习/预备知识.md"
     },
     {
       "basename": "深度学习概念与感知机",
@@ -43,10 +47,6 @@
     {
       "basename": "现代卷积神经网络",
       "path": "深度学习/现代卷积神经网络.md"
-    },
-    {
-      "basename": "数据预处理专题",
-      "path": "数据预处理专题.md"
     },
     {
       "basename": "支持向量机",
