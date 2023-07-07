@@ -11,12 +11,8 @@
             "id": "95d6e01189d8a951",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "深度学习/现代循环神经网络.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -101,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/现代循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/现代循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,9 +142,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "深度学习/现代循环神经网络.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -173,6 +165,9 @@
   },
   "active": "95d6e01189d8a951",
   "lastOpenFiles": [
+    "深度学习/现代循环神经网络.md",
+    "随机过程课本笔记.md",
+    "pMPL初期方案.md",
     "image/Pasted image 20230706213804.png",
     "image/Pasted image 20230706180609.png",
     "image/Pasted image 20230706152929.png",
@@ -182,11 +177,9 @@
     "image/Pasted image 20230703143025.png",
     "image/Pasted image 20230703142009.png",
     "README.md",
-    "深度学习/现代循环神经网络.md",
     "未命名",
     "image/Pasted image 20230703114826.png",
     "image/Pasted image 20230703114058.png",
-    "image/Pasted image 20230703114031.png",
     "深度学习/循环神经网络.md",
     "深度学习/预备知识.md",
     "数据预处理专题.md",
@@ -214,7 +207,6 @@
     "机器学习/感知机.md",
     "机器学习/朴素贝叶斯.md",
     "机器学习/决策树.md",
-    "机器学习/聚类.md",
     "数据库.canvas",
     "随机过程/随机过程讲义.pdf",
     "image/utils.py",

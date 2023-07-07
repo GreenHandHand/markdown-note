@@ -195,10 +195,6 @@
     {
       "basename": "A star算法",
       "path": "最优化/搜索算法/A star算法.md"
-    },
-    {
-      "basename": "最优化",
-      "path": "最优化/最优化.md"
     }
   ],
   "omittedPaths": [],
