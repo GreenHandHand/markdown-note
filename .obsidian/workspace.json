@@ -11,8 +11,12 @@
             "id": "95d6e01189d8a951",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "深度学习/现代循环神经网络.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -97,6 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "深度学习/现代循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "深度学习/现代循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +148,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "深度学习/现代循环神经网络.md"
+              }
             }
           }
         ],
@@ -163,8 +171,9 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "95d6e01189d8a951",
+  "active": "03e03384561a4479",
   "lastOpenFiles": [
+    "深度学习/现代卷积神经网络.md",
     "深度学习/现代循环神经网络.md",
     "随机过程课本笔记.md",
     "pMPL初期方案.md",
@@ -200,7 +209,6 @@
     "深度学习/如何训练一个模型.md",
     "最优化/多目标最优化/多目标优化问题.md",
     "深度学习/深度学习计算.md",
-    "深度学习/现代卷积神经网络.md",
     "机器学习/支持向量机.md",
     "最优化/搜索算法/登山搜索.md",
     "最优化/搜索算法/模拟退火算法.md",
