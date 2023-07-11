@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "讲解",
+      "path": "随机过程/讲解.md"
+    },
+    {
+      "basename": "1120212096李金聪",
+      "path": "随机过程/作业/1120212096李金聪.md"
+    },
+    {
+      "basename": "更新过程",
+      "path": "随机过程/更新过程.md"
+    },
+    {
       "basename": "注意力机制",
       "path": "深度学习/注意力机制.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "AdaBoost",
       "path": "机器学习/AdaBoost.md"
-    },
-    {
-      "basename": "进化算法综述",
-      "path": "最优化/进化算法/进化算法综述.md"
-    },
-    {
-      "basename": "差分进化算法",
-      "path": "最优化/进化算法/差分进化算法.md"
-    },
-    {
-      "basename": "A star算法",
-      "path": "最优化/搜索算法/A star算法.md"
     }
   ],
   "omittedPaths": [],
