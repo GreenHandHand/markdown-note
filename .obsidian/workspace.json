@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0a82833407656128",
+        "id": "8e4efa2055791cb9",
         "type": "tabs",
         "children": [
           {
-            "id": "e83dd3a02bdcba85",
+            "id": "f2fb282f424a0fc9",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -171,10 +171,11 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "e83dd3a02bdcba85",
+  "active": "f2fb282f424a0fc9",
   "lastOpenFiles": [
-    "随机过程/作业/随机过程2.8.md",
+    "随机过程/作业/2.41.md",
     "随机过程/讲解.md",
+    "随机过程/作业/随机过程2.8.md",
     "随机过程/随机过程.md",
     "image/Pasted image 20230711105144.png",
     "随机过程/作业/1120212096李金聪.md",
@@ -214,7 +215,6 @@
     "new/image/utils.py",
     "new/image",
     "new",
-    "深度学习/多层感知机.md",
     "数据库.canvas",
     "随机过程/随机过程讲义.pdf",
     "image/utils.py",
