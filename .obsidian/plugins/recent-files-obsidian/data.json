@@ -5,6 +5,14 @@
       "path": "随机过程/讲解.md"
     },
     {
+      "basename": "随机过程2.8",
+      "path": "随机过程/作业/随机过程2.8.md"
+    },
+    {
+      "basename": "随机过程",
+      "path": "随机过程/随机过程.md"
+    },
+    {
       "basename": "1120212096李金聪",
       "path": "随机过程/作业/1120212096李金聪.md"
     },
@@ -185,20 +193,12 @@
       "path": "随机过程/条件期望.md"
     },
     {
-      "basename": "随机过程",
-      "path": "随机过程/随机过程.md"
-    },
-    {
       "basename": "随机过程讲义",
       "path": "随机过程/随机过程讲义.pdf"
     },
     {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
-    },
-    {
-      "basename": "AdaBoost",
-      "path": "机器学习/AdaBoost.md"
     }
   ],
   "omittedPaths": [],

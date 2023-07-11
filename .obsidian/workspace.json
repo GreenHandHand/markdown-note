@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "989d9624b41f1e1e",
+        "id": "0a82833407656128",
         "type": "tabs",
         "children": [
           {
-            "id": "95d6e01189d8a951",
+            "id": "e83dd3a02bdcba85",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -171,11 +171,13 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "95d6e01189d8a951",
+  "active": "e83dd3a02bdcba85",
   "lastOpenFiles": [
+    "随机过程/作业/随机过程2.8.md",
+    "随机过程/讲解.md",
+    "随机过程/随机过程.md",
     "image/Pasted image 20230711105144.png",
     "随机过程/作业/1120212096李金聪.md",
-    "随机过程/讲解.md",
     "随机过程/更新过程.md",
     "随机过程/作业/随机过程 1.17,1.37.md",
     "深度学习/注意力机制.md",
@@ -198,7 +200,6 @@
     "image/Pasted image 20230703142009.png",
     "README.md",
     "未命名",
-    "image/Pasted image 20230703114826.png",
     "深度学习/循环神经网络.md",
     "深度学习/预备知识.md",
     "数据预处理专题.md",
@@ -214,7 +215,6 @@
     "new/image",
     "new",
     "深度学习/多层感知机.md",
-    "深度学习/深度学习概念与感知机.md",
     "数据库.canvas",
     "随机过程/随机过程讲义.pdf",
     "image/utils.py",
