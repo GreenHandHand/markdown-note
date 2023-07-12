@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "c9996b632cd1652d",
+    "type": "split",
+    "children": [
+      {
+        "id": "8e4efa2055791cb9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f2fb282f424a0fc9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "随机过程/讲解.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d5ca1e46e7e2d0e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b4ddabccfdc595c",
+        "type": "tabs",
+        "dimension": 80.32305433186491,
+        "children": [
+          {
+            "id": "03e03384561a4479",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2ac6af0cc51e1844",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7fb4a5c4c8371e17",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "66820b311047e90e",
+        "type": "tabs",
+        "dimension": 19.676945668135097,
+        "children": [
+          {
+            "id": "b8d2df7aea0a47c5",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 307.5
+  },
+  "right": {
+    "id": "1ca23899daf6fc57",
+    "type": "split",
+    "children": [
+      {
+        "id": "8baae523013a5ec8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc388f31586f5d92",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "随机过程/讲解.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d0e86a238026daab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "随机过程/讲解.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9d73979f88315024",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          },
+          {
+            "id": "00363296747ac1a9",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "6b4f188967ced353",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "随机过程/讲解.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 301.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "random-note:开始漫游笔记": false
+    }
+  },
+  "active": "f2fb282f424a0fc9",
+  "lastOpenFiles": [
+    "随机过程/作业/2.41.md",
+    "随机过程/讲解.md",
+    "随机过程/作业/随机过程2.8.md",
+    "随机过程/随机过程.md",
+    "image/Pasted image 20230711105144.png",
+    "随机过程/作业/1120212096李金聪.md",
+    "随机过程/更新过程.md",
+    "随机过程/作业/随机过程 1.17,1.37.md",
+    "深度学习/注意力机制.md",
+    "2023-05-23.md",
+    "随机过程/作业/随机过程1.22,1.34.md",
+    "随机过程/作业/随机过程 1.20.md",
+    "随机过程/作业/1.6（a）.md",
+    "深度学习/现代循环神经网络.md",
+    "image/Pasted image 20230708103803.png",
+    "深度学习/现代卷积神经网络.md",
+    "随机过程课本笔记.md",
+    "pMPL初期方案.md",
+    "image/Pasted image 20230706213804.png",
+    "image/Pasted image 20230706180609.png",
+    "image/Pasted image 20230706152929.png",
+    "image/Pasted image 20230703162000.png",
+    "image/Pasted image 20230703143817.png",
+    "image/Pasted image 20230703143311.png",
+    "image/Pasted image 20230703143025.png",
+    "image/Pasted image 20230703142009.png",
+    "README.md",
+    "未命名",
+    "深度学习/循环神经网络.md",
+    "深度学习/预备知识.md",
+    "数据预处理专题.md",
+    "new/随机过程/随机过程课本笔记.md",
+    "new/随机过程/随机过程讲义.pdf",
+    "new/随机过程/随机过程准备知识.md",
+    "new/随机过程/随机过程.md",
+    "new/随机过程/条件期望.md",
+    "new/随机过程/更新过程.md",
+    "new/随机过程/Markov链.md",
+    "new/随机过程",
+    "new/image/utils.py",
+    "new/image",
+    "new",
+    "数据库.canvas",
+    "随机过程/随机过程讲义.pdf",
+    "image/utils.py",
+    "深度学习/未命名",
+    "随机过程/作业",
+    "最优化/群体智能算法/未命名.canvas",
+    "矩阵分析/未命名.canvas"
+  ]
+}
