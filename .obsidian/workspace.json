@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "随机过程/讲解.md",
+                "file": "随机过程/Brown运动.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "随机过程/讲解.md",
+                "file": "随机过程/Brown运动.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "随机过程/讲解.md",
+                "file": "随机过程/Brown运动.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "随机过程/讲解.md"
+                "file": "随机过程/Brown运动.md"
               }
             }
           }
@@ -173,8 +173,9 @@
   },
   "active": "f2fb282f424a0fc9",
   "lastOpenFiles": [
-    "随机过程/作业/2.41.md",
     "随机过程/讲解.md",
+    "随机过程/Brown运动.md",
+    "随机过程/作业/2.41.md",
     "随机过程/作业/随机过程2.8.md",
     "随机过程/随机过程.md",
     "image/Pasted image 20230711105144.png",
@@ -210,7 +211,6 @@
     "new/随机过程/随机过程.md",
     "new/随机过程/条件期望.md",
     "new/随机过程/更新过程.md",
-    "new/随机过程/Markov链.md",
     "new/随机过程",
     "new/image/utils.py",
     "new/image",
