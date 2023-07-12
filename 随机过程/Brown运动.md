@@ -89,6 +89,69 @@ $$
 $$
 最后一步得自独立增量与 $Var(X(s))=s$。
 
-### Brown 桥
+## 击中时刻，最大随机变量，反正弦律
 
-令 $\{X(t),t\geqslant 0\}$ 是一个 Brown
+我们以 $T_a$ 记 Brown 运动过程首次击中 $a$ 的时刻。当 $a>0$ 时我们要通过考虑 $P\{X(t)\geqslant a\}$ 并取条件于是否有 $T_a\leqslant t$，来计算 $P\{T_a\leqslant t\}$。这就给出了
+$$
+\begin{aligned}
+P\{X(t)\geqslant a\}=&P\{X(t)\geqslant a\mid T_a\leqslant t\}P\{T_a\leqslant t\}\\
+&+P\{X(t)\geqslant a\mid T_a>t\}P\{T_a>t\}
+\end{aligned}\tag{1}
+$$
+现在若 $T_a\leqslant t$，则过程在 $[0,t]$ 的某个点击中 $a$，由对称性，在时刻 $t$ 它等可能地在 $a$ 上方或者 $a$ 下方，这就是
+$$
+P\{X(t)\geqslant a\mid T_a\leqslant t\}=\frac{1}{2}
+$$
+由于式 $(1)$ 右方第二项显然等于 0（因为由连续性在击中 $a$ 之前过程的值不可能大于 $a$），我们可见
+$$
+\small P\{T_a\leqslant t\}=2P\{X(t)\geqslant a\}=\frac{2}{\sqrt{2\pi t}}\int_a^\infty e^{-x^2/2t}\mathrm d x=\frac{2}{\sqrt{2\pi}}\int_{a/\sqrt{t}}^\infty e^{-y^2/2}\mathrm dy\quad a>0
+$$
+因此我们可见
+$$
+P\{T_a<\infty\}=\lim_{t\to\infty}P\{T_a\leqslant t\}=\frac{2}{\sqrt{2\pi}}\int_0^\infty e^{-y^2/2}\mathrm dy=1
+$$
+此外，还可以推导
+$$
+\begin{aligned}
+E[T_a]&=\int_0^\infty P\{T_a>t\}\mathrm dt=\int_0^\infty\left(1-\frac{2}{\sqrt{2\pi}}\int_{a/\sqrt{t}}^\infty e^{-y^2/2}\mathrm dy\right)\mathrm dt\\
+&=\frac{2}{\sqrt{2\pi}}\int_0^\infty\int_0^{a/\sqrt{t}}e^{-y^2/2}\mathrm dy\mathrm dt=\frac{2}{\sqrt{2\pi}}\int_0^{\infty}\int_0^{a^2/y^2}\mathrm dte^{-y^2/2}\mathrm dy\\
+&=\frac{2a^2}{\sqrt{2\pi}}\int_0^\infty \frac{1}{y^2}e^{-y^2/2}\mathrm dy\geqslant \frac{2a^2e^{-1/2}}{\sqrt{2\pi}}\int_0^1\frac{1}{y^2}\mathrm dy=\infty
+\end{aligned}
+$$
+
+于是可以推出 $T_a$（虽然以概率 1 的有限）由无穷的期望。即以概率为 1 地 Brown 运动过程迟早会击中 $a$，但是平均时间是无穷的。
+
+对 $a<0$，由对称性，$T_a$ 的分布与 $T_{-a}$ 的分布相同，因此，我们可以得到
+$$
+P\{T_a\leqslant t\}=\frac{2}{\sqrt{2\pi}}\int_{|a|/\sqrt{t}}^\infty e^{-y^2/2}\mathrm dy
+$$
+另一个有趣的随机变量过程在 $[0,t]$ 中达到最大值，它的分布可以如下得到，对 $a>0$，
+$$
+\begin{aligned}
+P\{\max_{0\leqslant s\leqslant t}X(s)\geqslant a\}&=P\{T_a\leqslant t\}\\
+&=2P\{X(t)\geqslant a\}=\frac{2}{\sqrt{2\pi}}\int_{a/\sqrt{t}}^\infty e^{-y^2/2}\mathrm dy\end{aligned}
+$$
+以 $0(t_1,t_2)$ 记 Brown 运动过程在区间 $(t_1,t_2)$ 中至少有一次取 0 这一事件，为了计算 $P\{0(t_1,t_2)\}$，我们取条件于 $X(t_1)$ 如下：
+$$
+P\{0(t_1,t_2)\}=\frac{2}{\sqrt{2\pi t_1}}\int_{-\infty}^\infty P\{0(t_1,t_2)\mid X(t_1)=x\}e^{-x^2/2t_1}\mathrm dx
+$$
+利用 Brown 运动关于原点的对称性和路径的连续性给出
+$$
+P\{0(t_1,t_2)\mid X(t_1)=x\}=P\{T_{|x|}\leqslant t_2-t_1\}
+$$
+因此得到
+$$
+P\{0(t_1,t_2)\}=\frac{1}{\pi\sqrt{t_1(t_2-t_1)}}\int_0^\infty\int_x^\infty e^{-y^2/2(t_2-t_1)}\mathrm dye^{-x^2/2t_1}\mathrm dx
+$$
+上述积分可由显示算出，它导致
+$$
+P\{0(t_1,t_2)\}=1-\frac{2}{\pi}\arcsin\sqrt{t_1/t_2}
+$$
+因此我们得到了下面的命题：对 $0<x<1$，有
+$$
+P\{\text{Brown运动在($xt,t$)无零点}\}=\frac{2}{\pi}\arcsin\sqrt{x}
+$$
+
+> 对于对称随机徘徊，有
+> $$P\{\ 在(nx,n)无零点\}\approx \frac{2}{\pi}\arcsin{\sqrt{x}}$$
+> 当
