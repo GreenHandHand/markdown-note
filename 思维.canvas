@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"type":"text","text":"虚假信息检测与数据库构建","id":"2ae574b1863529a3","x":-281,"y":-268,"width":321,"height":60},
+		{"type":"text","text":"虚假信息检测","id":"678a9b77940f7bce","x":160,"y":-440,"width":240,"height":60},
+		{"type":"text","text":"构建知识数据库","id":"419754f56fe9181e","x":160,"y":-140,"width":240,"height":60},
+		{"type":"text","text":"信息检测神经网络输出信息为可信度，在最后一层使用 sigmoid 函数输出 0 到 1 之间的数表示可信度","id":"4386d31d64347923","x":620,"y":-800,"width":240,"height":180},
+		{"type":"text","text":"通过深度学习，将非结构化序列转换为三元组结构化序列，从而建立关系。","id":"a5bf384a7a237c92","x":580,"y":-180,"width":240,"height":140},
+		{"type":"text","text":"使用结构化的数据来创建一个文章的知识图谱。","id":"532374811ab6bc4b","x":960,"y":-180,"width":240,"height":140},
+		{"type":"text","text":"使用编码器-解码器架构，将输入文本编码为结构信息","id":"88d3c10051a53824","x":580,"y":60,"width":240,"height":159}
+	],
+	"edges":[
+		{"id":"35caa2f5807faad5","fromNode":"2ae574b1863529a3","fromSide":"right","toNode":"678a9b77940f7bce","toSide":"left"},
+		{"id":"0390d8496561f5d9","fromNode":"2ae574b1863529a3","fromSide":"right","toNode":"419754f56fe9181e","toSide":"left"},
+		{"id":"095628ce80bdfca7","fromNode":"419754f56fe9181e","fromSide":"right","toNode":"a5bf384a7a237c92","toSide":"left"},
+		{"id":"aa3f4cc6f7a4377f","fromNode":"a5bf384a7a237c92","fromSide":"right","toNode":"532374811ab6bc4b","toSide":"left"},
+		{"id":"d8d00703466acaf9","fromNode":"678a9b77940f7bce","fromSide":"right","toNode":"4386d31d64347923","toSide":"left"}
+	]
+}

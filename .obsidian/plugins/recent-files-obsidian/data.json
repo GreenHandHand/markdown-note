@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "思维",
+      "path": "思维.canvas"
+    },
+    {
+      "basename": "登山搜索",
+      "path": "最优化/搜索算法/登山搜索.md"
+    },
+    {
       "basename": "注意力机制",
       "path": "深度学习/注意力机制.md"
     },
@@ -83,10 +91,6 @@
     {
       "basename": "支持向量机",
       "path": "机器学习/支持向量机.md"
-    },
-    {
-      "basename": "登山搜索",
-      "path": "最优化/搜索算法/登山搜索.md"
     },
     {
       "basename": "模拟退火算法",
