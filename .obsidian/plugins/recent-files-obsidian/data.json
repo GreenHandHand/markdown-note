@@ -1,12 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "Brown运动",
-      "path": "随机过程/Brown运动.md"
-    },
-    {
-      "basename": "讲解",
-      "path": "随机过程/讲解.md"
+      "basename": "注意力机制",
+      "path": "深度学习/注意力机制.md"
     },
     {
       "basename": "随机过程",
@@ -17,8 +13,24 @@
       "path": "随机过程/更新过程.md"
     },
     {
-      "basename": "注意力机制",
-      "path": "深度学习/注意力机制.md"
+      "basename": "随机过程准备知识",
+      "path": "随机过程/随机过程准备知识.md"
+    },
+    {
+      "basename": "条件期望",
+      "path": "随机过程/条件期望.md"
+    },
+    {
+      "basename": "Brown运动",
+      "path": "随机过程/Brown运动.md"
+    },
+    {
+      "basename": "Markov链",
+      "path": "随机过程/Markov链.md"
+    },
+    {
+      "basename": "随机过程讲义",
+      "path": "随机过程/随机过程讲义.pdf"
     },
     {
       "basename": "现代循环神经网络",
@@ -179,18 +191,6 @@
     {
       "basename": "动态规划算法",
       "path": "强化学习/动态规划算法.md"
-    },
-    {
-      "basename": "Markov链",
-      "path": "随机过程/Markov链.md"
-    },
-    {
-      "basename": "条件期望",
-      "path": "随机过程/条件期望.md"
-    },
-    {
-      "basename": "随机过程讲义",
-      "path": "随机过程/随机过程讲义.pdf"
     }
   ],
   "omittedPaths": [],

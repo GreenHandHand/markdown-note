@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "随机过程/Brown运动.md",
+                "file": "深度学习/注意力机制.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "随机过程/Brown运动.md",
+                "file": "深度学习/注意力机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "随机过程/Brown运动.md",
+                "file": "深度学习/注意力机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "随机过程/Brown运动.md"
+                "file": "深度学习/注意力机制.md"
               }
             }
           }
@@ -173,16 +173,21 @@
   },
   "active": "f2fb282f424a0fc9",
   "lastOpenFiles": [
-    "随机过程/讲解.md",
+    "随机过程/随机过程.md",
+    "随机过程/更新过程.md",
+    "随机过程/随机过程准备知识.md",
+    "随机过程/随机过程课本笔记.md",
+    "随机过程/条件期望.md",
     "随机过程/Brown运动.md",
+    "随机过程/Markov链.md",
+    "随机过程/随机过程讲义.pdf",
+    "深度学习/注意力机制.md",
+    "随机过程/讲解.md",
     "随机过程/作业/2.41.md",
     "随机过程/作业/随机过程2.8.md",
-    "随机过程/随机过程.md",
     "image/Pasted image 20230711105144.png",
     "随机过程/作业/1120212096李金聪.md",
-    "随机过程/更新过程.md",
     "随机过程/作业/随机过程 1.17,1.37.md",
-    "深度学习/注意力机制.md",
     "2023-05-23.md",
     "随机过程/作业/随机过程1.22,1.34.md",
     "随机过程/作业/随机过程 1.20.md",
@@ -207,16 +212,11 @@
     "数据预处理专题.md",
     "new/随机过程/随机过程课本笔记.md",
     "new/随机过程/随机过程讲义.pdf",
-    "new/随机过程/随机过程准备知识.md",
-    "new/随机过程/随机过程.md",
-    "new/随机过程/条件期望.md",
-    "new/随机过程/更新过程.md",
     "new/随机过程",
     "new/image/utils.py",
     "new/image",
     "new",
     "数据库.canvas",
-    "随机过程/随机过程讲义.pdf",
     "image/utils.py",
     "深度学习/未命名",
     "随机过程/作业",
