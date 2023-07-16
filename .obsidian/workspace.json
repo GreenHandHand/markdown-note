@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "矩阵分析/矩阵函数/矩阵级数.md",
+                "file": "深度学习/注意力机制.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "矩阵分析/矩阵函数/矩阵级数.md",
+                "file": "深度学习/注意力机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "矩阵分析/矩阵函数/矩阵级数.md",
+                "file": "深度学习/注意力机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "矩阵分析/矩阵函数/矩阵级数.md"
+                "file": "深度学习/注意力机制.md"
               }
             }
           }
@@ -173,12 +173,13 @@
   },
   "active": "fa9faa13a58c097e",
   "lastOpenFiles": [
+    "思维.canvas",
+    "深度学习/注意力机制.md",
+    "矩阵分析/矩阵函数/矩阵级数.md",
     "机器学习/k 近邻.md",
     "机器学习/条件随机场.md",
-    "思维.canvas",
     "最优化/搜索算法/登山搜索.md",
     "未命名.md",
-    "深度学习/注意力机制.md",
     "2023-05-23.md",
     "随机过程/随机过程.md",
     "随机过程/更新过程.md",
@@ -201,7 +202,6 @@
     "image/Pasted image 20230708103803.png",
     "深度学习/现代卷积神经网络.md",
     "随机过程课本笔记.md",
-    "pMPL初期方案.md",
     "image/Pasted image 20230706213804.png",
     "image/Pasted image 20230706180609.png",
     "image/Pasted image 20230706152929.png",
@@ -210,7 +210,6 @@
     "image/Pasted image 20230703143311.png",
     "image/Pasted image 20230703143025.png",
     "image/Pasted image 20230703142009.png",
-    "README.md",
     "未命名",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",

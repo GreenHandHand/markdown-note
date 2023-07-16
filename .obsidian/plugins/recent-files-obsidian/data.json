@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "注意力机制",
+      "path": "深度学习/注意力机制.md"
+    },
+    {
+      "basename": "思维",
+      "path": "思维.canvas"
+    },
+    {
       "basename": "矩阵级数",
       "path": "矩阵分析/矩阵函数/矩阵级数.md"
     },
@@ -13,16 +21,8 @@
       "path": "机器学习/条件随机场.md"
     },
     {
-      "basename": "思维",
-      "path": "思维.canvas"
-    },
-    {
       "basename": "登山搜索",
       "path": "最优化/搜索算法/登山搜索.md"
-    },
-    {
-      "basename": "注意力机制",
-      "path": "深度学习/注意力机制.md"
     },
     {
       "basename": "随机过程",
