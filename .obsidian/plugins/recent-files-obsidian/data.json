@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "矩阵级数",
+      "path": "矩阵分析/矩阵函数/矩阵级数.md"
+    },
+    {
+      "basename": "k 近邻",
+      "path": "机器学习/k 近邻.md"
+    },
+    {
+      "basename": "条件随机场",
+      "path": "机器学习/条件随机场.md"
+    },
+    {
       "basename": "思维",
       "path": "思维.canvas"
     },
@@ -133,16 +145,8 @@
       "path": "机器学习/潜在狄利克雷分配.md"
     },
     {
-      "basename": "条件随机场",
-      "path": "机器学习/条件随机场.md"
-    },
-    {
       "basename": "线性模型",
       "path": "机器学习/线性模型.md"
-    },
-    {
-      "basename": "k 近邻",
-      "path": "机器学习/k 近邻.md"
     },
     {
       "basename": "REINFROCE算法",

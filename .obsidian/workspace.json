@@ -11,14 +11,11 @@
             "id": "fa9faa13a58c097e",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "思维.canvas",
-                "viewState": {
-                  "x": 613.6812104612432,
-                  "y": -580.3578348607335,
-                  "zoom": -1.1102230246251565e-16
-                }
+                "file": "矩阵分析/矩阵函数/矩阵级数.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -104,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "思维.canvas",
+                "file": "矩阵分析/矩阵函数/矩阵级数.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "思维.canvas",
+                "file": "矩阵分析/矩阵函数/矩阵级数.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "思维.canvas"
+                "file": "矩阵分析/矩阵函数/矩阵级数.md"
               }
             }
           }
@@ -176,8 +173,10 @@
   },
   "active": "fa9faa13a58c097e",
   "lastOpenFiles": [
-    "最优化/搜索算法/登山搜索.md",
+    "机器学习/k 近邻.md",
+    "机器学习/条件随机场.md",
     "思维.canvas",
+    "最优化/搜索算法/登山搜索.md",
     "未命名.md",
     "深度学习/注意力机制.md",
     "2023-05-23.md",
@@ -213,8 +212,6 @@
     "image/Pasted image 20230703142009.png",
     "README.md",
     "未命名",
-    "深度学习/循环神经网络.md",
-    "深度学习/预备知识.md",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",
     "new/image/utils.py",
