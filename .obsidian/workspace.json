@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/注意力机制.md",
+                "file": "深度学习/现代循环神经网络.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/注意力机制.md",
+                "file": "深度学习/现代循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/注意力机制.md",
+                "file": "深度学习/现代循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/注意力机制.md"
+                "file": "深度学习/现代循环神经网络.md"
               }
             }
           }
@@ -173,9 +173,9 @@
   },
   "active": "fa9faa13a58c097e",
   "lastOpenFiles": [
+    "深度学习/注意力机制.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/循环神经网络.md",
-    "深度学习/注意力机制.md",
     "image/Pasted image 20230717212614.png",
     "image/Pasted image 20230717131249.png",
     "image/output.svg",
