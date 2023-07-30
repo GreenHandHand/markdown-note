@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "现代循环神经网络",
-      "path": "深度学习/现代循环神经网络.md"
-    },
-    {
       "basename": "注意力机制",
       "path": "深度学习/注意力机制.md"
     },
     {
-      "basename": "循环神经网络",
-      "path": "深度学习/循环神经网络.md"
+      "basename": "预备知识",
+      "path": "深度学习/预备知识.md"
     },
     {
-      "basename": "思维",
-      "path": "思维.canvas"
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
+      "basename": "现代循环神经网络",
+      "path": "深度学习/现代循环神经网络.md"
+    },
+    {
+      "basename": "循环神经网络",
+      "path": "深度学习/循环神经网络.md"
     },
     {
       "basename": "矩阵级数",
@@ -61,16 +65,8 @@
       "path": "随机过程/随机过程讲义.pdf"
     },
     {
-      "basename": "现代卷积神经网络",
-      "path": "深度学习/现代卷积神经网络.md"
-    },
-    {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "预备知识",
-      "path": "深度学习/预备知识.md"
     },
     {
       "basename": "数据预处理专题",
