@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/计算机视觉.md"
+                "file": "深度学习/现代卷积神经网络.md"
               }
             }
           }
@@ -173,6 +173,8 @@
   },
   "active": "422ef0f6763dbfbe",
   "lastOpenFiles": [
+    "深度学习/现代循环神经网络.md",
+    "深度学习/计算机视觉.md",
     "image/Pasted image 20230731000300.png",
     "image/Pasted image 20230731000140.png",
     "image/Pasted image 20230731000133.png",
@@ -184,11 +186,8 @@
     "image/Pasted image 20230730234138.png",
     "image/Pasted image 20230730232933.png",
     "深度学习/注意力机制.md",
-    "深度学习/计算机视觉.md",
-    "image/Pasted image 20230729163348.png",
     "深度学习/预备知识.md",
     "深度学习/现代卷积神经网络.md",
-    "深度学习/现代循环神经网络.md",
     "深度学习/循环神经网络.md",
     "思维.canvas",
     "矩阵分析/矩阵函数/矩阵级数.md",
