@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "10a7c679da23239b",
+        "id": "4bbb41608bd9d9ac",
         "type": "tabs",
         "children": [
           {
-            "id": "fa9faa13a58c097e",
+            "id": "63c50f814f9f559e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "深度学习/注意力机制.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -101,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/注意力机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/注意力机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,9 +142,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "深度学习/注意力机制.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -171,15 +163,15 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "fa9faa13a58c097e",
+  "active": "63c50f814f9f559e",
   "lastOpenFiles": [
+    "深度学习/注意力机制.md",
     "image/Pasted image 20230729163348.png",
     "深度学习/预备知识.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/循环神经网络.md",
     "思维.canvas",
-    "深度学习/注意力机制.md",
     "image/Pasted image 20230717212614.png",
     "image/Pasted image 20230717131249.png",
     "image/output.svg",
@@ -210,7 +202,6 @@
     "image/Pasted image 20230708103803.png",
     "image/Pasted image 20230706213804.png",
     "image/Pasted image 20230706180609.png",
-    "image/Pasted image 20230706152929.png",
     "未命名",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",
