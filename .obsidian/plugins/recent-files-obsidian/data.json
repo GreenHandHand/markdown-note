@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "计算机视觉",
+      "path": "深度学习/计算机视觉.md"
+    },
+    {
+      "basename": "卷积神经网络",
+      "path": "深度学习/卷积神经网络.md"
+    },
+    {
       "basename": "混淆矩阵",
       "path": "实践经验/混淆矩阵.md"
     },
@@ -15,10 +23,6 @@
     {
       "basename": "数据预处理专题",
       "path": "实践经验/数据预处理专题.md"
-    },
-    {
-      "basename": "计算机视觉",
-      "path": "深度学习/计算机视觉.md"
     },
     {
       "basename": "现代卷积神经网络",
@@ -195,10 +199,6 @@
     {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
-    },
-    {
-      "basename": "DQN算法",
-      "path": "强化学习/DQN算法.md"
     }
   ],
   "omittedPaths": [],

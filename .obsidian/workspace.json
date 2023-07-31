@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实践经验/混淆矩阵.md",
+                "file": "深度学习/计算机视觉.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "实践经验/混淆矩阵.md",
+                "file": "深度学习/计算机视觉.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "实践经验/混淆矩阵.md",
+                "file": "深度学习/计算机视觉.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,11 +149,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实践经验/混淆矩阵.md"
+                "file": "深度学习/计算机视觉.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -170,11 +171,13 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "850e2ae8dd7226b7",
+  "active": "00363296747ac1a9",
   "lastOpenFiles": [
+    "深度学习/卷积神经网络.md",
+    "实践经验/混淆矩阵.md",
+    "深度学习/未命名.md",
     "强化学习/动态规划算法.md",
     "深度学习/多层感知机.md",
-    "实践经验/混淆矩阵.md",
     "实践经验/数据预处理专题.md",
     "image/Pasted image 20230731111732.png",
     "实践经验",
@@ -209,8 +212,6 @@
     "随机过程/随机过程讲义.pdf",
     "随机过程/讲解.md",
     "随机过程/作业/2.41.md",
-    "随机过程/作业/随机过程2.8.md",
-    "随机过程/作业/1120212096李金聪.md",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",
     "new/image/utils.py",
