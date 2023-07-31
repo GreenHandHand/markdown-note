@@ -11,5 +11,8 @@
   },
   "attachmentFolderPath": "image",
   "spellcheck": true,
-  "showInlineTitle": false
+  "showInlineTitle": false,
+  "spellcheckLanguages": [
+    "en-US"
+  ]
 }
