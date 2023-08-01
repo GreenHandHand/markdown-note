@@ -152,6 +152,14 @@
                 "file": "深度学习/计算机视觉.md"
               }
             }
+          },
+          {
+            "id": "d5255b012920a4f0",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {}
+            }
           }
         ],
         "currentTab": 3
@@ -171,7 +179,7 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "850e2ae8dd7226b7",
+  "active": "00363296747ac1a9",
   "lastOpenFiles": [
     "image/Pasted image 20230801115153.png",
     "image/Pasted image 20230801114059.png",
