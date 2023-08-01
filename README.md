@@ -1,6 +1,6 @@
 # markdown-note
 
-My personal markdown notes for learning AI.
+My personal markdown notes for learning AI. The article was written using **obsidian**。
 
 参考书籍：
 
