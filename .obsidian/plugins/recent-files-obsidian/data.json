@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "卷积神经网络",
