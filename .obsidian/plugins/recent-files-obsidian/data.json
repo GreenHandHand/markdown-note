@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "HTML",
+      "path": "前端知识补充/HTML.md"
+    },
+    {
+      "basename": "README",
+      "path": "前端知识补充/README.md"
+    },
+    {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "粒子群优化算法",
       "path": "最优化/群体智能算法/粒子群优化算法.md"
-    },
-    {
-      "basename": "群体智能算法",
-      "path": "最优化/群体智能算法/群体智能算法.md"
-    },
-    {
-      "basename": "Actor-Critic算法",
-      "path": "强化学习/Actor-Critic算法.md"
     }
   ],
   "omittedPaths": [],
