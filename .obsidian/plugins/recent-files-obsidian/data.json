@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "CSS",
+      "path": "前端知识补充/CSS.md"
+    },
+    {
       "basename": "HTML",
       "path": "前端知识补充/HTML.md"
     },
     {
-      "basename": "README",
-      "path": "前端知识补充/README.md"
+      "basename": "JavaScript",
+      "path": "前端知识补充/JavaScript.md"
     },
     {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
+    },
+    {
+      "basename": "README",
+      "path": "前端知识补充/README.md"
     },
     {
       "basename": "README",
@@ -191,14 +199,6 @@
     {
       "basename": "数据库",
       "path": "数据库/数据库.md"
-    },
-    {
-      "basename": "蚁群优化算法",
-      "path": "最优化/群体智能算法/蚁群优化算法.md"
-    },
-    {
-      "basename": "粒子群优化算法",
-      "path": "最优化/群体智能算法/粒子群优化算法.md"
     }
   ],
   "omittedPaths": [],
