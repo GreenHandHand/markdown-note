@@ -11,8 +11,12 @@
             "id": "3071f7c6331619be",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "深度学习/计算机视觉.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -97,6 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "深度学习/计算机视觉.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "深度学习/计算机视觉.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +148,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "深度学习/计算机视觉.md"
+              }
             }
           },
           {
@@ -173,6 +181,7 @@
   },
   "active": "3071f7c6331619be",
   "lastOpenFiles": [
+    "image/Pasted image 20230805174522.png",
     "前端知识补充/JavaScript.md",
     "前端知识补充/README.md",
     "前端知识补充/HTML.md",
@@ -211,7 +220,6 @@
     "随机过程/随机过程.md",
     "随机过程/更新过程.md",
     "随机过程/随机过程准备知识.md",
-    "随机过程/随机过程课本笔记.md",
     "随机过程/随机过程讲义.pdf",
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "计算机视觉",
+      "path": "深度学习/计算机视觉.md"
+    },
+    {
       "basename": "JavaScript",
       "path": "前端知识补充/JavaScript.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "CSS",
       "path": "前端知识补充/CSS.md"
-    },
-    {
-      "basename": "计算机视觉",
-      "path": "深度学习/计算机视觉.md"
     },
     {
       "basename": "README",
