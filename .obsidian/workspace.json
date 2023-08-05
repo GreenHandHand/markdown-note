@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a800f6426be4b570",
+        "id": "7e84a21c49653689",
         "type": "tabs",
         "children": [
           {
-            "id": "1ec0e093d5a6ab26",
+            "id": "3071f7c6331619be",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "前端知识补充/CSS.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -101,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "前端知识补充/CSS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "前端知识补充/CSS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,9 +142,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "前端知识补充/CSS.md"
-              }
+              "state": {}
             }
           },
           {
@@ -179,14 +171,14 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "1ec0e093d5a6ab26",
+  "active": "3071f7c6331619be",
   "lastOpenFiles": [
-    "前端知识补充/CSS.md",
-    "前端知识补充/HTML.md",
     "前端知识补充/JavaScript.md",
+    "前端知识补充/README.md",
+    "前端知识补充/HTML.md",
+    "前端知识补充/CSS.md",
     "image/Pasted image 20230804205732.png",
     "深度学习/计算机视觉.md",
-    "前端知识补充/README.md",
     "image/Pasted image 20230804113058.png",
     "前端知识补充",
     "README.md",
