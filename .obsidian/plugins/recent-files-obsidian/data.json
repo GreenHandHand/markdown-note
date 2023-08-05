@@ -5,6 +5,10 @@
       "path": "深度学习/计算机视觉.md"
     },
     {
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
       "basename": "JavaScript",
       "path": "前端知识补充/JavaScript.md"
     },
@@ -43,10 +47,6 @@
     {
       "basename": "数据预处理专题",
       "path": "实践经验/数据预处理专题.md"
-    },
-    {
-      "basename": "现代卷积神经网络",
-      "path": "深度学习/现代卷积神经网络.md"
     },
     {
       "basename": "现代循环神经网络",
