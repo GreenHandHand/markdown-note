@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "数据",
+      "path": "数据.md"
+    },
+    {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
+    },
+    {
+      "basename": "数据挖掘",
+      "path": "数据挖掘/数据挖掘.md"
     },
     {
       "basename": "现代卷积神经网络",
@@ -191,14 +199,6 @@
     {
       "basename": "Dyna-Q算法",
       "path": "强化学习/Dyna-Q算法.md"
-    },
-    {
-      "basename": "贝叶斯网络",
-      "path": "机器学习/贝叶斯网络.md"
-    },
-    {
-      "basename": "数据库",
-      "path": "数据库/数据库.md"
     }
   ],
   "omittedPaths": [],
