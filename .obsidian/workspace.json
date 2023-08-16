@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/支持向量机.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/支持向量机.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/支持向量机.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据挖掘/数据.md"
+                "file": "机器学习/支持向量机.md"
               }
             }
           },
@@ -175,7 +175,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299.5
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,7 +188,7 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "03e03384561a4479",
+  "active": "2df815efecd1f36d",
   "lastOpenFiles": [
     "数据挖掘/数据.md",
     "深度学习/计算机视觉.md",

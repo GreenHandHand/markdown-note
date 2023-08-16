@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "支持向量机",
+      "path": "机器学习/支持向量机.md"
+    },
+    {
       "basename": "数据",
       "path": "数据挖掘/数据.md"
     },
@@ -135,10 +139,6 @@
     {
       "basename": "深度学习计算",
       "path": "深度学习/深度学习计算.md"
-    },
-    {
-      "basename": "支持向量机",
-      "path": "机器学习/支持向量机.md"
     },
     {
       "basename": "模拟退火算法",
