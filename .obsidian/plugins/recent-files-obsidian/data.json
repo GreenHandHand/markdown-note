@@ -1,16 +1,56 @@
 {
   "recentFiles": [
     {
+      "basename": "t-SNE",
+      "path": "机器学习/t-SNE.md"
+    },
+    {
+      "basename": "聚类",
+      "path": "机器学习/聚类.md"
+    },
+    {
       "basename": "支持向量机",
       "path": "机器学习/支持向量机.md"
     },
     {
-      "basename": "数据",
-      "path": "数据挖掘/数据.md"
+      "basename": "最大熵模型",
+      "path": "机器学习/最大熵模型.md"
+    },
+    {
+      "basename": "决策树",
+      "path": "机器学习/决策树.md"
+    },
+    {
+      "basename": "深度学习概念与感知机",
+      "path": "深度学习/深度学习概念与感知机.md"
+    },
+    {
+      "basename": "深度学习计算",
+      "path": "深度学习/深度学习计算.md"
+    },
+    {
+      "basename": "如何训练一个模型",
+      "path": "深度学习/如何训练一个模型.md"
+    },
+    {
+      "basename": "多层感知机",
+      "path": "深度学习/多层感知机.md"
+    },
+    {
+      "basename": "机器学习简介",
+      "path": "深度学习/机器学习简介.md"
     },
     {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
+    },
+    {
+      "basename": "卷积神经网络",
+      "path": "深度学习/卷积神经网络.md"
+    },
+    {
+      "basename": "数据",
+      "path": "数据挖掘/数据.md"
     },
     {
       "basename": "数据挖掘",
@@ -41,20 +81,12 @@
       "path": "README.md"
     },
     {
-      "basename": "卷积神经网络",
-      "path": "深度学习/卷积神经网络.md"
-    },
-    {
       "basename": "混淆矩阵",
       "path": "实践经验/混淆矩阵.md"
     },
     {
       "basename": "动态规划算法",
       "path": "强化学习/动态规划算法.md"
-    },
-    {
-      "basename": "多层感知机",
-      "path": "深度学习/多层感知机.md"
     },
     {
       "basename": "数据预处理专题",
@@ -121,24 +153,8 @@
       "path": "随机过程/随机过程讲义.pdf"
     },
     {
-      "basename": "深度学习概念与感知机",
-      "path": "深度学习/深度学习概念与感知机.md"
-    },
-    {
-      "basename": "机器学习简介",
-      "path": "深度学习/机器学习简介.md"
-    },
-    {
-      "basename": "如何训练一个模型",
-      "path": "深度学习/如何训练一个模型.md"
-    },
-    {
       "basename": "多目标优化问题",
       "path": "最优化/多目标最优化/多目标优化问题.md"
-    },
-    {
-      "basename": "深度学习计算",
-      "path": "深度学习/深度学习计算.md"
     },
     {
       "basename": "模拟退火算法",
@@ -151,18 +167,6 @@
     {
       "basename": "朴素贝叶斯",
       "path": "机器学习/朴素贝叶斯.md"
-    },
-    {
-      "basename": "决策树",
-      "path": "机器学习/决策树.md"
-    },
-    {
-      "basename": "聚类",
-      "path": "机器学习/聚类.md"
-    },
-    {
-      "basename": "最大熵模型",
-      "path": "机器学习/最大熵模型.md"
     },
     {
       "basename": "隐马尔可夫模型",
@@ -195,10 +199,6 @@
     {
       "basename": "DQN改进算法",
       "path": "强化学习/DQN改进算法.md"
-    },
-    {
-      "basename": "Dyna-Q算法",
-      "path": "强化学习/Dyna-Q算法.md"
     }
   ],
   "omittedPaths": [],
