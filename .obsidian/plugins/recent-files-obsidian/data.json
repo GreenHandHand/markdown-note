@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "熵、相对熵与交叉熵",
+      "path": "实践经验/熵、相对熵与交叉熵.md"
+    },
+    {
       "basename": "t-SNE",
       "path": "机器学习/t-SNE.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "马尔科夫决策过程",
       "path": "强化学习/马尔科夫决策过程.md"
-    },
-    {
-      "basename": "DQN改进算法",
-      "path": "强化学习/DQN改进算法.md"
     }
   ],
   "omittedPaths": [],

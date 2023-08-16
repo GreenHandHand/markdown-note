@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/t-SNE.md",
+                "file": "实践经验/熵、相对熵与交叉熵.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/t-SNE.md",
+                "file": "实践经验/熵、相对熵与交叉熵.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/t-SNE.md",
+                "file": "实践经验/熵、相对熵与交叉熵.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/t-SNE.md"
+                "file": "实践经验/熵、相对熵与交叉熵.md"
               }
             }
           },
@@ -181,6 +181,8 @@
   },
   "active": "14d37fd06d262024",
   "lastOpenFiles": [
+    "机器学习/t-SNE.md",
+    "实践经验/熵、相对熵与交叉熵.md",
     "机器学习/聚类.md",
     "机器学习/支持向量机.md",
     "机器学习/最大熵模型.md",
@@ -192,7 +194,6 @@
     "深度学习/机器学习简介.md",
     "深度学习/计算机视觉.md",
     "深度学习/卷积神经网络.md",
-    "机器学习/t-SNE.md",
     "数据挖掘/数据.md",
     "数据挖掘/数据挖掘.md",
     "image/0024A8F2.png",
@@ -219,7 +220,6 @@
     "实践经验",
     "深度学习/现代循环神经网络.md",
     "image/Pasted image 20230731000300.png",
-    "深度学习/注意力机制.md",
     "思维.canvas",
     "随机过程/随机过程讲义.pdf",
     "new/随机过程/随机过程讲义.pdf",
