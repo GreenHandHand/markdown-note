@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "熵",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -173,10 +173,11 @@
   },
   "active": "14d37fd06d262024",
   "lastOpenFiles": [
+    "深度学习/预备知识.md",
+    "机器学习/主成分分析.md",
     "image/Pasted image 20230817214901.png",
     "image/Pasted image 20230817214638.png",
     "数据挖掘/数据.md",
-    "机器学习/主成分分析.md",
     "实践经验/混淆矩阵.md",
     "实践经验/数据预处理专题.md",
     "实践经验/熵、相对熵与交叉熵.md",
@@ -210,7 +211,6 @@
     "image/Pasted image 20230801115153.png",
     "image/Pasted image 20230801114059.png",
     "image/Pasted image 20230801114028.png",
-    "image/Pasted image 20230731181915.png",
     "实践经验",
     "思维.canvas",
     "随机过程/随机过程讲义.pdf",
