@@ -5,6 +5,22 @@
       "path": "机器学习/主成分分析.md"
     },
     {
+      "basename": "混淆矩阵",
+      "path": "实践经验/混淆矩阵.md"
+    },
+    {
+      "basename": "数据预处理专题",
+      "path": "实践经验/数据预处理专题.md"
+    },
+    {
+      "basename": "熵、相对熵与交叉熵",
+      "path": "实践经验/熵、相对熵与交叉熵.md"
+    },
+    {
+      "basename": "聚类",
+      "path": "机器学习/聚类.md"
+    },
+    {
       "basename": "t-SNE",
       "path": "机器学习/t-SNE.md"
     },
@@ -47,14 +63,6 @@
     {
       "basename": "k 近邻",
       "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "熵、相对熵与交叉熵",
-      "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "聚类",
-      "path": "机器学习/聚类.md"
     },
     {
       "basename": "支持向量机",
@@ -121,16 +129,8 @@
       "path": "README.md"
     },
     {
-      "basename": "混淆矩阵",
-      "path": "实践经验/混淆矩阵.md"
-    },
-    {
       "basename": "动态规划算法",
       "path": "强化学习/动态规划算法.md"
-    },
-    {
-      "basename": "数据预处理专题",
-      "path": "实践经验/数据预处理专题.md"
     },
     {
       "basename": "现代循环神经网络",

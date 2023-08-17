@@ -136,14 +136,6 @@
             }
           },
           {
-            "id": "00363296747ac1a9",
-            "type": "leaf",
-            "state": {
-              "type": "quiet-outline",
-              "state": {}
-            }
-          },
-          {
             "id": "6b4f188967ced353",
             "type": "leaf",
             "state": {
@@ -161,7 +153,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -180,8 +173,12 @@
   },
   "active": "14d37fd06d262024",
   "lastOpenFiles": [
-    "机器学习/t-SNE.md",
+    "实践经验/混淆矩阵.md",
+    "实践经验/数据预处理专题.md",
+    "实践经验/熵、相对熵与交叉熵.md",
+    "机器学习/聚类.md",
     "机器学习/主成分分析.md",
+    "机器学习/t-SNE.md",
     "机器学习/EM 算法.md",
     "机器学习/最大熵模型.md",
     "机器学习/隐马尔可夫模型.md",
@@ -193,8 +190,6 @@
     "机器学习/朴素贝叶斯.md",
     "机器学习/k 近邻.md",
     "image/Pasted image 20230817110851.png",
-    "实践经验/熵、相对熵与交叉熵.md",
-    "机器学习/聚类.md",
     "机器学习/支持向量机.md",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/深度学习计算.md",
@@ -207,9 +202,7 @@
     "数据挖掘/数据挖掘.md",
     "image/0024A8F2.png",
     "数据挖掘",
-    "深度学习/现代卷积神经网络.md",
     "image/Pasted image 20230805174522.png",
-    "前端知识补充/JavaScript.md",
     "image/Pasted image 20230804205732.png",
     "image/Pasted image 20230804113058.png",
     "前端知识补充",
