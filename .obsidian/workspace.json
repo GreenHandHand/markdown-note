@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "c9996b632cd1652d",
+    "type": "split",
+    "children": [
+      {
+        "id": "f7a00fc7d26c405d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14d37fd06d262024",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "机器学习/主成分分析.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d5ca1e46e7e2d0e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b4ddabccfdc595c",
+        "type": "tabs",
+        "dimension": 80.32305433186491,
+        "children": [
+          {
+            "id": "03e03384561a4479",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2ac6af0cc51e1844",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "熵",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7fb4a5c4c8371e17",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "66820b311047e90e",
+        "type": "tabs",
+        "dimension": 19.676945668135097,
+        "children": [
+          {
+            "id": "b8d2df7aea0a47c5",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 307.5
+  },
+  "right": {
+    "id": "1ca23899daf6fc57",
+    "type": "split",
+    "children": [
+      {
+        "id": "8baae523013a5ec8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc388f31586f5d92",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "机器学习/主成分分析.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d0e86a238026daab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "机器学习/主成分分析.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9d73979f88315024",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          },
+          {
+            "id": "00363296747ac1a9",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "6b4f188967ced353",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "机器学习/主成分分析.md"
+              }
+            }
+          },
+          {
+            "id": "d5255b012920a4f0",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 301.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "random-note:开始漫游笔记": false
+    }
+  },
+  "active": "14d37fd06d262024",
+  "lastOpenFiles": [
+    "机器学习/t-SNE.md",
+    "机器学习/主成分分析.md",
+    "机器学习/EM 算法.md",
+    "机器学习/最大熵模型.md",
+    "机器学习/隐马尔可夫模型.md",
+    "机器学习/条件随机场.md",
+    "机器学习/谱聚类.md",
+    "机器学习/决策树.md",
+    "机器学习/机器学习概述.md",
+    "机器学习/贝叶斯网络.md",
+    "机器学习/朴素贝叶斯.md",
+    "机器学习/k 近邻.md",
+    "image/Pasted image 20230817110851.png",
+    "实践经验/熵、相对熵与交叉熵.md",
+    "机器学习/聚类.md",
+    "机器学习/支持向量机.md",
+    "深度学习/深度学习概念与感知机.md",
+    "深度学习/深度学习计算.md",
+    "深度学习/如何训练一个模型.md",
+    "深度学习/多层感知机.md",
+    "深度学习/机器学习简介.md",
+    "深度学习/计算机视觉.md",
+    "深度学习/卷积神经网络.md",
+    "数据挖掘/数据.md",
+    "数据挖掘/数据挖掘.md",
+    "image/0024A8F2.png",
+    "数据挖掘",
+    "深度学习/现代卷积神经网络.md",
+    "image/Pasted image 20230805174522.png",
+    "前端知识补充/JavaScript.md",
+    "image/Pasted image 20230804205732.png",
+    "image/Pasted image 20230804113058.png",
+    "前端知识补充",
+    "image/Pasted image 20230801115153.png",
+    "image/Pasted image 20230801114059.png",
+    "image/Pasted image 20230801114028.png",
+    "image/Pasted image 20230731181915.png",
+    "image/Pasted image 20230731111732.png",
+    "实践经验",
+    "思维.canvas",
+    "随机过程/随机过程讲义.pdf",
+    "new/随机过程/随机过程讲义.pdf",
+    "new/随机过程",
+    "new/image/utils.py",
+    "new/image",
+    "new",
+    "数据库.canvas",
+    "image/utils.py",
+    "最优化/群体智能算法/未命名.canvas",
+    "矩阵分析/未命名.canvas"
+  ]
+}

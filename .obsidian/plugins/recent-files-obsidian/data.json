@@ -1,12 +1,52 @@
 {
   "recentFiles": [
     {
+      "basename": "主成分分析",
+      "path": "机器学习/主成分分析.md"
+    },
+    {
       "basename": "t-SNE",
       "path": "机器学习/t-SNE.md"
     },
     {
+      "basename": "EM 算法",
+      "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "最大熵模型",
+      "path": "机器学习/最大熵模型.md"
+    },
+    {
+      "basename": "隐马尔可夫模型",
+      "path": "机器学习/隐马尔可夫模型.md"
+    },
+    {
+      "basename": "条件随机场",
+      "path": "机器学习/条件随机场.md"
+    },
+    {
+      "basename": "谱聚类",
+      "path": "机器学习/谱聚类.md"
+    },
+    {
       "basename": "决策树",
       "path": "机器学习/决策树.md"
+    },
+    {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
+      "basename": "贝叶斯网络",
+      "path": "机器学习/贝叶斯网络.md"
+    },
+    {
+      "basename": "朴素贝叶斯",
+      "path": "机器学习/朴素贝叶斯.md"
+    },
+    {
+      "basename": "k 近邻",
+      "path": "机器学习/k 近邻.md"
     },
     {
       "basename": "熵、相对熵与交叉熵",
@@ -19,10 +59,6 @@
     {
       "basename": "支持向量机",
       "path": "机器学习/支持向量机.md"
-    },
-    {
-      "basename": "最大熵模型",
-      "path": "机器学习/最大熵模型.md"
     },
     {
       "basename": "深度学习概念与感知机",
@@ -117,14 +153,6 @@
       "path": "矩阵分析/矩阵函数/矩阵级数.md"
     },
     {
-      "basename": "k 近邻",
-      "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "条件随机场",
-      "path": "机器学习/条件随机场.md"
-    },
-    {
       "basename": "登山搜索",
       "path": "最优化/搜索算法/登山搜索.md"
     },
@@ -169,36 +197,8 @@
       "path": "机器学习/感知机.md"
     },
     {
-      "basename": "朴素贝叶斯",
-      "path": "机器学习/朴素贝叶斯.md"
-    },
-    {
-      "basename": "隐马尔可夫模型",
-      "path": "机器学习/隐马尔可夫模型.md"
-    },
-    {
-      "basename": "谱聚类",
-      "path": "机器学习/谱聚类.md"
-    },
-    {
-      "basename": "机器学习概述",
-      "path": "机器学习/机器学习概述.md"
-    },
-    {
       "basename": "潜在狄利克雷分配",
       "path": "机器学习/潜在狄利克雷分配.md"
-    },
-    {
-      "basename": "线性模型",
-      "path": "机器学习/线性模型.md"
-    },
-    {
-      "basename": "REINFROCE算法",
-      "path": "强化学习/REINFROCE算法.md"
-    },
-    {
-      "basename": "马尔科夫决策过程",
-      "path": "强化学习/马尔科夫决策过程.md"
     }
   ],
   "omittedPaths": [],
