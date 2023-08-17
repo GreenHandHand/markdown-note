@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "熵、相对熵与交叉熵",
-      "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
       "basename": "t-SNE",
       "path": "机器学习/t-SNE.md"
+    },
+    {
+      "basename": "决策树",
+      "path": "机器学习/决策树.md"
+    },
+    {
+      "basename": "熵、相对熵与交叉熵",
+      "path": "实践经验/熵、相对熵与交叉熵.md"
     },
     {
       "basename": "聚类",
@@ -19,10 +23,6 @@
     {
       "basename": "最大熵模型",
       "path": "机器学习/最大熵模型.md"
-    },
-    {
-      "basename": "决策树",
-      "path": "机器学习/决策树.md"
     },
     {
       "basename": "深度学习概念与感知机",
