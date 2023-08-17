@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "数据",
-      "path": "数据挖掘/数据.md"
-    },
-    {
       "basename": "主成分分析",
       "path": "机器学习/主成分分析.md"
+    },
+    {
+      "basename": "数据",
+      "path": "数据挖掘/数据.md"
     },
     {
       "basename": "混淆矩阵",
