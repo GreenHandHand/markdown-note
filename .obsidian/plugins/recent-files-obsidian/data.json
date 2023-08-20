@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "数据",
+      "path": "数据挖掘/数据.md"
+    },
+    {
+      "basename": "数据挖掘",
+      "path": "数据挖掘/数据挖掘.md"
+    },
+    {
       "basename": "主成分分析",
       "path": "机器学习/主成分分析.md"
     },
     {
       "basename": "预备知识",
       "path": "深度学习/预备知识.md"
-    },
-    {
-      "basename": "数据",
-      "path": "数据挖掘/数据.md"
     },
     {
       "basename": "混淆矩阵",
@@ -103,10 +107,6 @@
     {
       "basename": "卷积神经网络",
       "path": "深度学习/卷积神经网络.md"
-    },
-    {
-      "basename": "数据挖掘",
-      "path": "数据挖掘/数据挖掘.md"
     },
     {
       "basename": "现代卷积神经网络",
