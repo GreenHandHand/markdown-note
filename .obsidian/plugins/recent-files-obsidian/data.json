@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "聚类",
+      "path": "机器学习/聚类.md"
+    },
+    {
       "basename": "数据",
       "path": "数据挖掘/数据.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "熵、相对熵与交叉熵",
       "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "聚类",
-      "path": "机器学习/聚类.md"
     },
     {
       "basename": "t-SNE",
