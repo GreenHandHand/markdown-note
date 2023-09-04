@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "谱聚类",
+      "path": "机器学习/谱聚类.md"
+    },
+    {
       "basename": "聚类",
       "path": "机器学习/聚类.md"
     },
@@ -51,10 +55,6 @@
     {
       "basename": "条件随机场",
       "path": "机器学习/条件随机场.md"
-    },
-    {
-      "basename": "谱聚类",
-      "path": "机器学习/谱聚类.md"
     },
     {
       "basename": "决策树",
