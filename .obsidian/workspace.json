@@ -18,8 +18,31 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "376d7304d4453289",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "并行编程原理/并行编程概述.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "109fee19f90db0bf",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.5"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -101,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/谱聚类.md",
+                "file": "并行编程原理/并行编程概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/谱聚类.md",
+                "file": "并行编程原理/并行编程概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/谱聚类.md"
+                "file": "并行编程原理/并行编程概述.md"
               }
             }
           },
@@ -171,8 +194,11 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "14d37fd06d262024",
+  "active": "109fee19f90db0bf",
   "lastOpenFiles": [
+    "机器学习/谱聚类.md",
+    "并行编程原理/并行编程概述.md",
+    "并行编程原理",
     "机器学习/聚类.md",
     "数据挖掘/数据.md",
     "数据挖掘/数据挖掘.md",
@@ -188,7 +214,6 @@
     "机器学习/最大熵模型.md",
     "机器学习/隐马尔可夫模型.md",
     "机器学习/条件随机场.md",
-    "机器学习/谱聚类.md",
     "机器学习/决策树.md",
     "机器学习/机器学习概述.md",
     "机器学习/贝叶斯网络.md",
@@ -201,7 +226,6 @@
     "深度学习/如何训练一个模型.md",
     "深度学习/多层感知机.md",
     "深度学习/机器学习简介.md",
-    "深度学习/计算机视觉.md",
     "image/0024A8F2.png",
     "数据挖掘",
     "image/Pasted image 20230805174522.png",
@@ -220,7 +244,6 @@
     "new/image",
     "new",
     "数据库.canvas",
-    "image/utils.py",
     "最优化/群体智能算法/未命名.canvas",
     "矩阵分析/未命名.canvas"
   ]

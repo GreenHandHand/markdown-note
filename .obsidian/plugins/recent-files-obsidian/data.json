@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "并行编程概述",
+      "path": "并行编程原理/并行编程概述.md"
+    },
+    {
       "basename": "谱聚类",
       "path": "机器学习/谱聚类.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "感知机",
       "path": "机器学习/感知机.md"
-    },
-    {
-      "basename": "潜在狄利克雷分配",
-      "path": "机器学习/潜在狄利克雷分配.md"
     }
   ],
   "omittedPaths": [],
