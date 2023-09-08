@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "并行编程概述",
-      "path": "并行编程原理/并行编程概述.md"
+      "basename": "多线程编程",
+      "path": "并行编程原理/多线程编程.md"
     },
     {
       "basename": "谱聚类",
       "path": "机器学习/谱聚类.md"
+    },
+    {
+      "basename": "并行编程概述",
+      "path": "并行编程原理/并行编程概述.md"
     },
     {
       "basename": "聚类",
@@ -195,10 +199,6 @@
     {
       "basename": "模拟退火算法",
       "path": "最优化/搜索算法/模拟退火算法.md"
-    },
-    {
-      "basename": "感知机",
-      "path": "机器学习/感知机.md"
     }
   ],
   "omittedPaths": [],
