@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "并行编程原理/多线程编程.md",
+                "file": "机器学习/k 近邻.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "并行编程原理/多线程编程.md",
+                "file": "机器学习/k 近邻.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "并行编程原理/多线程编程.md",
+                "file": "机器学习/k 近邻.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "并行编程原理/多线程编程.md"
+                "file": "机器学习/k 近邻.md"
               }
             }
           },
@@ -175,14 +174,19 @@
   },
   "active": "a75a90938741adcf",
   "lastOpenFiles": [
+    "机器学习/最大熵模型.md",
+    "机器学习/主成分分析.md",
+    "机器学习/支持向量机.md",
+    "机器学习/隐马尔可夫模型.md",
+    "机器学习/线性模型.md",
+    "机器学习/条件随机场.md",
+    "机器学习/聚类.md",
     "并行编程原理/多线程编程.md",
     "机器学习/谱聚类.md",
     "并行编程原理/并行编程概述.md",
     "并行编程原理",
-    "机器学习/聚类.md",
     "数据挖掘/数据.md",
     "数据挖掘/数据挖掘.md",
-    "机器学习/主成分分析.md",
     "深度学习/预备知识.md",
     "image/Pasted image 20230817214901.png",
     "image/Pasted image 20230817214638.png",
@@ -191,20 +195,15 @@
     "实践经验/熵、相对熵与交叉熵.md",
     "机器学习/t-SNE.md",
     "机器学习/EM 算法.md",
-    "机器学习/最大熵模型.md",
-    "机器学习/隐马尔可夫模型.md",
-    "机器学习/条件随机场.md",
     "机器学习/决策树.md",
     "机器学习/机器学习概述.md",
     "机器学习/贝叶斯网络.md",
     "机器学习/朴素贝叶斯.md",
     "机器学习/k 近邻.md",
     "image/Pasted image 20230817110851.png",
-    "机器学习/支持向量机.md",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/深度学习计算.md",
     "深度学习/如何训练一个模型.md",
-    "深度学习/多层感知机.md",
     "image/0024A8F2.png",
     "数据挖掘",
     "image/Pasted image 20230805174522.png",
