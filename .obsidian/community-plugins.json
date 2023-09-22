@@ -6,5 +6,7 @@
   "table-editor-obsidian",
   "obsidian-contextual-typography",
   "canvas-mindmap",
-  "obsidian-git"
+  "obsidian-git",
+  "vim-im-select",
+  "cm-chs-patch"
 ]

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "进程管理",
+      "path": "进程管理.md"
+    },
+    {
       "basename": "最大熵模型",
       "path": "机器学习/最大熵模型.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Markov链",
       "path": "随机过程/Markov链.md"
-    },
-    {
-      "basename": "随机过程讲义",
-      "path": "随机过程/随机过程讲义.pdf"
     }
   ],
   "omittedPaths": [],
