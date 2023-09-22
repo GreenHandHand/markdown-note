@@ -85,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -152,6 +151,16 @@
             "state": {
               "type": "git-history-view",
               "state": {}
+            }
+          },
+          {
+            "id": "aba6a733fd2d8248",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
             }
           }
         ],
