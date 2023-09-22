@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/朴素贝叶斯.md",
+                "file": "机器学习/最大熵模型.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/朴素贝叶斯.md",
+                "file": "机器学习/最大熵模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/朴素贝叶斯.md",
+                "file": "机器学习/最大熵模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/朴素贝叶斯.md"
+                "file": "机器学习/最大熵模型.md"
               }
             }
           },
@@ -173,6 +173,7 @@
   },
   "active": "a75a90938741adcf",
   "lastOpenFiles": [
+    "机器学习/朴素贝叶斯.md",
     "机器学习/隐马尔可夫模型.md",
     "机器学习/线性模型.md",
     "机器学习/机器学习概述.md",
@@ -199,7 +200,6 @@
     "机器学习/EM 算法.md",
     "机器学习/决策树.md",
     "机器学习/贝叶斯网络.md",
-    "机器学习/朴素贝叶斯.md",
     "image/Pasted image 20230817110851.png",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/深度学习计算.md",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "最大熵模型",
+      "path": "机器学习/最大熵模型.md"
+    },
+    {
       "basename": "朴素贝叶斯",
       "path": "机器学习/朴素贝叶斯.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "k 近邻",
       "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "最大熵模型",
-      "path": "机器学习/最大熵模型.md"
     },
     {
       "basename": "主成分分析",
