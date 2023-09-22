@@ -1,8 +1,12 @@
 {
   "recentFiles": [
     {
+      "basename": "数值的表示",
+      "path": "计算机组成原理/数值的表示.md"
+    },
+    {
       "basename": "进程管理",
-      "path": "进程管理.md"
+      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "最大熵模型",
@@ -195,10 +199,6 @@
     {
       "basename": "Brown运动",
       "path": "随机过程/Brown运动.md"
-    },
-    {
-      "basename": "Markov链",
-      "path": "随机过程/Markov链.md"
     }
   ],
   "omittedPaths": [],

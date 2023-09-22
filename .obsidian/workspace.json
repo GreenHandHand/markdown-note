@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "进程管理.md",
+                "file": "计算机组成原理/数值的表示.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "进程管理.md",
+                "file": "计算机组成原理/数值的表示.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "进程管理.md",
+                "file": "计算机组成原理/数值的表示.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "进程管理.md"
+                "file": "计算机组成原理/数值的表示.md"
               }
             }
           },
@@ -184,8 +184,8 @@
   },
   "active": "56c026711a5be37c",
   "lastOpenFiles": [
+    "操作系统/进程管理.md",
     "机器学习/最大熵模型.md",
-    "进程管理.md",
     "操作系统",
     "机器学习/朴素贝叶斯.md",
     "机器学习/隐马尔可夫模型.md",
