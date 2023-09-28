@@ -195,10 +195,6 @@
     {
       "basename": "条件期望",
       "path": "随机过程/条件期望.md"
-    },
-    {
-      "basename": "Brown运动",
-      "path": "随机过程/Brown运动.md"
     }
   ],
   "omittedPaths": [],
