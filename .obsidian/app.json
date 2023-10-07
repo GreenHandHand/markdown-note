@@ -12,5 +12,6 @@
   "attachmentFolderPath": "image",
   "spellcheck": true,
   "showInlineTitle": false,
-  "spellcheckLanguages": null
+  "spellcheckLanguages": null,
+  "defaultViewMode": "preview"
 }
