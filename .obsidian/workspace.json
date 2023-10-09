@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/线性模型.md",
+                "file": "强化学习/马尔科夫决策过程.md",
                 "mode": "preview",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/线性模型.md",
+                "file": "强化学习/马尔科夫决策过程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/线性模型.md",
+                "file": "强化学习/马尔科夫决策过程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/线性模型.md"
+                "file": "强化学习/马尔科夫决策过程.md"
               }
             }
           },
@@ -184,6 +184,9 @@
   },
   "active": "56c026711a5be37c",
   "lastOpenFiles": [
+    "强化学习/动态规划算法.md",
+    "强化学习/马尔科夫决策过程.md",
+    "机器学习/线性模型.md",
     "机器学习/朴素贝叶斯.md",
     "深度学习/循环神经网络.md",
     "深度学习/现代循环神经网络.md",
@@ -193,9 +196,7 @@
     "机器学习/最大熵模型.md",
     "操作系统",
     "机器学习/隐马尔可夫模型.md",
-    "机器学习/线性模型.md",
     "机器学习/机器学习概述.md",
-    "强化学习/马尔科夫决策过程.md",
     "机器学习/k 近邻.md",
     "机器学习/主成分分析.md",
     "机器学习/支持向量机.md",
@@ -213,7 +214,6 @@
     "实践经验/混淆矩阵.md",
     "实践经验/数据预处理专题.md",
     "实践经验/熵、相对熵与交叉熵.md",
-    "机器学习/t-SNE.md",
     "image/Pasted image 20230817110851.png",
     "image/0024A8F2.png",
     "数据挖掘",

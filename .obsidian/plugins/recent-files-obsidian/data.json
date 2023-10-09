@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "马尔科夫决策过程",
+      "path": "强化学习/马尔科夫决策过程.md"
+    },
+    {
+      "basename": "动态规划算法",
+      "path": "强化学习/动态规划算法.md"
+    },
+    {
       "basename": "线性模型",
       "path": "机器学习/线性模型.md"
     },
@@ -35,10 +43,6 @@
     {
       "basename": "机器学习概述",
       "path": "机器学习/机器学习概述.md"
-    },
-    {
-      "basename": "马尔科夫决策过程",
-      "path": "强化学习/马尔科夫决策过程.md"
     },
     {
       "basename": "k 近邻",
@@ -163,10 +167,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "动态规划算法",
-      "path": "强化学习/动态规划算法.md"
     },
     {
       "basename": "注意力机制",
