@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "强化学习/马尔科夫决策过程.md",
+                "file": "强化学习/动态规划算法.md",
                 "mode": "preview",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "强化学习/马尔科夫决策过程.md",
+                "file": "强化学习/动态规划算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "强化学习/马尔科夫决策过程.md",
+                "file": "强化学习/动态规划算法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "强化学习/马尔科夫决策过程.md"
+                "file": "强化学习/动态规划算法.md"
               }
             }
           },
@@ -184,8 +184,12 @@
   },
   "active": "56c026711a5be37c",
   "lastOpenFiles": [
-    "强化学习/动态规划算法.md",
+    "强化学习/Actor-Critic算法.md",
+    "强化学习/DQN算法.md",
+    "强化学习/Dyna-Q算法.md",
     "强化学习/马尔科夫决策过程.md",
+    "强化学习/时序差分算法.md",
+    "强化学习/动态规划算法.md",
     "机器学习/线性模型.md",
     "机器学习/朴素贝叶斯.md",
     "深度学习/循环神经网络.md",
@@ -208,12 +212,8 @@
     "并行编程原理",
     "数据挖掘/数据.md",
     "数据挖掘/数据挖掘.md",
-    "深度学习/预备知识.md",
     "image/Pasted image 20230817214901.png",
     "image/Pasted image 20230817214638.png",
-    "实践经验/混淆矩阵.md",
-    "实践经验/数据预处理专题.md",
-    "实践经验/熵、相对熵与交叉熵.md",
     "image/Pasted image 20230817110851.png",
     "image/0024A8F2.png",
     "数据挖掘",

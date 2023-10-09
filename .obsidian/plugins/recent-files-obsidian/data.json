@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "动态规划算法",
+      "path": "强化学习/动态规划算法.md"
+    },
+    {
+      "basename": "Actor-Critic算法",
+      "path": "强化学习/Actor-Critic算法.md"
+    },
+    {
+      "basename": "DQN算法",
+      "path": "强化学习/DQN算法.md"
+    },
+    {
+      "basename": "Dyna-Q算法",
+      "path": "强化学习/Dyna-Q算法.md"
+    },
+    {
       "basename": "马尔科夫决策过程",
       "path": "强化学习/马尔科夫决策过程.md"
     },
     {
-      "basename": "动态规划算法",
-      "path": "强化学习/动态规划算法.md"
+      "basename": "时序差分算法",
+      "path": "强化学习/时序差分算法.md"
     },
     {
       "basename": "线性模型",
@@ -183,18 +199,6 @@
     {
       "basename": "随机过程",
       "path": "随机过程/随机过程.md"
-    },
-    {
-      "basename": "更新过程",
-      "path": "随机过程/更新过程.md"
-    },
-    {
-      "basename": "随机过程准备知识",
-      "path": "随机过程/随机过程准备知识.md"
-    },
-    {
-      "basename": "条件期望",
-      "path": "随机过程/条件期望.md"
     }
   ],
   "omittedPaths": [],
