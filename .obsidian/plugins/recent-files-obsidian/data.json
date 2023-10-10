@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "预备知识",
+      "path": "深度学习/预备知识.md"
+    },
+    {
       "basename": "图像融合",
       "path": "计算机视觉/图像融合.md"
     },
@@ -103,10 +107,6 @@
     {
       "basename": "数据挖掘",
       "path": "数据挖掘/数据挖掘.md"
-    },
-    {
-      "basename": "预备知识",
-      "path": "深度学习/预备知识.md"
     },
     {
       "basename": "混淆矩阵",
