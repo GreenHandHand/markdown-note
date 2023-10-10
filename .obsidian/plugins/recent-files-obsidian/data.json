@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "图像融合",
+      "path": "计算机视觉/图像融合.md"
+    },
+    {
       "basename": "循环神经网络",
       "path": "深度学习/循环神经网络.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "登山搜索",
       "path": "最优化/搜索算法/登山搜索.md"
-    },
-    {
-      "basename": "随机过程",
-      "path": "随机过程/随机过程.md"
     }
   ],
   "omittedPaths": [],

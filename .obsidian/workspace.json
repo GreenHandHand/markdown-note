@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/循环神经网络.md",
-                "mode": "preview",
+                "file": "计算机视觉/图像融合.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "计算机视觉/图像融合.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "计算机视觉/图像融合.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/循环神经网络.md"
+                "file": "计算机视觉/图像融合.md"
               }
             }
           },
@@ -184,6 +184,8 @@
   },
   "active": "56c026711a5be37c",
   "lastOpenFiles": [
+    "深度学习/循环神经网络.md",
+    "计算机视觉/图像融合.md",
     "强化学习/动态规划算法.md",
     "强化学习/Actor-Critic算法.md",
     "强化学习/DQN算法.md",
@@ -192,7 +194,6 @@
     "强化学习/时序差分算法.md",
     "机器学习/线性模型.md",
     "机器学习/朴素贝叶斯.md",
-    "深度学习/循环神经网络.md",
     "深度学习/现代循环神经网络.md",
     "计算机组成原理/数值的表示.md",
     "homework/homework.md",
@@ -211,7 +212,6 @@
     "并行编程原理/并行编程概述.md",
     "并行编程原理",
     "数据挖掘/数据.md",
-    "数据挖掘/数据挖掘.md",
     "image/Pasted image 20230817214901.png",
     "image/Pasted image 20230817214638.png",
     "image/Pasted image 20230817110851.png",
