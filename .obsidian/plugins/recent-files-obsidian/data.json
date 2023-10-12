@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "操作系统基本原理概论",
+      "path": "操作系统/操作系统基本原理概论.md"
+    },
+    {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
+    },
+    {
       "basename": "朴素贝叶斯",
       "path": "机器学习/朴素贝叶斯.md"
     },
@@ -97,10 +105,6 @@
       "path": "计算机组成原理/数值的表示.md"
     },
     {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
-    },
-    {
       "basename": "隐马尔可夫模型",
       "path": "机器学习/隐马尔可夫模型.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "CSS",
       "path": "前端知识补充/CSS.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     }
   ],
   "omittedPaths": [],
