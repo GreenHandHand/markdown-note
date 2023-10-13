@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/进程管理.md",
-                "mode": "source",
+                "file": "机器学习/朴素贝叶斯.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "机器学习/朴素贝叶斯.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "机器学习/朴素贝叶斯.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/进程管理.md"
+                "file": "机器学习/朴素贝叶斯.md"
               }
             }
           },
@@ -184,10 +184,10 @@
   },
   "active": "837a783f60e19e0f",
   "lastOpenFiles": [
-    "操作系统/操作系统基本原理概论.md",
-    "操作系统/进程管理.md",
-    "机器学习/朴素贝叶斯.md",
     "机器学习/贝叶斯网络.md",
+    "操作系统/进程管理.md",
+    "操作系统/操作系统基本原理概论.md",
+    "机器学习/朴素贝叶斯.md",
     "机器学习/最大熵模型.md",
     "机器学习/AdaBoost.md",
     "深度学习/深度学习概念与感知机.md",
