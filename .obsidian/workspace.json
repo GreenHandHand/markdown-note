@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md"
+                "file": "操作系统/进程管理.md"
               }
             }
           },
@@ -185,8 +184,8 @@
   },
   "active": "837a783f60e19e0f",
   "lastOpenFiles": [
-    "操作系统/进程管理.md",
     "操作系统/操作系统基本原理概论.md",
+    "操作系统/进程管理.md",
     "机器学习/朴素贝叶斯.md",
     "机器学习/贝叶斯网络.md",
     "机器学习/最大熵模型.md",
