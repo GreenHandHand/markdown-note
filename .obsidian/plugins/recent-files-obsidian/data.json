@@ -5,6 +5,14 @@
       "path": "机器学习/朴素贝叶斯.md"
     },
     {
+      "basename": "存储系统",
+      "path": "计算机组成原理/存储系统.md"
+    },
+    {
+      "basename": "数值的表示",
+      "path": "计算机组成原理/数值的表示.md"
+    },
+    {
       "basename": "贝叶斯网络",
       "path": "机器学习/贝叶斯网络.md"
     },
@@ -101,10 +109,6 @@
       "path": "深度学习/现代循环神经网络.md"
     },
     {
-      "basename": "数值的表示",
-      "path": "计算机组成原理/数值的表示.md"
-    },
-    {
       "basename": "隐马尔可夫模型",
       "path": "机器学习/隐马尔可夫模型.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "HTML",
       "path": "前端知识补充/HTML.md"
-    },
-    {
-      "basename": "CSS",
-      "path": "前端知识补充/CSS.md"
     }
   ],
   "omittedPaths": [],

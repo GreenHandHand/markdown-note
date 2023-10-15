@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ed4ed16e06d590c7",
+        "id": "3e26af75cf1a0a36",
         "type": "tabs",
         "children": [
           {
-            "id": "837a783f60e19e0f",
+            "id": "a04c7095e7d5f22a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "机器学习/朴素贝叶斯.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -182,12 +182,14 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "837a783f60e19e0f",
+  "active": "a04c7095e7d5f22a",
   "lastOpenFiles": [
+    "计算机组成原理/存储系统.md",
+    "计算机组成原理/数值的表示.md",
+    "机器学习/朴素贝叶斯.md",
     "机器学习/贝叶斯网络.md",
     "操作系统/进程管理.md",
     "操作系统/操作系统基本原理概论.md",
-    "机器学习/朴素贝叶斯.md",
     "机器学习/最大熵模型.md",
     "机器学习/AdaBoost.md",
     "深度学习/深度学习概念与感知机.md",
@@ -208,8 +210,6 @@
     "强化学习/Dyna-Q算法.md",
     "强化学习/马尔科夫决策过程.md",
     "强化学习/时序差分算法.md",
-    "深度学习/现代循环神经网络.md",
-    "计算机组成原理/数值的表示.md",
     "操作系统",
     "并行编程原理",
     "image/Pasted image 20230817214901.png",
