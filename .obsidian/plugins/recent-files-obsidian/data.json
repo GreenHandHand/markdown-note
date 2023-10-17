@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "深度学习概念与感知机",
+      "path": "深度学习/深度学习概念与感知机.md"
+    },
+    {
+      "basename": "多层感知机",
+      "path": "深度学习/多层感知机.md"
+    },
+    {
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
+      "basename": "深度学习计算",
+      "path": "深度学习/深度学习计算.md"
+    },
+    {
+      "basename": "如何训练一个模型",
+      "path": "深度学习/如何训练一个模型.md"
+    },
+    {
       "basename": "朴素贝叶斯",
       "path": "机器学习/朴素贝叶斯.md"
     },
@@ -39,14 +59,6 @@
     {
       "basename": "AdaBoost",
       "path": "机器学习/AdaBoost.md"
-    },
-    {
-      "basename": "深度学习概念与感知机",
-      "path": "深度学习/深度学习概念与感知机.md"
-    },
-    {
-      "basename": "如何训练一个模型",
-      "path": "深度学习/如何训练一个模型.md"
     },
     {
       "basename": "计算机视觉",
@@ -173,20 +185,8 @@
       "path": "机器学习/决策树.md"
     },
     {
-      "basename": "深度学习计算",
-      "path": "深度学习/深度学习计算.md"
-    },
-    {
-      "basename": "多层感知机",
-      "path": "深度学习/多层感知机.md"
-    },
-    {
       "basename": "机器学习简介",
       "path": "深度学习/机器学习简介.md"
-    },
-    {
-      "basename": "现代卷积神经网络",
-      "path": "深度学习/现代卷积神经网络.md"
     },
     {
       "basename": "JavaScript",
