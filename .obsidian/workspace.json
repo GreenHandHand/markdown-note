@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/深度学习概念与感知机.md",
+                "file": "操作系统/操作系统基本原理概论.md",
                 "mode": "source",
                 "source": false
               }
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "softmax",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,8 +66,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/深度学习概念与感知机.md",
+                "file": "操作系统/操作系统基本原理概论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/深度学习概念与感知机.md",
+                "file": "操作系统/操作系统基本原理概论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/深度学习概念与感知机.md"
+                "file": "操作系统/操作系统基本原理概论.md"
               }
             }
           },
@@ -185,10 +184,10 @@
   },
   "active": "a04c7095e7d5f22a",
   "lastOpenFiles": [
+    "深度学习/深度学习概念与感知机.md",
     "深度学习/多层感知机.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/深度学习计算.md",
-    "深度学习/深度学习概念与感知机.md",
     "深度学习/如何训练一个模型.md",
     "机器学习/朴素贝叶斯.md",
     "机器学习/线性模型.md",
