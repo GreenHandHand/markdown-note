@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md",
+                "file": "操作系统/进程管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/操作系统基本原理概论.md"
+                "file": "操作系统/进程管理.md"
               }
             }
           },
@@ -168,8 +168,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -184,6 +183,7 @@
   },
   "active": "a04c7095e7d5f22a",
   "lastOpenFiles": [
+    "操作系统/操作系统基本原理概论.md",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/多层感知机.md",
     "深度学习/现代卷积神经网络.md",
@@ -196,7 +196,6 @@
     "计算机组成原理/数值的表示.md",
     "机器学习/贝叶斯网络.md",
     "操作系统/进程管理.md",
-    "操作系统/操作系统基本原理概论.md",
     "机器学习/最大熵模型.md",
     "机器学习/AdaBoost.md",
     "深度学习/计算机视觉.md",
