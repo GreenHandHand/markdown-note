@@ -164,7 +164,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -182,7 +183,7 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "a04c7095e7d5f22a",
+  "active": "6b4f188967ced353",
   "lastOpenFiles": [
     "随机过程/随机过程讲义.pdf",
     "操作系统/进程管理.md",
