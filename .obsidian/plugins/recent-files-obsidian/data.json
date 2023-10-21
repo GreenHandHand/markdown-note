@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
+    },
+    {
+      "basename": "随机过程讲义",
+      "path": "随机过程/随机过程讲义.pdf"
+    },
+    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "熵、相对熵与交叉熵",
       "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "操作系统基本原理概论",
@@ -195,10 +199,6 @@
     {
       "basename": "README",
       "path": "前端知识补充/README.md"
-    },
-    {
-      "basename": "HTML",
-      "path": "前端知识补充/HTML.md"
     }
   ],
   "omittedPaths": [],
