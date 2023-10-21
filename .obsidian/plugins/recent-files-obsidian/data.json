@@ -1,12 +1,72 @@
 {
   "recentFiles": [
     {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
+      "basename": "随机过程",
+      "path": "随机过程/随机过程.md"
+    },
+    {
+      "basename": "更新过程",
+      "path": "随机过程/更新过程.md"
     },
     {
       "basename": "随机过程讲义",
       "path": "随机过程/随机过程讲义.pdf"
+    },
+    {
+      "basename": "随机过程准备知识",
+      "path": "随机过程/随机过程准备知识.md"
+    },
+    {
+      "basename": "条件期望",
+      "path": "随机过程/条件期望.md"
+    },
+    {
+      "basename": "Brown运动",
+      "path": "随机过程/Brown运动.md"
+    },
+    {
+      "basename": "Markov链",
+      "path": "随机过程/Markov链.md"
+    },
+    {
+      "basename": "光栅化及可微渲染",
+      "path": "智能图形学/光栅化及可微渲染.md"
+    },
+    {
+      "basename": "数值的表示",
+      "path": "计算机组成原理/数值的表示.md"
+    },
+    {
+      "basename": "存储系统",
+      "path": "计算机组成原理/存储系统.md"
+    },
+    {
+      "basename": "图像融合",
+      "path": "计算机视觉/图像融合.md"
+    },
+    {
+      "basename": "图像滤波",
+      "path": "计算机视觉/图像滤波.md"
+    },
+    {
+      "basename": "图像金字塔与傅里叶变换",
+      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
+    },
+    {
+      "basename": "并行编程概述",
+      "path": "并行编程原理/并行编程概述.md"
+    },
+    {
+      "basename": "pThread多线程编程",
+      "path": "并行编程原理/pThread多线程编程.md"
+    },
+    {
+      "basename": "操作系统基本原理概论",
+      "path": "操作系统/操作系统基本原理概论.md"
+    },
+    {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "评价指标",
@@ -19,10 +79,6 @@
     {
       "basename": "熵、相对熵与交叉熵",
       "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "操作系统基本原理概论",
-      "path": "操作系统/操作系统基本原理概论.md"
     },
     {
       "basename": "深度学习概念与感知机",
@@ -51,14 +107,6 @@
     {
       "basename": "隐马尔可夫模型",
       "path": "机器学习/隐马尔可夫模型.md"
-    },
-    {
-      "basename": "存储系统",
-      "path": "计算机组成原理/存储系统.md"
-    },
-    {
-      "basename": "数值的表示",
-      "path": "计算机组成原理/数值的表示.md"
     },
     {
       "basename": "贝叶斯网络",
@@ -99,10 +147,6 @@
     {
       "basename": "预备知识",
       "path": "深度学习/预备知识.md"
-    },
-    {
-      "basename": "图像融合",
-      "path": "计算机视觉/图像融合.md"
     },
     {
       "basename": "循环神经网络",
@@ -153,52 +197,8 @@
       "path": "机器学习/聚类.md"
     },
     {
-      "basename": "多线程编程",
-      "path": "并行编程原理/多线程编程.md"
-    },
-    {
       "basename": "谱聚类",
       "path": "机器学习/谱聚类.md"
-    },
-    {
-      "basename": "并行编程概述",
-      "path": "并行编程原理/并行编程概述.md"
-    },
-    {
-      "basename": "数据",
-      "path": "数据挖掘/数据.md"
-    },
-    {
-      "basename": "数据挖掘",
-      "path": "数据挖掘/数据挖掘.md"
-    },
-    {
-      "basename": "数据预处理专题",
-      "path": "实践经验/数据预处理专题.md"
-    },
-    {
-      "basename": "t-SNE",
-      "path": "机器学习/t-SNE.md"
-    },
-    {
-      "basename": "EM 算法",
-      "path": "机器学习/EM 算法.md"
-    },
-    {
-      "basename": "决策树",
-      "path": "机器学习/决策树.md"
-    },
-    {
-      "basename": "机器学习简介",
-      "path": "深度学习/机器学习简介.md"
-    },
-    {
-      "basename": "JavaScript",
-      "path": "前端知识补充/JavaScript.md"
-    },
-    {
-      "basename": "README",
-      "path": "前端知识补充/README.md"
     }
   ],
   "omittedPaths": [],
