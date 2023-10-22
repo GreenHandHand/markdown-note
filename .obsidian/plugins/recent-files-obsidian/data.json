@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
+    },
+    {
       "basename": "HTML",
       "path": "前端知识补充/HTML.md"
     },
@@ -75,10 +79,6 @@
     {
       "basename": "操作系统基本原理概论",
       "path": "操作系统/操作系统基本原理概论.md"
-    },
-    {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "评价指标",

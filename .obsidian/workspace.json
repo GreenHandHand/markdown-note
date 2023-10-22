@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "前端知识补充/HTML.md",
-                "mode": "preview",
+                "file": "操作系统/进程管理.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -101,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "前端知识补充/HTML.md",
+                "file": "操作系统/进程管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "前端知识补充/HTML.md",
+                "file": "操作系统/进程管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "前端知识补充/HTML.md"
+                "file": "操作系统/进程管理.md"
               }
             }
           },
@@ -184,8 +185,8 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
-    "前端知识补充/README.md",
     "前端知识补充/HTML.md",
+    "前端知识补充/README.md",
     "前端知识补充/JavaScript.md",
     "前端知识补充/CSS.md",
     "数据预处理.md",
