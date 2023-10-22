@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "随机过程",
-      "path": "随机过程/随机过程.md"
+      "basename": "HTML",
+      "path": "前端知识补充/HTML.md"
+    },
+    {
+      "basename": "JavaScript",
+      "path": "前端知识补充/JavaScript.md"
+    },
+    {
+      "basename": "CSS",
+      "path": "前端知识补充/CSS.md"
     },
     {
       "basename": "更新过程",
       "path": "随机过程/更新过程.md"
+    },
+    {
+      "basename": "随机过程",
+      "path": "随机过程/随机过程.md"
     },
     {
       "basename": "随机过程讲义",
@@ -183,22 +195,6 @@
     {
       "basename": "机器学习概述",
       "path": "机器学习/机器学习概述.md"
-    },
-    {
-      "basename": "k 近邻",
-      "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "主成分分析",
-      "path": "机器学习/主成分分析.md"
-    },
-    {
-      "basename": "聚类",
-      "path": "机器学习/聚类.md"
-    },
-    {
-      "basename": "谱聚类",
-      "path": "机器学习/谱聚类.md"
     }
   ],
   "omittedPaths": [],
