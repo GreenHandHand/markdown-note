@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
+    },
+    {
       "basename": "时序差分算法",
       "path": "强化学习/时序差分算法.md"
     },
@@ -63,10 +67,6 @@
     {
       "basename": "循环神经网络",
       "path": "深度学习/循环神经网络.md"
-    },
-    {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "HTML",

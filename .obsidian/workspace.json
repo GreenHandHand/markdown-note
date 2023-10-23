@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "强化学习/时序差分算法.md",
+                "file": "操作系统/进程管理.md",
                 "mode": "preview",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "强化学习/时序差分算法.md",
+                "file": "操作系统/进程管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "强化学习/时序差分算法.md",
+                "file": "操作系统/进程管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "强化学习/时序差分算法.md"
+                "file": "操作系统/进程管理.md"
               }
             }
           },
@@ -168,8 +168,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -184,8 +183,8 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
-    "强化学习/马尔科夫决策过程.md",
     "强化学习/时序差分算法.md",
+    "强化学习/马尔科夫决策过程.md",
     "强化学习/动态规划算法.md",
     "强化学习/REINFROCE算法.md",
     "深度学习/注意力机制.md",
