@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "时序差分算法",
+      "path": "强化学习/时序差分算法.md"
+    },
+    {
+      "basename": "马尔科夫决策过程",
+      "path": "强化学习/马尔科夫决策过程.md"
+    },
+    {
+      "basename": "REINFROCE算法",
+      "path": "强化学习/REINFROCE算法.md"
+    },
+    {
       "basename": "注意力机制",
       "path": "深度学习/注意力机制.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "DQN算法",
       "path": "强化学习/DQN算法.md"
-    },
-    {
-      "basename": "Dyna-Q算法",
-      "path": "强化学习/Dyna-Q算法.md"
-    },
-    {
-      "basename": "马尔科夫决策过程",
-      "path": "强化学习/马尔科夫决策过程.md"
-    },
-    {
-      "basename": "时序差分算法",
-      "path": "强化学习/时序差分算法.md"
     }
   ],
   "omittedPaths": [],

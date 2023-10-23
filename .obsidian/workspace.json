@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/注意力机制.md",
-                "mode": "source",
+                "file": "强化学习/时序差分算法.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/注意力机制.md",
+                "file": "强化学习/时序差分算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/注意力机制.md",
+                "file": "强化学习/时序差分算法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/注意力机制.md"
+                "file": "强化学习/时序差分算法.md"
               }
             }
           },
@@ -184,6 +184,10 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
+    "强化学习/马尔科夫决策过程.md",
+    "强化学习/时序差分算法.md",
+    "强化学习/REINFROCE算法.md",
+    "深度学习/注意力机制.md",
     "深度学习/预备知识.md",
     "深度学习/深度学习计算.md",
     "深度学习/现代卷积神经网络.md",
@@ -207,10 +211,6 @@
     "随机过程/随机过程准备知识.md",
     "随机过程/条件期望.md",
     "随机过程/Brown运动.md",
-    "随机过程/Markov链.md",
-    "智能图形学/光栅化及可微渲染.md",
-    "计算机组成原理/数值的表示.md",
-    "计算机组成原理/存储系统.md",
     "操作系统",
     "并行编程原理",
     "image/Pasted image 20230817214901.png",
