@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "深度学习/注意力机制.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -102,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "深度学习/注意力机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "深度学习/注意力机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/进程管理.md"
+                "file": "深度学习/注意力机制.md"
               }
             }
           },
@@ -185,6 +184,18 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
+    "深度学习/预备知识.md",
+    "深度学习/深度学习计算.md",
+    "深度学习/现代卷积神经网络.md",
+    "深度学习/现代循环神经网络.md",
+    "深度学习/多层感知机.md",
+    "深度学习/机器学习简介.md",
+    "深度学习/计算机视觉.md",
+    "深度学习/卷积神经网络.md",
+    "深度学习/如何训练一个模型.md",
+    "深度学习/深度学习概念与感知机.md",
+    "深度学习/循环神经网络.md",
+    "操作系统/进程管理.md",
     "前端知识补充/HTML.md",
     "前端知识补充/README.md",
     "前端知识补充/JavaScript.md",
@@ -200,18 +211,6 @@
     "智能图形学/光栅化及可微渲染.md",
     "计算机组成原理/数值的表示.md",
     "计算机组成原理/存储系统.md",
-    "计算机视觉/图像融合.md",
-    "计算机视觉/图像滤波.md",
-    "计算机视觉/图像金字塔与傅里叶变换.md",
-    "并行编程原理/并行编程概述.md",
-    "并行编程原理/pThread多线程编程.md",
-    "操作系统/操作系统基本原理概论.md",
-    "操作系统/进程管理.md",
-    "实践经验/评价指标.md",
-    "深度学习/多层感知机.md",
-    "实践经验/熵、相对熵与交叉熵.md",
-    "深度学习/深度学习概念与感知机.md",
-    "深度学习/现代卷积神经网络.md",
     "操作系统",
     "并行编程原理",
     "image/Pasted image 20230817214901.png",
