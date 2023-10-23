@@ -3,7 +3,7 @@
   "theme": "moonstone",
   "cssTheme": "Blue Topaz",
   "monospaceFontFamily": "Consolas",
-  "textFontFamily": "霞鹜文楷等宽,霞鹜文楷,Consolas,微软雅黑",
+  "textFontFamily": "Consolas ligaturized v3,霞鹜文楷等宽,霞鹜文楷,微软雅黑",
   "baseFontSize": 21,
   "translucency": false,
   "nativeMenus": false,
