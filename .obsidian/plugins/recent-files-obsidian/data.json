@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "图像求导",
+      "path": "计算机视觉/图像求导.md"
+    },
+    {
+      "basename": "贝叶斯网络",
+      "path": "机器学习/贝叶斯网络.md"
+    },
+    {
       "basename": "进程管理",
       "path": "操作系统/进程管理.md"
     },
@@ -165,10 +173,6 @@
       "path": "机器学习/隐马尔可夫模型.md"
     },
     {
-      "basename": "贝叶斯网络",
-      "path": "机器学习/贝叶斯网络.md"
-    },
-    {
       "basename": "最大熵模型",
       "path": "机器学习/最大熵模型.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
-    },
-    {
-      "basename": "DQN算法",
-      "path": "强化学习/DQN算法.md"
     }
   ],
   "omittedPaths": [],
