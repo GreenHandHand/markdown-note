@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "进程管理",
+      "path": "操作系统/进程管理.md"
+    },
+    {
+      "basename": "操作系统基本原理概论",
+      "path": "操作系统/操作系统基本原理概论.md"
+    },
+    {
+      "basename": "图像融合",
+      "path": "计算机视觉/图像融合.md"
+    },
+    {
       "basename": "图像求导",
       "path": "计算机视觉/图像求导.md"
     },
     {
       "basename": "贝叶斯网络",
       "path": "机器学习/贝叶斯网络.md"
-    },
-    {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
     },
     {
       "basename": "时序差分算法",
@@ -129,10 +137,6 @@
       "path": "计算机组成原理/存储系统.md"
     },
     {
-      "basename": "图像融合",
-      "path": "计算机视觉/图像融合.md"
-    },
-    {
       "basename": "图像滤波",
       "path": "计算机视觉/图像滤波.md"
     },
@@ -147,10 +151,6 @@
     {
       "basename": "pThread多线程编程",
       "path": "并行编程原理/pThread多线程编程.md"
-    },
-    {
-      "basename": "操作系统基本原理概论",
-      "path": "操作系统/操作系统基本原理概论.md"
     },
     {
       "basename": "评价指标",
