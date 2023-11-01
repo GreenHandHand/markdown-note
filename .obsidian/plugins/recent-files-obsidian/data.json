@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "内存管理",
+      "path": "操作系统/内存管理.md"
+    },
+    {
       "basename": "进程管理",
       "path": "操作系统/进程管理.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "潜在狄利克雷分配",
       "path": "机器学习/潜在狄利克雷分配.md"
-    },
-    {
-      "basename": "Actor-Critic算法",
-      "path": "强化学习/Actor-Critic算法.md"
     }
   ],
   "omittedPaths": [],
