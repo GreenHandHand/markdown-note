@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "存储系统",
-      "path": "计算机组成原理/存储系统.md"
+      "basename": "指令系统",
+      "path": "计算机组成原理/指令系统.md"
     },
     {
       "basename": "数值的表示",
       "path": "计算机组成原理/数值的表示.md"
+    },
+    {
+      "basename": "存储系统",
+      "path": "计算机组成原理/存储系统.md"
     },
     {
       "basename": "内存管理",
@@ -195,10 +199,6 @@
     {
       "basename": "条件随机场",
       "path": "机器学习/条件随机场.md"
-    },
-    {
-      "basename": "潜在狄利克雷分配",
-      "path": "机器学习/潜在狄利克雷分配.md"
     }
   ],
   "omittedPaths": [],
