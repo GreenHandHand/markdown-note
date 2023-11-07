@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/内存管理.md",
+                "file": "计算机组成原理/存储系统.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/内存管理.md",
+                "file": "计算机组成原理/存储系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/内存管理.md",
+                "file": "计算机组成原理/存储系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/内存管理.md"
+                "file": "计算机组成原理/存储系统.md"
               }
             }
           },
@@ -185,6 +185,10 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
+    "image/Pasted image 20231107160806.png",
+    "计算机组成原理/数值的表示.md",
+    "计算机组成原理/存储系统.md",
+    "操作系统/内存管理.md",
     "image/Pasted image 20231102213548.png",
     "操作系统/进程管理.md",
     "操作系统/操作系统基本原理概论.md",
@@ -208,9 +212,6 @@
     "深度学习/深度学习概念与感知机.md",
     "深度学习/循环神经网络.md",
     "前端知识补充/HTML.md",
-    "前端知识补充/README.md",
-    "前端知识补充/JavaScript.md",
-    "前端知识补充/CSS.md",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
     "并行编程原理",
@@ -225,7 +226,6 @@
     "前端知识补充",
     "image/Pasted image 20230801115153.png",
     "image/Pasted image 20230801114059.png",
-    "image/Pasted image 20230801114028.png",
     "实践经验",
     "思维.canvas",
     "new/随机过程/随机过程讲义.pdf",
