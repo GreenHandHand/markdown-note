@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "中央处理器",
+      "path": "计算机组成原理/中央处理器.md"
+    },
+    {
       "basename": "指令系统",
       "path": "计算机组成原理/指令系统.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "支持向量机",
       "path": "机器学习/支持向量机.md"
-    },
-    {
-      "basename": "条件随机场",
-      "path": "机器学习/条件随机场.md"
     }
   ],
   "omittedPaths": [],
