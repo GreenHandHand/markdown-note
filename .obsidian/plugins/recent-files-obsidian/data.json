@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "输入输出系统",
+      "path": "计算机组成原理/输入输出系统.md"
+    },
+    {
       "basename": "总线",
       "path": "计算机组成原理/总线.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "AdaBoost",
       "path": "机器学习/AdaBoost.md"
-    },
-    {
-      "basename": "感知机",
-      "path": "机器学习/感知机.md"
     }
   ],
   "omittedPaths": [],
