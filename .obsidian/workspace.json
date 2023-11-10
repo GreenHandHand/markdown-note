@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/输入输出系统.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -101,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/输入输出系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/输入输出系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机组成原理/中央处理器.md"
+                "file": "计算机组成原理/输入输出系统.md"
               }
             }
           },
@@ -183,13 +184,13 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
-    "计算机组成原理/输入输出系统.md",
     "计算机组成原理/存储系统.md",
+    "计算机组成原理/输入输出系统.md",
+    "计算机组成原理/中央处理器.md",
+    "计算机组成原理/总线.md",
     "操作系统/内存管理.md",
     "计算机组成原理/数值的表示.md",
     "计算机组成原理/指令系统.md",
-    "计算机组成原理/中央处理器.md",
-    "计算机组成原理/总线.md",
     "image/Pasted image 20231109122901.png",
     "image/Pasted image 20231109121952.png",
     "image/Pasted image 20231109121937.png",
