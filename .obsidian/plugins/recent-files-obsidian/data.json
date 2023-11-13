@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Actor-Critic算法",
+      "path": "强化学习/Actor-Critic算法.md"
+    },
+    {
+      "basename": "REINFROCE算法",
+      "path": "强化学习/REINFROCE算法.md"
+    },
+    {
+      "basename": "Dyna-Q算法",
+      "path": "强化学习/Dyna-Q算法.md"
+    },
+    {
       "basename": "输入输出系统",
       "path": "计算机组成原理/输入输出系统.md"
     },
@@ -59,10 +71,6 @@
     {
       "basename": "动态规划算法",
       "path": "强化学习/动态规划算法.md"
-    },
-    {
-      "basename": "REINFROCE算法",
-      "path": "强化学习/REINFROCE算法.md"
     },
     {
       "basename": "注意力机制",
@@ -191,14 +199,6 @@
     {
       "basename": "隐马尔可夫模型",
       "path": "机器学习/隐马尔可夫模型.md"
-    },
-    {
-      "basename": "最大熵模型",
-      "path": "机器学习/最大熵模型.md"
-    },
-    {
-      "basename": "AdaBoost",
-      "path": "机器学习/AdaBoost.md"
     }
   ],
   "omittedPaths": [],
