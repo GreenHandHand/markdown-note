@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "时序差分算法",
+      "path": "强化学习/时序差分算法.md"
+    },
+    {
+      "basename": "动态规划算法",
+      "path": "强化学习/动态规划算法.md"
+    },
+    {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
     },
@@ -61,16 +69,8 @@
       "path": "机器学习/贝叶斯网络.md"
     },
     {
-      "basename": "时序差分算法",
-      "path": "强化学习/时序差分算法.md"
-    },
-    {
       "basename": "马尔科夫决策过程",
       "path": "强化学习/马尔科夫决策过程.md"
-    },
-    {
-      "basename": "动态规划算法",
-      "path": "强化学习/动态规划算法.md"
     },
     {
       "basename": "注意力机制",
