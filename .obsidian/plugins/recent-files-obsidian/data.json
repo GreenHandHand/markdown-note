@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "DQN改进算法",
+      "path": "强化学习/DQN改进算法.md"
+    },
+    {
+      "basename": "DQN算法",
+      "path": "强化学习/DQN算法.md"
+    },
+    {
       "basename": "时序差分算法",
       "path": "强化学习/时序差分算法.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "朴素贝叶斯",
       "path": "机器学习/朴素贝叶斯.md"
-    },
-    {
-      "basename": "线性模型",
-      "path": "机器学习/线性模型.md"
-    },
-    {
-      "basename": "隐马尔可夫模型",
-      "path": "机器学习/隐马尔可夫模型.md"
     }
   ],
   "omittedPaths": [],
