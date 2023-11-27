@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "文件管理",
+      "path": "操作系统/文件管理.md"
+    },
+    {
       "basename": "DQN改进算法",
       "path": "强化学习/DQN改进算法.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "熵、相对熵与交叉熵",
       "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "朴素贝叶斯",
-      "path": "机器学习/朴素贝叶斯.md"
     }
   ],
   "omittedPaths": [],
