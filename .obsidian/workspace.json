@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "强化学习/DQN算法.md",
+                "file": "操作系统/文件管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -101,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "强化学习/DQN算法.md",
+                "file": "操作系统/文件管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "强化学习/DQN算法.md",
+                "file": "操作系统/文件管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "强化学习/DQN算法.md"
+                "file": "操作系统/文件管理.md"
               }
             }
           },
@@ -184,12 +185,14 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
+    "数据库/数据库并发控制.md",
+    "新建 Text Document.txt",
+    "操作系统/文件管理.md",
+    "强化学习/DQN算法.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/循环神经网络.md",
     "深度学习/现代卷积神经网络.md",
-    "操作系统/文件管理.md",
     "强化学习/DQN改进算法.md",
-    "强化学习/DQN算法.md",
     "强化学习/时序差分算法.md",
     "强化学习/动态规划算法.md",
     "强化学习/Actor-Critic算法.md",
@@ -219,7 +222,6 @@
     "机器学习/贝叶斯网络.md",
     "强化学习/马尔科夫决策过程.md",
     "深度学习/注意力机制.md",
-    "深度学习/预备知识.md",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
     "并行编程原理",
@@ -230,7 +232,6 @@
     "new/随机过程/随机过程讲义.pdf",
     "new/随机过程",
     "new/image/utils.py",
-    "new/image",
     "数据库.canvas",
     "最优化/群体智能算法/未命名.canvas",
     "矩阵分析/未命名.canvas"
