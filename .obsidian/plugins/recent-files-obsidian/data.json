@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "REINFROCE算法",
+      "path": "强化学习/REINFROCE算法.md"
+    },
+    {
       "basename": "文件管理",
       "path": "操作系统/文件管理.md"
     },
@@ -39,10 +43,6 @@
     {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
-    },
-    {
-      "basename": "REINFROCE算法",
-      "path": "强化学习/REINFROCE算法.md"
     },
     {
       "basename": "Dyna-Q算法",
