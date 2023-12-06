@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "内存管理",
+      "path": "操作系统/内存管理.md"
+    },
+    {
       "basename": "进程管理",
       "path": "操作系统/进程管理.md"
     },
@@ -71,10 +75,6 @@
     {
       "basename": "总线",
       "path": "计算机组成原理/总线.md"
-    },
-    {
-      "basename": "内存管理",
-      "path": "操作系统/内存管理.md"
     },
     {
       "basename": "数值的表示",
