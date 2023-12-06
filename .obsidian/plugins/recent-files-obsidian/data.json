@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "文件管理",
+      "path": "操作系统/文件管理.md"
+    },
+    {
       "basename": "内存管理",
       "path": "操作系统/内存管理.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "REINFROCE算法",
       "path": "强化学习/REINFROCE算法.md"
-    },
-    {
-      "basename": "文件管理",
-      "path": "操作系统/文件管理.md"
     },
     {
       "basename": "数据库并发控制",
