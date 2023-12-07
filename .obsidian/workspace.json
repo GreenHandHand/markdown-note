@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "操作系统/内存管理.md",
                 "mode": "preview",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "操作系统/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/进程管理.md",
+                "file": "操作系统/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作系统/进程管理.md"
+                "file": "操作系统/内存管理.md"
               }
             }
           },
@@ -184,14 +184,14 @@
   },
   "active": "093109e6b7f4b80f",
   "lastOpenFiles": [
+    "操作系统/文件管理.md",
+    "操作系统/进程管理.md",
     "操作系统/内存管理.md",
     "操作系统/操作系统基本原理概论.md",
-    "操作系统/文件管理.md",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/卷积神经网络.md",
     "深度学习/计算机视觉.md",
     "深度学习/机器学习简介.md",
-    "操作系统/进程管理.md",
     "强化学习/REINFROCE算法.md",
     "数据库/数据库并发控制.md",
     "新建 Text Document.txt",
