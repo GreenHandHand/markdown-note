@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3fa136fc6ff5847d",
+        "id": "1130a3a9e9e0e005",
         "type": "tabs",
         "children": [
           {
-            "id": "093109e6b7f4b80f",
+            "id": "e118e14922a65ec3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -63,6 +63,14 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "d5255b012920a4f0",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
               "state": {}
             }
           }
@@ -146,14 +154,6 @@
             }
           },
           {
-            "id": "d5255b012920a4f0",
-            "type": "leaf",
-            "state": {
-              "type": "git-history-view",
-              "state": {}
-            }
-          },
-          {
             "id": "aba6a733fd2d8248",
             "type": "leaf",
             "state": {
@@ -162,14 +162,21 @@
                 "sortOrder": "frequency"
               }
             }
+          },
+          {
+            "id": "3da4b2a28917bbbc",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,12 +189,12 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "093109e6b7f4b80f",
+  "active": "e118e14922a65ec3",
   "lastOpenFiles": [
-    "操作系统/进程管理.md",
+    "操作系统/操作系统基本原理概论.md",
     "操作系统/文件管理.md",
     "操作系统/内存管理.md",
-    "操作系统/操作系统基本原理概论.md",
+    "操作系统/进程管理.md",
     "深度学习/深度学习概念与感知机.md",
     "深度学习/卷积神经网络.md",
     "深度学习/计算机视觉.md",
