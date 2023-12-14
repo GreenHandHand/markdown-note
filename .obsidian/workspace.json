@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/指令系统.md",
                 "mode": "preview",
                 "source": false
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/指令系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机组成原理/中央处理器.md",
+                "file": "计算机组成原理/指令系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机组成原理/中央处理器.md"
+                "file": "计算机组成原理/指令系统.md"
               }
             }
           },
@@ -191,11 +191,11 @@
   },
   "active": "e118e14922a65ec3",
   "lastOpenFiles": [
+    "计算机组成原理/中央处理器.md",
     "计算机组成原理/指令系统.md",
     "计算机组成原理/输入输出系统.md",
     "计算机组成原理/存储系统.md",
     "计算机组成原理/数值的表示.md",
-    "计算机组成原理/中央处理器.md",
     "计算机组成原理/总线.md",
     "操作系统/文件管理.md",
     "操作系统/内存管理.md",
