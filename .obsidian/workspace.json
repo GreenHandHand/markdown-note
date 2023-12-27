@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/计算机视觉.md",
                 "mode": "preview",
                 "source": false
               }
@@ -74,8 +74,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/计算机视觉.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/计算机视觉.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/多层感知机.md"
+                "file": "深度学习/计算机视觉.md"
               }
             }
           },
@@ -190,16 +189,16 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "2ac6af0cc51e1844",
+  "active": "e118e14922a65ec3",
   "lastOpenFiles": [
+    "深度学习/卷积神经网络.md",
+    "深度学习/多层感知机.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/深度学习计算.md",
     "深度学习/深度学习概念与感知机.md",
-    "深度学习/卷积神经网络.md",
     "深度学习/计算机视觉.md",
     "深度学习/机器学习简介.md",
-    "深度学习/多层感知机.md",
     "深度学习/循环神经网络.md",
     "计算机组成原理/指令系统.md",
     "计算机组成原理/中央处理器.md",
