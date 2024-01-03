@@ -8,7 +8,7 @@
   "canvas-mindmap",
   "obsidian-git",
   "vim-im-select",
-  "obsidian-vimrc-support",
   "novel-word-count",
-  "calendar"
+  "calendar",
+  "obsidian-vimrc-support"
 ]
