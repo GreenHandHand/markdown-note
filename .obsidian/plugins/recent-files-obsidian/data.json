@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "图像滤波",
-      "path": "计算机视觉/图像滤波.md"
-    },
-    {
       "basename": "图像金字塔与傅里叶变换",
       "path": "计算机视觉/图像金字塔与傅里叶变换.md"
+    },
+    {
+      "basename": "图像滤波",
+      "path": "计算机视觉/图像滤波.md"
     },
     {
       "basename": "进程管理",

@@ -10,5 +10,6 @@
   "vim-im-select",
   "novel-word-count",
   "calendar",
-  "obsidian-vimrc-support"
+  "obsidian-vimrc-support",
+  "pseudocode-in-obs"
 ]
