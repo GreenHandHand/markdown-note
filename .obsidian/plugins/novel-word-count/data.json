@@ -271,19 +271,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 60,
+      "wordCount": 134,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 0.2,
-      "characterCount": 913,
-      "nonWhitespaceCharacterCount": 840,
-      "readingTimeInMinutes": 0.22641509433962265,
+      "pageCount": 0.44666666666666666,
+      "characterCount": 1982,
+      "nonWhitespaceCharacterCount": 1793,
+      "readingTimeInMinutes": 0.5056603773584906,
       "linkCount": 0,
-      "embedCount": 3,
+      "embedCount": 4,
       "aliases": null,
       "createdDate": 1695266860270,
-      "modifiedDate": 1704270131374,
-      "sizeInBytes": 2094
+      "modifiedDate": 1704273856468,
+      "sizeInBytes": 4055
     },
     "计算机视觉/图像融合.md": {
       "isCountable": true,
@@ -3992,6 +3992,24 @@
       "createdDate": 1704268576936,
       "modifiedDate": 1704268576937,
       "sizeInBytes": 50085
+    },
+    "image/Pasted image 20240103172056.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1704273656772,
+      "modifiedDate": 1704273656773,
+      "sizeInBytes": 38614
     }
   }
 }
