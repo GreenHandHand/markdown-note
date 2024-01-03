@@ -5,6 +5,10 @@
       "path": "计算机视觉/图像金字塔与傅里叶变换.md"
     },
     {
+      "basename": "动态规划算法",
+      "path": "强化学习/动态规划算法.md"
+    },
+    {
       "basename": "图像滤波",
       "path": "计算机视觉/图像滤波.md"
     },
@@ -117,10 +121,6 @@
       "path": "强化学习/时序差分算法.md"
     },
     {
-      "basename": "动态规划算法",
-      "path": "强化学习/动态规划算法.md"
-    },
-    {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
     },
@@ -195,10 +195,6 @@
     {
       "basename": "并行编程概述",
       "path": "并行编程原理/并行编程概述.md"
-    },
-    {
-      "basename": "pThread多线程编程",
-      "path": "并行编程原理/pThread多线程编程.md"
     }
   ],
   "omittedPaths": [],

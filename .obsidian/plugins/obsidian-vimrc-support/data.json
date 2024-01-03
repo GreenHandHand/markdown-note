@@ -1,8 +1,8 @@
 {
-  "defaultIM": "",
-  "obtainCmd": "",
-  "switchCmd": "",
-  "windowsDefaultIM": "1033",
-  "windowsObtainCmd": "\"D:\\im-select\\im-select.exe\"",
-  "windowsSwitchCmd": "\"D:\\im-select\\im-select.exe\" {im}"
+  "vimrcFileName": ".obsidian.vimrc",
+  "displayChord": true,
+  "displayVimMode": true,
+  "fixedNormalModeLayout": false,
+  "capturedKeyboardMap": {},
+  "supportJsCommands": false
 }
