@@ -11,13 +11,8 @@
             "id": "e118e14922a65ec3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算机视觉/边缘检测.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -110,7 +105,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/边缘检测.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +121,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/边缘检测.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +142,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "计算机视觉/边缘检测.md"
-              }
+              "state": {}
             }
           },
           {
@@ -199,10 +190,10 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "03e03384561a4479",
+  "active": "e118e14922a65ec3",
   "lastOpenFiles": [
-    "计算机视觉/图像滤波.md",
     "计算机视觉/边缘检测.md",
+    "计算机视觉/图像滤波.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
     "计算机视觉/图像求导.md",
     "计算机视觉/图像融合.md",

@@ -3965,15 +3965,15 @@
       "wordCountTowardGoal": 0,
       "wordGoal": null,
       "pageCount": 0.5066666666666667,
-      "characterCount": 2873,
-      "nonWhitespaceCharacterCount": 2697,
+      "characterCount": 2877,
+      "nonWhitespaceCharacterCount": 2701,
       "readingTimeInMinutes": 0.5735849056603773,
       "linkCount": 1,
       "embedCount": 0,
       "aliases": null,
       "createdDate": 1704290144944,
-      "modifiedDate": 1704294712225,
-      "sizeInBytes": 6243
+      "modifiedDate": 1704295023580,
+      "sizeInBytes": 6255
     },
     "计算机视觉/图像金字塔与傅里叶变换.md": {
       "isCountable": true,
