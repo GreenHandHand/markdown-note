@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "特征描述",
+      "path": "计算机视觉/特征描述.md"
+    },
+    {
       "basename": "特征检测",
       "path": "计算机视觉/特征检测.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "光栅化及可微渲染",
       "path": "智能图形学/光栅化及可微渲染.md"
-    },
-    {
-      "basename": "并行编程概述",
-      "path": "并行编程原理/并行编程概述.md"
     }
   ],
   "omittedPaths": [],
