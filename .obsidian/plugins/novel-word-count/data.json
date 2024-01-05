@@ -199,19 +199,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 364,
+      "wordCount": 367,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 1.2133333333333334,
-      "characterCount": 5105,
-      "nonWhitespaceCharacterCount": 4699,
-      "readingTimeInMinutes": 1.3735849056603773,
+      "pageCount": 1.2233333333333334,
+      "characterCount": 5241,
+      "nonWhitespaceCharacterCount": 4832,
+      "readingTimeInMinutes": 1.3849056603773584,
       "linkCount": 1,
-      "embedCount": 2,
+      "embedCount": 3,
       "aliases": null,
       "createdDate": 1704365028008,
-      "modifiedDate": 1704430138243,
-      "sizeInBytes": 9165
+      "modifiedDate": 1704430542117,
+      "sizeInBytes": 9499
     },
     "计算机视觉/图像金字塔与傅里叶变换.md": {
       "isCountable": true,
@@ -4136,6 +4136,24 @@
       "createdDate": 1704425942501,
       "modifiedDate": 1704425942502,
       "sizeInBytes": 97432
+    },
+    "image/Pasted image 20240105125153.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1704430313977,
+      "modifiedDate": 1704430313979,
+      "sizeInBytes": 31590
     }
   }
 }
