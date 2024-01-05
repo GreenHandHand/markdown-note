@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "图像金字塔与傅里叶变换",
+      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
+    },
+    {
       "basename": "特征描述",
       "path": "计算机视觉/特征描述.md"
+    },
+    {
+      "basename": "图像滤波",
+      "path": "计算机视觉/图像滤波.md"
+    },
+    {
+      "basename": "直线检测",
+      "path": "计算机视觉/直线检测.md"
     },
     {
       "basename": "特征检测",
@@ -11,18 +27,6 @@
     {
       "basename": "边缘检测",
       "path": "计算机视觉/边缘检测.md"
-    },
-    {
-      "basename": "直线检测",
-      "path": "计算机视觉/直线检测.md"
-    },
-    {
-      "basename": "图像金字塔与傅里叶变换",
-      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
-    },
-    {
-      "basename": "图像滤波",
-      "path": "计算机视觉/图像滤波.md"
     },
     {
       "basename": "动态规划算法",
@@ -35,10 +39,6 @@
     {
       "basename": "操作系统基本原理概论",
       "path": "操作系统/操作系统基本原理概论.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "循环神经网络",

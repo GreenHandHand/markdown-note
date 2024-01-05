@@ -1909,19 +1909,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 25,
+      "wordCount": 15,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 0.08333333333333333,
-      "characterCount": 171,
-      "nonWhitespaceCharacterCount": 144,
-      "readingTimeInMinutes": 0.09433962264150944,
+      "pageCount": 0.05,
+      "characterCount": 104,
+      "nonWhitespaceCharacterCount": 89,
+      "readingTimeInMinutes": 0.05660377358490566,
       "linkCount": 0,
       "embedCount": 0,
       "aliases": null,
       "createdDate": 1688139927093,
-      "modifiedDate": 1690887802595,
-      "sizeInBytes": 233
+      "modifiedDate": 1704442055123,
+      "sizeInBytes": 106
     },
     "image/visuialTransfer.png": {
       "isCountable": false,
@@ -4195,19 +4195,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 85,
+      "wordCount": 115,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 0.2833333333333333,
-      "characterCount": 1012,
-      "nonWhitespaceCharacterCount": 918,
-      "readingTimeInMinutes": 0.32075471698113206,
+      "pageCount": 0.38333333333333336,
+      "characterCount": 1422,
+      "nonWhitespaceCharacterCount": 1293,
+      "readingTimeInMinutes": 0.4339622641509434,
       "linkCount": 1,
       "embedCount": 0,
       "aliases": null,
       "createdDate": 1704437300688,
-      "modifiedDate": 1704440883043,
-      "sizeInBytes": 2138
+      "modifiedDate": 1704441881866,
+      "sizeInBytes": 3172
     }
   }
 }
