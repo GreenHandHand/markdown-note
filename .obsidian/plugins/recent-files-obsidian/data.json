@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "视觉识别",
+      "path": "计算机视觉/视觉识别.md"
+    },
+    {
+      "basename": "摄像机",
+      "path": "计算机视觉/摄像机.md"
+    },
+    {
       "basename": "特征描述",
       "path": "计算机视觉/特征描述.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "条件期望",
       "path": "随机过程/条件期望.md"
-    },
-    {
-      "basename": "Brown运动",
-      "path": "随机过程/Brown运动.md"
     }
   ],
   "omittedPaths": [],
