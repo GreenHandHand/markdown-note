@@ -5,6 +5,10 @@
       "path": "计算机视觉/特征描述.md"
     },
     {
+      "basename": "评价指标",
+      "path": "实践经验/评价指标.md"
+    },
+    {
       "basename": "图像金字塔与傅里叶变换",
       "path": "计算机视觉/图像金字塔与傅里叶变换.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Markov链",
       "path": "随机过程/Markov链.md"
-    },
-    {
-      "basename": "光栅化及可微渲染",
-      "path": "智能图形学/光栅化及可微渲染.md"
     }
   ],
   "omittedPaths": [],
