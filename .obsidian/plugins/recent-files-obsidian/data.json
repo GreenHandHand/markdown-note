@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "图像金字塔与傅里叶变换",
-      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
+      "basename": "视觉识别",
+      "path": "计算机视觉/视觉识别.md"
+    },
+    {
+      "basename": "特征检测",
+      "path": "计算机视觉/特征检测.md"
+    },
+    {
+      "basename": "特征描述",
+      "path": "计算机视觉/特征描述.md"
     },
     {
       "basename": "图像滤波",
@@ -13,8 +21,12 @@
       "path": "计算机视觉/边缘检测.md"
     },
     {
-      "basename": "视觉识别",
-      "path": "计算机视觉/视觉识别.md"
+      "basename": "直线检测",
+      "path": "计算机视觉/直线检测.md"
+    },
+    {
+      "basename": "图像金字塔与傅里叶变换",
+      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
     },
     {
       "basename": "随机森林",
@@ -25,24 +37,12 @@
       "path": "计算机视觉/摄像机.md"
     },
     {
-      "basename": "特征描述",
-      "path": "计算机视觉/特征描述.md"
-    },
-    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
     },
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "直线检测",
-      "path": "计算机视觉/直线检测.md"
-    },
-    {
-      "basename": "特征检测",
-      "path": "计算机视觉/特征检测.md"
     },
     {
       "basename": "动态规划算法",

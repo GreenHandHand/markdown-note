@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机视觉/图像金字塔与傅里叶变换.md",
+                "file": "计算机视觉/视觉识别.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/图像金字塔与傅里叶变换.md",
+                "file": "计算机视觉/视觉识别.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/图像金字塔与傅里叶变换.md",
+                "file": "计算机视觉/视觉识别.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机视觉/图像金字塔与傅里叶变换.md"
+                "file": "计算机视觉/视觉识别.md"
               }
             }
           },
@@ -201,18 +201,18 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
+    "计算机视觉/特征检测.md",
+    "计算机视觉/特征描述.md",
     "计算机视觉/图像滤波.md",
     "计算机视觉/边缘检测.md",
+    "计算机视觉/直线检测.md",
+    "计算机视觉/图像金字塔与傅里叶变换.md",
     "计算机视觉/视觉识别.md",
     "机器学习/随机森林.md",
     "计算机视觉/摄像机.md",
-    "计算机视觉/特征描述.md",
     "计算机视觉/全景.md",
     "实践经验/评价指标.md",
-    "计算机视觉/图像金字塔与傅里叶变换.md",
     "README.md",
-    "计算机视觉/直线检测.md",
-    "计算机视觉/特征检测.md",
     "image/Pasted image 20240105141253.png",
     "image/Pasted image 20240105141014.png",
     "image/Pasted image 20240105125153.png",
