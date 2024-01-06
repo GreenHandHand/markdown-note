@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "mean shift",
-      "path": "机器学习/mean shift.md"
+      "basename": "图像分割",
+      "path": "计算机视觉/图像分割.md"
     },
     {
       "basename": "运动",
       "path": "计算机视觉/运动.md"
     },
     {
-      "basename": "直线检测",
-      "path": "计算机视觉/直线检测.md"
+      "basename": "t-SNE",
+      "path": "机器学习/t-SNE.md"
     },
     {
-      "basename": "图像分割",
-      "path": "计算机视觉/图像分割.md"
+      "basename": "mean shift",
+      "path": "机器学习/mean shift.md"
+    },
+    {
+      "basename": "直线检测",
+      "path": "计算机视觉/直线检测.md"
     },
     {
       "basename": "特征检测",
@@ -195,10 +199,6 @@
     {
       "basename": "HTML",
       "path": "前端知识补充/HTML.md"
-    },
-    {
-      "basename": "JavaScript",
-      "path": "前端知识补充/JavaScript.md"
     }
   ],
   "omittedPaths": [],

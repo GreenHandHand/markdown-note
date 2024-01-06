@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/mean shift.md",
+                "file": "计算机视觉/图像分割.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/mean shift.md",
+                "file": "计算机视觉/图像分割.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/mean shift.md",
+                "file": "计算机视觉/图像分割.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/mean shift.md"
+                "file": "计算机视觉/图像分割.md"
               }
             }
           },
@@ -203,6 +202,7 @@
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
     "计算机视觉/运动.md",
+    "机器学习/t-SNE.md",
     "机器学习/mean shift.md",
     "计算机视觉/直线检测.md",
     "计算机视觉/图像分割.md",
@@ -237,7 +237,6 @@
     "深度学习/循环神经网络.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/计算机视觉.md",
-    "深度学习/卷积神经网络.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
