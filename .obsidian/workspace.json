@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机视觉/视觉识别.md",
+                "file": "计算机视觉/图像分割.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -110,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/视觉识别.md",
+                "file": "计算机视觉/图像分割.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/视觉识别.md",
+                "file": "计算机视觉/图像分割.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机视觉/视觉识别.md"
+                "file": "计算机视觉/图像分割.md"
               }
             }
           },
@@ -201,15 +202,19 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
+    "机器学习/聚类.md",
+    "计算机视觉/图像分割.md",
+    "image/Pasted image 20240106142626.png",
+    "计算机视觉/视觉识别.md",
+    "计算机视觉/特征描述.md",
+    "image/Pasted image 20240106135444.png",
     "image/Pasted image 20240106133821.png",
     "image/Pasted image 20240106133511.png",
     "计算机视觉/特征检测.md",
-    "计算机视觉/特征描述.md",
     "计算机视觉/图像滤波.md",
     "计算机视觉/边缘检测.md",
     "计算机视觉/直线检测.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
-    "计算机视觉/视觉识别.md",
     "机器学习/随机森林.md",
     "计算机视觉/摄像机.md",
     "计算机视觉/全景.md",
@@ -221,9 +226,6 @@
     "image/Pasted image 20240105113902.png",
     "image/Pasted image 20240104194114.png",
     "image/Pasted image 20240104163058.png",
-    "image/Pasted image 20240104162926.png",
-    "image/Pasted image 20240104162706.png",
-    "image/Pasted image 20240104160034.png",
     "计算机视觉/图像求导.md",
     "计算机视觉/图像融合.md",
     "强化学习/动态规划算法.md",
@@ -236,7 +238,6 @@
     "深度学习/多层感知机.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/深度学习计算.md",
-    "深度学习/深度学习概念与感知机.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",

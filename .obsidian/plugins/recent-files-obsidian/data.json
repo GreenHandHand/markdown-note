@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "图像分割",
+      "path": "计算机视觉/图像分割.md"
+    },
+    {
+      "basename": "聚类",
+      "path": "机器学习/聚类.md"
+    },
+    {
       "basename": "视觉识别",
       "path": "计算机视觉/视觉识别.md"
     },
     {
-      "basename": "特征检测",
-      "path": "计算机视觉/特征检测.md"
-    },
-    {
       "basename": "特征描述",
       "path": "计算机视觉/特征描述.md"
+    },
+    {
+      "basename": "特征检测",
+      "path": "计算机视觉/特征检测.md"
     },
     {
       "basename": "图像滤波",
@@ -191,14 +199,6 @@
     {
       "basename": "随机过程",
       "path": "随机过程/随机过程.md"
-    },
-    {
-      "basename": "随机过程讲义",
-      "path": "随机过程/随机过程讲义.pdf"
-    },
-    {
-      "basename": "随机过程准备知识",
-      "path": "随机过程/随机过程准备知识.md"
     }
   ],
   "omittedPaths": [],
