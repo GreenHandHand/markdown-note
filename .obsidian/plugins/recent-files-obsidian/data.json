@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "运动",
+      "path": "计算机视觉/运动.md"
+    },
+    {
       "basename": "图像分割",
       "path": "计算机视觉/图像分割.md"
+    },
+    {
+      "basename": "谱聚类",
+      "path": "机器学习/谱聚类.md"
     },
     {
       "basename": "聚类",
@@ -191,14 +199,6 @@
     {
       "basename": "CSS",
       "path": "前端知识补充/CSS.md"
-    },
-    {
-      "basename": "更新过程",
-      "path": "随机过程/更新过程.md"
-    },
-    {
-      "basename": "随机过程",
-      "path": "随机过程/随机过程.md"
     }
   ],
   "omittedPaths": [],
