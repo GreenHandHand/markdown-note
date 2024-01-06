@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机视觉/运动.md",
+                "file": "机器学习/mean shift.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/运动.md",
+                "file": "机器学习/mean shift.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/运动.md",
+                "file": "机器学习/mean shift.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机视觉/运动.md"
+                "file": "机器学习/mean shift.md"
               }
             }
           },
@@ -202,11 +201,12 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
+    "计算机视觉/运动.md",
+    "机器学习/mean shift.md",
     "计算机视觉/直线检测.md",
     "计算机视觉/图像分割.md",
     "计算机视觉/特征检测.md",
     "计算机视觉/视觉识别.md",
-    "计算机视觉/运动.md",
     "image/Pasted image 20240106160030.png",
     "机器学习/谱聚类.md",
     "机器学习/聚类.md",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "mean shift",
+      "path": "机器学习/mean shift.md"
+    },
+    {
       "basename": "运动",
       "path": "计算机视觉/运动.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "JavaScript",
       "path": "前端知识补充/JavaScript.md"
-    },
-    {
-      "basename": "CSS",
-      "path": "前端知识补充/CSS.md"
     }
   ],
   "omittedPaths": [],
