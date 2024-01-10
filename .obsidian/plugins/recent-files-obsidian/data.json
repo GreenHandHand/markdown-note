@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "数据",
+      "path": "数据挖掘/数据.md"
+    },
+    {
       "basename": "微调预训练语言模型",
       "path": "实践经验/微调预训练语言模型.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "如何训练一个模型",
       "path": "深度学习/如何训练一个模型.md"
-    },
-    {
-      "basename": "HTML",
-      "path": "前端知识补充/HTML.md"
     }
   ],
   "omittedPaths": [],

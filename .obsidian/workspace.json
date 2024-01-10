@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实践经验/微调预训练语言模型.md",
+                "file": "数据挖掘/数据.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "实践经验/微调预训练语言模型.md",
+                "file": "数据挖掘/数据.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "实践经验/微调预训练语言模型.md",
+                "file": "数据挖掘/数据.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实践经验/微调预训练语言模型.md"
+                "file": "数据挖掘/数据.md"
               }
             }
           },
@@ -201,8 +201,8 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
-    "机器学习/mean shift.md",
     "实践经验/微调预训练语言模型.md",
+    "机器学习/mean shift.md",
     "计算机视觉/图像分割.md",
     "计算机视觉/图像滤波.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
