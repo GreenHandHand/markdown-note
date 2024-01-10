@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机视觉/特征检测.md",
+                "file": "实践经验/微调预训练语言模型.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/特征检测.md",
+                "file": "实践经验/微调预训练语言模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/特征检测.md",
+                "file": "实践经验/微调预训练语言模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机视觉/特征检测.md"
+                "file": "实践经验/微调预训练语言模型.md"
               }
             }
           },
@@ -201,17 +201,18 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
-    "计算机视觉/特征描述.md",
+    "机器学习/mean shift.md",
+    "实践经验/微调预训练语言模型.md",
     "计算机视觉/图像分割.md",
+    "计算机视觉/图像滤波.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
     "计算机视觉/直线检测.md",
     "计算机视觉/运动.md",
-    "计算机视觉/图像滤波.md",
+    "计算机视觉/特征检测.md",
     "计算机视觉/摄像机.md",
+    "计算机视觉/特征描述.md",
     "计算机视觉/边缘检测.md",
     "机器学习/t-SNE.md",
-    "机器学习/mean shift.md",
-    "计算机视觉/特征检测.md",
     "计算机视觉/视觉识别.md",
     "image/Pasted image 20240106160030.png",
     "机器学习/谱聚类.md",
@@ -236,7 +237,6 @@
     "操作系统/操作系统基本原理概论.md",
     "深度学习/循环神经网络.md",
     "深度学习/现代循环神经网络.md",
-    "深度学习/计算机视觉.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
