@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/主成分分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "PCA",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "66820b311047e90e",
@@ -110,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/主成分分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "数据挖掘/数据.md",
+                "file": "机器学习/主成分分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数据挖掘/数据.md"
+                "file": "机器学习/主成分分析.md"
               }
             }
           },
@@ -201,6 +202,7 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
+    "数据挖掘/数据.md",
     "实践经验/微调预训练语言模型.md",
     "机器学习/mean shift.md",
     "计算机视觉/图像分割.md",
@@ -236,7 +238,6 @@
     "操作系统/进程管理.md",
     "操作系统/操作系统基本原理概论.md",
     "深度学习/循环神经网络.md",
-    "深度学习/现代循环神经网络.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",

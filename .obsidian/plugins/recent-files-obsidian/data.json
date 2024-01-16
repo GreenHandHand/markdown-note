@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "主成分分析",
+      "path": "机器学习/主成分分析.md"
+    },
+    {
       "basename": "数据",
       "path": "数据挖掘/数据.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "预备知识",
       "path": "深度学习/预备知识.md"
-    },
-    {
-      "basename": "如何训练一个模型",
-      "path": "深度学习/如何训练一个模型.md"
     }
   ],
   "omittedPaths": [],
