@@ -5,6 +5,10 @@
       "path": "实践经验/交叉验证.md"
     },
     {
+      "basename": "评价指标",
+      "path": "实践经验/评价指标.md"
+    },
+    {
       "basename": "机器学习概述",
       "path": "机器学习/机器学习概述.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "随机森林",
       "path": "机器学习/随机森林.md"
-    },
-    {
-      "basename": "评价指标",
-      "path": "实践经验/评价指标.md"
     },
     {
       "basename": "README",

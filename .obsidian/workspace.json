@@ -75,8 +75,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -203,8 +202,9 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
-    "机器学习/机器学习概述.md",
+    "实践经验/评价指标.md",
     "实践经验/交叉验证.md",
+    "机器学习/机器学习概述.md",
     "机器学习/AdaBoost.md",
     "机器学习/EM 算法.md",
     "机器学习/mean shift.md",
@@ -232,7 +232,6 @@
     "image/Pasted image 20240106133511.png",
     "机器学习/随机森林.md",
     "计算机视觉/全景.md",
-    "实践经验/评价指标.md",
     "README.md",
     "image/Pasted image 20240105141253.png",
     "image/Pasted image 20240105141014.png",
