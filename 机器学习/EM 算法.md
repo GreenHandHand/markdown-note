@@ -1,4 +1,4 @@
-# 期望最大化(EM，Expectation-Maximum)算法及其应用
+# 期望最大化(EM, Expectation-Maximum)算法及其应用
 
 对参数的一种求解的方法，是一类通过迭代进行极大似然估计的优化方法，通过用于对包含隐变量或缺失数据的概率模型进行参数估计。也称为Dempster-Laird-Rubin算法。
 

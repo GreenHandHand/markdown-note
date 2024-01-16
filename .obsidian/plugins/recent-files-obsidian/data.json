@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "AdaBoost",
+      "path": "机器学习/AdaBoost.md"
+    },
+    {
+      "basename": "EM 算法",
+      "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "mean shift",
+      "path": "机器学习/mean shift.md"
+    },
+    {
+      "basename": "k 近邻",
+      "path": "机器学习/k 近邻.md"
+    },
+    {
       "basename": "主成分分析",
       "path": "机器学习/主成分分析.md"
     },
@@ -11,10 +27,6 @@
     {
       "basename": "微调预训练语言模型",
       "path": "实践经验/微调预训练语言模型.md"
-    },
-    {
-      "basename": "mean shift",
-      "path": "机器学习/mean shift.md"
     },
     {
       "basename": "图像分割",
@@ -187,18 +199,6 @@
     {
       "basename": "贝叶斯网络",
       "path": "机器学习/贝叶斯网络.md"
-    },
-    {
-      "basename": "马尔科夫决策过程",
-      "path": "强化学习/马尔科夫决策过程.md"
-    },
-    {
-      "basename": "注意力机制",
-      "path": "深度学习/注意力机制.md"
-    },
-    {
-      "basename": "预备知识",
-      "path": "深度学习/预备知识.md"
     }
   ],
   "omittedPaths": [],

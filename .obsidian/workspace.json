@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/主成分分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "PCA",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,8 +75,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/主成分分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/主成分分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/主成分分析.md"
+                "file": "机器学习/AdaBoost.md"
               }
             }
           },
@@ -202,9 +201,13 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
+    "机器学习/EM 算法.md",
+    "机器学习/AdaBoost.md",
+    "机器学习/mean shift.md",
+    "机器学习/k 近邻.md",
+    "机器学习/主成分分析.md",
     "数据挖掘/数据.md",
     "实践经验/微调预训练语言模型.md",
-    "机器学习/mean shift.md",
     "计算机视觉/图像分割.md",
     "计算机视觉/图像滤波.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
@@ -234,10 +237,6 @@
     "image/Pasted image 20240104194114.png",
     "计算机视觉/图像求导.md",
     "计算机视觉/图像融合.md",
-    "强化学习/动态规划算法.md",
-    "操作系统/进程管理.md",
-    "操作系统/操作系统基本原理概论.md",
-    "深度学习/循环神经网络.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
