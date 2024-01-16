@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "交叉验证",
+      "path": "实践经验/交叉验证.md"
+    },
+    {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
       "basename": "AdaBoost",
       "path": "机器学习/AdaBoost.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Actor-Critic算法",
       "path": "强化学习/Actor-Critic算法.md"
-    },
-    {
-      "basename": "Dyna-Q算法",
-      "path": "强化学习/Dyna-Q算法.md"
-    },
-    {
-      "basename": "贝叶斯网络",
-      "path": "机器学习/贝叶斯网络.md"
     }
   ],
   "omittedPaths": [],

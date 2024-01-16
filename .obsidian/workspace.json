@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "实践经验/交叉验证.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "过拟合",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "66820b311047e90e",
@@ -94,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -110,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "实践经验/交叉验证.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +129,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "实践经验/交叉验证.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +152,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/AdaBoost.md"
+                "file": "实践经验/交叉验证.md"
               }
             }
           },
@@ -201,8 +203,10 @@
   },
   "active": "8993c93be2839bf9",
   "lastOpenFiles": [
-    "机器学习/EM 算法.md",
+    "机器学习/机器学习概述.md",
+    "实践经验/交叉验证.md",
     "机器学习/AdaBoost.md",
+    "机器学习/EM 算法.md",
     "机器学习/mean shift.md",
     "机器学习/k 近邻.md",
     "机器学习/主成分分析.md",
@@ -235,8 +239,6 @@
     "image/Pasted image 20240105125153.png",
     "image/Pasted image 20240105113902.png",
     "image/Pasted image 20240104194114.png",
-    "计算机视觉/图像求导.md",
-    "计算机视觉/图像融合.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
