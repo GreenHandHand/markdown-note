@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "191db4ae2c977b37",
+        "id": "63247f2b8e4a7ed7",
         "type": "tabs",
         "children": [
           {
-            "id": "8993c93be2839bf9",
+            "id": "fecdfb8673e91b22",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "实践经验/机器学习项目结构.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -111,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "实践经验/机器学习项目结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "实践经验/机器学习项目结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实践经验/评价指标.md"
+                "file": "实践经验/机器学习项目结构.md"
               }
             }
           },
@@ -200,11 +200,12 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "8993c93be2839bf9",
+  "active": "fecdfb8673e91b22",
   "lastOpenFiles": [
+    "实践经验/机器学习项目结构.md",
+    "实践经验/评价指标.md",
     "image/Pasted image 20240116215757.png",
     "实践经验/交叉验证.md",
-    "实践经验/评价指标.md",
     "机器学习/机器学习概述.md",
     "机器学习/AdaBoost.md",
     "机器学习/EM 算法.md",
@@ -237,7 +238,6 @@
     "image/Pasted image 20240105141014.png",
     "image/Pasted image 20240105125153.png",
     "image/Pasted image 20240105113902.png",
-    "image/Pasted image 20240104194114.png",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",

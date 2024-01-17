@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "机器学习项目结构",
+      "path": "实践经验/机器学习项目结构.md"
+    },
+    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "时序差分算法",
       "path": "强化学习/时序差分算法.md"
-    },
-    {
-      "basename": "Actor-Critic算法",
-      "path": "强化学习/Actor-Critic算法.md"
     }
   ],
   "omittedPaths": [],
