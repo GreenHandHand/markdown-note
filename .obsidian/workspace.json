@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "机器学习/感知机.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -75,8 +75,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -95,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -112,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "机器学习/感知机.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "机器学习/感知机.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/循环神经网络.md"
+                "file": "机器学习/感知机.md"
               }
             }
           },
@@ -201,8 +199,10 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "fecdfb8673e91b22",
+  "active": "03e03384561a4479",
   "lastOpenFiles": [
+    "深度学习/卷积神经网络.md",
+    "深度学习/循环神经网络.md",
     "实践经验/机器学习项目结构.md",
     "实践经验/评价指标.md",
     "image/Pasted image 20240116215757.png",
@@ -233,8 +233,6 @@
     "image/Pasted image 20240106135444.png",
     "image/Pasted image 20240106133821.png",
     "image/Pasted image 20240106133511.png",
-    "机器学习/随机森林.md",
-    "计算机视觉/全景.md",
     "image/Pasted image 20240105141253.png",
     "image/Pasted image 20240105141014.png",
     "image/Pasted image 20240105125153.png",
