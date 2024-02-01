@@ -11,13 +11,8 @@
             "id": "fecdfb8673e91b22",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "机器学习/感知机.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -50,7 +45,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "困惑度",
+                "query": "最优化",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +70,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "66820b311047e90e",
@@ -110,7 +106,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/感知机.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +122,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/感知机.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +143,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "机器学习/感知机.md"
-              }
+              "state": {}
             }
           },
           {
@@ -199,15 +191,16 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "03e03384561a4479",
+  "active": "fecdfb8673e91b22",
   "lastOpenFiles": [
+    "机器学习/机器学习概述.md",
+    "机器学习/感知机.md",
     "深度学习/卷积神经网络.md",
     "深度学习/循环神经网络.md",
     "实践经验/机器学习项目结构.md",
     "实践经验/评价指标.md",
     "image/Pasted image 20240116215757.png",
     "实践经验/交叉验证.md",
-    "机器学习/机器学习概述.md",
     "机器学习/AdaBoost.md",
     "机器学习/EM 算法.md",
     "机器学习/mean shift.md",
@@ -228,7 +221,6 @@
     "计算机视觉/视觉识别.md",
     "image/Pasted image 20240106160030.png",
     "机器学习/谱聚类.md",
-    "机器学习/聚类.md",
     "image/Pasted image 20240106142626.png",
     "image/Pasted image 20240106135444.png",
     "image/Pasted image 20240106133821.png",

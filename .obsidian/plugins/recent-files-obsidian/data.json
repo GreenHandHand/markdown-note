@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
       "basename": "感知机",
       "path": "机器学习/感知机.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "交叉验证",
       "path": "实践经验/交叉验证.md"
-    },
-    {
-      "basename": "机器学习概述",
-      "path": "机器学习/机器学习概述.md"
     },
     {
       "basename": "AdaBoost",
