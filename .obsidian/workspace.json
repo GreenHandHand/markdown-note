@@ -11,8 +11,13 @@
             "id": "fecdfb8673e91b22",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "机器学习/隐马尔可夫模型.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -70,8 +75,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -106,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "机器学习/隐马尔可夫模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "机器学习/隐马尔可夫模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "机器学习/隐马尔可夫模型.md"
+              }
             }
           },
           {
@@ -193,8 +201,8 @@
   },
   "active": "fecdfb8673e91b22",
   "lastOpenFiles": [
-    "机器学习/机器学习概述.md",
     "机器学习/感知机.md",
+    "机器学习/机器学习概述.md",
     "深度学习/卷积神经网络.md",
     "深度学习/循环神经网络.md",
     "实践经验/机器学习项目结构.md",

@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "机器学习概述",
-      "path": "机器学习/机器学习概述.md"
+      "basename": "隐马尔可夫模型",
+      "path": "机器学习/隐马尔可夫模型.md"
     },
     {
       "basename": "感知机",
       "path": "机器学习/感知机.md"
+    },
+    {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
     },
     {
       "basename": "卷积神经网络",
@@ -195,10 +199,6 @@
     {
       "basename": "DQN算法",
       "path": "强化学习/DQN算法.md"
-    },
-    {
-      "basename": "DQN改进算法",
-      "path": "强化学习/DQN改进算法.md"
     }
   ],
   "omittedPaths": [],
