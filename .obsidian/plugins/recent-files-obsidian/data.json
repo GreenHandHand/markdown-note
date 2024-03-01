@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "编译器简介",
+      "path": "编译原理/编译器简介.md"
+    },
+    {
       "basename": "隐马尔可夫模型",
       "path": "机器学习/隐马尔可夫模型.md"
     },
@@ -191,14 +195,6 @@
     {
       "basename": "REINFROCE算法",
       "path": "强化学习/REINFROCE算法.md"
-    },
-    {
-      "basename": "数据库并发控制",
-      "path": "数据库/数据库并发控制.md"
-    },
-    {
-      "basename": "DQN算法",
-      "path": "强化学习/DQN算法.md"
     }
   ],
   "omittedPaths": [],

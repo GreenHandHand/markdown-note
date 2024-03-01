@@ -51,24 +51,6 @@
       "modifiedDate": 1686902895162,
       "sizeInBytes": 2367681
     },
-    "随机过程/随机过程准备知识.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1684153485334,
-      "modifiedDate": 1684155816885,
-      "sizeInBytes": 3356
-    },
     "随机过程/随机过程.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -87,7 +69,7 @@
       "modifiedDate": 1686905524652,
       "sizeInBytes": 3845
     },
-    "随机过程/条件期望.md": {
+    "随机过程/随机过程准备知识.md": {
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 0,
@@ -101,9 +83,9 @@
       "linkCount": 0,
       "embedCount": 0,
       "aliases": [],
-      "createdDate": 1686905686089,
-      "modifiedDate": 1686907791302,
-      "sizeInBytes": 1693
+      "createdDate": 1684153485334,
+      "modifiedDate": 1684155816885,
+      "sizeInBytes": 3356
     },
     "随机过程/更新过程.md": {
       "isCountable": true,
@@ -122,6 +104,24 @@
       "createdDate": 1685864981772,
       "modifiedDate": 1685884554943,
       "sizeInBytes": 14129
+    },
+    "随机过程/条件期望.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1686905686089,
+      "modifiedDate": 1686907791302,
+      "sizeInBytes": 1693
     },
     "随机过程/Markov链.md": {
       "isCountable": true,
@@ -195,6 +195,24 @@
       "modifiedDate": 1704423393504,
       "sizeInBytes": 10849
     },
+    "计算机视觉/直线检测.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1704357530733,
+      "modifiedDate": 1704463781204,
+      "sizeInBytes": 5528
+    },
     "计算机视觉/视觉识别.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -230,24 +248,6 @@
       "createdDate": 1704365028008,
       "modifiedDate": 1704437417201,
       "sizeInBytes": 11897
-    },
-    "计算机视觉/直线检测.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1704357530733,
-      "modifiedDate": 1704463781204,
-      "sizeInBytes": 5528
     },
     "计算机视觉/特征描述.md": {
       "isCountable": true,
@@ -339,6 +339,24 @@
       "modifiedDate": 1699627588062,
       "sizeInBytes": 8357
     },
+    "计算机组成原理/指令系统.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1699366058508,
+      "modifiedDate": 1699441102012,
+      "sizeInBytes": 12401
+    },
     "计算机组成原理/数值的表示.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -374,24 +392,6 @@
       "createdDate": 1699532196788,
       "modifiedDate": 1699535705431,
       "sizeInBytes": 5911
-    },
-    "计算机组成原理/指令系统.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1699366058508,
-      "modifiedDate": 1699441102012,
-      "sizeInBytes": 12401
     },
     "计算机组成原理/存储系统.md": {
       "isCountable": true,
@@ -429,6 +429,24 @@
       "modifiedDate": 1699589470514,
       "sizeInBytes": 19735
     },
+    "编译原理/编译器简介.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 1,
+      "wordCount": 200,
+      "wordCountTowardGoal": 0,
+      "wordGoal": null,
+      "pageCount": 0.6666666666666666,
+      "characterCount": 2308,
+      "nonWhitespaceCharacterCount": 2081,
+      "readingTimeInMinutes": 0.7547169811320755,
+      "linkCount": 0,
+      "embedCount": 5,
+      "aliases": null,
+      "createdDate": 1709205766153,
+      "modifiedDate": 1709209254106,
+      "sizeInBytes": 5356
+    },
     "矩阵分析/矩阵范数/矩阵的谱半径.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -465,24 +483,6 @@
       "modifiedDate": 1680229617977,
       "sizeInBytes": 998
     },
-    "矩阵分析/矩阵范数/方阵范数.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1680229617340,
-      "modifiedDate": 1680229940225,
-      "sizeInBytes": 1344
-    },
     "矩阵分析/矩阵范数/向量范数.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -500,6 +500,24 @@
       "createdDate": 1680229617332,
       "modifiedDate": 1680229617447,
       "sizeInBytes": 1618
+    },
+    "矩阵分析/矩阵范数/方阵范数.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1680229617340,
+      "modifiedDate": 1680229940225,
+      "sizeInBytes": 1344
     },
     "矩阵分析/矩阵范数/一般矩阵范数.md": {
       "isCountable": true,
@@ -825,24 +843,6 @@
       "modifiedDate": 1685190229206,
       "sizeInBytes": 11886
     },
-    "深度学习/机器学习简介.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1680697752986,
-      "modifiedDate": 1688120451475,
-      "sizeInBytes": 3823
-    },
     "深度学习/注意力机制.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -860,6 +860,24 @@
       "createdDate": 1688785030756,
       "modifiedDate": 1690683889670,
       "sizeInBytes": 17543
+    },
+    "深度学习/机器学习简介.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1680697752986,
+      "modifiedDate": 1688120451475,
+      "sizeInBytes": 3823
     },
     "深度学习/循环神经网络.md": {
       "isCountable": true,
@@ -987,7 +1005,7 @@
       "modifiedDate": 1686808050008,
       "sizeInBytes": 4120
     },
-    "机器学习/谱聚类.md": {
+    "机器学习/线性模型.md": {
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 0,
@@ -1001,9 +1019,9 @@
       "linkCount": 0,
       "embedCount": 0,
       "aliases": [],
-      "createdDate": 1686817355168,
-      "modifiedDate": 1704524682499,
-      "sizeInBytes": 5901
+      "createdDate": 1684653189406,
+      "modifiedDate": 1684653814749,
+      "sizeInBytes": 8159
     },
     "机器学习/聚类.md": {
       "isCountable": true,
@@ -1023,7 +1041,7 @@
       "modifiedDate": 1692255378174,
       "sizeInBytes": 17596
     },
-    "机器学习/线性模型.md": {
+    "机器学习/谱聚类.md": {
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 0,
@@ -1037,27 +1055,9 @@
       "linkCount": 0,
       "embedCount": 0,
       "aliases": [],
-      "createdDate": 1684653189406,
-      "modifiedDate": 1684653814749,
-      "sizeInBytes": 8159
-    },
-    "机器学习/潜在狄利克雷分配.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1686039416374,
-      "modifiedDate": 1686815899145,
-      "sizeInBytes": 15250
+      "createdDate": 1686817355168,
+      "modifiedDate": 1704524682499,
+      "sizeInBytes": 5901
     },
     "机器学习/条件随机场.md": {
       "isCountable": true,
@@ -1094,6 +1094,24 @@
       "createdDate": 1685024321592,
       "modifiedDate": 1706710927810,
       "sizeInBytes": 22883
+    },
+    "机器学习/潜在狄利克雷分配.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1686039416374,
+      "modifiedDate": 1686815899145,
+      "sizeInBytes": 15250
     },
     "机器学习/朴素贝叶斯.md": {
       "isCountable": true,
@@ -1419,24 +1437,6 @@
       "modifiedDate": 1686574801293,
       "sizeInBytes": 333
     },
-    "最优化/搜索算法/登山搜索.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1680161388662,
-      "modifiedDate": 1680161388662,
-      "sizeInBytes": 0
-    },
     "最优化/搜索算法/模拟退火算法.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1454,6 +1454,24 @@
       "createdDate": 1680161345562,
       "modifiedDate": 1680768191137,
       "sizeInBytes": 2586
+    },
+    "最优化/搜索算法/登山搜索.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1680161388662,
+      "modifiedDate": 1680161388662,
+      "sizeInBytes": 0
     },
     "最优化/搜索算法/A star算法.md": {
       "isCountable": true,
@@ -1563,24 +1581,6 @@
       "modifiedDate": 1680357653616,
       "sizeInBytes": 11625
     },
-    "数据库/数据库并发控制.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1680957649722,
-      "modifiedDate": 1681033771385,
-      "sizeInBytes": 13751
-    },
     "数据库/数据库恢复技术.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1598,6 +1598,24 @@
       "createdDate": 1680498155148,
       "modifiedDate": 1680529418793,
       "sizeInBytes": 13572
+    },
+    "数据库/数据库并发控制.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1680957649722,
+      "modifiedDate": 1681033771385,
+      "sizeInBytes": 13751
     },
     "数据库/数据库完整性.md": {
       "isCountable": true,
@@ -1653,24 +1671,6 @@
       "modifiedDate": 1681300405528,
       "sizeInBytes": 15403
     },
-    "操作系统/文件管理.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1701056221429,
-      "modifiedDate": 1701951109067,
-      "sizeInBytes": 19528
-    },
     "操作系统/进程管理.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1706,6 +1706,24 @@
       "createdDate": 1697111508182,
       "modifiedDate": 1697891399948,
       "sizeInBytes": 9656
+    },
+    "操作系统/文件管理.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1701056221429,
+      "modifiedDate": 1701951109067,
+      "sizeInBytes": 19528
     },
     "操作系统/内存管理.md": {
       "isCountable": true,
@@ -1797,24 +1815,6 @@
       "modifiedDate": 1699841783112,
       "sizeInBytes": 8520
     },
-    "强化学习/DQN算法.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1684156417012,
-      "modifiedDate": 1684854399453,
-      "sizeInBytes": 6882
-    },
     "强化学习/Dyna-Q算法.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1851,6 +1851,24 @@
       "modifiedDate": 1684575365846,
       "sizeInBytes": 4504
     },
+    "强化学习/DQN算法.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1684156417012,
+      "modifiedDate": 1684854399453,
+      "sizeInBytes": 6882
+    },
     "强化学习/Actor-Critic算法.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1868,6 +1886,42 @@
       "createdDate": 1684853962528,
       "modifiedDate": 1685007229034,
       "sizeInBytes": 5615
+    },
+    "并行编程原理/并行编程概述.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1693793360979,
+      "modifiedDate": 1697891612318,
+      "sizeInBytes": 3592
+    },
+    "并行编程原理/pThread多线程编程.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1693807267564,
+      "modifiedDate": 1697891619204,
+      "sizeInBytes": 650
     },
     "实践经验/评价指标.md": {
       "isCountable": true,
@@ -1923,24 +1977,6 @@
       "modifiedDate": 1705488027219,
       "sizeInBytes": 1517
     },
-    "实践经验/数据预处理专题.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1687185536809,
-      "modifiedDate": 1688097591469,
-      "sizeInBytes": 1240
-    },
     "实践经验/微调预训练语言模型.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1959,6 +1995,24 @@
       "modifiedDate": 1704856618953,
       "sizeInBytes": 1589
     },
+    "实践经验/数据预处理专题.md": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1687185536809,
+      "modifiedDate": 1688097591469,
+      "sizeInBytes": 1240
+    },
     "实践经验/交叉验证.md": {
       "isCountable": true,
       "isDirectory": false,
@@ -1976,42 +2030,6 @@
       "createdDate": 1705401727090,
       "modifiedDate": 1705411329213,
       "sizeInBytes": 5896
-    },
-    "并行编程原理/并行编程概述.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1693793360979,
-      "modifiedDate": 1697891612318,
-      "sizeInBytes": 3592
-    },
-    "并行编程原理/pThread多线程编程.md": {
-      "isCountable": true,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1693807267564,
-      "modifiedDate": 1697891619204,
-      "sizeInBytes": 650
     },
     "前端知识补充/JavaScript.md": {
       "isCountable": true,
@@ -2120,6 +2138,96 @@
       "createdDate": 1695199281733,
       "modifiedDate": 1695199281733,
       "sizeInBytes": 123312
+    },
+    "image/Pasted image 20240229200310.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1709208190256,
+      "modifiedDate": 1709208190256,
+      "sizeInBytes": 51580
+    },
+    "image/Pasted image 20240229200114.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1709208074826,
+      "modifiedDate": 1709208074826,
+      "sizeInBytes": 49105
+    },
+    "image/Pasted image 20240229195734.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1709207854269,
+      "modifiedDate": 1709207854269,
+      "sizeInBytes": 54482
+    },
+    "image/Pasted image 20240229194207.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1709206927895,
+      "modifiedDate": 1709206927895,
+      "sizeInBytes": 10636
+    },
+    "image/Pasted image 20240229194619.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1709207179960,
+      "modifiedDate": 1709207179968,
+      "sizeInBytes": 5615
     },
     "image/Pasted image 20240116215757.png": {
       "isCountable": false,
@@ -2823,24 +2931,6 @@
       "modifiedDate": 1691228722652,
       "sizeInBytes": 48075
     },
-    "image/Pasted image 20230804113058.png": {
-      "isCountable": false,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1691119858737,
-      "modifiedDate": 1691119858737,
-      "sizeInBytes": 14295
-    },
     "image/Pasted image 20230804205732.png": {
       "isCountable": false,
       "isDirectory": false,
@@ -2858,6 +2948,24 @@
       "createdDate": 1691153852738,
       "modifiedDate": 1691153852739,
       "sizeInBytes": 3173
+    },
+    "image/Pasted image 20230804113058.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1691119858737,
+      "modifiedDate": 1691119858737,
+      "sizeInBytes": 14295
     },
     "image/Pasted image 20230801115153.png": {
       "isCountable": false,
@@ -3273,24 +3381,6 @@
       "modifiedDate": 1688372400472,
       "sizeInBytes": 10220
     },
-    "image/Pasted image 20230703143817.png": {
-      "isCountable": false,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1688366297994,
-      "modifiedDate": 1688366297995,
-      "sizeInBytes": 27007
-    },
     "image/Pasted image 20230703143311.png": {
       "isCountable": false,
       "isDirectory": false,
@@ -3308,6 +3398,24 @@
       "createdDate": 1688365991259,
       "modifiedDate": 1688365991261,
       "sizeInBytes": 23255
+    },
+    "image/Pasted image 20230703143817.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1688366297994,
+      "modifiedDate": 1688366297995,
+      "sizeInBytes": 27007
     },
     "image/Pasted image 20230703143025.png": {
       "isCountable": false,
@@ -3687,24 +3795,6 @@
       "modifiedDate": 1685094375094,
       "sizeInBytes": 240708
     },
-    "image/Pasted image 20230526174117.png": {
-      "isCountable": false,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1685094077171,
-      "modifiedDate": 1685094077172,
-      "sizeInBytes": 43858
-    },
     "image/Pasted image 20230526173912.png": {
       "isCountable": false,
       "isDirectory": false,
@@ -3721,6 +3811,24 @@
       "aliases": [],
       "createdDate": 1685093952443,
       "modifiedDate": 1685093952444,
+      "sizeInBytes": 43858
+    },
+    "image/Pasted image 20230526174117.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1685094077171,
+      "modifiedDate": 1685094077172,
       "sizeInBytes": 43858
     },
     "image/Pasted image 20230526173805.png": {
@@ -4263,24 +4371,6 @@
       "modifiedDate": 1690732686702,
       "sizeInBytes": 172387
     },
-    "image/output 2.svg": {
-      "isCountable": false,
-      "isDirectory": false,
-      "noteCount": 0,
-      "wordCount": 0,
-      "wordCountTowardGoal": 0,
-      "wordGoal": 0,
-      "pageCount": 0,
-      "characterCount": 0,
-      "nonWhitespaceCharacterCount": 0,
-      "readingTimeInMinutes": 0,
-      "linkCount": 0,
-      "embedCount": 0,
-      "aliases": [],
-      "createdDate": 1690731799644,
-      "modifiedDate": 1690731799646,
-      "sizeInBytes": 91071
-    },
     "image/output 1.svg": {
       "isCountable": false,
       "isDirectory": false,
@@ -4299,7 +4389,7 @@
       "modifiedDate": 1690731776009,
       "sizeInBytes": 90919
     },
-    "image/IEEE.png": {
+    "image/output 2.svg": {
       "isCountable": false,
       "isDirectory": false,
       "noteCount": 0,
@@ -4313,9 +4403,9 @@
       "linkCount": 0,
       "embedCount": 0,
       "aliases": [],
-      "createdDate": 1695550596022,
-      "modifiedDate": 1695550545169,
-      "sizeInBytes": 2818
+      "createdDate": 1690731799644,
+      "modifiedDate": 1690731799646,
+      "sizeInBytes": 91071
     },
     "image/modelTransfer.png": {
       "isCountable": false,
@@ -4334,6 +4424,24 @@
       "createdDate": 1695196692342,
       "modifiedDate": 1695196692342,
       "sizeInBytes": 55837
+    },
+    "image/IEEE.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1695550596022,
+      "modifiedDate": 1695550545169,
+      "sizeInBytes": 2818
     },
     "image/float.png": {
       "isCountable": false,
