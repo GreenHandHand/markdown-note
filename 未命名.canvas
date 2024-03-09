@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"ff34b2c0d6e2d7de","x":-569,"y":10,"width":289,"height":60,"type":"text","text":"单语种语义编码"},
+		{"id":"0ea26e2db53183b5","x":-178,"y":10,"width":262,"height":60,"type":"text","text":"Sentence-Bert"},
+		{"id":"23cce262e85ee70c","x":-562,"y":-210,"width":282,"height":60,"type":"text","text":"多语言预训练模型"},
+		{"id":"ab42f384ffcb442a","x":-172,"y":-100,"width":250,"height":60,"type":"text","text":"相同的方式微调"},
+		{"id":"2a5d57deea821657","x":-569,"y":-100,"width":284,"height":60,"type":"text","text":"多语种语义编码"},
+		{"id":"7e6148c4b4e3c9e1","x":-128,"y":-210,"width":162,"height":60,"type":"text","text":"mBert"},
+		{"id":"e2067165d83ee66f","x":260,"y":-100,"width":140,"height":60,"type":"text","text":"数据"},
+		{"id":"34a4f780e5ba97f6","x":-228,"y":160,"width":250,"height":300,"type":"text","text":"训练方式："}
+	],
+	"edges":[
+		{"id":"fb85da8655983773","fromNode":"23cce262e85ee70c","fromSide":"right","toNode":"7e6148c4b4e3c9e1","toSide":"left"},
+		{"id":"cb4f2434126774b9","fromNode":"ff34b2c0d6e2d7de","fromSide":"right","toNode":"0ea26e2db53183b5","toSide":"left"},
+		{"id":"903cda9aa19c30a4","fromNode":"0ea26e2db53183b5","fromSide":"top","toNode":"ab42f384ffcb442a","toSide":"bottom"},
+		{"id":"ed415d1946635203","fromNode":"2a5d57deea821657","fromSide":"right","toNode":"ab42f384ffcb442a","toSide":"left"},
+		{"id":"2d818d5202603b90","fromNode":"ab42f384ffcb442a","fromSide":"top","toNode":"7e6148c4b4e3c9e1","toSide":"bottom"}
+	]
+}

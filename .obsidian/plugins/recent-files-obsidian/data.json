@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名",
+      "path": "未命名.canvas"
+    },
+    {
+      "basename": "未命名",
+      "path": "数据结构/未命名.md"
+    },
+    {
       "basename": "编译器简介",
       "path": "编译原理/编译器简介.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "内存管理",
       "path": "操作系统/内存管理.md"
-    },
-    {
-      "basename": "REINFROCE算法",
-      "path": "强化学习/REINFROCE算法.md"
     }
   ],
   "omittedPaths": [],

@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "63247f2b8e4a7ed7",
+        "id": "5887bc2aedbdad06",
         "type": "tabs",
         "children": [
           {
-            "id": "fecdfb8673e91b22",
+            "id": "934a6d0fc0a91a0a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "编译原理/编译器简介.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "未命名.canvas",
+                "viewState": {
+                  "x": -17,
+                  "y": 213.5,
+                  "zoom": 0
+                }
               }
             }
           }
@@ -94,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -110,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/编译器简介.md",
+                "file": "未命名.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/编译器简介.md",
+                "file": "未命名.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/编译器简介.md"
+                "file": "未命名.canvas"
               }
             }
           },
@@ -199,15 +202,18 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "fecdfb8673e91b22",
+  "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "数据结构/未命名.md",
+    "未命名.canvas",
+    "数据结构",
+    "编译原理/编译器简介.md",
     "image/Pasted image 20240229200310.png",
     "image/Pasted image 20240229200114.png",
     "image/Pasted image 20240229195734.png",
     "image/Pasted image 20240229194619.png",
     "image/Pasted image 20240229194207.png",
     "机器学习/隐马尔可夫模型.md",
-    "编译原理/编译器简介.md",
     "未命名.md",
     "编译原理/未命名",
     "未命名 1.md",
@@ -233,12 +239,10 @@
     "计算机视觉/直线检测.md",
     "计算机视觉/运动.md",
     "计算机视觉/特征检测.md",
-    "计算机视觉/摄像机.md",
     "image/Pasted image 20240106160030.png",
     "image/Pasted image 20240106142626.png",
     "image/Pasted image 20240106135444.png",
     "image/Pasted image 20240106133821.png",
-    "image/Pasted image 20240106133511.png",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
@@ -247,7 +251,6 @@
     "前端知识补充",
     "实践经验",
     "思维.canvas",
-    "new/随机过程/随机过程讲义.pdf",
     "数据库.canvas",
     "最优化/群体智能算法/未命名.canvas",
     "矩阵分析/未命名.canvas"
