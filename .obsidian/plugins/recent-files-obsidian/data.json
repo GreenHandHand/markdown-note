@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Signals、Slots&Events",
+      "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
+    },
+    {
+      "basename": "Hallo pyside",
+      "path": "前端知识补充/pySide6/Hallo pyside.md"
+    },
+    {
       "basename": "未命名",
       "path": "未命名.canvas"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "总线",
       "path": "计算机组成原理/总线.md"
-    },
-    {
-      "basename": "文件管理",
-      "path": "操作系统/文件管理.md"
-    },
-    {
-      "basename": "内存管理",
-      "path": "操作系统/内存管理.md"
     }
   ],
   "omittedPaths": [],

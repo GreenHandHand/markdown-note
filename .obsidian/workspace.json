@@ -11,14 +11,12 @@
             "id": "934a6d0fc0a91a0a",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "未命名.canvas",
-                "viewState": {
-                  "x": 13.690008504733129,
-                  "y": -206.37355106564218,
-                  "zoom": -0.8333333333333333
-                }
+                "file": "前端知识补充/pySide6/Signals、Slots&Events.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
@@ -113,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "未命名.canvas",
+                "file": "前端知识补充/pySide6/Signals、Slots&Events.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "未命名.canvas",
+                "file": "前端知识补充/pySide6/Signals、Slots&Events.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未命名.canvas"
+                "file": "前端知识补充/pySide6/Signals、Slots&Events.md"
               }
             }
           },
@@ -204,8 +202,12 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
-    "数据结构/未命名.md",
+    "前端知识补充/pySide6/Hallo pyside.md",
+    "前端知识补充/pySide6/Signals、Slots&Events.md",
     "未命名.canvas",
+    "前端知识补充/pySide6",
+    "前端知识补充/未命名.md",
+    "数据结构/未命名.md",
     "数据结构",
     "编译原理/编译器简介.md",
     "image/Pasted image 20240229200310.png",
@@ -237,8 +239,6 @@
     "计算机视觉/图像滤波.md",
     "计算机视觉/图像金字塔与傅里叶变换.md",
     "计算机视觉/直线检测.md",
-    "计算机视觉/运动.md",
-    "计算机视觉/特征检测.md",
     "image/Pasted image 20240106160030.png",
     "image/Pasted image 20240106142626.png",
     "image/Pasted image 20240106135444.png",
@@ -249,7 +249,6 @@
     "并行编程原理",
     "数据挖掘",
     "前端知识补充",
-    "实践经验",
     "思维.canvas",
     "数据库.canvas",
     "最优化/群体智能算法/未命名.canvas",
