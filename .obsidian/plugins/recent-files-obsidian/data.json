@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Layout",
+      "path": "前端知识补充/pySide6/Layout.md"
+    },
+    {
+      "basename": "Hallo pyside",
+      "path": "前端知识补充/pySide6/Hallo pyside.md"
+    },
+    {
       "basename": "Widgets",
       "path": "前端知识补充/pySide6/Widgets.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "Signals、Slots&Events",
       "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
-    },
-    {
-      "basename": "Hallo pyside",
-      "path": "前端知识补充/pySide6/Hallo pyside.md"
     },
     {
       "basename": "未命名",
@@ -195,10 +199,6 @@
     {
       "basename": "输入输出系统",
       "path": "计算机组成原理/输入输出系统.md"
-    },
-    {
-      "basename": "存储系统",
-      "path": "计算机组成原理/存储系统.md"
     }
   ],
   "omittedPaths": [],
