@@ -8,7 +8,5 @@
   "translucency": true,
   "nativeMenus": false,
   "showViewHeader": true,
-  "enabledCssSnippets": [
-    "style"
-  ]
+  "enabledCssSnippets": []
 }

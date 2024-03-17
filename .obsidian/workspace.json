@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "前端知识补充/pySide6/Layout.md",
+                "file": "编译原理/词法分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "前端知识补充/pySide6/Layout.md",
+                "file": "编译原理/词法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "前端知识补充/pySide6/Layout.md",
+                "file": "编译原理/词法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "前端知识补充/pySide6/Layout.md"
+                "file": "编译原理/词法分析.md"
               }
             }
           },
@@ -202,10 +201,11 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "前端知识补充/pySide6/Layout.md",
+    "编译原理/词法分析.md",
     "image/Pasted image 20240311183949.png",
     "image/Pasted image 20240311183828.png",
     "前端知识补充/pySide6/Hallo pyside.md",
-    "前端知识补充/pySide6/Layout.md",
     "前端知识补充/pySide6/Widgets.md",
     "image/Pasted image 20240311174224.png",
     "image/Pasted image 20240311172858.png",
@@ -242,7 +242,6 @@
     "机器学习/主成分分析.md",
     "数据挖掘/数据.md",
     "实践经验/微调预训练语言模型.md",
-    "image/Pasted image 20240106160030.png",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
