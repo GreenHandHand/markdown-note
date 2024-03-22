@@ -433,19 +433,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 922,
+      "wordCount": 1079,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 3.0733333333333333,
-      "characterCount": 10586,
-      "nonWhitespaceCharacterCount": 9211,
-      "readingTimeInMinutes": 3.479245283018868,
+      "pageCount": 3.5966666666666667,
+      "characterCount": 12622,
+      "nonWhitespaceCharacterCount": 11060,
+      "readingTimeInMinutes": 4.071698113207547,
       "linkCount": 0,
-      "embedCount": 4,
+      "embedCount": 5,
       "aliases": null,
       "createdDate": 1710678233675,
-      "modifiedDate": 1711099898362,
-      "sizeInBytes": 21652
+      "modifiedDate": 1711101873274,
+      "sizeInBytes": 26488
     },
     "编译原理/编译器简介.md": {
       "isCountable": true,
@@ -4856,6 +4856,24 @@
       "createdDate": 1711091258721,
       "modifiedDate": 1711091258723,
       "sizeInBytes": 61214
+    },
+    "image/Pasted image 20240322175005.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1711101005801,
+      "modifiedDate": 1711101005802,
+      "sizeInBytes": 92797
     }
   }
 }
