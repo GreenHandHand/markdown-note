@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "实践经验/评价指标.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "最优化",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "实践经验/评价指标.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "实践经验/评价指标.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/词法分析.md"
+                "file": "实践经验/评价指标.md"
               }
             }
           },
@@ -200,19 +200,21 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "实践经验/微调预训练语言模型.md",
+    "实践经验/数据预处理专题.md",
+    "深度学习/现代卷积神经网络.md",
+    "编译原理/词法分析.md",
     "image/Pasted image 20240322204840.png",
     "image/Pasted image 20240322204827.png",
     "image/Pasted image 20240322204817.png",
     "image/Pasted image 20240322204543.png",
     "image/Pasted image 20240322204503.png",
     "编译原理/编译器简介.md",
-    "编译原理/词法分析.md",
     "image/Pasted image 20240322175005.png",
     "image/Pasted image 20240322150738.png",
     "image/Pasted image 20240322150413.png",
     "image/Pasted image 20240322150343.png",
     "image/Pasted image 20240322150319.png",
-    "image/mermaid-diagram-2024-03-22-150045.svg",
     "前端知识补充/pySide6/Layout.md",
     "前端知识补充/pySide6/Hallo pyside.md",
     "前端知识补充/pySide6/Widgets.md",
@@ -239,8 +241,6 @@
     "机器学习/EM 算法.md",
     "机器学习/mean shift.md",
     "机器学习/k 近邻.md",
-    "机器学习/主成分分析.md",
-    "数据挖掘/数据.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
