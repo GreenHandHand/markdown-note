@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "词法分析",
+      "path": "编译原理/词法分析.md"
+    },
+    {
+      "basename": "语法分析",
+      "path": "编译原理/语法分析.md"
+    },
+    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
     },
@@ -15,10 +23,6 @@
     {
       "basename": "现代卷积神经网络",
       "path": "深度学习/现代卷积神经网络.md"
-    },
-    {
-      "basename": "词法分析",
-      "path": "编译原理/词法分析.md"
     },
     {
       "basename": "编译器简介",
@@ -195,10 +199,6 @@
     {
       "basename": "机器学习简介",
       "path": "深度学习/机器学习简介.md"
-    },
-    {
-      "basename": "指令系统",
-      "path": "计算机组成原理/指令系统.md"
     }
   ],
   "omittedPaths": [],

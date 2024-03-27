@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "编译原理/词法分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -110,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "编译原理/词法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "编译原理/词法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实践经验/评价指标.md"
+                "file": "编译原理/词法分析.md"
               }
             }
           },
@@ -185,7 +186,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5
+    "width": 301.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,6 +202,8 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "编译原理/语法分析.md",
+    "实践经验/评价指标.md",
     "实践经验/微调预训练语言模型.md",
     "实践经验/数据预处理专题.md",
     "深度学习/现代卷积神经网络.md",
@@ -235,12 +239,10 @@
     "深度学习/卷积神经网络.md",
     "深度学习/循环神经网络.md",
     "实践经验/机器学习项目结构.md",
-    "实践经验/评价指标.md",
     "实践经验/交叉验证.md",
     "机器学习/AdaBoost.md",
     "机器学习/EM 算法.md",
     "机器学习/mean shift.md",
-    "机器学习/k 近邻.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
