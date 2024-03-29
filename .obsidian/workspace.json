@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "深度学习/计算机视觉.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "深度学习/计算机视觉.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "深度学习/计算机视觉.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/词法分析.md"
+                "file": "深度学习/计算机视觉.md"
               }
             }
           },
@@ -186,8 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 301.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,12 +200,13 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "深度学习/现代卷积神经网络.md",
+    "深度学习/卷积神经网络.md",
+    "编译原理/词法分析.md",
     "编译原理/语法分析.md",
     "实践经验/评价指标.md",
     "实践经验/微调预训练语言模型.md",
     "实践经验/数据预处理专题.md",
-    "深度学习/现代卷积神经网络.md",
-    "编译原理/词法分析.md",
     "image/Pasted image 20240322204840.png",
     "image/Pasted image 20240322204827.png",
     "image/Pasted image 20240322204817.png",
@@ -236,7 +235,6 @@
     "编译原理",
     "机器学习/感知机.md",
     "机器学习/机器学习概述.md",
-    "深度学习/卷积神经网络.md",
     "深度学习/循环神经网络.md",
     "实践经验/机器学习项目结构.md",
     "实践经验/交叉验证.md",
