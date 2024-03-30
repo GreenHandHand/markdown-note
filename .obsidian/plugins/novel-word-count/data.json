@@ -725,19 +725,19 @@
       "isCountable": true,
       "isDirectory": false,
       "noteCount": 1,
-      "wordCount": 1937,
+      "wordCount": 3460,
       "wordCountTowardGoal": 0,
       "wordGoal": null,
-      "pageCount": 6.456666666666667,
-      "characterCount": 2595,
-      "nonWhitespaceCharacterCount": 2417,
-      "readingTimeInMinutes": 3.9804150943396226,
+      "pageCount": 11.533333333333333,
+      "characterCount": 5668,
+      "nonWhitespaceCharacterCount": 5249,
+      "readingTimeInMinutes": 7.255207547169811,
       "linkCount": 0,
-      "embedCount": 0,
+      "embedCount": 1,
       "aliases": null,
       "createdDate": 1711507655528,
-      "modifiedDate": 1711801665479,
-      "sizeInBytes": 6613
+      "modifiedDate": 1711805267235,
+      "sizeInBytes": 12688
     },
     "编译原理/词法分析.md": {
       "isCountable": true,
@@ -4986,6 +4986,24 @@
       "createdDate": 1692079942919,
       "modifiedDate": 1692079942919,
       "sizeInBytes": 3164
+    },
+    "image/Pasted image 20240330212309.png": {
+      "isCountable": false,
+      "isDirectory": false,
+      "noteCount": 0,
+      "wordCount": 0,
+      "wordCountTowardGoal": 0,
+      "wordGoal": 0,
+      "pageCount": 0,
+      "characterCount": 0,
+      "nonWhitespaceCharacterCount": 0,
+      "readingTimeInMinutes": 0,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": [],
+      "createdDate": 1711804989481,
+      "modifiedDate": 1711804989483,
+      "sizeInBytes": 46360
     }
   }
 }
