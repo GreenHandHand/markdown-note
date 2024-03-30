@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "编译原理/语法分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "编译原理/语法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "编译原理/语法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/词法分析.md"
+                "file": "编译原理/语法分析.md"
               }
             }
           },
@@ -198,13 +198,14 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "934a6d0fc0a91a0a",
+  "active": "b8d2df7aea0a47c5",
   "lastOpenFiles": [
+    "编译原理/编译器简介.md",
+    "编译原理/语法分析.md",
+    "编译原理/词法分析.md",
     "深度学习/计算机视觉.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/卷积神经网络.md",
-    "编译原理/词法分析.md",
-    "编译原理/语法分析.md",
     "实践经验/评价指标.md",
     "实践经验/微调预训练语言模型.md",
     "实践经验/数据预处理专题.md",
@@ -213,7 +214,6 @@
     "image/Pasted image 20240322204817.png",
     "image/Pasted image 20240322204543.png",
     "image/Pasted image 20240322204503.png",
-    "编译原理/编译器简介.md",
     "image/Pasted image 20240322175005.png",
     "image/Pasted image 20240322150738.png",
     "image/Pasted image 20240322150413.png",

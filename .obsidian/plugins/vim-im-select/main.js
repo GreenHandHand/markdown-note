@@ -30,26 +30,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
 
 // main.ts
 var main_exports = {};
@@ -74,30 +54,28 @@ var VimImPlugin = class extends import_obsidian.Plugin {
     this.previousMode = "";
     this.isWinPlatform = false;
   }
-  onload() {
-    return __async(this, null, function* () {
-      yield this.loadSettings();
-      this.app.workspace.on("file-open", (_file) => __async(this, null, function* () {
-        const view = this.getActiveView();
-        if (view) {
-          const editor = this.getCodeMirror(view);
-          if (editor) {
-            editor.on("vim-mode-change", (modeObj) => {
-              if (modeObj) {
-                this.onVimModeChanged(modeObj);
-              }
-            });
-          }
+  async onload() {
+    await this.loadSettings();
+    this.app.workspace.on("file-open", async (_file) => {
+      const view = this.getActiveView();
+      if (view) {
+        const editor = this.getCodeMirror(view);
+        if (editor) {
+          editor.on("vim-mode-change", (modeObj) => {
+            if (modeObj) {
+              this.onVimModeChanged(modeObj);
+            }
+          });
         }
-      }));
-      this.addSettingTab(new SampleSettingTab(this.app, this));
-      console.debug("VimIm::OS type: " + os.type());
-      this.isWinPlatform = os.type() == "Windows_NT";
-      this.currentInsertIM = this.isWinPlatform ? this.settings.windowsDefaultIM : this.settings.defaultIM;
-      if (this.isWinPlatform) {
-        console.debug("VimIm Use Windows config");
       }
     });
+    this.addSettingTab(new SampleSettingTab(this.app, this));
+    console.debug("VimIm::OS type: " + os.type());
+    this.isWinPlatform = os.type() == "Windows_NT";
+    this.currentInsertIM = this.isWinPlatform ? this.settings.windowsDefaultIM : this.settings.defaultIM;
+    if (this.isWinPlatform) {
+      console.debug("VimIm Use Windows config");
+    }
   }
   getActiveView() {
     return this.app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
@@ -166,15 +144,11 @@ var VimImPlugin = class extends import_obsidian.Plugin {
   onunload() {
     console.debug("onunload");
   }
-  loadSettings() {
-    return __async(this, null, function* () {
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, yield this.loadData());
-    });
+  async loadSettings() {
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
   }
-  saveSettings() {
-    return __async(this, null, function* () {
-      yield this.saveData(this.settings);
-    });
+  async saveSettings() {
+    await this.saveData(this.settings);
   }
 };
 var SampleSettingTab = class extends import_obsidian.PluginSettingTab {
@@ -187,36 +161,36 @@ var SampleSettingTab = class extends import_obsidian.PluginSettingTab {
     containerEl.empty();
     containerEl.createEl("h2", { text: "Vim IM Select Settings." });
     containerEl.createEl("h3", { text: "Settings for default platform." });
-    new import_obsidian.Setting(containerEl).setName("Default IM").setDesc("IM for normal mode").addText((text) => text.setPlaceholder("Default IM").setValue(this.plugin.settings.defaultIM).onChange((value) => __async(this, null, function* () {
+    new import_obsidian.Setting(containerEl).setName("Default IM").setDesc("IM for normal mode").addText((text) => text.setPlaceholder("Default IM").setValue(this.plugin.settings.defaultIM).onChange(async (value) => {
       console.debug("Default IM: " + value);
       this.plugin.settings.defaultIM = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian.Setting(containerEl).setName("Obtaining Command").setDesc("Command for obtaining current IM(must be excutable)").addText((text) => text.setPlaceholder("Obtaining Command").setValue(this.plugin.settings.obtainCmd).onChange((value) => __async(this, null, function* () {
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian.Setting(containerEl).setName("Obtaining Command").setDesc("Command for obtaining current IM(must be excutable)").addText((text) => text.setPlaceholder("Obtaining Command").setValue(this.plugin.settings.obtainCmd).onChange(async (value) => {
       console.debug("Obtain Cmd: " + value);
       this.plugin.settings.obtainCmd = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian.Setting(containerEl).setName("Switching Command").setDesc("Command for switching to specific IM(must be excutable)").addText((text) => text.setPlaceholder("Use {im} as placeholder of IM").setValue(this.plugin.settings.switchCmd).onChange((value) => __async(this, null, function* () {
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian.Setting(containerEl).setName("Switching Command").setDesc("Command for switching to specific IM(must be excutable)").addText((text) => text.setPlaceholder("Use {im} as placeholder of IM").setValue(this.plugin.settings.switchCmd).onChange(async (value) => {
       console.debug("Switch Cmd: " + value);
       this.plugin.settings.switchCmd = value;
-      yield this.plugin.saveSettings();
-    })));
+      await this.plugin.saveSettings();
+    }));
     containerEl.createEl("h3", { text: "Settings for Windows platform." });
-    new import_obsidian.Setting(containerEl).setName("Windows Default IM").setDesc("IM for normal mode").addText((text) => text.setPlaceholder("Default IM").setValue(this.plugin.settings.windowsDefaultIM).onChange((value) => __async(this, null, function* () {
+    new import_obsidian.Setting(containerEl).setName("Windows Default IM").setDesc("IM for normal mode").addText((text) => text.setPlaceholder("Default IM").setValue(this.plugin.settings.windowsDefaultIM).onChange(async (value) => {
       console.debug("Default IM: " + value);
       this.plugin.settings.windowsDefaultIM = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian.Setting(containerEl).setName("Obtaining Command on Windows").setDesc("Command for obtaining current IM(must be excutable)").addText((text) => text.setPlaceholder("Obtaining Command").setValue(this.plugin.settings.windowsObtainCmd).onChange((value) => __async(this, null, function* () {
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian.Setting(containerEl).setName("Obtaining Command on Windows").setDesc("Command for obtaining current IM(must be excutable)").addText((text) => text.setPlaceholder("Obtaining Command").setValue(this.plugin.settings.windowsObtainCmd).onChange(async (value) => {
       console.debug("Obtain Cmd: " + value);
       this.plugin.settings.windowsObtainCmd = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian.Setting(containerEl).setName("Switching Command on Windows").setDesc("Command for switching to specific IM(must be excutable)").addText((text) => text.setPlaceholder("Use {im} as placeholder of IM").setValue(this.plugin.settings.windowsSwitchCmd).onChange((value) => __async(this, null, function* () {
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian.Setting(containerEl).setName("Switching Command on Windows").setDesc("Command for switching to specific IM(must be excutable)").addText((text) => text.setPlaceholder("Use {im} as placeholder of IM").setValue(this.plugin.settings.windowsSwitchCmd).onChange(async (value) => {
       console.debug("Switch Cmd: " + value);
       this.plugin.settings.windowsSwitchCmd = value;
-      yield this.plugin.saveSettings();
-    })));
+      await this.plugin.saveSettings();
+    }));
   }
 };
