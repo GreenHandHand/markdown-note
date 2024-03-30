@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "词法分析",
+      "path": "编译原理/词法分析.md"
+    },
+    {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "卷积神经网络",
       "path": "深度学习/卷积神经网络.md"
-    },
-    {
-      "basename": "词法分析",
-      "path": "编译原理/词法分析.md"
     },
     {
       "basename": "语法分析",

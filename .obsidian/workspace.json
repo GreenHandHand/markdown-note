@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "编译原理/词法分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "编译原理/词法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/计算机视觉.md",
+                "file": "编译原理/词法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/计算机视觉.md"
+                "file": "编译原理/词法分析.md"
               }
             }
           },
@@ -200,6 +200,7 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "深度学习/计算机视觉.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/卷积神经网络.md",
     "编译原理/词法分析.md",
@@ -240,7 +241,6 @@
     "实践经验/交叉验证.md",
     "机器学习/AdaBoost.md",
     "机器学习/EM 算法.md",
-    "机器学习/mean shift.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
