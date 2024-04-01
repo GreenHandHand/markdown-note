@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "语法分析",
+      "path": "编译原理/语法分析.md"
+    },
+    {
       "basename": "存储系统",
       "path": "计算机组成原理/存储系统.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "内存管理",
       "path": "操作系统/内存管理.md"
-    },
-    {
-      "basename": "语法分析",
-      "path": "编译原理/语法分析.md"
     },
     {
       "basename": "编译器简介",
