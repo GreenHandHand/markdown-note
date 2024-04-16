@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "语法分析",
+      "path": "编译原理/语法分析.md"
+    },
+    {
       "basename": "一个简单的语法制导翻译器",
       "path": "编译原理/一个简单的语法制导翻译器.md"
     },
     {
       "basename": "编译器简介",
       "path": "编译原理/编译器简介.md"
-    },
-    {
-      "basename": "语法分析",
-      "path": "编译原理/语法分析.md"
     },
     {
       "basename": "存储系统",

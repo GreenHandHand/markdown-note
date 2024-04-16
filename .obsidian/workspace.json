@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/一个简单的语法制导翻译器.md",
+                "file": "编译原理/语法分析.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/一个简单的语法制导翻译器.md",
+                "file": "编译原理/语法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/一个简单的语法制导翻译器.md",
+                "file": "编译原理/语法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/一个简单的语法制导翻译器.md"
+                "file": "编译原理/语法分析.md"
               }
             }
           },
@@ -200,8 +200,8 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
-    "编译原理/编译器简介.md",
     "编译原理/一个简单的语法制导翻译器.md",
+    "编译原理/编译器简介.md",
     "image/Pasted image 20240406200237.png",
     "编译原理/语法分析.md",
     "计算机组成原理/存储系统.md",
