@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "AdaBoost",
+      "path": "机器学习/AdaBoost.md"
+    },
+    {
+      "basename": "主成分分析",
+      "path": "机器学习/主成分分析.md"
+    },
+    {
+      "basename": "最大熵模型",
+      "path": "机器学习/最大熵模型.md"
+    },
+    {
       "basename": "语法分析",
       "path": "编译原理/语法分析.md"
     },
@@ -105,10 +117,6 @@
       "path": "实践经验/交叉验证.md"
     },
     {
-      "basename": "AdaBoost",
-      "path": "机器学习/AdaBoost.md"
-    },
-    {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
     },
@@ -119,10 +127,6 @@
     {
       "basename": "k 近邻",
       "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "主成分分析",
-      "path": "机器学习/主成分分析.md"
     },
     {
       "basename": "数据",
@@ -195,10 +199,6 @@
     {
       "basename": "操作系统基本原理概论",
       "path": "操作系统/操作系统基本原理概论.md"
-    },
-    {
-      "basename": "现代循环神经网络",
-      "path": "深度学习/现代循环神经网络.md"
     }
   ],
   "omittedPaths": [],

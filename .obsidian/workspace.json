@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/AdaBoost.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/语法分析.md"
+                "file": "机器学习/AdaBoost.md"
               }
             }
           },
@@ -200,10 +200,13 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "机器学习/主成分分析.md",
+    "机器学习/最大熵模型.md",
+    "机器学习/AdaBoost.md",
+    "编译原理/语法分析.md",
     "编译原理/一个简单的语法制导翻译器.md",
     "编译原理/编译器简介.md",
     "image/Pasted image 20240406200237.png",
-    "编译原理/语法分析.md",
     "计算机组成原理/存储系统.md",
     "计算机组成原理/中央处理器.md",
     "操作系统/内存管理.md",
@@ -238,9 +241,6 @@
     "编译原理/未命名",
     "未命名 1.md",
     "编译原理",
-    "机器学习/感知机.md",
-    "机器学习/机器学习概述.md",
-    "深度学习/循环神经网络.md",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
