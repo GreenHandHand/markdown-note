@@ -62,7 +62,7 @@ $$
 得到最终分类器
 $$
 \begin{aligned}
-G_(x)&=\textbf{sign}(f(x))\\
+G(x)&=\textbf{sign}(f(x))\\
 &=\textbf{sign} \left(\sum_{m=1}^M \alpha_m G_m(x)\right)
 \end{aligned}\tag 6
 $$
