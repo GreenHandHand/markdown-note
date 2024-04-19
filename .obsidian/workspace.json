@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "resnet",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "66820b311047e90e",
@@ -110,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/AdaBoost.md",
+                "file": "深度学习/现代卷积神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/AdaBoost.md"
+                "file": "深度学习/现代卷积神经网络.md"
               }
             }
           },
@@ -200,9 +201,9 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
+    "机器学习/AdaBoost.md",
     "机器学习/主成分分析.md",
     "机器学习/最大熵模型.md",
-    "机器学习/AdaBoost.md",
     "编译原理/语法分析.md",
     "编译原理/一个简单的语法制导翻译器.md",
     "编译原理/编译器简介.md",

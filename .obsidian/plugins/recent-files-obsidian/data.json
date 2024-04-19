@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
       "basename": "AdaBoost",
       "path": "机器学习/AdaBoost.md"
     },
@@ -43,10 +47,6 @@
     {
       "basename": "计算机视觉",
       "path": "深度学习/计算机视觉.md"
-    },
-    {
-      "basename": "现代卷积神经网络",
-      "path": "深度学习/现代卷积神经网络.md"
     },
     {
       "basename": "卷积神经网络",
