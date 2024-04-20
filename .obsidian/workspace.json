@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/现代卷积神经网络.md",
-                "mode": "preview",
+                "file": "机器学习/Boost.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "resnet",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,8 +75,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "66820b311047e90e",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/现代卷积神经网络.md",
+                "file": "机器学习/Boost.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/现代卷积神经网络.md",
+                "file": "机器学习/Boost.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/现代卷积神经网络.md"
+                "file": "机器学习/Boost.md"
               }
             }
           },
@@ -201,7 +200,8 @@
   },
   "active": "934a6d0fc0a91a0a",
   "lastOpenFiles": [
-    "机器学习/AdaBoost.md",
+    "深度学习/现代卷积神经网络.md",
+    "机器学习/Boost.md",
     "机器学习/主成分分析.md",
     "机器学习/最大熵模型.md",
     "编译原理/语法分析.md",
@@ -214,7 +214,6 @@
     "image/Pasted image 20240330212309.png",
     "编译原理/词法分析.md",
     "深度学习/计算机视觉.md",
-    "深度学习/现代卷积神经网络.md",
     "深度学习/卷积神经网络.md",
     "实践经验/评价指标.md",
     "实践经验/微调预训练语言模型.md",
