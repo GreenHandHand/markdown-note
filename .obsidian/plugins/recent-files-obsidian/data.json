@@ -1,16 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "主成分分析",
+      "path": "机器学习/主成分分析.md"
+    },
+    {
       "basename": "Boost",
       "path": "机器学习/Boost.md"
     },
     {
       "basename": "现代卷积神经网络",
       "path": "深度学习/现代卷积神经网络.md"
-    },
-    {
-      "basename": "主成分分析",
-      "path": "机器学习/主成分分析.md"
     },
     {
       "basename": "最大熵模型",
