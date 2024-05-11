@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "指令微调",
+      "path": "实践经验/指令微调.md"
+    },
+    {
       "basename": "主成分分析",
       "path": "机器学习/主成分分析.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "进程管理",
       "path": "操作系统/进程管理.md"
-    },
-    {
-      "basename": "操作系统基本原理概论",
-      "path": "操作系统/操作系统基本原理概论.md"
     }
   ],
   "omittedPaths": [],
