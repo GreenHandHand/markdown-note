@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Layout",
+      "path": "前端知识补充/pySide6/Layout.md"
+    },
+    {
       "basename": "Signals、Slots&Events",
       "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "Widgets",
       "path": "前端知识补充/pySide6/Widgets.md"
-    },
-    {
-      "basename": "Layout",
-      "path": "前端知识补充/pySide6/Layout.md"
     },
     {
       "basename": "指令微调",
