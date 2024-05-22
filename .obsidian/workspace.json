@@ -50,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "gan",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "66820b311047e90e",
@@ -199,7 +200,7 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "934a6d0fc0a91a0a",
+  "active": "2ac6af0cc51e1844",
   "lastOpenFiles": [
     "前端知识补充/pySide6/Signals、Slots&Events.md",
     "前端知识补充/pySide6/Layout.md",
