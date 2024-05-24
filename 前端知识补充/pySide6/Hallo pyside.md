@@ -67,3 +67,4 @@ self.setFixedSize(QSize(400, 300))
 ```
 除了固定大小，还可以使用 `setMinimumSize` 与 `setMaximumSize` 来设置最大与最小的尺寸。你可以在任意的 widget 对象上使用这些控制大小的方法。
 
+想要使用控件自定义窗口，我们需要了解 QT 中的 [[Widgets]]。为了响应用户与窗口的操作、处理事件，QT 中引入了 [[Signals、Slots&Events]] 的概念。

@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "5887bc2aedbdad06",
+        "id": "8b54a3e4409d937f",
         "type": "tabs",
         "children": [
           {
-            "id": "934a6d0fc0a91a0a",
+            "id": "bffc60e59607827f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "机器学习/支持向量机.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -110,7 +105,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/支持向量机.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +121,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/支持向量机.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +142,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "机器学习/支持向量机.md"
-              }
+              "state": {}
             }
           },
           {
@@ -199,55 +190,55 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "934a6d0fc0a91a0a",
+  "active": "03e03384561a4479",
   "lastOpenFiles": [
-    "前端知识补充/pySide6/Layout.md",
-    "前端知识补充/pySide6/Signals、Slots&Events.md",
-    "前端知识补充/pySide6/Hallo pyside.md",
-    "前端知识补充/pySide6/Widgets.md",
-    "实践经验/指令微调.md",
-    "机器学习/主成分分析.md",
-    "机器学习/Boost.md",
-    "深度学习/现代卷积神经网络.md",
-    "机器学习/最大熵模型.md",
-    "编译原理/语法分析.md",
-    "编译原理/一个简单的语法制导翻译器.md",
-    "编译原理/编译器简介.md",
-    "image/Pasted image 20240406200237.png",
-    "计算机组成原理/存储系统.md",
-    "计算机组成原理/中央处理器.md",
-    "操作系统/内存管理.md",
-    "image/Pasted image 20240330212309.png",
-    "编译原理/词法分析.md",
-    "深度学习/计算机视觉.md",
-    "深度学习/卷积神经网络.md",
-    "实践经验/评价指标.md",
-    "实践经验/微调预训练语言模型.md",
-    "实践经验/数据预处理专题.md",
-    "image/Pasted image 20240322204840.png",
-    "image/Pasted image 20240322204827.png",
-    "image/Pasted image 20240322204817.png",
-    "image/Pasted image 20240322204543.png",
-    "image/Pasted image 20240322204503.png",
-    "image/Pasted image 20240322175005.png",
-    "image/Pasted image 20240322150738.png",
-    "image/Pasted image 20240322150413.png",
     "前端知识补充/JavaScript.md",
+    "前端知识补充/HTML.md",
+    "前端知识补充/CSS.md",
+    "前端知识补充/pySide6/Hallo pyside.md",
+    "前端知识补充/pySide6/Layout.md",
+    "实践经验/pandas/pandas数据结构简介.md",
+    "实践经验/pandas/pandas数据规整：连接、联合与重塑.md",
+    "实践经验/python绘制图表/python可视化简介.md",
+    "实践经验/python绘制图表/matplotlib色彩.md",
+    "实践经验/python绘制图表/matplotlib.md",
+    "实践经验/python绘制图表/图论工具networkx.md",
+    "实践经验/交叉验证.md",
+    "实践经验/评价指标.md",
+    "实践经验/熵、相对熵与交叉熵.md",
+    "实践经验/数据预处理专题.md",
+    "实践经验/微调预训练语言模型.md",
+    "实践经验/git.md",
+    "image/749e5e04193301e74f87e1019b9b1ebb.png",
+    "实践经验/lingo.md",
+    "实践经验/指令微调.md",
+    "image/1675433436507.png",
+    "image/1675433237604.png",
+    "image/1675433123468.png",
+    "image/1675435515315.png",
+    "image/1675435403709.png",
+    "image/1675435253062.png",
+    "image/1675435048659.png",
+    "image/1675434970136.png",
+    "image/1675359048542.png",
+    "实践经验/pandas/pandas数据类型与修改.md",
+    "实践经验/python绘制图表",
+    "实践经验/pandas/pandas数据聚合与分组操作.md",
+    "实践经验/pandas/pandas数据清洗与准备.md",
+    "实践经验/pandas/pandas数据载入与读取.md",
+    "机器学习/支持向量机.md",
+    "实践经验/pandas",
+    "前端知识补充/pySide6/Signals、Slots&Events.md",
+    "前端知识补充/pySide6/Widgets.md",
     "未命名.canvas",
     "前端知识补充/pySide6",
-    "前端知识补充/未命名.md",
-    "数据结构/未命名.md",
     "数据结构",
-    "机器学习/隐马尔可夫模型.md",
-    "未命名.md",
     "编译原理/未命名",
     "编译原理",
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
     "并行编程原理",
-    "数据挖掘",
-    "前端知识补充",
     "思维.canvas",
     "数据库.canvas",
     "最优化/群体智能算法/未命名.canvas",

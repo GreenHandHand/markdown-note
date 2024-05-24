@@ -1,28 +1,108 @@
 {
   "recentFiles": [
     {
-      "basename": "支持向量机",
-      "path": "机器学习/支持向量机.md"
+      "basename": "JavaScript",
+      "path": "前端知识补充/JavaScript.md"
     },
     {
-      "basename": "Layout",
-      "path": "前端知识补充/pySide6/Layout.md"
+      "basename": "HTML",
+      "path": "前端知识补充/HTML.md"
     },
     {
-      "basename": "Signals、Slots&Events",
-      "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
+      "basename": "CSS",
+      "path": "前端知识补充/CSS.md"
     },
     {
       "basename": "Hallo pyside",
       "path": "前端知识补充/pySide6/Hallo pyside.md"
     },
     {
-      "basename": "Widgets",
-      "path": "前端知识补充/pySide6/Widgets.md"
+      "basename": "Layout",
+      "path": "前端知识补充/pySide6/Layout.md"
+    },
+    {
+      "basename": "pandas数据结构简介",
+      "path": "实践经验/pandas/pandas数据结构简介.md"
+    },
+    {
+      "basename": "pandas数据规整：连接、联合与重塑",
+      "path": "实践经验/pandas/pandas数据规整：连接、联合与重塑.md"
+    },
+    {
+      "basename": "python可视化简介",
+      "path": "实践经验/python绘制图表/python可视化简介.md"
+    },
+    {
+      "basename": "matplotlib色彩",
+      "path": "实践经验/python绘制图表/matplotlib色彩.md"
+    },
+    {
+      "basename": "matplotlib",
+      "path": "实践经验/python绘制图表/matplotlib.md"
+    },
+    {
+      "basename": "图论工具networkx",
+      "path": "实践经验/python绘制图表/图论工具networkx.md"
+    },
+    {
+      "basename": "交叉验证",
+      "path": "实践经验/交叉验证.md"
+    },
+    {
+      "basename": "评价指标",
+      "path": "实践经验/评价指标.md"
+    },
+    {
+      "basename": "熵、相对熵与交叉熵",
+      "path": "实践经验/熵、相对熵与交叉熵.md"
+    },
+    {
+      "basename": "数据预处理专题",
+      "path": "实践经验/数据预处理专题.md"
+    },
+    {
+      "basename": "微调预训练语言模型",
+      "path": "实践经验/微调预训练语言模型.md"
+    },
+    {
+      "basename": "git",
+      "path": "实践经验/git.md"
+    },
+    {
+      "basename": "lingo",
+      "path": "实践经验/lingo.md"
     },
     {
       "basename": "指令微调",
       "path": "实践经验/指令微调.md"
+    },
+    {
+      "basename": "pandas数据类型与修改",
+      "path": "实践经验/pandas/pandas数据类型与修改.md"
+    },
+    {
+      "basename": "pandas数据聚合与分组操作",
+      "path": "实践经验/pandas/pandas数据聚合与分组操作.md"
+    },
+    {
+      "basename": "pandas数据清洗与准备",
+      "path": "实践经验/pandas/pandas数据清洗与准备.md"
+    },
+    {
+      "basename": "pandas数据载入与读取",
+      "path": "实践经验/pandas/pandas数据载入与读取.md"
+    },
+    {
+      "basename": "支持向量机",
+      "path": "机器学习/支持向量机.md"
+    },
+    {
+      "basename": "Signals、Slots&Events",
+      "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
+    },
+    {
+      "basename": "Widgets",
+      "path": "前端知识补充/pySide6/Widgets.md"
     },
     {
       "basename": "主成分分析",
@@ -77,26 +157,6 @@
       "path": "深度学习/卷积神经网络.md"
     },
     {
-      "basename": "评价指标",
-      "path": "实践经验/评价指标.md"
-    },
-    {
-      "basename": "微调预训练语言模型",
-      "path": "实践经验/微调预训练语言模型.md"
-    },
-    {
-      "basename": "数据预处理专题",
-      "path": "实践经验/数据预处理专题.md"
-    },
-    {
-      "basename": "JavaScript",
-      "path": "前端知识补充/JavaScript.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.canvas"
-    },
-    {
       "basename": "未命名",
       "path": "数据结构/未命名.md"
     },
@@ -121,10 +181,6 @@
       "path": "实践经验/机器学习项目结构.md"
     },
     {
-      "basename": "交叉验证",
-      "path": "实践经验/交叉验证.md"
-    },
-    {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
     },
@@ -143,62 +199,6 @@
     {
       "basename": "图像分割",
       "path": "计算机视觉/图像分割.md"
-    },
-    {
-      "basename": "图像滤波",
-      "path": "计算机视觉/图像滤波.md"
-    },
-    {
-      "basename": "图像金字塔与傅里叶变换",
-      "path": "计算机视觉/图像金字塔与傅里叶变换.md"
-    },
-    {
-      "basename": "直线检测",
-      "path": "计算机视觉/直线检测.md"
-    },
-    {
-      "basename": "运动",
-      "path": "计算机视觉/运动.md"
-    },
-    {
-      "basename": "特征检测",
-      "path": "计算机视觉/特征检测.md"
-    },
-    {
-      "basename": "特征描述",
-      "path": "计算机视觉/特征描述.md"
-    },
-    {
-      "basename": "边缘检测",
-      "path": "计算机视觉/边缘检测.md"
-    },
-    {
-      "basename": "t-SNE",
-      "path": "机器学习/t-SNE.md"
-    },
-    {
-      "basename": "视觉识别",
-      "path": "计算机视觉/视觉识别.md"
-    },
-    {
-      "basename": "谱聚类",
-      "path": "机器学习/谱聚类.md"
-    },
-    {
-      "basename": "聚类",
-      "path": "机器学习/聚类.md"
-    },
-    {
-      "basename": "随机森林",
-      "path": "机器学习/随机森林.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "动态规划算法",
-      "path": "强化学习/动态规划算法.md"
     }
   ],
   "omittedPaths": [],
