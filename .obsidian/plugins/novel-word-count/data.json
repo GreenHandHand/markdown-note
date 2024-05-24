@@ -5886,6 +5886,24 @@
       "createdDate": 1716538601329,
       "modifiedDate": 1716538601330,
       "sizeInBytes": 80649
+    },
+    "未命名.canvas": {
+      "isCountable": true,
+      "isDirectory": false,
+      "noteCount": 1,
+      "wordCount": 74,
+      "wordCountTowardGoal": 0,
+      "wordGoal": null,
+      "pageCount": 0.24666666666666667,
+      "characterCount": 436,
+      "nonWhitespaceCharacterCount": 397,
+      "readingTimeInMinutes": 0.18524528301886792,
+      "linkCount": 0,
+      "embedCount": 0,
+      "aliases": null,
+      "createdDate": 1709983145448,
+      "modifiedDate": 1709989563207,
+      "sizeInBytes": 2246
     }
   }
 }
