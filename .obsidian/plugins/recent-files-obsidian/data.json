@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "支持向量机",
+      "path": "机器学习/支持向量机.md"
+    },
+    {
       "basename": "Layout",
       "path": "前端知识补充/pySide6/Layout.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "动态规划算法",
       "path": "强化学习/动态规划算法.md"
-    },
-    {
-      "basename": "进程管理",
-      "path": "操作系统/进程管理.md"
     }
   ],
   "omittedPaths": [],
