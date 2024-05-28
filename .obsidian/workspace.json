@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/机器学习概述.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/机器学习概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "机器学习/机器学习概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/语法分析.md"
+                "file": "机器学习/机器学习概述.md"
               }
             }
           },
@@ -202,10 +201,14 @@
   },
   "active": "bffc60e59607827f",
   "lastOpenFiles": [
-    "编译原理/词法分析.md",
-    "编译原理/语法分析.md",
-    "机器学习/支持向量机.md",
     "未命名.canvas",
+    "机器学习/机器学习概述.md",
+    "机器学习/主成分分析.md",
+    "机器学习/Boost.md",
+    "机器学习/随机森林.md",
+    "编译原理/语法分析.md",
+    "编译原理/词法分析.md",
+    "机器学习/支持向量机.md",
     "前端知识补充/JavaScript.md",
     "前端知识补充/HTML.md",
     "前端知识补充/CSS.md",
@@ -225,7 +228,6 @@
     "实践经验/git.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "实践经验/lingo.md",
-    "实践经验/指令微调.md",
     "image/1675433436507.png",
     "image/1675433237604.png",
     "image/1675433123468.png",
@@ -235,11 +237,7 @@
     "image/1675435048659.png",
     "image/1675434970136.png",
     "image/1675359048542.png",
-    "实践经验/pandas/pandas数据类型与修改.md",
     "实践经验/python绘制图表",
-    "实践经验/pandas/pandas数据聚合与分组操作.md",
-    "实践经验/pandas/pandas数据清洗与准备.md",
-    "实践经验/pandas/pandas数据载入与读取.md",
     "实践经验/pandas",
     "前端知识补充/pySide6",
     "数据结构",

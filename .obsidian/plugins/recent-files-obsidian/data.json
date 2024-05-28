@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
+      "basename": "主成分分析",
+      "path": "机器学习/主成分分析.md"
+    },
+    {
+      "basename": "Boost",
+      "path": "机器学习/Boost.md"
+    },
+    {
+      "basename": "随机森林",
+      "path": "机器学习/随机森林.md"
+    },
+    {
       "basename": "语法分析",
       "path": "编译原理/语法分析.md"
     },
@@ -113,14 +129,6 @@
       "path": "前端知识补充/pySide6/Widgets.md"
     },
     {
-      "basename": "主成分分析",
-      "path": "机器学习/主成分分析.md"
-    },
-    {
-      "basename": "Boost",
-      "path": "机器学习/Boost.md"
-    },
-    {
       "basename": "现代卷积神经网络",
       "path": "深度学习/现代卷积神经网络.md"
     },
@@ -169,10 +177,6 @@
       "path": "机器学习/感知机.md"
     },
     {
-      "basename": "机器学习概述",
-      "path": "机器学习/机器学习概述.md"
-    },
-    {
       "basename": "循环神经网络",
       "path": "深度学习/循环神经网络.md"
     },
@@ -191,14 +195,6 @@
     {
       "basename": "k 近邻",
       "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "数据",
-      "path": "数据挖掘/数据.md"
-    },
-    {
-      "basename": "图像分割",
-      "path": "计算机视觉/图像分割.md"
     }
   ],
   "omittedPaths": [],
