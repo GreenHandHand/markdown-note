@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "中间代码生成",
+      "path": "编译原理/中间代码生成.md"
+    },
+    {
+      "basename": "语法制导的翻译",
+      "path": "编译原理/语法制导的翻译.md"
+    },
+    {
       "basename": "机器学习概述",
       "path": "机器学习/机器学习概述.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "mean shift",
       "path": "机器学习/mean shift.md"
-    },
-    {
-      "basename": "k 近邻",
-      "path": "机器学习/k 近邻.md"
     }
   ],
   "omittedPaths": [],

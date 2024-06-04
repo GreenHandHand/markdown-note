@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/机器学习概述.md",
-                "mode": "preview",
+                "file": "编译原理/中间代码生成.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/机器学习概述.md",
+                "file": "编译原理/中间代码生成.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/机器学习概述.md",
+                "file": "编译原理/中间代码生成.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/机器学习概述.md"
+                "file": "编译原理/中间代码生成.md"
               }
             }
           },
@@ -201,8 +201,10 @@
   },
   "active": "bffc60e59607827f",
   "lastOpenFiles": [
-    "未命名.canvas",
+    "编译原理/语法制导的翻译.md",
+    "编译原理/中间代码生成.md",
     "机器学习/机器学习概述.md",
+    "未命名.canvas",
     "机器学习/主成分分析.md",
     "机器学习/Boost.md",
     "机器学习/随机森林.md",
@@ -227,7 +229,6 @@
     "实践经验/微调预训练语言模型.md",
     "实践经验/git.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
-    "实践经验/lingo.md",
     "image/1675433436507.png",
     "image/1675433237604.png",
     "image/1675433123468.png",
