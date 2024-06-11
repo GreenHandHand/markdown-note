@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "边缘检测",
+      "path": "计算机视觉/边缘检测.md"
+    },
+    {
       "basename": "主成分分析",
       "path": "机器学习/主成分分析.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "编译器简介",
       "path": "编译原理/编译器简介.md"
-    },
-    {
-      "basename": "存储系统",
-      "path": "计算机组成原理/存储系统.md"
     }
   ],
   "omittedPaths": [],
