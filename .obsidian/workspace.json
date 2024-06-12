@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机视觉/边缘检测.md",
+                "file": "实践经验/评价指标.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机视觉/边缘检测.md",
+                "file": "实践经验/评价指标.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机视觉/边缘检测.md",
+                "file": "实践经验/评价指标.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机视觉/边缘检测.md"
+                "file": "实践经验/评价指标.md"
               }
             }
           },
@@ -201,6 +201,7 @@
   },
   "active": "bffc60e59607827f",
   "lastOpenFiles": [
+    "计算机视觉/边缘检测.md",
     "机器学习/主成分分析.md",
     "机器学习/最大熵模型.md",
     "机器学习/Boost.md",
@@ -227,7 +228,6 @@
     "前端知识补充/HTML.md",
     "前端知识补充/CSS.md",
     "前端知识补充/pySide6/Hallo pyside.md",
-    "前端知识补充/pySide6/Layout.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
     "image/1675433237604.png",
