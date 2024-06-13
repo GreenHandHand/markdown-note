@@ -8,11 +8,16 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9c99a9054428e8fb",
+            "id": "bb435077bc89eceb",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "最大后验估计.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -45,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "gan",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,6 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "最大后验估计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,6 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "最大后验估计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,11 +162,21 @@
             "type": "leaf",
             "state": {
               "type": "outline",
+              "state": {
+                "file": "最大后验估计.md"
+              }
+            }
+          },
+          {
+            "id": "aa5d73dc8a4d2dd6",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
               "state": {}
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       },
       {
         "id": "98b5b25c2d5f314b",
@@ -178,7 +195,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 306.5
+    "width": 319.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,12 +205,18 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "random-note:开始漫游笔记": false
+      "random-note:开始漫游笔记": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "8d875e603b2c2ba3",
+  "active": "bb435077bc89eceb",
   "lastOpenFiles": [
+    "机器学习/EM 算法.md",
+    "最大后验估计.md",
     "机器学习/贝叶斯网络.md",
+    "机器学习/机器学习概述.md",
+    "机器学习/谱聚类.md",
     "计算机视觉/边缘检测.md",
     "smart-chats",
     "实践经验/评价指标.md",
@@ -204,9 +227,7 @@
     "机器学习/t-SNE.md",
     "机器学习/线性模型.md",
     "机器学习/随机森林.md",
-    "机器学习/谱聚类.md",
     "机器学习/决策树.md",
-    "机器学习/机器学习概述.md",
     "机器学习/条件随机场.md",
     "机器学习/隐马尔可夫模型.md",
     "机器学习/聚类.md",
@@ -219,7 +240,6 @@
     "编译原理/语法分析.md",
     "编译原理/词法分析.md",
     "前端知识补充/JavaScript.md",
-    "前端知识补充/HTML.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
     "image/1675433237604.png",
