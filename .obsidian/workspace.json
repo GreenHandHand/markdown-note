@@ -4,14 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "c1a662a00de5922f",
+        "id": "0f31d10263956be0",
         "type": "tabs",
         "children": [
           {
-            "id": "7605e376e6aa2198",
+            "id": "9c99a9054428e8fb",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {}
             }
           }
@@ -27,7 +27,7 @@
       {
         "id": "3b4ddabccfdc595c",
         "type": "tabs",
-        "dimension": 80.32305433186491,
+        "dimension": 75.99039615846338,
         "children": [
           {
             "id": "03e03384561a4479",
@@ -75,7 +75,7 @@
       {
         "id": "66820b311047e90e",
         "type": "tabs",
-        "dimension": 19.676945668135097,
+        "dimension": 24.009603841536613,
         "children": [
           {
             "id": "b8d2df7aea0a47c5",
@@ -98,9 +98,21 @@
       {
         "id": "8baae523013a5ec8",
         "type": "tabs",
+        "dimension": 62.84987277353689,
         "children": [
           {
-            "id": "dc388f31586f5d92",
+            "id": "9d73979f88315024",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          },
+          {
+            "id": "d7ed79cdd9a057ce",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -116,7 +128,7 @@
             }
           },
           {
-            "id": "d0e86a238026daab",
+            "id": "f01e12a34b5d4bab",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -127,26 +139,7 @@
             }
           },
           {
-            "id": "9d73979f88315024",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": false
-              }
-            }
-          },
-          {
-            "id": "6b4f188967ced353",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {}
-            }
-          },
-          {
-            "id": "aba6a733fd2d8248",
+            "id": "9ba89d011f1c5df1",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -156,13 +149,22 @@
                 "searchQuery": ""
               }
             }
+          },
+          {
+            "id": "8d875e603b2c2ba3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       },
       {
         "id": "98b5b25c2d5f314b",
         "type": "tabs",
+        "dimension": 37.150127226463106,
         "children": [
           {
             "id": "3da4b2a28917bbbc",
@@ -176,8 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 306.5,
-    "collapsed": true
+    "width": 306.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,10 +191,12 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "7605e376e6aa2198",
+  "active": "8d875e603b2c2ba3",
   "lastOpenFiles": [
-    "实践经验/评价指标.md",
+    "机器学习/贝叶斯网络.md",
     "计算机视觉/边缘检测.md",
+    "smart-chats",
+    "实践经验/评价指标.md",
     "机器学习/主成分分析.md",
     "机器学习/最大熵模型.md",
     "机器学习/Boost.md",
@@ -204,7 +207,6 @@
     "机器学习/谱聚类.md",
     "机器学习/决策树.md",
     "机器学习/机器学习概述.md",
-    "机器学习/贝叶斯网络.md",
     "机器学习/条件随机场.md",
     "机器学习/隐马尔可夫模型.md",
     "机器学习/聚类.md",
@@ -218,7 +220,6 @@
     "编译原理/词法分析.md",
     "前端知识补充/JavaScript.md",
     "前端知识补充/HTML.md",
-    "前端知识补充/CSS.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
     "image/1675433237604.png",
@@ -238,7 +239,6 @@
     "新建 Text Document.txt",
     "随机过程/随机过程讲义.pdf",
     "操作系统",
-    "并行编程原理",
     "思维.canvas",
     "数据库.canvas",
     "最优化/群体智能算法/未命名.canvas",

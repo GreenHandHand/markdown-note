@@ -13,5 +13,6 @@
   "spellcheck": true,
   "showInlineTitle": false,
   "spellcheckLanguages": null,
-  "defaultViewMode": "preview"
+  "defaultViewMode": "preview",
+  "showRibbon": true
 }

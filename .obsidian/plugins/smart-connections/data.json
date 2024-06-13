@@ -1,0 +1,47 @@
+{
+  "new_user": false,
+  "chat_folder": "smart chat",
+  "smart_notes_embed_model": "Xenova/jina-embeddings-v2-base-zh-8192",
+  "smart_blocks_embed_model": "None",
+  "smart_connections_folder": ".smart-connections",
+  "smart_connections_folder_last": ".smart-connections",
+  "system_prompts_folder": "smart prompts",
+  "smart_chat_folder": "smart-chats",
+  "smart_chat_folder_last": "smart-chats",
+  "local_embedding_max_tokens": 2048,
+  "embedding_file_per_note": false,
+  "chat_model_platform_key": "custom_local",
+  "open_router": {},
+  "embed_input_min_chars": 50,
+  "multi_heading_blocks": true,
+  "enable_mobile": false,
+  "actions": {
+    "lookup": true
+  },
+  "api_key": "",
+  "excluded_headings": "",
+  "file_exclusions": "Untitled",
+  "folder_exclusions": "smart-chats",
+  "show_full_path": false,
+  "expanded_view": true,
+  "language": "en",
+  "log_render": false,
+  "log_render_files": false,
+  "recently_sent_retry_notice": false,
+  "version": "2.1.71",
+  "custom_local": {
+    "model_name": "qwen2",
+    "description": "Custom Local (OpenAI format)",
+    "type": "API",
+    "protocol": "http",
+    "hostname": "localhost",
+    "port": 11434,
+    "streaming": true,
+    "path": "",
+    "max_input_tokens": 1024
+  },
+  "muted_notices": {
+    "no smart connections found": true,
+    "Notice muted": true
+  }
+}
