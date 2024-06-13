@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "最大后验估计.md",
-                "mode": "source",
+                "file": "机器学习/EM 算法.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "最大后验估计.md",
+                "file": "机器学习/EM 算法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "最大后验估计.md",
+                "file": "机器学习/EM 算法.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "最大后验估计.md"
+                "file": "机器学习/EM 算法.md"
               }
             }
           },
@@ -212,8 +212,8 @@
   },
   "active": "bb435077bc89eceb",
   "lastOpenFiles": [
-    "机器学习/EM 算法.md",
     "最大后验估计.md",
+    "机器学习/EM 算法.md",
     "机器学习/贝叶斯网络.md",
     "机器学习/机器学习概述.md",
     "机器学习/谱聚类.md",

@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "最大后验估计",
-      "path": "最大后验估计.md"
-    },
-    {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "最大后验估计",
+      "path": "最大后验估计.md"
     },
     {
       "basename": "贝叶斯网络",
