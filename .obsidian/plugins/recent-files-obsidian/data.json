@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "决策树",
-      "path": "机器学习/决策树.md"
-    },
-    {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "决策树",
+      "path": "机器学习/决策树.md"
     },
     {
       "basename": "最大后验估计",
