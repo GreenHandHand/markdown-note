@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "决策树",
+      "path": "机器学习/决策树.md"
+    },
+    {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
     },
@@ -55,10 +59,6 @@
     {
       "basename": "随机森林",
       "path": "机器学习/随机森林.md"
-    },
-    {
-      "basename": "决策树",
-      "path": "机器学习/决策树.md"
     },
     {
       "basename": "条件随机场",
