@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "机器学习/支持向量机.md",
+                "file": "实践经验/评价指标.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "机器学习/支持向量机.md",
+                "file": "实践经验/评价指标.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "机器学习/支持向量机.md",
+                "file": "实践经验/评价指标.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "机器学习/支持向量机.md"
+                "file": "实践经验/评价指标.md"
               }
             }
           },
@@ -212,6 +212,7 @@
   },
   "active": "bb435077bc89eceb",
   "lastOpenFiles": [
+    "机器学习/支持向量机.md",
     "机器学习/EM 算法.md",
     "机器学习/决策树.md",
     "机器学习/最大后验估计.md",
@@ -233,7 +234,6 @@
     "机器学习/聚类.md",
     "机器学习/朴素贝叶斯.md",
     "机器学习/潜在狄利克雷分配.md",
-    "机器学习/支持向量机.md",
     "编译原理/中间代码生成.md",
     "编译原理/语法制导的翻译.md",
     "未命名.canvas",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "评价指标",
+      "path": "实践经验/评价指标.md"
+    },
+    {
       "basename": "支持向量机",
       "path": "机器学习/支持向量机.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "边缘检测",
       "path": "计算机视觉/边缘检测.md"
-    },
-    {
-      "basename": "评价指标",
-      "path": "实践经验/评价指标.md"
     },
     {
       "basename": "主成分分析",
