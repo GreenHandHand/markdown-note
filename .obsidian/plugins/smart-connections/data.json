@@ -37,7 +37,7 @@
     "hostname": "localhost",
     "port": 11434,
     "streaming": true,
-    "path": "",
+    "path": "/v1/chat/completions",
     "max_input_tokens": 1024
   },
   "muted_notices": {

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "语法分析",
+      "path": "编译原理/语法分析.md"
+    },
+    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
     },
@@ -91,10 +95,6 @@
     {
       "basename": "语法制导的翻译",
       "path": "编译原理/语法制导的翻译.md"
-    },
-    {
-      "basename": "语法分析",
-      "path": "编译原理/语法分析.md"
     },
     {
       "basename": "词法分析",

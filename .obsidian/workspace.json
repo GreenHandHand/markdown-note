@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bb435077bc89eceb",
+            "id": "01c85248f67ae529",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实践经验/评价指标.md",
-                "mode": "preview",
+                "file": "编译原理/语法分析.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -122,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "编译原理/语法分析.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "实践经验/评价指标.md",
+                "file": "编译原理/语法分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实践经验/评价指标.md"
+                "file": "编译原理/语法分析.md"
               }
             }
           },
@@ -174,9 +175,17 @@
               "type": "smart-connections-view",
               "state": {}
             }
+          },
+          {
+            "id": "ad102cdffac9af2e",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-chat-view",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       },
       {
         "id": "98b5b25c2d5f314b",
@@ -210,8 +219,11 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "bb435077bc89eceb",
+  "active": "ad102cdffac9af2e",
   "lastOpenFiles": [
+    "smart-chats/UNTITLED CHAT 2024-06-16 05 58 54.md",
+    "实践经验/评价指标.md",
+    "smart-chats/UNTITLED CHAT 2024-06-16 05 04 23.md",
     "机器学习/支持向量机.md",
     "机器学习/EM 算法.md",
     "机器学习/决策树.md",
@@ -221,7 +233,6 @@
     "机器学习/谱聚类.md",
     "计算机视觉/边缘检测.md",
     "smart-chats",
-    "实践经验/评价指标.md",
     "机器学习/主成分分析.md",
     "机器学习/最大熵模型.md",
     "机器学习/Boost.md",
@@ -238,8 +249,6 @@
     "编译原理/语法制导的翻译.md",
     "未命名.canvas",
     "编译原理/语法分析.md",
-    "编译原理/词法分析.md",
-    "前端知识补充/JavaScript.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
     "image/1675433237604.png",
