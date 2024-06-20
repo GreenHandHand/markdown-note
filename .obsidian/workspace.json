@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0f31d10263956be0",
+        "id": "377f218a0e25fa11",
         "type": "tabs",
         "children": [
           {
-            "id": "01c85248f67ae529",
+            "id": "4b166b979a2bd0ba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/语法分析.md",
-                "mode": "source",
+                "file": "实践经验/评价指标.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5,
-    "collapsed": true
+    "width": 307.5
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -104,7 +103,7 @@
       {
         "id": "8baae523013a5ec8",
         "type": "tabs",
-        "dimension": 62.84987277353689,
+        "dimension": 74.55470737913485,
         "children": [
           {
             "id": "9d73979f88315024",
@@ -123,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "实践经验/评价指标.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/语法分析.md",
+                "file": "实践经验/评价指标.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/语法分析.md"
+                "file": "实践经验/评价指标.md"
               }
             }
           },
@@ -190,7 +189,7 @@
       {
         "id": "98b5b25c2d5f314b",
         "type": "tabs",
-        "dimension": 37.150127226463106,
+        "dimension": 25.44529262086514,
         "children": [
           {
             "id": "3da4b2a28917bbbc",
@@ -204,7 +203,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 319.5
+    "width": 414.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -214,16 +213,16 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "random-note:开始漫游笔记": false,
-      "smart-connections:Open: View Smart Connections": false,
-      "smart-connections:Open: Smart Chat Conversation": false
+      "random-note:开始漫游笔记": false
     }
   },
-  "active": "ad102cdffac9af2e",
+  "active": "03e03384561a4479",
   "lastOpenFiles": [
+    "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md",
     "smart-chats/UNTITLED CHAT 2024-06-16 05 58 54.md",
-    "实践经验/评价指标.md",
     "smart-chats/UNTITLED CHAT 2024-06-16 05 04 23.md",
+    "编译原理/语法分析.md",
+    "实践经验/评价指标.md",
     "机器学习/支持向量机.md",
     "机器学习/EM 算法.md",
     "机器学习/决策树.md",
@@ -246,9 +245,7 @@
     "机器学习/朴素贝叶斯.md",
     "机器学习/潜在狄利克雷分配.md",
     "编译原理/中间代码生成.md",
-    "编译原理/语法制导的翻译.md",
     "未命名.canvas",
-    "编译原理/语法分析.md",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
     "image/1675433237604.png",

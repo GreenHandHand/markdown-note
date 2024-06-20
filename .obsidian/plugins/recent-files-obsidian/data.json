@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "语法分析",
-      "path": "编译原理/语法分析.md"
-    },
-    {
       "basename": "评价指标",
       "path": "实践经验/评价指标.md"
+    },
+    {
+      "basename": "UNTITLED CHAT 2024-06-16 10 00 54",
+      "path": "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md"
+    },
+    {
+      "basename": "UNTITLED CHAT 2024-06-16 05 58 54",
+      "path": "smart-chats/UNTITLED CHAT 2024-06-16 05 58 54.md"
+    },
+    {
+      "basename": "UNTITLED CHAT 2024-06-16 05 04 23",
+      "path": "smart-chats/UNTITLED CHAT 2024-06-16 05 04 23.md"
+    },
+    {
+      "basename": "语法分析",
+      "path": "编译原理/语法分析.md"
     },
     {
       "basename": "支持向量机",
@@ -187,18 +199,6 @@
     {
       "basename": "pandas数据载入与读取",
       "path": "实践经验/pandas/pandas数据载入与读取.md"
-    },
-    {
-      "basename": "Signals、Slots&Events",
-      "path": "前端知识补充/pySide6/Signals、Slots&Events.md"
-    },
-    {
-      "basename": "Widgets",
-      "path": "前端知识补充/pySide6/Widgets.md"
-    },
-    {
-      "basename": "现代卷积神经网络",
-      "path": "深度学习/现代卷积神经网络.md"
     }
   ],
   "omittedPaths": [],
