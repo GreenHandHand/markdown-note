@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "循环神经网络",
+      "path": "深度学习/循环神经网络.md"
+    },
+    {
+      "basename": "现代循环神经网络",
+      "path": "深度学习/现代循环神经网络.md"
+    },
+    {
+      "basename": "现代卷积神经网络",
+      "path": "深度学习/现代卷积神经网络.md"
+    },
+    {
       "basename": "卷积神经网络",
       "path": "深度学习/卷积神经网络.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "Layout",
       "path": "前端知识补充/pySide6/Layout.md"
-    },
-    {
-      "basename": "pandas数据结构简介",
-      "path": "实践经验/pandas/pandas数据结构简介.md"
-    },
-    {
-      "basename": "pandas数据规整：连接、联合与重塑",
-      "path": "实践经验/pandas/pandas数据规整：连接、联合与重塑.md"
-    },
-    {
-      "basename": "python可视化简介",
-      "path": "实践经验/python绘制图表/python可视化简介.md"
     }
   ],
   "omittedPaths": [],

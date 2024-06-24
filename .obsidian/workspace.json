@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/卷积神经网络.md",
+                "file": "深度学习/循环神经网络.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/卷积神经网络.md",
+                "file": "深度学习/循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/卷积神经网络.md",
+                "file": "深度学习/循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/卷积神经网络.md"
+                "file": "深度学习/循环神经网络.md"
               }
             }
           },
@@ -220,8 +220,12 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "8d875e603b2c2ba3",
+  "active": "4b166b979a2bd0ba",
   "lastOpenFiles": [
+    "深度学习/现代循环神经网络.md",
+    "深度学习/现代卷积神经网络.md",
+    "深度学习/卷积神经网络.md",
+    "image/Pasted image 20240624174230.png",
     "深度学习/多层感知机.md",
     "深度学习/机器学习简介.md",
     "机器学习/机器学习概述.md",
@@ -246,9 +250,6 @@
     "机器学习/EM 算法.md",
     "机器学习/k 近邻.md",
     "机器学习/mean shift.md",
-    "机器学习/t-SNE.md",
-    "机器学习/支持向量机.md",
-    "深度学习/深度学习概念与感知机.md",
     "未命名.canvas",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
@@ -259,7 +260,6 @@
     "image/1675435253062.png",
     "image/1675435048659.png",
     "image/1675434970136.png",
-    "image/1675359048542.png",
     "实践经验/python绘制图表",
     "实践经验/pandas",
     "前端知识补充/pySide6",
