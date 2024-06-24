@@ -1,36 +1,104 @@
 {
   "recentFiles": [
     {
+      "basename": "多层感知机",
+      "path": "深度学习/多层感知机.md"
+    },
+    {
+      "basename": "矩阵的条件数",
+      "path": "矩阵分析/矩阵范数/矩阵的条件数.md"
+    },
+    {
+      "basename": "编译器简介",
+      "path": "编译原理/编译器简介.md"
+    },
+    {
       "basename": "词法分析",
       "path": "编译原理/词法分析.md"
     },
     {
-      "basename": "评价指标",
-      "path": "实践经验/评价指标.md"
-    },
-    {
-      "basename": "UNTITLED CHAT 2024-06-16 10 00 54",
-      "path": "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md"
-    },
-    {
-      "basename": "UNTITLED CHAT 2024-06-16 05 58 54",
-      "path": "smart-chats/UNTITLED CHAT 2024-06-16 05 58 54.md"
-    },
-    {
-      "basename": "UNTITLED CHAT 2024-06-16 05 04 23",
-      "path": "smart-chats/UNTITLED CHAT 2024-06-16 05 04 23.md"
+      "basename": "一个简单的语法制导翻译器",
+      "path": "编译原理/一个简单的语法制导翻译器.md"
     },
     {
       "basename": "语法分析",
       "path": "编译原理/语法分析.md"
     },
     {
-      "basename": "支持向量机",
-      "path": "机器学习/支持向量机.md"
+      "basename": "语法制导的翻译",
+      "path": "编译原理/语法制导的翻译.md"
+    },
+    {
+      "basename": "中间代码生成",
+      "path": "编译原理/中间代码生成.md"
+    },
+    {
+      "basename": "机器学习项目结构",
+      "path": "实践经验/机器学习项目结构.md"
+    },
+    {
+      "basename": "lingo",
+      "path": "实践经验/lingo.md"
+    },
+    {
+      "basename": "git",
+      "path": "实践经验/git.md"
+    },
+    {
+      "basename": "指令微调",
+      "path": "实践经验/指令微调.md"
+    },
+    {
+      "basename": "微调预训练语言模型",
+      "path": "实践经验/微调预训练语言模型.md"
+    },
+    {
+      "basename": "数据预处理专题",
+      "path": "实践经验/数据预处理专题.md"
+    },
+    {
+      "basename": "评价指标",
+      "path": "实践经验/评价指标.md"
+    },
+    {
+      "basename": "熵、相对熵与交叉熵",
+      "path": "实践经验/熵、相对熵与交叉熵.md"
+    },
+    {
+      "basename": "注意力机制",
+      "path": "深度学习/注意力机制.md"
+    },
+    {
+      "basename": "Boost",
+      "path": "机器学习/Boost.md"
     },
     {
       "basename": "EM 算法",
       "path": "机器学习/EM 算法.md"
+    },
+    {
+      "basename": "k 近邻",
+      "path": "机器学习/k 近邻.md"
+    },
+    {
+      "basename": "mean shift",
+      "path": "机器学习/mean shift.md"
+    },
+    {
+      "basename": "t-SNE",
+      "path": "机器学习/t-SNE.md"
+    },
+    {
+      "basename": "支持向量机",
+      "path": "机器学习/支持向量机.md"
+    },
+    {
+      "basename": "深度学习概念与感知机",
+      "path": "深度学习/深度学习概念与感知机.md"
+    },
+    {
+      "basename": "深度学习计算",
+      "path": "深度学习/深度学习计算.md"
     },
     {
       "basename": "决策树",
@@ -65,18 +133,6 @@
       "path": "机器学习/最大熵模型.md"
     },
     {
-      "basename": "Boost",
-      "path": "机器学习/Boost.md"
-    },
-    {
-      "basename": "k 近邻",
-      "path": "机器学习/k 近邻.md"
-    },
-    {
-      "basename": "t-SNE",
-      "path": "机器学习/t-SNE.md"
-    },
-    {
       "basename": "线性模型",
       "path": "机器学习/线性模型.md"
     },
@@ -103,14 +159,6 @@
     {
       "basename": "潜在狄利克雷分配",
       "path": "机器学习/潜在狄利克雷分配.md"
-    },
-    {
-      "basename": "中间代码生成",
-      "path": "编译原理/中间代码生成.md"
-    },
-    {
-      "basename": "语法制导的翻译",
-      "path": "编译原理/语法制导的翻译.md"
     },
     {
       "basename": "JavaScript",
@@ -151,54 +199,6 @@
     {
       "basename": "matplotlib",
       "path": "实践经验/python绘制图表/matplotlib.md"
-    },
-    {
-      "basename": "图论工具networkx",
-      "path": "实践经验/python绘制图表/图论工具networkx.md"
-    },
-    {
-      "basename": "交叉验证",
-      "path": "实践经验/交叉验证.md"
-    },
-    {
-      "basename": "熵、相对熵与交叉熵",
-      "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "数据预处理专题",
-      "path": "实践经验/数据预处理专题.md"
-    },
-    {
-      "basename": "微调预训练语言模型",
-      "path": "实践经验/微调预训练语言模型.md"
-    },
-    {
-      "basename": "git",
-      "path": "实践经验/git.md"
-    },
-    {
-      "basename": "lingo",
-      "path": "实践经验/lingo.md"
-    },
-    {
-      "basename": "指令微调",
-      "path": "实践经验/指令微调.md"
-    },
-    {
-      "basename": "pandas数据类型与修改",
-      "path": "实践经验/pandas/pandas数据类型与修改.md"
-    },
-    {
-      "basename": "pandas数据聚合与分组操作",
-      "path": "实践经验/pandas/pandas数据聚合与分组操作.md"
-    },
-    {
-      "basename": "pandas数据清洗与准备",
-      "path": "实践经验/pandas/pandas数据清洗与准备.md"
-    },
-    {
-      "basename": "pandas数据载入与读取",
-      "path": "实践经验/pandas/pandas数据载入与读取.md"
     }
   ],
   "omittedPaths": [],

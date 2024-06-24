@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编译原理/词法分析.md",
-                "mode": "preview",
+                "file": "深度学习/多层感知机.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "深度学习/多层感知机.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编译原理/词法分析.md",
+                "file": "深度学习/多层感知机.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编译原理/词法分析.md"
+                "file": "深度学习/多层感知机.md"
               }
             }
           },
@@ -184,7 +184,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       },
       {
         "id": "98b5b25c2d5f314b",
@@ -220,33 +220,33 @@
   },
   "active": "4b166b979a2bd0ba",
   "lastOpenFiles": [
-    "实践经验/评价指标.md",
-    "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md",
-    "smart-chats/UNTITLED CHAT 2024-06-16 05 58 54.md",
-    "smart-chats/UNTITLED CHAT 2024-06-16 05 04 23.md",
+    "矩阵分析/矩阵范数/矩阵的条件数.md",
+    "深度学习/多层感知机.md",
+    "编译原理/编译器简介.md",
+    "编译原理/词法分析.md",
+    "编译原理/一个简单的语法制导翻译器.md",
     "编译原理/语法分析.md",
-    "机器学习/支持向量机.md",
-    "机器学习/EM 算法.md",
-    "机器学习/决策树.md",
-    "机器学习/最大后验估计.md",
-    "机器学习/贝叶斯网络.md",
-    "机器学习/机器学习概述.md",
-    "机器学习/谱聚类.md",
-    "计算机视觉/边缘检测.md",
-    "smart-chats",
-    "机器学习/主成分分析.md",
-    "机器学习/最大熵模型.md",
-    "机器学习/Boost.md",
-    "机器学习/k 近邻.md",
-    "机器学习/t-SNE.md",
-    "机器学习/线性模型.md",
-    "机器学习/随机森林.md",
-    "机器学习/条件随机场.md",
-    "机器学习/隐马尔可夫模型.md",
-    "机器学习/聚类.md",
-    "机器学习/朴素贝叶斯.md",
-    "机器学习/潜在狄利克雷分配.md",
+    "编译原理/语法制导的翻译.md",
     "编译原理/中间代码生成.md",
+    "实践经验/机器学习项目结构.md",
+    "实践经验/lingo.md",
+    "实践经验/git.md",
+    "实践经验/指令微调.md",
+    "实践经验/微调预训练语言模型.md",
+    "实践经验/数据预处理专题.md",
+    "实践经验/评价指标.md",
+    "实践经验/熵、相对熵与交叉熵.md",
+    "深度学习/注意力机制.md",
+    "机器学习/Boost.md",
+    "机器学习/EM 算法.md",
+    "机器学习/k 近邻.md",
+    "机器学习/mean shift.md",
+    "机器学习/t-SNE.md",
+    "机器学习/支持向量机.md",
+    "深度学习/深度学习概念与感知机.md",
+    "深度学习/深度学习计算.md",
+    "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md",
+    "smart-chats",
     "未命名.canvas",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
