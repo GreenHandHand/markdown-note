@@ -203,7 +203,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 414.5
+    "width": 414.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -220,8 +221,11 @@
   },
   "active": "4b166b979a2bd0ba",
   "lastOpenFiles": [
-    "矩阵分析/矩阵范数/矩阵的条件数.md",
+    "深度学习/机器学习简介.md",
+    "机器学习/机器学习概述.md",
     "深度学习/多层感知机.md",
+    "smart-chats",
+    "矩阵分析/矩阵范数/矩阵的条件数.md",
     "编译原理/编译器简介.md",
     "编译原理/词法分析.md",
     "编译原理/一个简单的语法制导翻译器.md",
@@ -244,9 +248,6 @@
     "机器学习/t-SNE.md",
     "机器学习/支持向量机.md",
     "深度学习/深度学习概念与感知机.md",
-    "深度学习/深度学习计算.md",
-    "smart-chats/UNTITLED CHAT 2024-06-16 10 00 54.md",
-    "smart-chats",
     "未命名.canvas",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",

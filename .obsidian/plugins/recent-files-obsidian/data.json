@@ -5,6 +5,14 @@
       "path": "深度学习/多层感知机.md"
     },
     {
+      "basename": "机器学习简介",
+      "path": "深度学习/机器学习简介.md"
+    },
+    {
+      "basename": "机器学习概述",
+      "path": "机器学习/机器学习概述.md"
+    },
+    {
       "basename": "矩阵的条件数",
       "path": "矩阵分析/矩阵范数/矩阵的条件数.md"
     },
@@ -113,10 +121,6 @@
       "path": "机器学习/贝叶斯网络.md"
     },
     {
-      "basename": "机器学习概述",
-      "path": "机器学习/机器学习概述.md"
-    },
-    {
       "basename": "谱聚类",
       "path": "机器学习/谱聚类.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "matplotlib色彩",
       "path": "实践经验/python绘制图表/matplotlib色彩.md"
-    },
-    {
-      "basename": "matplotlib",
-      "path": "实践经验/python绘制图表/matplotlib.md"
     }
   ],
   "omittedPaths": [],
