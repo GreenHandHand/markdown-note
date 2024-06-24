@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/循环神经网络.md",
-                "mode": "source",
+                "file": "深度学习/现代循环神经网络.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "深度学习/现代循环神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/循环神经网络.md",
+                "file": "深度学习/现代循环神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/循环神经网络.md"
+                "file": "深度学习/现代循环神经网络.md"
               }
             }
           },
@@ -222,6 +222,7 @@
   },
   "active": "4b166b979a2bd0ba",
   "lastOpenFiles": [
+    "深度学习/循环神经网络.md",
     "深度学习/现代循环神经网络.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/卷积神经网络.md",
@@ -249,7 +250,6 @@
     "机器学习/Boost.md",
     "机器学习/EM 算法.md",
     "机器学习/k 近邻.md",
-    "机器学习/mean shift.md",
     "未命名.canvas",
     "image/749e5e04193301e74f87e1019b9b1ebb.png",
     "image/1675433436507.png",
