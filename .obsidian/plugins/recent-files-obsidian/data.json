@@ -17,12 +17,28 @@
       "path": "深度学习/卷积神经网络.md"
     },
     {
-      "basename": "多层感知机",
-      "path": "深度学习/多层感知机.md"
+      "basename": "如何训练一个模型",
+      "path": "深度学习/如何训练一个模型.md"
+    },
+    {
+      "basename": "计算机视觉",
+      "path": "深度学习/计算机视觉.md"
     },
     {
       "basename": "机器学习简介",
       "path": "深度学习/机器学习简介.md"
+    },
+    {
+      "basename": "多层感知机",
+      "path": "深度学习/多层感知机.md"
+    },
+    {
+      "basename": "预备知识",
+      "path": "深度学习/预备知识.md"
+    },
+    {
+      "basename": "注意力机制",
+      "path": "深度学习/注意力机制.md"
     },
     {
       "basename": "机器学习概述",
@@ -87,10 +103,6 @@
     {
       "basename": "熵、相对熵与交叉熵",
       "path": "实践经验/熵、相对熵与交叉熵.md"
-    },
-    {
-      "basename": "注意力机制",
-      "path": "深度学习/注意力机制.md"
     },
     {
       "basename": "Boost",
@@ -187,18 +199,6 @@
     {
       "basename": "HTML",
       "path": "前端知识补充/HTML.md"
-    },
-    {
-      "basename": "CSS",
-      "path": "前端知识补充/CSS.md"
-    },
-    {
-      "basename": "Hallo pyside",
-      "path": "前端知识补充/pySide6/Hallo pyside.md"
-    },
-    {
-      "basename": "Layout",
-      "path": "前端知识补充/pySide6/Layout.md"
     }
   ],
   "omittedPaths": [],

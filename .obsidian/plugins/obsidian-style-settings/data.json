@@ -5,5 +5,5 @@
   "blue-topaz-theme@@blockquote-style-change-options": "blockquote-style-quotation-mark",
   "blue-topaz-theme@@callout-style-settings": "shade-callout-style",
   "blue-topaz-theme@@admonition-bg-color-same": true,
-  "blue-topaz-theme@@full-width-callout": true
+  "blue-topaz-theme@@full-width-callout": false
 }
