@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/现代循环神经网络.md",
+                "file": "深度学习/注意力机制.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -122,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/现代循环神经网络.md",
+                "file": "深度学习/注意力机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/现代循环神经网络.md",
+                "file": "深度学习/注意力机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/现代循环神经网络.md"
+                "file": "深度学习/注意力机制.md"
               }
             }
           },
@@ -221,16 +222,16 @@
   },
   "active": "e0a79fb10f3e3d77",
   "lastOpenFiles": [
+    "深度学习/预备知识.md",
     "深度学习/循环神经网络.md",
+    "深度学习/现代循环神经网络.md",
     "深度学习/现代卷积神经网络.md",
     "深度学习/卷积神经网络.md",
     "深度学习/如何训练一个模型.md",
     "深度学习/计算机视觉.md",
     "深度学习/机器学习简介.md",
     "深度学习/多层感知机.md",
-    "深度学习/预备知识.md",
     "深度学习/注意力机制.md",
-    "深度学习/现代循环神经网络.md",
     "image/Pasted image 20240624174230.png",
     "机器学习/机器学习概述.md",
     "smart-chats",
