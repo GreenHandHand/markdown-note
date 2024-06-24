@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/卷积神经网络.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 307.5,
+    "collapsed": true
   },
   "right": {
     "id": "1ca23899daf6fc57",
@@ -122,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/卷积神经网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "深度学习/多层感知机.md",
+                "file": "深度学习/卷积神经网络.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "深度学习/多层感知机.md"
+                "file": "深度学习/卷积神经网络.md"
               }
             }
           },
@@ -184,7 +185,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       },
       {
         "id": "98b5b25c2d5f314b",
@@ -219,11 +220,11 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "4b166b979a2bd0ba",
+  "active": "8d875e603b2c2ba3",
   "lastOpenFiles": [
+    "深度学习/多层感知机.md",
     "深度学习/机器学习简介.md",
     "机器学习/机器学习概述.md",
-    "深度学习/多层感知机.md",
     "smart-chats",
     "矩阵分析/矩阵范数/矩阵的条件数.md",
     "编译原理/编译器简介.md",

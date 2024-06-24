@@ -2,11 +2,12 @@
   "accentColor": "",
   "theme": "moonstone",
   "cssTheme": "Blue Topaz",
-  "monospaceFontFamily": "Consolas ligaturized v3,Consolas",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono,Consolas ligaturized v3,Consolas",
   "textFontFamily": "Consolas ligaturized v3,霞鹜文楷等宽,霞鹜文楷,微软雅黑",
-  "baseFontSize": 21,
+  "baseFontSize": 18,
   "translucency": true,
   "nativeMenus": false,
   "showViewHeader": true,
-  "enabledCssSnippets": []
+  "enabledCssSnippets": [],
+  "baseFontSizeAction": true
 }

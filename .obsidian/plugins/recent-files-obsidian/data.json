@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "卷积神经网络",
+      "path": "深度学习/卷积神经网络.md"
+    },
+    {
       "basename": "多层感知机",
       "path": "深度学习/多层感知机.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "python可视化简介",
       "path": "实践经验/python绘制图表/python可视化简介.md"
-    },
-    {
-      "basename": "matplotlib色彩",
-      "path": "实践经验/python绘制图表/matplotlib色彩.md"
     }
   ],
   "omittedPaths": [],

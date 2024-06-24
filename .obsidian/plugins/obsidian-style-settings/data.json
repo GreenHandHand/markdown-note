@@ -1,5 +1,9 @@
 {
   "Blue-Topaz-Codebox-Highlight@@code-theme-selection": "code-theme-bt-default",
   "Blue-Topaz-Codebox-Highlight@@nowrap-edit-codebox": false,
-  "Blue-Topaz-Codebox-Highlight@@whole-code-wrap": true
+  "Blue-Topaz-Codebox-Highlight@@whole-code-wrap": true,
+  "blue-topaz-theme@@blockquote-style-change-options": "blockquote-style-quotation-mark",
+  "blue-topaz-theme@@callout-style-settings": "shade-callout-style",
+  "blue-topaz-theme@@admonition-bg-color-same": true,
+  "blue-topaz-theme@@full-width-callout": true
 }
