@@ -1,3 +1,7 @@
+---
+tags:
+  - 前端
+---
 # HTML
 
 HTML 是一种网页描述语言，是超文本标记语言 (Hyper Text Markup Language) 的缩写。确切的说，HTML 不是一种编程语言，而是一种标记语言，使用标记标签来描述网页。

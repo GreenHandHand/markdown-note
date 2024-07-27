@@ -1,3 +1,7 @@
+---
+tags:
+  - 前端
+---
 # JavaScript
 
 本文档仅介绍 JavaScript 中最基本的知识。
