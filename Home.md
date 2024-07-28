@@ -68,7 +68,7 @@ let option = {
 	},
 	grid: {
 		left: '3%',
-		right: '4%',
+		right: '5%',
 		bottom: '3%',
 		containLabel: true
 	},
@@ -138,7 +138,7 @@ const hours = Math.floor(totalMinutes / 60);
 const minutes = Math.floor(totalMinutes % 60);
 return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
-app.plugins.plugins['obsidian-echarts'].render(option, this.container, {width: chartWidth, height: chartHeight, align: "center"});
+app.plugins.plugins['obsidian-echarts'].render(option, this.container, {width: chartWidth, height: chartHeight});
 ```
 
 ## 足迹
