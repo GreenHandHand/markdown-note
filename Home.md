@@ -5,6 +5,79 @@ let today = new Date();
 dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate()}]]。`)
 ```
 
+```dataviewjs
+const diary = dv.pages('"日记"').filter(diary => diary.getup);
+let getup = [], sleep = [], date = [];
+diary.forEach(d => {
+	const diary_date = new Date(d.日期);
+	const getupTime = new Date(d.getup);
+	getup.push(getupTime);
+	sleep.push(d.sleep);
+	date.push(`${diary_date.getMonth()}-${diary_date.getDate()}`); 
+});
+console.log(getup);
+let option = {
+  title: {
+    text: 'Waterfall Chart',
+    subtext: 'Living Expenses in Shenzhen'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    },
+    formatter: function (params) {
+      var tar = params[1];
+      return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+    }
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    splitLine: { show: false },
+    data: date,
+  },
+  yAxis: {
+    type: 'time',
+	interval: 3600, 
+  },
+  series: [
+    {
+      name: 'Placeholder',
+      type: 'bar',
+      stack: 'Total',
+      itemStyle: {
+        borderColor: 'transparent',
+        color: 'transparent'
+      },
+      emphasis: {
+        itemStyle: {
+          borderColor: 'transparent',
+          color: 'transparent'
+        }
+      },
+      data: sleep
+    },
+    {
+      name: 'Life Cost',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: true,
+        position: 'inside'
+      },
+      data: getup
+    }
+  ]
+};
+
+app.plugins.plugins['obsidian-echarts'].render(option, this.container)
+```
 ## 足迹
 
 ```contributionGraph
