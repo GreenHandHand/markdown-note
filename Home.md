@@ -8,18 +8,29 @@ dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toStri
 ```dataviewjs
 const diary = dv.pages('"日记"').filter(diary => diary.getup);
 let getup = [], sleep = [], date = [];
+
 diary.forEach(d => {
-	const diary_date = new Date(d.日期);
-	const getupTime = new Date(d.getup);
-	getup.push(getupTime);
-	sleep.push(d.sleep);
-	date.push(`${diary_date.getMonth()}-${diary_date.getDate()}`); 
+  const diary_date = new Date(d.日期);
+  const getupTime = parseTimeToMilliseconds(d.getup);
+  const sleepTime = parseTimeToMilliseconds(d.sleep);
+
+  getup.push(getupTime);
+  sleep.push(sleepTime);
+  date.push(`${diary_date.getMonth() + 1}-${diary_date.getDate()}`);
 });
-console.log(getup);
+
+function parseTimeToMilliseconds(timeStr) {
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  return hours * 3600000 + minutes * 60000; // 毫秒数
+}
+
+// 计算起床时间与睡眠时间之间的差值
+const sleepDuration = getup.map((g, i) => ((g - sleep[i]) % (24 * 3600000)) || 24 * 3600000);
+
 let option = {
   title: {
-    text: 'Waterfall Chart',
-    subtext: 'Living Expenses in Shenzhen'
+    text: '睡觉时间分布',
+    subtext: 'Sleep Duration'
   },
   tooltip: {
     trigger: 'axis',
@@ -28,7 +39,7 @@ let option = {
     },
     formatter: function (params) {
       var tar = params[1];
-      return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+      return tar.name + '<br/>' + tar.seriesName + ' : ' + formatDuration(tar.value);
     }
   },
   grid: {
@@ -43,40 +54,36 @@ let option = {
     data: date,
   },
   yAxis: {
-    type: 'time',
-	interval: 3600, 
+    type: 'value',
+    name: 'Duration (hours)',
+    axisLabel: {
+      formatter: function (value) {
+        return formatDuration(value);
+      }
+    }
   },
   series: [
     {
-      name: 'Placeholder',
-      type: 'bar',
-      stack: 'Total',
-      itemStyle: {
-        borderColor: 'transparent',
-        color: 'transparent'
-      },
-      emphasis: {
-        itemStyle: {
-          borderColor: 'transparent',
-          color: 'transparent'
-        }
-      },
-      data: sleep
-    },
-    {
-      name: 'Life Cost',
+      name: 'Sleep Duration',
       type: 'bar',
       stack: 'Total',
       label: {
         show: true,
         position: 'inside'
       },
-      data: getup
+      data: sleepDuration
     }
   ]
 };
 
-app.plugins.plugins['obsidian-echarts'].render(option, this.container)
+// 添加一个格式化持续时间的辅助函数
+function formatDuration(milliseconds) {
+  const hours = Math.floor(milliseconds / 3600000);
+  const minutes = Math.floor((milliseconds % 3600000) / 60000);
+  return `${hours}h ${minutes}m`;
+}
+
+app.plugins.plugins['obsidian-echarts'].render(option, this.container);
 ```
 ## 足迹
 
