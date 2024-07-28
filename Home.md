@@ -1,3 +1,7 @@
+---
+cssclasses: []
+---
+
 # Home
 
 ```dataviewjs
@@ -138,6 +142,7 @@ const hours = Math.floor(totalMinutes / 60);
 const minutes = Math.floor(totalMinutes % 60);
 return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
+
 app.plugins.plugins['obsidian-echarts'].render(option, this.container, {width: chartWidth, height: chartHeight});
 ```
 
