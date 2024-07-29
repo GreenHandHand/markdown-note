@@ -16,13 +16,13 @@ tags:
 <code>div</code>是一个标准的块级元素。一个块级元素会新开始一行，并且尽可能撑满容器。其他常用的块级元素包括<code>p</code>，<code>form</code>和 HTML5 中的<code>header</code>、<code>footer</code>、<code>section</code>等。
 </div>
 
-而<span style="display: inlin; border: 4px solid #8DBCEF;">span</span>就是一个标准的行内元素。行内元素可以包裹一些文字而不打乱段落的布局。<code>a</code>元素是最常用的行内元素，它可以用作链接。
+而<span style="display: inline; border: 4px solid #8DBCEF;">span</span>就是一个标准的行内元素。行内元素可以包裹一些文字而不打乱段落的布局。<code>a</code>元素是最常用的行内元素，它可以用作链接。
 
 另一个常用的 `display` 值为 "<span style="display: none; border: 4px solid #004fAA;">看不见这段文本</span>"，即 `<span style="display: none; border: 4px solid #004fAA;">看不见这段文本</span>`。它和 `visibility` 属性不一样，把 `display` 设置为 `none` 元素不会占据它本来应该显示的空间，但是设置为 `visibility: hidden` 还会占据空间。
 
 其他的 `display` 还包括 `list-item` 和 `table` 等，常用的还有 `inline-block` 与 `flex`。
 
-## 块级元素属性
+## `block` 布局与 `span` 布局
 
 ### `width`
 
@@ -83,6 +83,61 @@ tags:
 
 为了制作更多复杂的布局，我们现在讨论一下 `position` 属性。
 
-|    值     |             行为             |
-| :------: | :------------------------: |
-| `static` | 默认值，任意一个 `static` 元素不会被特殊的 |
+|     值      |                                                                         行为                                                                          |
+| :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  `static`  |                             默认值，任意一个 `static` 元素不会被特殊的定位。一个 `static` 元素表示它不会被 `positioned`。一个元素被设置其它值表示它会被 `positioned`                             |
+| `relative` |            `relative` 表现得和 `static` 一样，除非你添加了一些额外的属性。在一个相对定位的元素上设置 `top`、`right`、`bottom` 和 `left` 属性会使其偏离其正常位置。其他元素的位置不会受到该元素的影响发生位置改变。            |
+|  `fixed`   |                        一个 `fixed` 元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。与 `relative` 一样，`top`、`right`、`bottom` 和 `left` 属性都可用。                        |
+| `absolute` | `absolute` 是最棘手的值。`absolute` 与 `fixed` 的表现类似，但是它不是相对于视窗而是相对于最近的 `positioned` 祖先元素。如果绝对定位的元素没有 `positioned` 祖先元素，那么它是相对于文档的 `body` 元素，并且他会随着页面滚动而移动。 |
+### `float`
+
+<div>
+ <div style="float: right; width: 50%; height: 8em; margin: 0 0 1em 1em; border: 2px solid black; text-align: center;">环绕我!</div>
+ 
+ <section> 
+ <code>float</code> 属性在布局中也是常用的属性，该属性可以实现文字环绕图片的功能。</section>
+
+<section style="clear: right;">另外还有一个 <code>clear</code> 属性用于控制浮动。对上面的段落使用 <code>clear: right</code>，就可以把这个段落移动到浮动的下方。</section>
+</div>
+
+在使用浮动的时候经常会遇到一个古怪的事情，即当图片比包含它的元素还高、而且它是浮动的时候，这个图片就会溢出到容器外面。对包含它的容器使用样式就可以修正。
+```css
+.container{
+	overflow: auto;
+	zoom: 1; /* needed by IE6 */
+}
+```
+
+完全使用浮动来布局也是常见的，它可以实现与 `position` 布局相同的效果。
+
+### 百分比宽度
+
+百分比是一种包含于块的计量单位。它对于图片很有用。使用百分比布局可以方便的调整宽度比例。但是使用百分比宽度会导致使用 `min-width` 布局方式失效，因为其他的元素部分遵从该属性。
+
+### 媒体查询
+
+响应式设计是一种让网站针对不同浏览器和设备呈现不同显示效果的策略，这样可以让网站在任何情况下显示的很棒。
+
+媒体查询是做此事所需的最强大的工具。我们可以使用百分比布局，然后在浏览器变窄到无法容纳侧边栏中的菜单时，把布局显示成一列。
+```css
+@media(min-width: 600px) {
+	nav {
+		float: left;
+		width: 25%;
+	}
+	section {
+		margin-left: 25%;
+	}
+}
+@media(max-width: 599px){
+	nav li {
+		display: inline;
+	}
+}
+```
+
+
+## `inline-block` 布局
+
+使用 `display` 属性的值为 `inline-block` 可以方便的创建行内块，使用他们来组合出一些效果。
+
