@@ -141,3 +141,24 @@ tags:
 
 使用 `display` 属性的值为 `inline-block` 可以方便的创建行内块，使用他们来组合出一些效果。
 
+使用 `inline-block` 进行布局时，要知道
+- `vertical-align` 属性会影响到 `inline-block` 元素，我们可以把它的值设置为 `top`
+- 我们需要设置每一列的宽度
+- 如果 HTML 源码中元素之间有空格，那么列与列之间就会产生空隙。
+
+
+## 多列布局
+
+这里提供了两个的属性用于实现文字的多列布局。
+```css
+.therr-column{
+	padding: 1em;
+	column-count: 3;
+	column-gap: 1em;
+}
+```
+还有很多的其他与 `column` 相关的属性，更多的需要查阅文档。
+
+## `flexbox`
+
+`flexbox` 布局模式被用来重新定义 CSS 中的布局方式，也是一种目前常用的方式。这里不作介绍。
