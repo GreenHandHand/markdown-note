@@ -6,8 +6,7 @@ dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toStri
 ```
 
 ```dataviewjs
-// const diary = await dv.pages('"日记"').filter(diary => diary.getup && diary.getup != 'fill this').sort(a => a.日期);
-const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => new Date(a.日期));
+const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => a.日期);
 
 const daysToShow = 10; // Change this to the number of days you want to display
 const now = new Date();
@@ -21,26 +20,6 @@ const pastDays = diary.filter(d => {
 });
 
 let getup = [], sleep = [], date = [], validEntries = [];
-// // Validate and process entries
-// for (let i = 1; i < pastDays.length; i++) {
-// 	const prevDay = pastDays[i - 1];
-// 	const currDay = pastDays[i];
-// 	
-// 	const prevSleep = parseTimeToMilliseconds(prevDay.sleep);
-// 	const currGetup = parseTimeToMilliseconds(currDay.getup);
-// 
-// 	// Ensure the sleep time of the previous day and the getup time of the current day are valid
-// 	if (prevSleep <= currGetup) {
-// 		validEntries.push(currDay);
-// 		const diary_date = new Date(currDay.日期);
-// 		const getupTime = currGetup;
-// 		const sleepTime = parseTimeToMilliseconds(prevDay.sleep);
-// 		getup.push(getupTime);
-// 		sleep.push(sleepTime);
-// 		date.push(currDay.file.path);
-// 	}
-// }
-
 // Validate and process entries
 for (let i = 1; i < pastDays.length; i++) {
     const prevDay = pastDays[i - 1];
@@ -48,13 +27,14 @@ for (let i = 1; i < pastDays.length; i++) {
 
     const prevSleep = prevDay.sleep && prevDay.sleep != 'fill this' ? parseTimeToMilliseconds(prevDay.sleep) : null;
     const currGetup = currDay.getup && currDay.getup != 'fill this' ? parseTimeToMilliseconds(currDay.getup) : null;
+	// check date continuous
     const prevDate = new Date(prevDay.日期);
-    const currDate = new Date(currDay.日期);
-
-	console.log()
+	prevDate.setDate(prevDate.getDate() + 1);
+	const prevDateTomorrow = prevDate.getDate();
+    const currDate = new Date(currDay.日期).getDate();
 
     // Ensure there's a valid transition and the dates are continuous
-    if (prevSleep !== null && currGetup !== null && prevSleep <= currGetup && (currDate - prevDate === 24 * 60 * 60 * 1000)) {
+    if (prevSleep !== null && currGetup !== null && prevSleep <= currGetup && (currDate === prevDateTomorrow)) {
         validEntries.push(currDay);
         const diary_date = new Date(currDay.日期);
         const getupTime = currGetup;
@@ -64,8 +44,6 @@ for (let i = 1; i < pastDays.length; i++) {
         date.push(currDay.file.path);
     }
 }
-
-
 function parseTimeToMilliseconds(timeStr) {
 	const [hours, minutes] = timeStr.split(':').map(Number);
 	return hours * 3600000 + minutes * 60000; // 毫秒数
