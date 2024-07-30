@@ -6,50 +6,61 @@ dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toStri
 ```
 
 ```dataviewjs
-const diary = await dv.pages('"日记"')
-.filter(diary => diary.getup && diary.getup != 'fill this' && diary.sleep && diary.sleep != 'fill this')
-.sort(a => a.日期);
+const diary = await dv.pages('"日记"').filter(diary => diary.getup && diary.getup != 'fill this' && diary.sleep && diary.sleep != 'fill this').sort(a => a.日期);
+
+const file = [];
+diary.forEach((page) => {
+	file.push(page.file.path);
+});
+
 const daysToShow = 10; // Change this to the number of days you want to display
 const now = new Date();
+
+// get the days to show
 const pastDays = diary.filter(d => {
-const diaryDate = new Date(d.日期);
-const diffTime = Math.abs(now - diaryDate);
-const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-return diffDays <= daysToShow;
+	const diaryDate = new Date(d.日期);
+	const diffTime = Math.abs(now - diaryDate);
+	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+	return diffDays <= daysToShow;
 });
+
 let getup = [], sleep = [], date = [], validEntries = [];
 // Validate and process entries
 for (let i = 1; i < pastDays.length; i++) {
-const prevDay = pastDays[i - 1];
-const currDay = pastDays[i];
-const prevSleep = parseTimeToMilliseconds(prevDay.sleep);
-const currGetup = parseTimeToMilliseconds(currDay.getup);
-// Ensure the sleep time of the previous day and the getup time of the current day are valid
-if (prevSleep <= currGetup) {
-	validEntries.push(currDay);
-	const diary_date = new Date(currDay.日期);
-	const getupTime = currGetup;
-	const sleepTime = parseTimeToMilliseconds(currDay.sleep);
-	getup.push(getupTime);
-	sleep.push(sleepTime);
-	date.push(`${diary_date.getMonth() + 1}-${diary_date.getDate()}`);
+	const prevDay = pastDays[i - 1];
+	const currDay = pastDays[i];
+	
+	const prevSleep = parseTimeToMilliseconds(prevDay.sleep);
+	const currGetup = parseTimeToMilliseconds(currDay.getup);
+
+	// Ensure the sleep time of the previous day and the getup time of the current day are valid
+	if (prevSleep <= currGetup) {
+		validEntries.push(currDay);
+		const diary_date = new Date(currDay.日期);
+		const getupTime = currGetup;
+		const sleepTime = parseTimeToMilliseconds(prevDay.sleep);
+		getup.push(getupTime);
+		sleep.push(sleepTime);
+		date.push(`${diary_date.getMonth() + 1}-${diary_date.getDate()}`);
+	}
 }
-}
+// add (today) to the last of `date`
+date[date.length - 1] += "(today)";
+
 function parseTimeToMilliseconds(timeStr) {
-const [hours, minutes] = timeStr.split(':').map(Number);
-return hours * 3600000 + minutes * 60000; // 毫秒数
+	const [hours, minutes] = timeStr.split(':').map(Number);
+	return hours * 3600000 + minutes * 60000; // 毫秒数
 }
 // Calculate sleep duration
 const sleepDuration = getup.map((g, i) => {
-const duration = g - sleep[i];
-return duration >= 0 ? duration : duration + 24 * 3600000;
+	const duration = g - sleep[i];
+	return duration >= 0 ? duration : duration + 24 * 3600000;
 });
+
 // Calculate means for getup and sleep times
 const meanGetupTime = Math.round(getup.reduce((a, b) => a + b, 0) / getup.length);
 const meanSleepTime = Math.round(sleep.reduce((a, b) => a + b, 0) / sleep.length);
-// Adjust the chart's dimensions
-const chartWidth = window.innerWidth - 20; // Leave some margin
-const chartHeight = window.innerHeight - 100; // Leave some margin for titles, etc.
+
 let option = {
 	title: {
 		text: '睡觉时间分布',
@@ -63,19 +74,19 @@ let option = {
 		},
 		formatter: function (params) {
 		var tar = params[0]; // Display the sleep duration
-		return tar.name + '<br/>Sleep Duration : ' + formatTime(sleepDuration[tar.dataIndex]);
+		return `${tar.name}<br/>Sleep Druation: ${formatTime(sleepDuration[tar.dataIndex])}<br/>Getup: ${formatTime(getup[tar.dataIndex])}<br/>Sleep: ${formatTime(sleep[tar.dataIndex])}`
 		}
 	},
 	grid: {
-		left: '3%',
-		right: '5%',
+		left: '5%',
+		right: '3%',
 		bottom: '3%',
 		containLabel: true
 	},
 	xAxis: {
 		type: 'category',
 		splitLine: { show: false },
-		data: date,
+		data: file,
 	},
 	yAxis: {
 		type: 'value',
@@ -124,7 +135,7 @@ let option = {
 					return formatTime(params.value);
 				}
 			},
-			data: getup,
+			data: sleepDuration,
 			itemStyle: {
 				color: '#a6cee3'
 			}
@@ -139,7 +150,11 @@ const minutes = Math.floor(totalMinutes % 60);
 return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
-app.plugins.plugins['obsidian-echarts'].render(option, this.container, {width: chartWidth, height: chartHeight});
+app.plugins.plugins['obsidian-echarts'].render(option, this.container);
+
+this.container.style.display = "flex";
+this.container.style.justifyContent = "center";
+this.container.style.alignItems = "center";
 ```
 
 ## 足迹
