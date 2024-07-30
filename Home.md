@@ -6,12 +6,8 @@ dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toStri
 ```
 
 ```dataviewjs
-const diary = await dv.pages('"日记"').filter(diary => diary.getup && diary.getup != 'fill this' && diary.sleep && diary.sleep != 'fill this').sort(a => a.日期);
-
-const file = [];
-diary.forEach((page) => {
-	file.push(page.file.path);
-});
+// const diary = await dv.pages('"日记"').filter(diary => diary.getup && diary.getup != 'fill this').sort(a => a.日期);
+const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => new Date(a.日期));
 
 const daysToShow = 10; // Change this to the number of days you want to display
 const now = new Date();
@@ -25,27 +21,50 @@ const pastDays = diary.filter(d => {
 });
 
 let getup = [], sleep = [], date = [], validEntries = [];
+// // Validate and process entries
+// for (let i = 1; i < pastDays.length; i++) {
+// 	const prevDay = pastDays[i - 1];
+// 	const currDay = pastDays[i];
+// 	
+// 	const prevSleep = parseTimeToMilliseconds(prevDay.sleep);
+// 	const currGetup = parseTimeToMilliseconds(currDay.getup);
+// 
+// 	// Ensure the sleep time of the previous day and the getup time of the current day are valid
+// 	if (prevSleep <= currGetup) {
+// 		validEntries.push(currDay);
+// 		const diary_date = new Date(currDay.日期);
+// 		const getupTime = currGetup;
+// 		const sleepTime = parseTimeToMilliseconds(prevDay.sleep);
+// 		getup.push(getupTime);
+// 		sleep.push(sleepTime);
+// 		date.push(currDay.file.path);
+// 	}
+// }
+
 // Validate and process entries
 for (let i = 1; i < pastDays.length; i++) {
-	const prevDay = pastDays[i - 1];
-	const currDay = pastDays[i];
-	
-	const prevSleep = parseTimeToMilliseconds(prevDay.sleep);
-	const currGetup = parseTimeToMilliseconds(currDay.getup);
+    const prevDay = pastDays[i - 1];
+    const currDay = pastDays[i];
 
-	// Ensure the sleep time of the previous day and the getup time of the current day are valid
-	if (prevSleep <= currGetup) {
-		validEntries.push(currDay);
-		const diary_date = new Date(currDay.日期);
-		const getupTime = currGetup;
-		const sleepTime = parseTimeToMilliseconds(prevDay.sleep);
-		getup.push(getupTime);
-		sleep.push(sleepTime);
-		date.push(`${diary_date.getMonth() + 1}-${diary_date.getDate()}`);
-	}
+    const prevSleep = prevDay.sleep && prevDay.sleep != 'fill this' ? parseTimeToMilliseconds(prevDay.sleep) : null;
+    const currGetup = currDay.getup && currDay.getup != 'fill this' ? parseTimeToMilliseconds(currDay.getup) : null;
+    const prevDate = new Date(prevDay.日期);
+    const currDate = new Date(currDay.日期);
+
+	console.log()
+
+    // Ensure there's a valid transition and the dates are continuous
+    if (prevSleep !== null && currGetup !== null && prevSleep <= currGetup && (currDate - prevDate === 24 * 60 * 60 * 1000)) {
+        validEntries.push(currDay);
+        const diary_date = new Date(currDay.日期);
+        const getupTime = currGetup;
+        const sleepTime = prevSleep;
+        getup.push(getupTime);
+        sleep.push(sleepTime);
+        date.push(currDay.file.path);
+    }
 }
-// add (today) to the last of `date`
-date[date.length - 1] += "(today)";
+
 
 function parseTimeToMilliseconds(timeStr) {
 	const [hours, minutes] = timeStr.split(':').map(Number);
@@ -86,7 +105,23 @@ let option = {
 	xAxis: {
 		type: 'category',
 		splitLine: { show: false },
-		data: file,
+		data: date,
+		axisLabel: {
+			interval: 0,
+			formatter: function (path, i) {
+		       	const regex = /\d{4}-(\d{2})-(\d{2})/;
+		       	const match = path.match(regex);
+		   
+		       	if (match) {
+					if (i == date.length - 1){
+						return `${match[1]}-${match[2]}\n(today)`;
+					}else{
+						return `${match[1]}-${match[2]}`;
+					}
+		       	}
+		       	return null;
+		   	}
+		}
 	},
 	yAxis: {
 		type: 'value',
@@ -137,7 +172,14 @@ let option = {
 			},
 			data: sleepDuration,
 			itemStyle: {
-				color: '#a6cee3'
+				color: function (params){
+					// 最后一个颜色高亮，其余颜色为'#a6cee3'
+					if(params.dataIndex == date.length - 1){
+						return '#a6e3bb';
+					}else{
+						return '#a6cee3';
+					}
+				}
 			}
 		}
 	]
