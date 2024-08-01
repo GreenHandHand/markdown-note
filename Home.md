@@ -164,10 +164,10 @@ let option = {
 };
 // Format time in HH:MM
 function formatTime(milliseconds) {
-const totalMinutes = milliseconds / 60000;
-const hours = Math.floor(totalMinutes / 60);
-const minutes = Math.floor(totalMinutes % 60);
-return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+	const totalMinutes = milliseconds / 60000;
+	const hours = Math.floor(totalMinutes / 60);
+	const minutes = Math.floor(totalMinutes % 60);
+	return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
 app.plugins.plugins['obsidian-echarts'].render(option, this.container);
