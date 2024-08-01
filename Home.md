@@ -2,7 +2,7 @@
 
 ```dataviewjs
 let today = new Date();
-dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate()}]]。`)
+dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}]]。`)
 ```
 
 ```dataviewjs
