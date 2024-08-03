@@ -61,6 +61,7 @@ const meanSleepTime = Math.round(sleep.reduce((a, b) => a + b, 0) / sleep.length
 let option = {
 	height: "600px",
 	width: "800px",
+	backgroundColor: "transparent",
 	title: {
 		text: '睡觉时间分布',
 		subtext: 'Sleep Duration',
