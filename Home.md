@@ -6,18 +6,20 @@ dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toStri
 ```
 
 ```dataviewjs
-const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => a.日期);
+const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => a.file.name);
 
 const daysToShow = 10; // Change this to the number of days you want to display
 const now = new Date();
 
 // get the days to show
 const pastDays = diary.filter(d => {
-	const diaryDate = new Date(d.日期);
+	const diaryDate = new Date(d.file.name);
 	const diffTime = Math.abs(now - diaryDate);
 	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 	return diffDays <= daysToShow;
 });
+
+console.log(pastDays);
 
 let getup = [], sleep = [], date = [], validEntries = [];
 // Validate and process entries
@@ -28,15 +30,15 @@ for (let i = 1; i < pastDays.length; i++) {
     const prevSleep = prevDay.sleep && prevDay.sleep != 'fill this' ? parseTimeToMilliseconds(prevDay.sleep) : null;
     const currGetup = currDay.getup && currDay.getup != 'fill this' ? parseTimeToMilliseconds(currDay.getup) : null;
 	// check date continuous
-    const prevDate = new Date(prevDay.日期);
+    const prevDate = new Date(prevDay.file.name);
 	prevDate.setDate(prevDate.getDate() + 1);
 	const prevDateTomorrow = prevDate.getDate();
-    const currDate = new Date(currDay.日期).getDate();
+    const currDate = new Date(currDay.file.name).getDate();
 
     // Ensure there's a valid transition and the dates are continuous
     if (prevSleep !== null && currGetup !== null && prevSleep <= currGetup && (currDate === prevDateTomorrow)) {
         validEntries.push(currDay);
-        const diary_date = new Date(currDay.日期);
+        const diary_date = new Date(currDay.file.name);
         const getupTime = currGetup;
         const sleepTime = prevSleep;
         getup.push(getupTime);
