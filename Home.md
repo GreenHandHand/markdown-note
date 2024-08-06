@@ -1,3 +1,7 @@
+---
+cssclasses:
+  - kanban
+---
 # Home
 
 ```dataviewjs
@@ -180,6 +184,15 @@ app.plugins.plugins['obsidian-echarts'].render(option, this.container);
 this.container.style.display = "flex";
 this.container.style.justifyContent = "center";
 this.container.style.alignItems = "center";
+```
+
+## Recent Files
+
+```dataview
+table file.mtime as "Last Edit", file.tags as "Tags"
+from !#diary and !"Home" and !"template" and !"Readme"
+sort file.mtime desc
+limit 10
 ```
 
 ## 足迹
