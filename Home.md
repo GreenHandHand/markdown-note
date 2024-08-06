@@ -1,6 +1,7 @@
 ---
 cssclasses:
   - kanban
+  - table-center
 ---
 # Home
 
