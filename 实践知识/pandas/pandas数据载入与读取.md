@@ -14,7 +14,7 @@
 |   read_json    | 从JSON（JavaScript Object Notation）字符串中读取数据  |
 |  read_msgpack  |         读取MessagePack二进制中的pandas数据         |
 |    read_sas    |         读取以Python pickle格式储存的任意对象          |
-|    read_sql    | 将SQL的查询结果（使用SQLAlchemy）读取为pandas的DataFrame |
+|    read_sql    | 将[[数据库/SQL|SQL]]的查询结果（使用SQLAlchemy）读取为pandas的DataFrame |
 |   read_stata   |               读取Stata格式的数据集                |
 |  read_feather  |               读取Feather二进制格式               |
 
