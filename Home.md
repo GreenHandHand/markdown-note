@@ -10,6 +10,17 @@ let today = new Date();
 dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}]]。`)
 ```
 
+## Recent Files
+
+```dataview
+table file.mtime as "Last Edit", file.tags as "Tags"
+from !#diary and !"Home" and !"template" and !"Readme"
+sort file.mtime desc
+limit 10
+```
+
+## Sleep Duration
+
 ```dataviewjs
 const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => a.file.name);
 
@@ -185,15 +196,6 @@ app.plugins.plugins['obsidian-echarts'].render(option, this.container);
 this.container.style.display = "flex";
 this.container.style.justifyContent = "center";
 this.container.style.alignItems = "center";
-```
-
-## Recent Files
-
-```dataview
-table file.mtime as "Last Edit", file.tags as "Tags"
-from !#diary and !"Home" and !"template" and !"Readme"
-sort file.mtime desc
-limit 10
 ```
 
 ## 足迹
