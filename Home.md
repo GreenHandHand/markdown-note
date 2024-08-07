@@ -77,7 +77,7 @@ const meanGetupTime = Math.round(getup.reduce((a, b) => a + b, 0) / getup.length
 const meanSleepTime = Math.round(sleep.reduce((a, b) => a + b, 0) / sleep.length);
 
 let option = {
-	height: "600px",
+	height: "400px",
 	width: "800px",
 	backgroundColor: "transparent",
 	title: {
