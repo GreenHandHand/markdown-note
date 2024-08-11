@@ -222,9 +222,10 @@ enableMainContainerShadow: false
 mainContainerStyle:
   backgroundColor: "#ffffff00"
 cellStyle:
-  minWidth: 30px
-  minHeight: 30px
+  minWidth: 24px
+  minHeight: 24px
 cellStyleRules: []
+
 ```
 
 ```contributionGraph
