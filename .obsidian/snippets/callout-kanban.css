@@ -1,3 +1,21 @@
+body {
+    /*pseudo-kanban*/
+    --p-kanban-bg-color: #6c6c6c42;
+    --p-kanban-border-color: transparent;
+    --p-kanban-card-color-1: #0000003f;
+    --p-kanban-card-color-2: #41414136;
+    --p-kanban-color-6: #f3424252;
+    --p-kanban-color-5: #eb973752;
+    --p-kanban-color-4: #d2dd3852;
+    --p-kanban-color-3: #38ce2a52;
+    --p-kanban-color-2: #2ec4c452;
+    --p-kanban-color-1: #3496e652;
+    --p-kanban-color-8: #b962ff52;
+    --p-kanban-color-7: #e45bdd52;
+    --p-kanban-color-simple: #8e8e8e41;
+    --p-kanban-color-shadow: #0000004d;
+}
+
 /* callout伪看板效果*/
 .callout[data-callout-metadata="kanban"] ul {
     display: flex;
@@ -199,4 +217,17 @@ body:not(.default-icons) .callout[data-callout-metadata="kanban"] li.task-list-i
 
 body.colorful-p-kanban .callout[data-callout-metadata="kanban"] .task-list-item-checkbox {
     border-color: var(--text-normal) !important;
+}
+
+/*伪看板优化显示*/
+.kanban ul>li:not(.task-list-item) {
+    flex: 1 1 auto;
+}
+
+.kanban ul>li.task-list-item {
+    flex: 1 1 auto;
+}
+
+.is-mobile .nav-folder.mod-root>.nav-folder-title {
+    display: none;
 }
