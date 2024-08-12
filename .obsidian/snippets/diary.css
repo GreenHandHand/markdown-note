@@ -1,0 +1,80 @@
+/* chart */
+.obsidian-echarts-diary-pie .echarts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.obsidian-echarts-diary-pie .echarts-container canvas {
+    overflow: visible;
+}
+
+.obsidian-echarts-diary-pie .echarts-container {
+    background-color: transparent;
+}
+
+/* time input box */
+/* .time-input-box {
+    font-size: var(--font-size-preview-normal);
+}
+
+.time-input-box input {
+    text-align: center;
+    width: auto;
+    min-width: 50px;
+    white-space: nowrap;
+    border: 0;
+    background-color: transparent;
+} */
+
+/* time input box */
+.time-input-box {
+    font-size: var(--font-size-preview-normal);
+    position: relative;
+    /* Ensure that transitions apply correctly */
+    transition: all 0.3s ease;
+    /* Smooth transition for any changes */
+}
+
+.time-input-box input {
+    text-align: center;
+    width: auto;
+    min-width: 50px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    /* Set initial border to transparent */
+    background-color: transparent;
+    transition: all 0.3s ease;
+    /* Smooth transition for any changes */
+}
+
+/* Add hover and focus styles */
+.time-input-box:hover,
+.time-input-box:focus-within {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Slight background color change on hover or focus */
+}
+
+.time-input-box:hover input,
+.time-input-box:focus-within input {
+    border-color: #ccc;
+    /* Change border color on hover or focus */
+}
+
+/* Add active state */
+.time-input-box input:active {
+    border-color: #888;
+    /* Darker border color when the input is actively being clicked */
+    outline: none;
+    /* Remove default outline */
+}
+
+/* Optionally, add a more pronounced focus style */
+.time-input-box input:focus {
+    border-color: #4d90fe;
+    /* A different color to indicate focus */
+    box-shadow: 0 0 0 2px rgba(77, 144, 254, 0.25);
+    /* Optional box shadow for focus state */
+}

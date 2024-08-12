@@ -1,0 +1,14 @@
+/* callout 块中，如果下面是列表、段落、div 等块元素，则不添加额外的间距 */
+.cm-content p:has(+ ul, + ol, + div) {
+    margin-bottom: 0;
+}
+
+/* callout 块中，如果上面是数学公式，则不添加额外的间距 */
+.cm-content .math-block+p {
+    margin-top: 0;
+}
+
+/* 关闭 callout p块的 margin-block-start */
+.callout .callout-content p {
+    margin-block-start: 10px !important;
+}
