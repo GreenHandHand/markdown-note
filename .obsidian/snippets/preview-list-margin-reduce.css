@@ -6,3 +6,7 @@
 .markdown-reading-view p:has(+ ul, + ol) {
     margin-bottom: 0;
 }
+
+div:has(p)+div>:is(ul, ol) {
+    margin-block-start: 0;
+}
