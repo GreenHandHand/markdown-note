@@ -229,7 +229,7 @@ cellStyleRules: []
 ```
 
 ```contributionGraph
-title: 日记热力图
+title: 日记
 graphType: default
 dateRangeValue: 180
 dateRangeType: LATEST_DAYS
