@@ -3,6 +3,10 @@
     margin-bottom: 0;
 }
 
+.callout .callout-content p+ :is(ul, ol) {
+    margin-block-start: 5px !important;
+}
+
 /* callout 块中，如果上面是数学公式，则不添加额外的间距 */
 .cm-content .math-block+p {
     margin-top: 0;
