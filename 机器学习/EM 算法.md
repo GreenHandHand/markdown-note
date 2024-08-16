@@ -29,7 +29,7 @@ $$
 
 ### Jensen 不等式
 
-定理：假设 $f$ 是一个凸函数，$X$ 是一个随机变量，有：
+定理：假设 $f$ 是一个凸函数，$X$ 是一个[[概率论与数理统计/一维随机变量及其分布|随机变量]]，有：
 $$
 E[f(X)]\ge f(EX)
 $$
@@ -54,7 +54,7 @@ $$
 $$
 \begin{align}\log[EX]\ge E[\log(X)]\end{align}
 $$
-设 $\dfrac{p(x_i,z_i|\theta)}{Q_i(z_i)}$ 为 $g_i(z_i)$，则由数学期望的性质可以得到：
+设 $\dfrac{p(x_i,z_i|\theta)}{Q_i(z_i)}$ 为 $g_i(z_i)$，则由[[概率论与数理统计/随机变量的数字特征|数学期望]]的性质可以得到：
 $$
 \left\{\begin{aligned}\log E[g_i(z)]&=\log\sum_{z_i}g(z_i)\cdot Q_i(z_i)\\[3mm]E[\log g_i(z)]&=\displaystyle\sum_{z_i} Q_i(z_i)\log g_i(z_i)\end{aligned}\right.
 $$
