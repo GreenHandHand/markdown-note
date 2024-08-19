@@ -24,7 +24,7 @@ limit 10
 ```dataviewjs
 const diary = await dv.pages('"日记"').filter(diary => (diary.getup && diary.getup != 'fill this') || (diary.sleep && diary.sleep != 'fill this')).sort(a => a.file.name);
 
-const daysToShow = 10; // Change this to the number of days you want to display
+const daysToShow = 15; // Change this to the number of days you want to display
 const now = new Date();
 
 // get the days to show
