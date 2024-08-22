@@ -5,12 +5,6 @@ cssclasses:
 ---
 # Home
 
-压缩映射原理，对于数列 $\{ x_{n} \}$，若 $x_{n+1}=f(x_{n})$，$f(x)$ 可导，且 $f(x)=x$ 的唯一解是 $a$，且对于 $\forall x \in \mathbb{R}$，有 $\left| f'(x) \right|\leqslant k < 1$，则 $\{ x_{n} \}$ 收敛于 $a$。
-
-$$
-\left| x_{n+1}-a \right| =\left| f(x_{n})-f(a) \right| \implies \left| f'(\xi) \right| \left| x_{n}-a \right| \leqslant k\left| x_{n}-a \right| 
-$$
-
 ```dataviewjs
 let today = new Date();
 dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}]]。`)
