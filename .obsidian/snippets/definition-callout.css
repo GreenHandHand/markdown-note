@@ -54,5 +54,6 @@
 }
 
 :is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-content p {
-    margin-block-start: 19px;
+    margin-block-start: 12px;
+    margin-block-end: 5px;
 }
