@@ -19,6 +19,14 @@ sort file.mtime desc
 limit 10
 ```
 
+## Focus Counter
+
+```dataview
+table focusTime
+FROM #diary 
+WHERE focusTime
+```
+
 ## Sleep Duration
 
 ```dataviewjs
