@@ -36,7 +36,7 @@ class Color(QWidget):
 ## QVBoxLayout
 
 QVBoxLayout 将 Widget 竖着排列，每一个 Widget 将会被添加到最下方。现在我们可以向 app 中填加 QVBoxLayout。需要注意，为了向 QMainWindow 中添加 Layout，我们需要先将 Layout 应用到一个空白的 QWidget 上，然后使用 `.setCentralWidget` 来应用 Widget 与 Layout。
-![[Pasted image 20240311183828.png]]
+![[Pasted image 20240311183828.png|200]]
 
 ## QHBoxLayout
 

@@ -3,11 +3,17 @@ cssclasses:
   - kanban
   - home
 ---
+
 # Home
 
 ```dataviewjs
 let today = new Date();
 dv.paragraph(`今天是 [[${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}]]。`)
+```
+
+```dataview
+table without id "库中共有" +length(rows) + "个页面，总计约" + round(sum(rows.file.size)/10000,0) + "万字节（" + round((sum(rows.file.size)/1048576), 2) + "MB）" as "笔记库统计"
+group by 12345
 ```
 
 ## Recent Files

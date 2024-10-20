@@ -8,5 +8,5 @@
 }
 
 div:has(p)+div>:is(ul, ol) {
-    margin-block-start: 0;
+    margin-block-start: 0 !important;
 }

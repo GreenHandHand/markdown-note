@@ -4,6 +4,7 @@
     --callout-color: transparent;
     --callout-icon: none;
     box-shadow: none !important;
+    border-style: none !important;
 }
 
 
