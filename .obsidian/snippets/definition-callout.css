@@ -58,3 +58,7 @@
     margin-block-start: 12px;
     margin-block-end: 5px;
 }
+
+.callout[data-callout-metadata="noIndent"] .callout-content p {
+    text-indent: 0 !important;
+}
