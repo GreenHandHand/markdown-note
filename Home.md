@@ -20,7 +20,7 @@ group by 12345
 
 ```dataview
 table file.mtime as "Last Edit", file.tags as "Tags"
-from !#diary and !"Home" and !"template" and !"Readme"
+from !#diary and !"Home" and !"template" and !"Readme" and !"Excalidraw"
 sort file.mtime desc
 limit 10
 ```
