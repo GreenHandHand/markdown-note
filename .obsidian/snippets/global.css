@@ -1,0 +1,47 @@
+/* 用于设置缩减栏宽 */
+body {
+    --file-line-width: 65rem;
+}
+
+/* 全宽表格 */
+.markdown-rendered table {
+    width: 100%;
+}
+
+/* 表格居中 使用 classcls: table-center 启用 */
+body .table-center {
+    --table-cell-vertical-alignment: middle;
+}
+
+.table-center .table-cell-wrapper {
+    display: table-cell;
+}
+
+/* mermaid 图表居中 */
+.mermaid {
+    align-items: center;
+}
+
+/* text-intend for the callout paragraph*/
+.callout p {
+    text-indent: 2em;
+}
+
+/* 如果段落后面跟着一个有序列表或者无序列表，那么就不要 margin-bottom */
+.markdown-reading-view div:has(+ div>:is(ul, ol))>p {
+    margin-bottom: 0;
+    margin-block-end: 0 !important;
+}
+
+p:has(+ ul, + ol) {
+    margin-bottom: 0;
+    margin-block-end: 0 !important;
+}
+
+p:has(+ ul, + ol)+ :is(ul, ol) {
+    margin-block-start: 0 !important;
+}
+
+div:has(p)+div>:is(ul, ol) {
+    margin-block-start: 0 !important;
+}
