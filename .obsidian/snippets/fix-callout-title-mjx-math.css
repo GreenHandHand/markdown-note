@@ -1,4 +1,0 @@
-/* callout 标题中的数学公式颜色 */
-.callout .callout-title mjx-container mjx-math {
-    color: var(--callout-title-color) !important;
-}
