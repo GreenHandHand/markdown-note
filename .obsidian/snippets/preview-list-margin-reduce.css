@@ -1,0 +1,12 @@
+/* 如果段落后面跟着一个有序列表或者无序列表，那么就不要 margin-bottom */
+.markdown-reading-view div:has(+ div>:is(ul, ol))>p {
+    margin-bottom: 0;
+}
+
+.markdown-reading-view p:has(+ ul, + ol) {
+    margin-bottom: 0;
+}
+
+div:has(p)+div>:is(ul, ol) {
+    margin-block-start: 0 !important;
+}

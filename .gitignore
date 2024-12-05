@@ -1,0 +1,9 @@
+.*
+!.gitignore
+!.gitattributes
+!.obsidian/
+.obsidian/*
+!.obsidian/themes/
+!.obsidian/snippets/
+日记/
+0-临时/

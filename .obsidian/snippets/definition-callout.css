@@ -1,0 +1,64 @@
+/* Latex style definition callout */
+.callout[data-callout="definition"],
+.callout[data-callout="title"] {
+    --callout-color: transparent;
+    --callout-icon: none;
+    box-shadow: none !important;
+    border-style: none !important;
+}
+
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]):has(.callout-content)::before {
+    display: flex;
+    float: left;
+    content: attr(data-callout-metadata);
+    font-style: italic;
+    font-weight: var(--callout-title-weight);
+    line-height: var(--line-height-tight);
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]):not(:has(.callout-content))::before {
+    display: flex;
+    float: left;
+    content: attr(data-callout-metadata);
+    font-weight: var(--callout-title-weight);
+    line-height: var(--line-height-tight);
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-icon {
+    display: none;
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-title {
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]):not(:has(.callout-content)) .callout-title-inner {
+    font-weight: normal;
+    align-items: center;
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-title-inner {
+    margin-left: 1em;
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-content {
+    margin-left: 1em;
+    padding: 0 0.5em 0.5em 0.5em;
+    clear: left;
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-top: 1px solid var(--background-modifier-border);
+    border-left: 5px solid var(--background-modifier-border);
+    border-right: 5px solid var(--background-modifier-border);
+}
+
+:is(.callout[data-callout="definition"], .callout[data-callout="title"]) .callout-content p {
+    margin-block-start: 12px;
+    margin-block-end: 5px;
+}
+
+.callout[data-callout-metadata="noIndent"] .callout-content p {
+    text-indent: 0 !important;
+}

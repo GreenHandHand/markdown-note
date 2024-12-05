@@ -1,0 +1,14 @@
+.home .table-view-table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.home :is(ul>li, ol>li) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.home .table-view-table>thead>tr>th {
+    text-align: center;
+    vertical-align: middle;
+}
