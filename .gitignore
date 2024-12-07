@@ -5,5 +5,8 @@
 .obsidian/*
 !.obsidian/themes/
 !.obsidian/snippets/
+!.obsidian/plugins/
+.obsidian/plugins/*
+!.obsidian/plugins/obsidian-mind-map
 日记/
 0-临时/
