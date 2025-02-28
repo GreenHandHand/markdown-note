@@ -190,85 +190,133 @@ DROP INDEX <索引名>
 
 关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。
 
-## SQL 数据操作
+## SQL 数据操纵
 
 ### 查询
 
-一般结构：
+> [!info] 完整句式
+> ```sql
+> SELECT [ALL|DISTINCT] <目标列表达式> | ...
+> FROM <表名或视图名> [, <表名或视图名> ] ...
+> [ WHERE <条件表达式> ]
+> [ GROUP BY <列名1> [ HAVING <条件表达式> ] ]
+> [ ORDER BY <列名2> [ ASC | DESC ] ];
+> ```
 
+数据查询是数据库的核心功能，使用关键词 `SELECT` 表示一个查询语句。其基本句式如下，作用为*从 R1,R2,...,Rn 中选择满足 P 的元组，并输出其中的 A1,A2,...,An 列*。
 ```sql
-SELECT [ALL|DISTINCT] <目标列表达式> |
+SELECT A1, A2, ..., An FROM R1, R2, ..., Rn WHERE P;
 ```
 
-数据查询是数据库的核心功能
-
-基本结构：
-
-```sql
-SELECT A1, A2, ... ,An FROM R1, R2, ..., Rn WHERE P;
-```
-
-相当于：$\Pi_{A_1,A_2,\dots,A_n}(\sigma_P(R_1\times R_2\times\dots\times R_n))$
+> [!tip] 相当于语句 $\Pi_{A_1,A_2,\dots,A_n}(\sigma_P(R_1\times R_2\times\dots\times R_n))$
 
 #### 单表查询
 
-查询仅涉及一个表，是一种最简单的查询操作
-
+查询仅涉及一个表，是一种最简单的查询操作，可以进行的操作包含
 - 选择表中的若干列
 - 选择表中的若干元组
+- 对查询结果进行排序
+- 使用聚集函数
+- 对查询结果进行分组
 
-SELECT 语句中的查询目标不仅可以是属性列，还可以是表达式，即可以查询经过计算的值
-
-- 表达式可以是算术表达式，字符串常量，函数，列别名等
+> [!note]
+> `SELECT` 语句中的 `<目标列表达式>` 不仅可以是表中的属性列，还可以是表达式^[表达式可以是算术表达式，字符串常量，函数，列别名等]。
+> - 直接查询与使用表达式：查询全体学生的姓名及其出生年份，`SELECT Sname, 2023-Sage FROM Student`。
+> - 使用内置函数与字符串：查询全体学生的姓名、出生年份和所在系，使用小写表示系名，`SELECT Sname, 'Year of Birth:', 2023-Sage, LOWER(Sdept)`。
+> - 使用 `DISTINCT` 消除重复元组：`SELECT DISTINCT Sno, Grade FROM SC`。
 
 ##### 条件语句
 
-1. 在 WHERE 字句中的比较条件中使用比较运算符：
+|  条件表达式  | 语法                                                        |
+| :-----: | --------------------------------------------------------- |
+|  比较表达式  | `<列名1> op <列名2> \| 常量`                                    |
+|         | 其中 `op` 可以是比较运算符：`=,>,>=,<,<=,<>,!=`                      |
+|  逻辑表达式  | `<条件表达式1> op <条件表达式2>`                                    |
+|         | 其中 `op` 可以是逻辑运算符 `AND, OR, NOT`                           |
+| BETWEEN | `<列名1> [NOT] BETWEEN <常量或列名> AND <常量或列名> ...`             |
+|   IN    | `<列名> [NOT] IN [常量、表、列 或者 SELECT子句]`                      |
+|  LIKE   | `<列名> [NOT] LIKE '匹配字符串'`                                 |
+|         | 其中匹配字符串使用 `_` 表示匹配一个字符，使用 `%` 表示匹配任意字符串                   |
+|         | 对于字符串中包含 `_` 与 `%` 的匹配，需要使用 `ESCAPE` 关键字指定转义字符，在匹配串中进行转义。 |
+|  NULL   | `<列名> IS [NOT] NULL`                                      |
+|         | 需要注意，不能使用 `= NULL` 匹配空值。                                   |
+|  EXIST  | `[NOT] EXISTS [SELECT子句]`                                 |
 
-   - =, >, <, >=, <=, !=
-2. 使用谓词 BETWEEN ... AND ... 或者 NOT BETWEEN ... AND ...
-3. 确定集合，使用谓词 IN \<值表\>, NOT IN \<值表\>
-   值表：用逗号分隔的一组取值
-4. 字符串匹配：
+> [!note] SQL 空值
+> SQL 允许属性有一个特殊值 `NULL`，称为空值。
+> - 空值不同于空白或零值。没有两个相等的空值，空值和任何值进行算数运算，结果仍为空值。
+> - 执行计算时消除空值很重要，因为包含空值列的某些计算 (例如平均值) 会不准确。
+> - 当使用逻辑运算符和比较运算符，有可能返回结果 `UNKNOWN`，该值与 `TRUE` 和 `FALSE` 地位同等，是一种布尔值。
+> - 空串指零长度的字符串。
 
-   ```sql
-   [NOT] LIKE '<匹配串>' [ESCAPE '<换码字符>']
-   ```
-
-   - 匹配串：指匹配模板
-     固定模式
-   - ESCAPE 短语：
-     当用户要查询的字符串本身就具有% 或 _ 时，要使用 ESCAPE
-5. 涉及空值的查询：
-   使用 IS NULL 和 IS NOT NULL，不能使用= NULL
-   空值：SQL 允许属性有一个特殊值 NULL 称为空值，该值常用于表述未知值、不适用值与无权限值
-   空值不等同于空白或零值，没有两个相等的空值，空值和任何值进行算术运算，结果仍为空值，使用空值进行逻辑计算得到的结果为 UNKNOWN
-   空串指零长度的字符串
+> [!example]
+> 1. 比较大小：`SELECT Sname, Sage FROM Student WHERE Sage < 20;`
+> 2. 确定范围：`SELECT Sname, Sage FROM Student WHERE Sage BETWEEN 20 AND 23;`
+> 3. 确定集合：`SELECT Sname Ssex FROM Student WHERE Sdept IN ('IS', 'MA', 'CS');`
+> 4. 字符串匹配：`SELECT Sname, Sno, Ssex FROM Student WHERE Sname LIKE '刘%';`
+> 5. 字符串匹配转义：`SELECT Cno, Ccredit FROM Course WHERE Cname LIKE 'DB\_Design' ESCAPE '\';`
+> 6. 涉及空值的查询：`SELECT Sno, Cno FROM SC WHERE Grade IS NULL;`
+> 7. 多重条件：`SELECT Sname FROM Student WHERE Sdept='CS' AND Sage < 20;`
 
 ##### 对查询结果进行排序
 
-使用 ORDER BY 子句，升序 ASC，降序 DESC；缺省值为升序
+使用 `ORDER BY` 子句可以对查询结果按一个或多个属性列排序，升序 `ASC`，降序 `DESC`。缺省时为升序。
 
-空值将作为最大值排序：ASC 排序后空值最后显示，DESC 排序后空值最先显示
+> [!note] 空值将作为最大值排序，即 `ASC` 排序后空值最后显示，`DESC` 排序后空值最先显示
 
-##### 使用聚集函数
+> [!example]
+> ```sql
+>  SELECT Sno, Grade
+>  FROM SC
+>  WHERE Cno='3'
+>  ORDERE BY Grade DESC;
+> ```
+
+##### 聚集函数
+
+| 聚集函数  | 用法                                |
+| :---: | --------------------------------- |
+|  计数   | `COUNT([ DISTINCT or ALL ] <列名>)` |
+| 计算总和  | `SUN([ DISTINCT or ALL ] <列名>)`   |
+| 计算平均值 | `AVG([ DISTINCT or ALL ] <列名>)`   |
+| 求最大值  | `MAX([ DISTINCT or ALL ] <列名>)`   |
+| 求最小值  | `MIN([ DISTINCT or ALL ] <列名>)`   |
+|       | `DISTINCT`：在计算时取消指定列中的重复值         |
+|       | `ALL`：不取消重复是，默认为 `ALL`             |
 
 ##### 对查询结果进行分组
 
-使用 GROUP BY 子句分组
+使用 `GROUP BY` 子句分组，分组的作用如下：
+- 细化聚集函数的作用对象。
+	1. 未对查询结果分组，聚集函数将*作用于整个查询结果*。
+	2. 对查询结果分组后，聚集函数将*分别作用于每一个组*。
+- 分组方法：按指定的一列或者多列值分组，值相等的为一组。
+	- 使用 `GROUP BY` 子句后，`SELECT` 子句的列名列表中只能出现分组属性和聚集函数。
+- `GROUP BY` 子句的作用对象是查询的中间结果表
+- 使用 `HAVING` 短语筛选最终输出结果
+  - 只有满足 `HAVING` 短语指定条件的组才输出
 
-- 细化聚集函数的作用对象
-  1. 未对查询结果分组，聚集函**数将作用于整个查询结果
-  2. 对查询结果分组后，聚集函数将分别作用于每一个组
-- 分组方法：按指定的一列或者多列值分组，值相等的为一组
-  - 使用 GROUP BY 子句后，SELECT 子句的列名列表中只能出现分组属性和聚集函数
-- GROUP BY 子句的作用对象是查询的中间结果表
-- 使用 HAVING 短语筛选最终输出结果
-  - 只有满足 HAVING 短语指定条件的组才输出
+> [!example]
+> 查询选修了 3 门以上课程的学生学号:
+> ```sql
+> SELECT Sno
+> FROM SC
+> GROUP BY Sno
+> HAVING COUNT(*) > 3
+> ```
+
+> [!note] `HAVING` 与 `WHERE` 的区别
+> 1. 作用对象不同
+> 	- `WHERE` 子句作用于基表或视图，从中选择满足条件的元组。
+> 	- `HAVING` 子句作用于组，从中选择满足条件的组。
+> 2. 聚合函数
+> 	- `WHERE` 子句不能使用聚合函数。
+> 	- `HAVING` 子句可以使用聚合函数。
 
 #### 连接查询
 
-同时涉及多个表的查询称为连接查询
+同时涉及多个表的查询称为**连接查询**。用来连接两个表的条件称为**连接条件**或**连接谓词**。连接谓词中的列名称称为**连接字段**。SQL 中连接查询的主要类型有
+
 
 ##### 广义笛卡尔积
 
