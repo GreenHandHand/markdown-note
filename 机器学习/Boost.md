@@ -1,7 +1,7 @@
 ---
 aliases:
   - 增强
-tag:
+tags:
   - 机器学习
   - 监督学习
   - 聚合
@@ -30,7 +30,6 @@ $$
 T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}
 $$
 其中，每个样本点由实例与标记组成。实例 $x_i\in\mathcal X\subseteq \mathbf R^n$，标记 $y_i\in \mathcal Y=\{-1,+1\}$，$\mathcal X$ 是实例空间，$\mathcal Y$ 是标记空间。AdaBoost 利用以下算法，从训练数据中学习一系列弱分类器或者基本分类器，并将这些弱分类器线性组合称为一个强分类器。
-
 
 > AdaBoost 算法
 - 输入：训练数据集 $T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$, 其中 $x_i\in \mathcal X\subseteq R^n$, $y_i\in \mathcal Y=\{-1,+1\}$}。弱学习算法。

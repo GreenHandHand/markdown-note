@@ -2,7 +2,7 @@
 aliases:
   - tsne
   - t-sne
-tag:
+tags:
   - 机器学习
   - 无监督学习
   - 降维

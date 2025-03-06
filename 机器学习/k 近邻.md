@@ -2,7 +2,7 @@
 aliases:
   - KNN
   - k nearest neighbor
-tag:
+tags:
   - 机器学习
   - 监督学习
 ---
