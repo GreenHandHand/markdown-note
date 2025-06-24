@@ -2,6 +2,7 @@
 !.gitignore
 !.gitattributes
 !.obsidian/
+!.obsidian.vimrc
 .obsidian/*
 !.obsidian/themes/
 !.obsidian/snippets/
