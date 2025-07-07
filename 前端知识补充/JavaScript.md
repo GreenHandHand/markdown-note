@@ -2,6 +2,7 @@
 tags:
   - 前端
 ---
+
 # JavaScript
 
 本文档仅介绍 JavaScript 中最基本的知识。
@@ -32,8 +33,8 @@ JavaScript 每条命令以分号结尾，按顺序执行。下面是 JavaScript 
 JavaScript 中，可以使用 `var` 定义变量的类型，这样定义的变量类型是动态类型的。也可以使用 `const` 定义一个常量类型，或者使用 `let` 关键词定义限定范围的类型。
 
 实际上 JavaScript 中的变量类型为以下几种：
-- **值类型(基本类型)**：字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol。
-- **引用数据类型（对象类型）**：对象(Object)、数组(Array)、函数(Function)，还有两个特殊的对象：正则（RegExp）和日期（Date）。
+- **值类型 (基本类型)**：字符串（String）、数字 (Number)、布尔 (Boolean)、空（Null）、未定义（Undefined）、Symbol。
+- **引用数据类型（对象类型）**：对象 (Object)、数组 (Array)、函数 (Function)，还有两个特殊的对象：正则（RegExp）和日期（Date）。
 
 ### 对象类型
 
@@ -49,6 +50,7 @@ function object_name(a, b){
 }
 ```
 在实例化对象时，可以使用 `var ob = new object_name(a, b);` 来实例化。通过 `for (.. in ..)` 可以遍历一个对象的所有属性。
+
 ## 函数
 
 使用 `function function_name(var1, var2){return x}` 来定义一个函数。在函数中定义的变量为局部变量。
@@ -113,4 +115,3 @@ HTML 的元素还有一个 `style` 属性，该属性指向 [[前端知识补充
 | `onmousedown` | 用户鼠标按下时触发 |
 | `onmouseup`   | 用户鼠标松开时触发 |
 | `onclick`     | 用户完成点击时触发 |
-

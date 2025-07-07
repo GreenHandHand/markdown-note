@@ -3,6 +3,7 @@ tags:
   - qt
   - 前端
 ---
+
 # Pyside6
 
 在本节中学习如何通过 pyside6 与 python 创建一个简单的应用程序。pyside6 通过下面的命令安装。

@@ -89,31 +89,31 @@ HTML 的标题通过 `<h1> </h1>` 到 `<h6> </h6>` 实现的六级标题。标�
 
 #### 文本格式化标签
 
-| 标签                                                           | 描述                                                               |     |
-| ------------------------------------------------------------ | ---------------------------------------------------------------- | --- |
-| `<b>`                                                        | <b>粗体字</b>                                                       |     |
-| `<big>`                                                      | <big>大号字体</big>                                                  |     |
-| `<em>`                                                       | <em>着重文字</em>                                                    |     |
-| `<i>`                                                        | <i>斜体字</i>                                                       |     |
-| `<small>`                                                    | <small>小号字</small>                                               |     |
-| `<strong>`                                                   | <strong>加重语气</strong>                                            |     |
-| `<sub>`                                                      | 下<sub>标字</sub>                                                   |     |
-| `<sup>`                                                      | 上<sup>标字</sup>                                                   |     |
-| `<ins>`                                                      | <ins>插入字</ins>                                                   |     |
-| `<del>`                                                      | <del>删除字</del>                                                   |     |
-| `<code>`                                                     | <code>text, 计算机代码</code>                                         |     |
-| `<kbd>`                                                      | <kbd>text, 键盘码</kbd>                                             |     |
-| `<samp>`                                                     | <samp>text,计算机代码样本</samp>                                        |     |
-| `<tt>`                                                       | <tt>text,打字机代码</tt>                                              |     |
-| `<var>`                                                      | <var>text,变量</var>                                               |     |
-| `<pre>`                                                      | <pre>text,    预格式文本，保留空格与换行</pre>                                |     |
-| `<abbr title="Hyper Text Markup Language">HTML</abbr>`       | <abbr title="Hyper Text Markup Language">HTML</abbr>,缩写          |     |
-| `<acromym title="Hyper Text Markup Language">HTML</acronym>` | <acronym title="Hyper Text Markup Language">HTML</acronym> 首字母缩写 |     |
-| `<address>`                                                  | <address>text,地址</address>                                       |     |
-| `<bdo dir="rtl/ltr">`                                        | <bdo dir="rtl">文字方向</bdo>                                        |     |
-| `<blockquote>`                                               | <blockquote>长引用</blockquote>                                     |     |
-| `<p>`                                                        | <p>短引用</p>                                                       |     |
-| `<cite>`                                                     | <cite>引用，引证</cite>                                               |     |
+| 标签                                                           | 描述                                                               |
+| ------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `<b>`                                                        | <b>粗体字</b>                                                       |
+| `<big>`                                                      | <big>大号字体</big>                                                  |
+| `<em>`                                                       | <em>着重文字</em>                                                    |
+| `<i>`                                                        | <i>斜体字</i>                                                       |
+| `<small>`                                                    | <small>小号字</small>                                               |
+| `<strong>`                                                   | <strong>加重语气</strong>                                            |
+| `<sub>`                                                      | 下<sub>标字</sub>                                                   |
+| `<sup>`                                                      | 上<sup>标字</sup>                                                   |
+| `<ins>`                                                      | <ins>插入字</ins>                                                   |
+| `<del>`                                                      | <del>删除字</del>                                                   |
+| `<code>`                                                     | <code>text, 计算机代码</code>                                         |
+| `<kbd>`                                                      | <kbd>text, 键盘码</kbd>                                             |
+| `<samp>`                                                     | <samp>text,计算机代码样本</samp>                                        |
+| `<tt>`                                                       | <tt>text,打字机代码</tt>                                              |
+| `<var>`                                                      | <var>text,变量</var>                                               |
+| `<pre>`                                                      | <pre>text,    预格式文本，保留空格与换行</pre>                                |
+| `<abbr title="Hyper Text Markup Language">HTML</abbr>`       | <abbr title="Hyper Text Markup Language">HTML</abbr>,缩写          |
+| `<acromym title="Hyper Text Markup Language">HTML</acronym>` | <acronym title="Hyper Text Markup Language">HTML</acronym> 首字母缩写 |
+| `<address>`                                                  | <address>text,地址</address>                                       |
+| `<bdo dir="rtl/ltr">`                                        | <bdo dir="rtl">文字方向</bdo>                                        |
+| `<blockquote>`                                               | <blockquote>长引用</blockquote>                                     |
+| `<p>`                                                        | <p>短引用</p>                                                       |
+| `<cite>`                                                     | <cite>引用，引证</cite>                                               |
 
 #### 其他
 

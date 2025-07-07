@@ -3,16 +3,17 @@ tags:
   - qt
   - 前端
 ---
+
 # Layout
 
 到目前为止我们已经成功的创建了一个窗口，并且添加了 widget 到其中。如果如果我们想要继续向其中添加更多的 widget，我们就不得不考虑控件的布局。Qt 为我们提供了 4 中基本的 layout 来管理布局。
 
-| Layout        | Behaviour |
-| ------------- | --------- |
-| `QHBoxLayout` | 水平布局  |
-| `QVBoxLayout` | 垂直布局  |
-| `QGridLayout` | 网格布局  |
-| `QStackedLayout`               |    在另一个布局上重叠布局       |
+| Layout           | Behaviour   |
+| ---------------- | ----------- |
+| `QHBoxLayout`    | 水平布局        |
+| `QVBoxLayout`    | 垂直布局        |
+| `QGridLayout`    | 网格布局        |
+| `QStackedLayout` | 在另一个布局上重叠布局 |
 
 > 我们可以使用 Qt designer 来图形化设置布局，在这里我们使用代码以便于理解底层系统。
 
@@ -42,6 +43,7 @@ QVBoxLayout 将 Widget 竖着排列，每一个 Widget 将会被添加到最下�
 
 QHBoxLayout 是相同的。每个被新添加的 Widget 将会在最右边。
 ![[Pasted image 20240311183949.png]]
+
 ## 嵌套 Layout
 
 如果想要更加复杂的布局，我们可以嵌套使用 Layout，即在一个 Layout 中使用另一个 Layout。 Qt 会先应用作为父对象的 Layout，再使用作为子对象的 layout。

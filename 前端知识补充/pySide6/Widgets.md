@@ -3,6 +3,7 @@ tags:
   - qt
   - 前端
 ---
+
 # Widget in PySide6
 
 在 QT 中，Widget 是用户可以交互的 UI 组件。用户接口由多个 widget 组合而成，并显示在窗口上。
