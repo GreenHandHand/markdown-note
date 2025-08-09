@@ -1,0 +1,21 @@
+/* 提示文本，参考 https://github.com/chrisgrieser/shimmering-focus */
+.image-embed[alt] {
+  padding: var(--size-4-1) 0;
+}
+.image-embed[alt]::after {
+  display: block;
+  text-align: center;
+}
+.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".webp"], [alt$=".bmp"])::after {
+  content: attr(alt);
+  font-size: var(--font-smaller);
+  color: var(--text);
+}
+
+/* 图片居中 */
+:is(.markdown-source-view, .markdown-preview-view) img {
+    left: 50%;
+    width: 61.8%;
+    position: relative;
+    transform: translateX(-50%);
+}

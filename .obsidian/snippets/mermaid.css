@@ -1,31 +1,8 @@
-.mermaid {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.mermaid svg { 
+  max-width: 100%; 
+  height: auto;
+}
+
+div.mermaid {
     text-align: center;
-    font-size: 12px;
-    /* Reduced font size */
-    line-height: 1.4;
-    /* Reduced line height */
-    color: #333;
-    padding: 10px;
-    /* Reduced padding */
-    margin: 10px;
-    /* Reduced margin */
-    border-radius: 5px;
-    overflow: auto;
-    max-width: 100%;
-    box-sizing: border-box;
-    zoom: 0.8;
-    /* Scales down the entire graph */
-}
-
-/* Uniform circle size */
-.mermaid-circle .mermaid .node circle {
-    r: 20px !important;
-    /* Adjust the radius as needed */
-}
-
-/* Optionally, adjust text alignment if needed */
-.mermaid-circle .mermaid .node text {
-    dominant-baseline: middle;
-    text-anchor: middle;
 }

@@ -7,7 +7,7 @@ tags:
 
 ## 泛型数据类型
 
-我们可以使用泛型为像函数签名或[[Rust/结构体|结构体]]这样的项创建定义，这样它们就可以用于多种不同的具体数据类型。
+我们可以使用泛型为像函数签名或 [[Rust/结构体|结构体]] 这样的项创建定义，这样它们就可以用于多种不同的具体数据类型。
 
 > [!note] 泛型代码的性能
 > Rust 通过在编译时进行泛型代码的**单态化**（*monomorphization*）来保证效率。单态化是一个通过填充编译时使用的具体类型，将通用代码转换为特定代码的过程。因此，泛型代码与实际的多次编写类似函数得到的编译结果是相同的，泛型主要在编译期间进行转换，而在运行期间是没有损耗的。
@@ -20,18 +20,7 @@ tags:
 fn largest<T>(list: &[T]) -> T {
 	...
 }
-```
 
-这里的类型 `T` 涵盖了 Rust 中的所有类型，因此我们无法直接对其使用一些特殊的方法。通过为 `T` 类型添加 `trait` 的方式，为泛型参数添加行为约束。
-
-> [!note] Rust 通常可以自动推断类型参数。
-
-### 在结构体中定义泛型
-
-同样也可以用 `<>` 语法来定义结构体，它包含一个或多个泛型参数类型字段。
-
-```rust
-// x 和 y 是相同类型
 struct Point<T> {
 	x: T,
 	y: T,
@@ -89,9 +78,21 @@ impl<T1, T2> Point<T1, T2> {
 > [!warning]
 > 注意必须在 `impl` 后面声明 `T`，这样就可以在 `Point<T>` 上实现的方法中使用 `T` 了。通过在 `impl` 之后声明泛型 `T`，Rust 就知道 `Point` 的尖括号中的类型是泛型而不是具体类型。
 
+### 默认泛型类型参数
+
+当使用泛型类型参数时，可以为泛型指定一个默认的具体类型。
+
+```rust
+trait Add<Rhs=Self> {
+	type Output;
+
+	fn add(self, rhs: Rhs) -> Self::Output;
+}
+```
+
 ## Trait
 
-trait 定义了不同的类型间共同的行为。可以通过 trait 以一种抽象的方式定义共同行为。可以使用 *trait bounds* 指定泛型是任何拥有特定行为的类型。
+**特征** (*trait*) 定义了不同的类型间共同的行为。可以通过 trait 以一种抽象的方式定义共同行为。可以使用 *trait bounds* 指定泛型是任何拥有特定行为的类型。
 
 > [!warning] `trait` 类似于其他语言中的常被称为 **接口**（*interfaces*）的功能，虽然有一些不同。
 
@@ -230,6 +231,163 @@ pub fn notify<T: Summary>(item: &T) {
 > }
 > ```
 
+> [!tip] supertrait
+> trait bound 语法除了可以用于泛型中，还可以用于 trait 的声明中，此时要求实现该 trait 的类型必须实现其 supertrait。
+> ```rust
+> use std::fmt;
+> 
+> trait OutlinePrint: fmt::Display {
+>     fn outline_print(&self) {
+> 	    // pass
+>     }
+> }
+> ```
+
+### 特征对象
+
+在 Rust 中，当我们使用 `impl Trait` 返回类型时，实际上返回的是一个**具体的泛型类型**，编译器在编译期会为每个具体的类型生成代码。然而，有时我们希望表达的是“**任意实现了某个 trait 的类型**”，而不是一个固定类型。特别是在以下场景中尤为常见：
+- 一个 `Vec` 存储多个不同类型的值，但它们都实现了相同的 trait；
+- 一个函数返回多种不同类型，但它们具有统一的行为接口。
+
+这时，就需要使用 **特征对象**（*trait object*）。
+
+**特征对象**是运行时的动态分发机制，它允许我们通过 trait 定义的接口调用方法，而不关心具体的类型实现。使用 `dyn Trait` 表示特征对象，可以通过以下两种方式创建：
+- `&dyn Trait`：特征对象的不可变引用；
+- `Box<dyn Trait>`：特征对象的堆分配所有权指针。
+
+```rust
+trait Draw {
+    fn draw(&self);
+}
+
+// 接收任何实现了 Draw trait 的类型（所有权方式）
+fn draw_boxed(x: Box<dyn Draw>) {
+    x.draw();
+}
+
+// 接收任何实现了 Draw trait 的类型（引用方式）
+fn draw_ref(x: &dyn Draw) {
+    x.draw();
+}
+
+// 一个可以存放任意实现了 Draw trait 的类型的容器
+let mut drawables: Vec<Box<dyn Draw>> = Vec::new();
+```
+
+> [!note] 为什么需要 `Box` 或 `&`
+> Rust 的类型系统要求每个变量在编译时必须具有**已知大小**（`Sized`）。然而，`dyn Trait` 是一个**不确定大小的类型**，因为它代表的是“所有实现了某个 trait 的类型”，每个实现的实际大小可能不同。
+>
+> 因此，必须使用像 `Box<dyn Trait>` 或 `&dyn Trait` 这样的**指针类型**来包裹 trait object，从而为它提供一个已知大小的包装。
+
+特征对象背后的机制是 **虚函数表**（*vtable*）。当你创建一个特征对象时，Rust 会在内存中维护两部分信息：
+- 指向实际数据的指针；
+- 指向该类型对应的 vtable 的指针。
+
+vtable 是一个函数指针表，它记录了 trait 中定义的每个方法在当前具体类型中的实现。当你调用特征对象的方法时，Rust 会通过 vtable 动态分发，找到正确的实现方法并执行。
+
+> [!tip] 这类似于 C++ 中使用基类指针来指向继承类对象，达到运行时多态的效果 (虚函数表)。
+
+> [!note] 动态分发的代价
+> 与静态分发相比，特征对象具有轻微的运行时开销，包括：
+>
+> - 一次间接跳转（函数指针调用）；
+> - 禁用内联和某些优化。
+> 
+> 因此在性能敏感代码中应避免不必要的动态分发。
+
+### 关联类型
+
+**关联类型**（*associated types*）将一个类型占位符与 trait 相关联，使得该 trait 的方法定义可以在签名中使用这些占位符类型。该 trait 的实现者会为每个具体实现指定要使用的具体类型来替代占位符类型。这样，我们就能在定义 trait 时使用占位符类型，而无需预先知道这些类型的具体内容，直到实现该 trait 时再进行指定。
+
+```rust
+pub trait Iterator {
+	type Item;
+
+	fn next(&mut self) -> Option<Self::Item>;
+}
+```
+
+上面的 `Iterator` 的例子就是一个常用的带有关联类型的 trait，其中 `Item` 是一个占位符类型，同时 `next` 方法的定义表明它返回 `Option<Self::Item>` 类型的值。
+
+> [!note] 关联类型与泛型
+> 关联类型可能看上去与泛型类似，但是无需在使用类型时标注，而是在实现 trait 时标注的。
+>
+> 换句话说，当使用泛型参数时，可以多次实现这个 trait，每次使用不同的具体泛型参数类型来指定使用哪一个 trait 的实现。
+>
+> 而使用关联类型时，无需标注类型，因为无法对同一个类型实现多个 trait。
+
+### 在同名方法之间消除歧义
+
+Rust 既不能避免一个 trait 与另一个 trait 拥有相同的名称的方法，也不能阻止为同一类型同时实现这两个 trait，同时还可以在该类型上在定义一个同名方法。
+
+当调用这些方法时，需要明确告诉 Rust 我们想要使用哪一个。默认情况下，会先使用自身定义的方法。考虑下面的例子：
+
+```rust
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
+```
+
+当我们对一个 `Human` 实例调用 `fly` 方法时，默认会使用它自己的方法。如果需要使用另外两个 trait 定义的 `fly` 方法，则需要特别指定
+
+```rust
+let person = Human;
+Pilot::fly(&person);   // 使用 Pilot 的
+Wizard::fly(&person);  // 使用 Wizard 的
+person.fly();          // 使用 Human 的
+```
+
+> [!note]
+> 对于静态关联函数，没有 `self` 参数，此时无法通过上面的方法区分。此时需要使用**完全限定语法** (*flly qualified syntax*)。
+> ```rust
+> trait Animal {
+>     fn baby_name() -> String;
+> }
+> 
+> struct Dog;
+> 
+> impl Dog {
+>     fn baby_name() -> String {
+>         String::from("Spot")
+>     }
+> }
+> 
+> impl Animal for Dog {
+>     fn baby_name() -> String {
+>         String::from("puppy")
+>     }
+> }
+> 
+> fn main() {
+> 	let s1 = Dog::baby_name();
+> 	let s2 = \<Dog as Animal>::baby_name();
+> }
+> ```
+
 ## 生命周期
 
 生命周期是一种特殊的泛型。不同于确保类型有期望的行为，生命周期用于保证引用在我们需要的整个期间内都是有效的。
@@ -297,14 +455,17 @@ pub fn notify<T: Summary>(item: &T) {
 ### 生命周期注解
 
 编译器在大多数情况下可以自动推断生命周期，但是对于一些特殊情况，需要程序员手动注释生命周期。例如，在函数的参数与返回值都为引用的情况下，可能存在多种联系：
+
 ```rust
 fn longest(x: &str, y: &str) -> &str {
     if x.len() > y.len() { x } else { y }
 }
 ```
+
 这里，返回值可能是 `x`，也可能是 `y`，编译器无法推断到底是哪一个。这种时候，就需要手动注解生命周期。
 
 生命周期的注解使用 `'name` 的形式，添加在类型的前面，并与类型中间间隔一个空格。
+
 ```rust
 &i32        // 引用
 &'a i32     // 带有显式生命周期的引用
@@ -312,11 +473,13 @@ fn longest(x: &str, y: &str) -> &str {
 ```
 
 为之前的函数添加显式的生命周期声明。
+
 ```rust
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() { x } else { y }
 }
 ```
+
 在 Rust 中，当我们为两个参数标注了相同的生命周期注释时，Rust 本着安全的原则，总是认为该生命周期等于最短的生命周期。因此，函数中 `'a` 生命周期总是等于 `x` 与 `y` 中较短的那个生命周期。
 
 > [!warning] 生命周期注释是一种特殊的泛型。
@@ -335,6 +498,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 > 理解这个设定后，我们来看看几个典型场景：
 >
 > > [!example]- 找来一个人，将任务分配给他
+> >
 > > ```rust
 > > fn assign(x: &'a str) -> &'a str {
 > >     x
@@ -343,6 +507,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 > > 我们找来了合同工 `x`，他拥有生命周期 `'a`。任务直接交给了他，所以他必须在 `'a` 合同期内完成任务。我们只有在他离职前，才能使用任务的结果。(当他离职后，如果没有保存任务的结果，就无法找回了)
 >
 > > [!example]- 找来两个人，但将任务分配给其中一个
+> >
 > > ```rust
 > > fn pick(a: &'a str, b: &'b str) -> &'a str {
 > >     a
@@ -351,6 +516,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 > > 你召集了合同工 `a` 和 `b`，只是和 `b` 简单交流了一下，最终将任务交给了 `a`。由于任务只和 `a` 有关，所以只需确保 `a` 的合同期 `'a` 足够，`b` 的合同期 `'b` 不影响任务的完成。
 >
 > > [!example]- 找来两个人，分配他们一个合作任务
+> >
 > > ```rust
 > > fn longest(a: &'a str, b: &'a str) -> &'a str {
 > >     if a.len() > b.len() { a } else { b }
@@ -369,11 +535,13 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 ### 结构体定义中的生命周期注解
 
 我们在结构体中创建引用变量时，也需要申明其生命周期。
+
 ```rust
 struct ImportantExcerpt<'a> {
 	part: &'a str,
 }
 ```
+
 该声明表示一个 `ImportantExcerpt` 类型的存在时间不能比其中 `part` 引用的变量存在的时间长。
 
 ### 生命周期注解省略
@@ -400,9 +568,11 @@ struct ImportantExcerpt<'a> {
 ### 静态生命周期
 
 静态生命周期是一种特殊的生命周期生命，它表示引用的值在整个程序运行期间都是有效的。最常见的静态生命周期引用就是字符串字面量。
+
 ```rust
 let s: &'static str = "I have a static lifetime";
 ```
 
 ---
+
 < [[Rust/错误处理|错误处理]] | [[Rust/自动化测试|自动化测试]] >
