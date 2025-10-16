@@ -20,7 +20,7 @@ Matplotlib可用于Python脚本，Python和IPython Shell、Jupyter notebook，We
 
 Matplotlib是Python数据可视化库中的泰斗，它已经成为python中公认的数据可视化工具，我们所熟知的pandas和seaborn的绘图接口其实也是基于matplotlib所作的高级封装。
 
-本节中介绍了 Matplotlib 中的基本概念，要绘制更加美观的图表，参照 [[00-笔记/实践知识/python绘制图表/matplotlib色彩]]。
+本节中介绍了 Matplotlib 中的基本概念，要绘制更加美观的图表，参照 [[00_Inbox/实践知识/python绘制图表/matplotlib色彩]]。
 
 > **[matplotlib官方文档](https://matplotlib.org/)**
 

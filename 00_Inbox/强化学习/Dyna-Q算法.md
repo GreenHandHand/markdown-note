@@ -4,7 +4,7 @@ tags:
 ---
 # Dyna-Q 算法
 
-在强化学习中，模型通常指与智能体交互的环境模型，即对环境的状态转移概率和奖励函数进行建模。根据是否有模型，强化学习算法分为：**基于模型的强化学习算法** (model-based reinforcement learning)和**无模型的强化学习** (model-free reinforcement learning)。[[00-笔记/强化学习/时序差分算法#Sarsa 算法|Sarsa算法]] 与 [[00-笔记/强化学习/时序差分算法#Q-learning 算法|Q-learning]] 算法就是无模型的强化学习算法。Dyna-Q 是基于模型的强化学习算法。
+在强化学习中，模型通常指与智能体交互的环境模型，即对环境的状态转移概率和奖励函数进行建模。根据是否有模型，强化学习算法分为：**基于模型的强化学习算法** (model-based reinforcement learning)和**无模型的强化学习** (model-free reinforcement learning)。[[00_Inbox/强化学习/时序差分算法#Sarsa 算法|Sarsa算法]] 与 [[00_Inbox/强化学习/时序差分算法#Q-learning 算法|Q-learning]] 算法就是无模型的强化学习算法。Dyna-Q 是基于模型的强化学习算法。
 
 ## Dyna-Q
 

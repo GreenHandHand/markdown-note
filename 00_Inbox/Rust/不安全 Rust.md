@@ -147,7 +147,7 @@ unsafe impl Foo for i32 {
 ```
 
 > [!example]
-> 一个例子是 [[00-笔记/Rust/无畏并发#`Sync` 与 `Send` Trait|手动实现Sync与Send Trait]]。
+> 一个例子是 [[00_Inbox/Rust/无畏并发#`Sync` 与 `Send` Trait|手动实现Sync与Send Trait]]。
 
 ## 访问 `union` 中的字段
 
@@ -163,4 +163,4 @@ unsafe impl Foo for i32 {
 
 ---
 
-< [[00-笔记/Rust/异步编程|异步编程]] | [[00-笔记/Rust/宏|宏]] >
+< [[00_Inbox/Rust/异步编程|异步编程]] | [[00_Inbox/Rust/宏|宏]] >

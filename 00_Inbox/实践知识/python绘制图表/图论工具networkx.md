@@ -12,7 +12,7 @@ networkx库有下面的惯例导入方式：
 import networkx as nx
 ```
 
-networkx还可以使用 [[00-笔记/实践知识/python绘制图表/matplotlib]] 进行绘制，使用该功能需要导入matplotlib库
+networkx还可以使用 [[00_Inbox/实践知识/python绘制图表/matplotlib]] 进行绘制，使用该功能需要导入matplotlib库
 
 ## 创建图
 

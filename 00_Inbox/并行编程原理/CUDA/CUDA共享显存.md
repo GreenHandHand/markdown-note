@@ -90,7 +90,7 @@ __global__ void stencil_1d(int* in, int* out){
 
 ### `__syncthreads()`
 
-在 GPU 中，所有线程是并行执行的，因此在涉及多个数据的操作时，可能会出现 [[00-笔记/计算机组成原理/中央处理器#数据冒险|数据冒险]] 问题。为了保证线程的同步执行，避免读取未更新的数据，CUDA 提供了 `__syncthreads()` 函数。
+在 GPU 中，所有线程是并行执行的，因此在涉及多个数据的操作时，可能会出现 [[02_Areas/计算机组成原理/中央处理器#数据冒险|数据冒险]] 问题。为了保证线程的同步执行，避免读取未更新的数据，CUDA 提供了 `__syncthreads()` 函数。
 
 `__syncthreads()` 会同步一个线程块内的所有线程，确保所有线程在执行到此函数时都已经达到同步点，避免数据竞争。
 
@@ -105,4 +105,4 @@ __global__ void stencil_1d(int* in, int* out){
 > - `dim3 thread_index()`：获取线程在块中的编号。
 
 ---
-< [[00-笔记/并行编程原理/CUDA/CUDA基础|CUDA基础]] | [[00-笔记/并行编程原理/CUDA/CUDA 优化|CUDA 优化]] >
+< [[00_Inbox/并行编程原理/CUDA/CUDA基础|CUDA基础]] | [[00_Inbox/并行编程原理/CUDA/CUDA 优化|CUDA 优化]] >
