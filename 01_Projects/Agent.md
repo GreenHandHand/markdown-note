@@ -39,7 +39,7 @@
 
 这篇提出的了泛用的多智能体框架。
 
-![[98_Assets/Agent-01.png]]
+![[98_Assets/InfiniCore 比赛.png]]
 
 ![[98_Assets/Agent-2.png]]
 
