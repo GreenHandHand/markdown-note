@@ -8,7 +8,7 @@
 
 | 题目          | 算子                  | 算子            | 算子          | 算子          | 算子        |
 | ----------- | ------------------- | ------------- | ----------- | ----------- | --------- |
-| T1-1-7      | *logsumexp*         | *lp_pool1d*   | *lp_pool2d* | *lp_pool3d* | max       |
+| T1-1-7      | *logsumexp*         | *lp_pool1d*   | *lp_pool2d* | *lp_pool3d* | *max*     |
 | T1-1-8      | adaptive_avg_pool3d | argwhere      | addr        | fmin        | asin      |
 | T1-1-25     | *log10*             | avg_pool3d    | histc       | dot         | log1p     |
 | T1-1-28     | bitwise_left_shift  | index_select  | fold        | log2        | mish      |
@@ -20,6 +20,7 @@
 2. *lp_pool1d*：torch 的默认行为是 replicate padding，但是我不知道九齿的框架下面能否实现？
 	- 后面来回答：我使用 where + arrange 替代了 index，算是使用了一个麻烦的方法实现了。tile 函数不支持设置
 	- 补充：写了 lp_pool2d 算子，发现实际上 torch 的处理方式是 $\sqrt[p]{ \text{avg}(W^{p}) * K }$，所以和补充 0 对不上。
+3. 这个框架怎么实现 *padding* 操作？
 
 > [!warn] CPU 实现
 > 实现 CPU 版本比较麻烦，好在不需要考虑速度。实现一个 CPU 版本需要完成下面的内容：
@@ -28,7 +29,7 @@
 > 	2. 在 `src/infinicore/ops/*NAME*/*NAME*.cc` 中添加一系列函数。这个直接复制现成算子然后稍加修改。
 > 	3. 在 `src/infinicore/ops/*NAME*/*NAME*_infinicore.cc` 中实现 CPU 版本。先复制其他算子，修改注册函数中中的 `Devie::Type::CPU`，然后就可以在 `calculate` 中写 CPU 实现了。
 > 	4. 这里的 CPU 写起来非常麻烦，要考虑 stride、shape、多维度索引等等。
-> 2. 实现 pybind 的接口。这里直接在 `src/infinicore/pybind11/ops/` 下定义即可，复制其他算子修改就行。
+> 2. 实现 pybind 的接口。这里直接在 `src/infinicore/pybind11/ops/` 下定义即可，复制其他算子修改就行。记得在 `ops.hpp` 里面添加声明。
 > 3. 实现分发函数。在 `python/infinicore` 中对应的位置（看测试）实现分发函数。
 
 > [!note] 尽量使用 Python，因为 CUDA 在昇腾上面不知道如何适配。
@@ -55,3 +56,20 @@ python test\infinicore\ops\*.py --verbose --bench --[平台]
 ## 参考
 
 开发指南： [InfiniCore/src/infinicore/ops/README.md at main · GreenHandHand/InfiniCore](https://github.com/GreenHandHand/InfiniCore/blob/main/src/infinicore/ops/README.md)
+
+out: shape=(4, 5, 1), stride = (12, 4, 1)
+
+| 逻辑索引      | 计算公式           | 存储索引   | 冲突  |
+| --------- | -------------- | ------ | --- |
+| [0, 3, 0] | 0×12 + 3×4 + 0 | **12** |     |
+| [1, 0, 0] | 1×12 + 0×4 + 0 | **12** | 重叠! |
+| [0, 4, 0] | 0×12 + 4×4 + 0 | **16** |     |
+| [1, 1, 0] | 1×12 + 1×4 + 0 | **16** | 重叠! |
+| [1, 3, 0] | 1×12 + 3×4 + 0 | **24** |     |
+| [2, 0, 0] | 2×12 + 0×4 + 0 | **24** | 重叠! |
+| [1, 4, 0] | 1×12 + 4×4 + 0 | **28** |     |
+| [2, 1, 0] | 2×12 + 1×4 + 0 | **28** | 重叠! |
+| [2, 3, 0] | 2×12 + 3×4 + 0 | **36** |     |
+| [3, 0, 0] | 3×12 + 0×4 + 0 | **36** | 重叠! |
+| [2, 4, 0] | 2×12 + 4×4 + 0 | **40** |     |
+| [3, 1, 0] | 3×12 + 1×4 + 0 | **40** | 重叠! |
