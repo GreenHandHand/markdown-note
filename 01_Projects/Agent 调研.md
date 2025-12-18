@@ -19,7 +19,7 @@ Agents 的认知架构一般包含三个组件：
 3. **编排层**(The Orchestration Layer)：编排层描述了 Agent 如何接收信息、执行内部推理、并利用推理结果指导下一步行动或者决策。它负责护理规划、记忆、推理策略的执行，该层利用提示框架和推理技术 (CoT, ReAct) 来将复杂目标分解为步骤，并决定何时进行思考，何时使用工具。
 	- 编排层的复杂度会按照 Agent 及所执行的任务而有很大的差异。
 
-![[9/Agent 调研.png]]
+![[98_Assets/Agent 调研.png]]
 
 > [!note] Agents vs Models
 > - **Models**：这里特指单一的 llm
@@ -42,7 +42,7 @@ Agents 的认知架构一般包含三个组件：
 > - ToT：思维树，推广了思维链的提示，运行模型探索各种中间步骤的思维链，适合探索或者前瞻性任务。
 
 > [!example] Agent 的一个流程
-> ![[9/Agent 调研-1.png]]
+> ![[98_Assets/Agent 调研-1.png]]
 > 1. 用户向 Agent 发送 Query
 > 2. Agent 开始一个 ReAct 序列
 > 3. Agent 向模型提供 prompt，要求其生成下一个 ReAct 步骤和对应的输出：
@@ -73,5 +73,3 @@ Agents 的认知架构一般包含三个组件：
 5. The Self-Evolving System：
 	- 在这一级别中，一个 Agent 系统会自动识别自身能力的不足，并动态创建新的工具甚至新的智能体来填补空白。
 	- 从使用固定的资源转向使用拓展资源。
-
-## 
