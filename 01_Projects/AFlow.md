@@ -55,4 +55,17 @@ $$
 
 #### 探索
 
-探索使用 LLM-based 的方法。使用 Prompt 
+探索使用 LLM-based 的方法。使用 Prompt 鼓励 LLM 基于当前节点进行不同的改进。
+
+## Experiment
+
+数据集：将所有数据按照 1:4 划分为验证集和测试集。包括如下 6 个数据集：GSM8K, HumanEval, MBPP, HotpotAQ (大小为 1000 的随机子集), DROP (大小为 1000 的随机子集)，MATH (按照之前的研究选择了特定的 617 个问题)。
+
+指标：
+1. GSM8K 和 MATH 采用 Solve Rate (%) 作为指标。
+2. HumanEval 与 MBPP 采用 pass@1 作为指标。
+3. HotpotQA 和 DROP 采用 F1 分数作为指标。
+4. 对于所有的数据集，采用 token 消耗作为指标，用于计算帕累托前沿。
+
+![[98_Assets/AFlow-3.png]]
+![[98_Assets/AFlow-4.png]]
