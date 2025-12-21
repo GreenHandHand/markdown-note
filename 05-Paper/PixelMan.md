@@ -1,19 +1,19 @@
-AAAI-2025
+# PixelMan: Consistent Object Editing with Diffusion Models via Pixel Manipulation and Generation
 
-PixelMan: Consistent Object Editing with Diffusion Models via Pixel Manipulation and Generation
+AAAI-2025
 
 本文着重于：提出了 PixelMan，一种无需反演 (inversion-free) 和训练 (training-free) 的方法。通过像素控制和生成，在 16 步内实现与现有预训练 Text2Img 扩散模型一致的物品编辑。
 
 > [!note] inversion-free
 > 传统基于扩散模型的图像编辑方法 (论文中提到的 DDIM) 通常需要先将图像反演 (inversion) 到隐空间的噪声轨迹，而这个过程计算开销大，步骤多。
-> 
+>
 > 本文提出的方法绕过了 Inversion 步骤，提升效率。
 
 # Key Contribution
 
-- We propose to perform pixel manipulation for achieving consistent object editing, by creating a pixel-manipulated image where we copy the source object to the target location in the pixel space. At each step, we always anchor the target latents to the pixel-manipulated latents, which reproduces the object and background with high image consistency, while only focusing on generating the missing “delta” between the pixel-manipulated image and the target image to be generated. 
+- We propose to perform pixel manipulation for achieving consistent object editing, by creating a pixel-manipulated image where we copy the source object to the target location in the pixel space. At each step, we always anchor the target latents to the pixel-manipulated latents, which reproduces the object and background with high image consistency, while only focusing on generating the missing “delta” between the pixel-manipulated image and the target image to be generated.
 - We design an efficient three-branched inversion-free sampling approach, which finds the delta editing direction to be added on top of the anchor, i.e., the latents of the pixel-manipulated image, by computing the difference between the predicted latents of the target image and pixel-manipulated image in each step. This process also facilitates faster editing by reducing the required number of inference steps and number of Network Function Evaluations (NFEs).
-- To inpaint the manipulated object’s source location, we identify a root cause of many incomplete or incoherent inpainting cases in practice, which is attributed to information leakage from similar objects through the SelfAttention (SA) mechanism. To address this issue, we propose a leak-proof self-attention technique to prevent attention to source, target, and similar objects in the image to mitigate leakage and enable cohesive inpainting. 
+- To inpaint the manipulated object’s source location, we identify a root cause of many incomplete or incoherent inpainting cases in practice, which is attributed to information leakage from similar objects through the SelfAttention (SA) mechanism. To address this issue, we propose a leak-proof self-attention technique to prevent attention to source, target, and similar objects in the image to mitigate leakage and enable cohesive inpainting.
 - Our method harmonizes the edited object with the target context, by leveraging editing guidance with latents optimization, and by using a source branch to preserve uncontaminated source K, V features as the context for generating appropriate harmonization effects (e.g. lighting, shadow, and edge blending) at the target location.
 - 我们提出通过**像素级操作**（pixel manipulation）来实现一致的对象编辑：具体而言，我们构建一张像素操作图像，在其中将源对象直接复制到目标位置。在每一步去噪过程中，我们将目标潜在表示（target latents）始终锚定于该像素操作图像对应的潜在表示，从而高保真地复现对象与背景；同时，模型只需专注于生成像素操作图像与最终目标图像之间的缺失“增量”（delta）。
 - 我们设计了一种**高效、无需反演**（inversion-free）的三分支采样框架。该方法在每一步通过计算目标图像与像素操作图像的预测潜在表示之差，显式地估计出需叠加在锚点（即像素操作图像的潜在表示）之上的增量编辑方向。这一机制不仅提升了编辑质量，还显著减少了所需的推理步数和网络函数调用次数（NFEs），从而加速编辑过程。

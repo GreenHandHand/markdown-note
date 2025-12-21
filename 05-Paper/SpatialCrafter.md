@@ -3,9 +3,9 @@ tags:
   - ICCV
 ---
 
-ICCV-2025
+# SpatialCrafter: Unleashing the Imagination of Video Diffusion Models for Scene Reconstruction from Limited Observations
 
-SpatialCrafter: Unleashing the Imagination of Video Diffusion Models  for Scene Reconstruction from Limited Observations
+ICCV-2025
 
 本文着重于：从稀疏 (甚至单视角) 观测图片中实现高质量的 3D 场景重建，并合成逼真的新视角。
 
@@ -13,8 +13,8 @@ SpatialCrafter: Unleashing the Imagination of Video Diffusion Models  for Scene 
 
 # Key Contributions
 
-- We introduce a framework that effectively utilizes the physical-world knowledge embedded in video diffusion models to provide additional plausible observations for sparse-view scene reconstruction, thus reducing the ambiguity of sparse view scene reconstruction. 
-- To address the scale ambiguity problem that occurs in joint training across datasets, we develop a unified scale estimation approach for trajectory calibration. This solves the performance degradation problem, thus enabling effective multi-dataset training. 
+- We introduce a framework that effectively utilizes the physical-world knowledge embedded in video diffusion models to provide additional plausible observations for sparse-view scene reconstruction, thus reducing the ambiguity of sparse view scene reconstruction.
+- To address the scale ambiguity problem that occurs in joint training across datasets, we develop a unified scale estimation approach for trajectory calibration. This solves the performance degradation problem, thus enabling effective multi-dataset training.
 - We combine monocular depth priors with semantic features extracted from the video latent space, and directly regress 3D Gaussian primitives through a feed-forward manner. Meanwhile, we propose a hybrid architecture integrating Mamba blocks with Transformer blocks to efficiently handle long-sequence feature interactions.
 - 我们提出一个框架，有效利用视频扩散模型中蕴含的物理世界先验知识，为稀疏视角场景重建提供额外的合理观测，从而显著降低重建的歧义性。
 - 为解决跨数据集联合训练中的尺度模糊问题，我们设计了一种统一的尺度估计方法用于轨迹校准，有效缓解了性能下降问题，使得多数据集联合训练成为可能。
