@@ -16,7 +16,8 @@ Recently, remarkable progress has been made on automated problem solving through
 
 ## Method
 
-本文将 Agents 组织为了一个软件公司的流水线，并使用 SOPs 的方法进行信息传递。
+本文将 Agents 组织为了一个软件公司的流水线，并使用 SOPs 的方法进行信息传递。
+
 ![[98_Assets/MetaGPT.png]]
 
 ### Case Example
@@ -29,6 +30,7 @@ Recently, remarkable progress has been made on automated problem solving through
 - 每个 Agents 的输出形式由角色 prompt 规定，例如，产品经理输出文档，架构师输出架构图，工程师输出代码。
 
 不同 Agent 之间通过共享信息池 (Shared Message Pool) 交互，每个 Agent 会根据自己的需要查询对应的信息，减少了模型上下文负担。
+
 ![[98_Assets/MetaGPT-2.png]]
 
 ## Experiments
