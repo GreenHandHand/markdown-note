@@ -12,7 +12,6 @@ arXiv-2025
 - We propose an efficient milestone-level experience reuse strategy that allows agents to draw on prior demonstrations in a way that is both generalizable and actionable.
 - We conduct extensive experiments on multiple challenging benchmarks, demonstrating that HIPLAN significantly improves task success rates and robustness compared to strong baselines, confirming its effectiveness across diverse decision-making scenarios.
 
-// 中文深度解析
 - 突破现有方法的二元对立：现有方法要么侧重全局子目标分解（缺乏灵活性），要么侧重局部步骤适应（丢失全局视角），HIPLAN 首次将二者紧密耦合，让全局引导提供「路线图」，局部提示提供「实时路况」，解决长时程任务的核心矛盾。
 - 里程碑级复用的粒度创新：拒绝动作级（太依赖具体场景）和任务级（细节冗余）的经验复用，选择中间粒度的里程碑级，既保留结构化知识又具备泛化能力，这是经验复用效率提升的关键。
 - 跨场景跨模型的通用性验证：在文本交互环境 ALFWorld 和网页购物环境 WebShop 上均实现显著提升，且适配 Mixtral（稀疏混合专家模型）和 LLaMA（稠密预训练模型），证明框架不依赖特定模型架构或任务场景。
@@ -43,12 +42,9 @@ arXiv-2025
 
 1. 轨迹分割与里程碑描述：对每个专家轨迹ξ⁽ⁱ⁾，用 LLM（GPT-4o）将其分割为 K⁽ⁱ⁾个连续片段ζₖ⁽ⁱ⁾，每个片段对应一个语义明确的子目标，并用自然语言生成里程碑描述 mₖ⁽ⁱ⁾。
 2. 嵌入与存储：将任务指令和里程碑描述分别编码为稠密向量 v_task⁽ⁱ⁾和 v_milestone⁽ⁱᵏ⁾，存储到里程碑库 M_L 中，库中条目格式为：
-
-$$
-\left(v_{task}^{(i)}, v_{milestone}^{(i,k)}, m_{k}^{(i)}, \zeta_{k}^{(i)}\right)
-$$
-- $v_{task}^{(i)}$：任务指令的向量表示，用于任务级相似性检索
-- v_{milestone}^：里程碑的向量表示，用于里程碑级相似性检索
+$$\left(v_{task}^{(i)}, v_{milestone}^{(i,k)}, m_{k}^{(i)}, \zeta_{k}^{(i)}\right)$$
+- v_task⁽ⁱ⁾：任务指令的向量表示，用于任务级相似性检索
+- v_milestone⁽ⁱᵏ⁾：里程碑的向量表示，用于里程碑级相似性检索
 - mₖ⁽ⁱ⁾：里程碑的自然语言描述（子目标）
 - ζₖ⁽ⁱ⁾：对应里程碑的轨迹片段（动作 - 观测对序列）
 

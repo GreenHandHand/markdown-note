@@ -1,6 +1,6 @@
 # Learning Abstractions for Hierarchical Planning in Program-Synthesis Agents
 
-ICLR 2026 (Under Review)
+ICLR 2026 (Under Review, 4, 4, 4, 6)
 
 **核心一句话**：这篇论文针对现有基于理论的强化学习（TBRL）系统依赖人工设计抽象的核心局限，提出 TheoryCoder-2——通过大语言模型（LLM）的上下文学习自动生成可复用的符号抽象（PDDL 格式），并融入分层规划流程，实现跨环境的抽象复用，最终在样本效率、泛化能力和复杂任务求解上超越现有 LLM 规划 Agent 和程序合成 Agent。
 
