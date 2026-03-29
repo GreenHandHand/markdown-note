@@ -27,5 +27,7 @@
 > - `desc`：卡片类型的简单描述
 > - `type_name`：卡片类型名称
 
-> [!note]
+> [!tip]
 > 实现上，这里提供一个 builtin type，可以称为 `untyped`，用于表述由于某些问题而失去 type 需要重新标记的卡片。使用内置的 reminder 在 untyped 的内容存在的时候，提示 Agent 进行处理。
+
+> [!note] 仅当现有 type 无法准确覆盖某类卡片，且该语义具有复用价值时，才创建新的 type。
