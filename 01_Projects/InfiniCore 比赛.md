@@ -1,5 +1,8 @@
 # TODO
 
+> [!note] 已完结
+> 获奖了。算子开发赛道，使用九齿库实现开发了 15 个算子，并且在 5 平台上通过测试。8300 奖金。
+
 - [x] 尝试编译运行项目
 - [x] 搞清楚如何提交、如何测试、如何开发 （试试写一个 ADD 的 demo）
 - [x] 看看 CUDA 实现版本的接口
@@ -35,7 +38,7 @@
 > [!note] 尽量使用 Python，因为 CUDA 在昇腾上面不知道如何适配。
 
 > [!example] 文档地址
-> https://gxtctab8no8.feishu.cn/wiki/KRIywGbrJiMdjtkj76cctaPvn4g#share-PWlDdHCXmoVbnRxTj6wcBwfPnT6
+> <https://gxtctab8no8.feishu.cn/wiki/KRIywGbrJiMdjtkj76cctaPvn4g#share-PWlDdHCXmoVbnRxTj6wcBwfPnT6>
 
 ## 九源统一算子库
 
