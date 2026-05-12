@@ -103,14 +103,80 @@ Agent Skills 采用**渐进式披露**机制。Agent 启动时通常只加载所
 > [!warning] 文件引用
 > 在 `SKILL.md` 中引用其他文件时，应使用相对路径。文件引用应从 Skill 根目录出发，例如 `references/REFERENCE.md` 或 `scripts/extract.py`。规范建议避免过深的嵌套引用链，减少 Agent 查找资料时的上下文和路径复杂度。
 
-> [!tip] 可选字段
-> 除 `name` 和 `description` 外，规范还定义了若干可选字段。这些字段用于补充版权、运行环境、扩展元数据和工具权限。多数简单 Skills 只需要 `name` 和 `description`。
+> [!tip] 可选字段与实现扩展
+> 除 `name` 和 `description` 外，Agent Skills 规范、Claude Code、Codex 和 OpenCode 还提供了一些可选字段和实现扩展。通用 Skill 应优先依赖 `name`、`description`、正文说明和辅助文件；平台相关字段需要按具体运行环境判断是否可用。
 >
-> | 字段              | 是否必需 | 作用                                     |
-> | --------------- | ---: | -------------------------------------- |
-> | `license`       |    否 | 说明 Skill 的许可证，或指向随包提供的许可证文件            |
-> | `compatibility` |    否 | 说明运行环境要求，例如目标产品、系统依赖、网络访问需求            |
-> | `metadata`      |    否 | 保存规范之外的额外键值信息，例如作者、版本号                 |
-> | `allowed-tools` |    否 | 声明预批准使用的工具，属于实验字段，不同 Agent 实现的支持程度可能不同 |
+> | 字段或能力 | 来源 | 作用 |
+> |---|---|---|
+> | `license` | Agent Skills 规范 / OpenCode | 说明 Skill 的许可证，或指向随包提供的许可证文件。 |
+> | `compatibility` | Agent Skills 规范 / OpenCode | 说明运行环境要求，例如目标产品、系统依赖、网络访问需求。 |
+> | `metadata` | Agent Skills 规范 / OpenCode | 保存规范之外的额外键值信息，例如作者、版本号、适用团队、工作流类型。OpenCode 要求其为 string-to-string map。 |
+> | `allowed-tools` | Agent Skills 规范 / Claude Code | 声明 Skill 激活时可免确认使用的工具。Claude Code CLI 支持该字段，但它用于预批准工具，不会限制其他工具的可见性；若要禁止某些工具，需要使用权限配置。 |
+> | `when_to_use` | Claude Code 扩展 | 补充说明 Skill 的触发条件，例如典型请求、触发短语和适用场景。Claude 会把它追加到 `description` 中用于技能列表展示。 |
+> | `argument-hint` | Claude Code 扩展 | 在自动补全中提示该 Skill 期望的参数形式，例如 `[issue-number]` 或 `[filename] [format]`。 |
+> | `arguments` | Claude Code 扩展 | 定义命名位置参数。Skill 正文中可以使用 `$ARGUMENTS`、`$ARGUMENTS[N]` 或 `$N` 引用用户传入的参数。 |
+> | `disable-model-invocation` | Claude Code 扩展 | 禁止 Claude 自动触发该 Skill，使其只能通过 `/skill-name` 手动调用。适合需要明确用户确认的流程。 |
+> | `user-invocable` | Claude Code 扩展 | 控制 Skill 是否出现在 `/` 菜单中。设置为 `false` 时，该 Skill 更适合作为后台知识或被其他机制调用。 |
+> | `context: fork` | Claude Code 扩展 | 让 Skill 在隔离的子上下文中运行。Skill 正文会作为子 Agent 的任务输入，不继承主对话历史。 |
+> | `agent` | Claude Code 扩展 | 与 `context: fork` 配合使用，用于指定执行该 Skill 的子 Agent 类型，例如 `Explore` 或 `Plan`。 |
+> | 动态上下文注入 | Claude Code 扩展 | 在 Skill 正文中使用命令占位语法，将命令输出提前插入到提示内容中。常用于读取 git diff、PR 信息、环境状态等实时上下文。 |
+> | `agents/` | Codex 扩展 | Codex Skill 目录中可以包含 `agents/` 子目录。例如 `agents/openai.yaml` 可用于描述外观和依赖等 Codex 相关配置。 |
+> | 显式调用 | Claude Code / Codex / OpenCode | 用户可以直接指定使用某个 Skill。Claude Code 使用 `/skill-name`，Codex CLI/IDE 支持 `/skills` 或通过 `$` 提及 Skill，OpenCode 通过原生 `skill` 工具加载。 |
+> | 隐式调用 | Claude Code / Codex / OpenCode | Agent 根据 `description` 判断当前任务是否匹配某个 Skill。描述越清晰，误触发和漏触发概率越低。 |
+> | 安装范围 | Claude Code / Codex / OpenCode | Skill 可以放在用户级、项目级、插件级或组织级目录中。不同平台的扫描路径和优先级不同。 |
+> | 权限配置 | Claude Code / OpenCode | Claude Code 支持 `allowed-tools` 进行 Skill 级工具预批准。OpenCode 的 `SKILL.md` 只识别少数字段，权限主要通过 `opencode.json` 配置，权限项包括 `read`、`edit`、`bash`、`task`、`skill`、`webfetch`、`websearch` 等。 |
+> | 技能选择预算 | Codex | Codex 初始上下文只放入 Skill 的名称、描述和路径，并对技能列表占用的上下文设置预算。Skill 被选中后才读取完整 `SKILL.md`。 |
+> | 版本管理 | OpenAI API | OpenAI API 将 Skill 作为带版本的文件包管理，支持创建新版本、设置默认版本、引用 curated skills 和 inline skills。 |
+>
+> 这些扩展能力分属不同实现，不应全部视为 Agent Skills 开放规范的必需部分。编写跨平台 Skill 时，应把核心流程写在 `SKILL.md` 正文中，把平台相关能力作为可选增强。
 
 创建 Skill 时，通常先确定任务范围，再编写 `description`，随后设计正文流程，并按需要补充脚本、参考资料和模板。完成后，应使用典型任务测试 Skill 是否会被正确触发，以及 Agent 是否能按照正文流程完成任务。
+
+## 读取流程
+
+本节描述 Skill 从可用文件到实际参与任务的读取过程。
+
+Skill 的读取流程采用**渐进式披露**机制。
+- Harness 不会在初始阶段把所有 Skill 内容都放入上下文，而是先注入轻量摘要。Agent 看到摘要后，根据用户任务判断是否需要某个 Skill。
+- 只有当 Skill 与当前任务相关时，Agent 才会读取完整 `SKILL.md`，并在执行过程中按需读取辅助文件。
+
+完整流程可以概括为：
+1. Harness 扫描可用 Skill 目录，并解析其中的 `SKILL.md`。
+2. Harness 将 Skill 的 `name`、`description` 等摘要信息注入 Agent 上下文。
+3. Agent 根据用户任务和 Skill 摘要判断是否需要使用某个 Skill。
+4. Agent 选择 Skill 后，Harness 提供完整 `SKILL.md` 内容。
+5. Agent 按照 `SKILL.md` 执行任务，并在需要时请求读取辅助资源。
+6. Harness 根据权限和路径规则提供脚本、参考资料、模板等文件。
+7. Agent 结合 Skill 说明、辅助资源和可用工具生成结果。
+
+```mermaid
+flowchart LR
+    A[Harness 扫描 Skill 目录] --> B[解析 SKILL.md 的元数据]
+    B --> C[注入 name 与 description]
+    C --> D[Agent 判断任务是否匹配 Skill]
+    D --> E[读取完整 SKILL.md]
+    E --> F[按需读取辅助资源]
+    F --> G[执行任务并生成结果]
+````
+
+在 Skill 开放标准中，初始上下文通常只需要包含 `name` 和 `description`。这两个字段用于让 Agent 识别当前有哪些 Skills，以及每个 Skill 大致适用于什么任务。Codex 的实现还会提供 `path`，使 Agent 可以在选中 Skill 后定位完整文件。
+
+> [!tip]
+> - `name` 用于区分 Skill。
+> - `description` 用于判断适用场景。
+> - `path` 用于定位完整 Skill 文件。
+>
+> `description` 越清晰，Agent 越容易正确选择 Skill。
+
+Skill 被选中后，Agent 才会读取完整 `SKILL.md`。此时进入上下文的是具体执行说明，包括任务步骤、输出格式、注意事项和辅助文件路径。辅助文件不会默认全部读取，只有在任务需要时才会被加载。
+
+> [!warning] 常见问题
+> - `description` 写得过宽，容易导致 Skill 被误用。
+> - `description` 写得过窄，容易导致 Skill 无法被选中。
+> - `SKILL.md` 写得过长，会增加上下文负担。
+> - 辅助文件路径不清晰，会增加 Agent 查找资料的难度。
+
+> [!note] 具体实现
+> Claude Code 和 Codex 都采用这种分层读取思路，但实现细节不同。
+> - Claude Code 支持自动触发和显式调用。显式调用通常通过 `/skill-name` 完成。Claude Code 还支持工具预批准、参数传入、动态上下文注入和子 Agent 执行等扩展能力。
+> - Codex 会将 Skill 的 `name`、`description` 和 `path` 放入初始上下文。当 Skills 数量较多时，Codex 会控制初始 Skill 列表的上下文预算。Codex 支持显式调用和隐式匹配，并在 Skill 被选中后读取完整 `SKILL.md`。
