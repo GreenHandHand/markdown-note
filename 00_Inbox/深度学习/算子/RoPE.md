@@ -269,4 +269,61 @@ $$
 > \end{pmatrix}
 > $$
 
-由于内积m
+由于内积满足线性叠加性，因此任意偶数维度的 RoPE 都可以表示为二维形式的拼接，因此 RoPE 的计算公式为：
+$$
+\underbrace{
+\begin{pmatrix}
+\cos m\theta_{0} & -\sin m\theta_{0} & 0 & 0 & \cdots & 0 & 0 \\
+\sin m\theta_{0} & \cos m\theta_{0} & 0 & 0 & \cdots & 0 & 0 \\
+0 & 0 & \cos m\theta_{1} & -\sin m\theta_{1} & \cdots & 0 & 0 \\
+0 & 0 & \sin m\theta_{1} & \cos m\theta_{1}  & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & 0 & \cdots & \cos m\theta_{d/2-1} & -\sin m\theta_{d/2-1} \\
+0 & 0 & 0 & 0 & \cdots & \sin m\theta_{d/2-1} & \cos m\theta_{d/2-1}
+\end{pmatrix}
+}_{_{\mathcal{R}_{m}}}
+\begin{pmatrix}
+q_{0} \\ q_{1} \\ q_{2} \\ q_{3} \\ \vdots \\ q_{d-2} \\ q_{d-1}
+\end{pmatrix}
+$$
+
+> [!note] 一些性质
+> 从推导过程可以看出，$\mathcal{R}_{m}$ 矩阵有一些比较好的性质：
+> 1. $\mathcal{R}_{m}$ 是一个正交矩阵，其中每个矩阵块都是一个旋转矩阵，因此它不会改变向量的模长，通常不会改变原模型的稳定性。
+> 2. $(\mathcal{R}_{m}q)^{T}(\mathcal{R}_{n}k) = q^{T}\mathcal{R}_{m}^{T}\mathcal{R}_{n}k=q^{T}\mathcal{R}_{n-m}k$
+> 3. 该矩阵是一个稀疏矩阵。
+
+通常实现上我们不会使用矩阵乘法，而是分成两次逐元素相乘，也就是：
+$$
+\begin{pmatrix}
+q_{0} \\ q_{1} \\ q_{2} \\ q_{3} \\ \vdots \\ q_{d-2} \\ q_{d-1}
+\end{pmatrix} \otimes 
+\begin{pmatrix}
+\cos m\theta_{0} \\ \cos m\theta_{0} \\ \cos m\theta_{1} \\ \cos m\theta_{1} \\ \vdots \\ \cos m\theta_{d/2-1} \\ \cos m\theta_{d/2-1}
+\end{pmatrix} + 
+\begin{pmatrix}
+-q_{1} \\ q_{0} \\ -q_{3} \\ q_{2} \\ \vdots \\ -q_{d-1} \\ q_{d-2}
+\end{pmatrix} \otimes 
+\begin{pmatrix}
+\sin m\theta_{0} \\ \sin m\theta_{0} \\ \sin m\theta_{1} \\ \sin m\theta_{1} \\ \vdots \\ \sin m\theta_{d/2-1} \\ \sin m\theta_{d/2-1}
+\end{pmatrix}
+$$
+
+> [!note] 初始值
+> RoPE 沿用了 Sinusoidal 位置编码的角度，即 $1/10000^{2i/d}$。
+
+> [!note] RoPE 的局限与后续改进
+> RoPE 通过对 `Q/K` 施加位置相关的旋转，使 attention score 带有相对位置信息。这个设计在常规上下文长度内效果稳定，因此被 LLaMA 等模型广泛采用。
+>
+> 它的主要局限出现在长上下文场景。RoPE 的旋转角度会随着位置索引持续增大。当推理长度明显超过训练长度时，部分频率维度会进入训练阶段很少见到的相位区域，导致模型对远距离 token 的位置关系判断变差。表现上可能出现困惑度升高、长距离检索能力下降，或者短上下文能力受到影响。
+>
+> 另一个问题来自周期性。RoPE 由多组不同频率的旋转分量组成，位置足够远时，不同 token 在某些频率维度上可能出现相近相位。此时位置区分能力会下降。调整 RoPE base 可以改变频率分布，但通常会带来短距离分辨率和长距离外推能力之间的权衡。
+>
+> 后续改进大多围绕长上下文扩展展开：
+>
+> - **Position Interpolation**：将更长的位置范围压缩到模型原本熟悉的位置区间内，降低外推难度。
+> - **NTK-aware scaling**：调整 RoPE 的 base 或频率分布，使不同维度的旋转频率更适合长上下文。
+> - **YaRN**：对不同频率维度采用不同缩放强度，尽量保留高频局部信息，同时扩展低频长距离能力。
+> - **LongRoPE**：使用更细粒度的非均匀缩放和搜索策略，进一步扩展上下文长度。
+>
+> 简单说，RoPE 的问题主要来自训练长度和推理长度之间的分布差异。后续方法通常通过调整位置尺度、频率分布或训练策略来缓解这一问题。
