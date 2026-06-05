@@ -192,3 +192,166 @@ tags:
 > 为一个次酉矩阵。一般记为 $U_{1} \in U_{r}^{n\times r}$
 
 > [!tip] 酉矩阵是复数域下的正交矩阵，即酉矩阵是方阵。而次酉矩阵则是由复数域下的正交向量组构成的矩阵。
+
+> [!note] 次酉矩阵与幂等矩阵的关系
+> 设 $A$ 为一个 $n$ 阶矩阵，则 $A=A^{H}=A^{2}$ 的充分必要添加是存在一个 $n\times r$ 的次酉矩阵 $U\in U_{r}^{n\times r}$ 使得
+> $$
+> A=UU^{H}
+> $$
+> 其中 $r=Rank(A)$
+
+## 对称变换与反对称变换
+
+对称变换与反对称变换是欧式空间上的特殊线性变换。
+- 对称变换在任意一个标准正交基下的矩阵表示为对称表示，满足 $(f(\alpha),\beta)=(\alpha,f(\beta))$。
+- 反对称变换在任意一个标准正交基下的矩阵表示为反对称矩阵，满足 $(f(\alpha),\beta)=-(\alpha,f(\beta))$。
+
+> [!definition|Definition] 酉相似
+> 设 $A,B\in C^{n\times n}$，若存在 $U\in U^{n\times n}$ 使得
+> $$
+> U^{H}AU^{-1}=U^{-1}AU=B
+> $$
+> 则称 $A$ 酉相似于 $B$。
+
+> [!definition|Definition] 正交相似
+> 设 $A,B\in E^{n\times n}$，若存在 $U\in E^{n\times n}$ 使得
+> $$
+> U^{T}AU^{-1}=U^{-1}AU=B
+> $$
+> 则称 $A$ 正交相似于 $B$。
+
+> [!tip] 对于实数域上的相似矩阵的定义，参见 [[02_Areas/线性代数/特征值与特征向量#矩阵相似|相似矩阵]]。
+
+> [!definition|Schur 引理] 任何一个 $n$ 阶复矩阵 $A$ 酉相似于一个上 (下) 三角矩阵。
+
+> [!example] 求解酉相似矩阵的方法
+
+## 正规矩阵
+
+> [!definition|Definition] 正规矩阵
+> 设 $A\in C^{n\times n}$，如果 $A$ 满足
+> $$
+> AA^{H}=A^{H}A
+> $$
+> 那么称矩阵 $A$ 为一个**正规矩阵**。
+
+> [!definition|Definition] 实正规矩阵
+> 设 $A\in R^{n\times n}$，如果 $A$ 满足
+> $$
+> AA^{T}=A^{T}A
+> $$
+> 那么称矩阵 $A$ 为一个**实正规矩阵**。
+
+> [!tip] Hermite 矩阵、反 H- 矩阵，正交矩阵，酉矩阵，对角矩阵都是正规矩阵。
+
+> [!note] 定理
+> 引理：
+> 1. 设 $A$ 是一个正规矩阵，则与 $A$ 酉相似的矩阵一定是正规矩阵。
+> 2. 设 $A$ 是一个正规矩阵，且又是三角矩阵，则 $A$ 必为对角矩阵。
+> 
+> 设 $A\in C^{n\times n}$，则 $A$ 是正规矩阵的充分必要条件是存在一个酉矩阵 $U$ 使得
+> $$
+> U^{H}AU=\begin{bmatrix}
+> \lambda_{1} \\ & \lambda_{2} \\ && \ddots \\ &&& \lambda_{n}
+> \end{bmatrix}
+> $$
+> 其中 $\lambda_{1},\lambda_{2},\cdots,\lambda_{n}$ 是矩阵 $A$ 的特征值。
+
+> [!note] 推论
+> 1. $n$ 阶正规矩阵有 $n$ 个线性无关的特征向量。
+> 2. 正规矩阵属于不同特征值的特征向量彼此正交。
+
+> [!tip] 可以注意到这里与 [[02_Areas/线性代数/特征值与特征向量#实对称矩阵的相似对角化|相似对角化]] 的共性。常见的求解酉矩阵的过程同相似对角化。
+
+## Hermite 二次型
+
+> [!note] Hermite 矩阵的基本性质
+> 设 $A\in C^{n\times n}$，则
+> 1. $A+A^{H},AA^{H},A^{H}A$ 都是 H- 阵。
+> 2. $A-A^{H}$ 是反 H- 阵。
+> 3. 如果 $A$ 是 H- 阵，那么 $A^{k}$ 也是 $H-$ 阵。$k$ 为任意正整数。
+> 4. 如果 $A$ 是可逆的 H- 阵，那么 $A^{-1}$ 也是可逆的 H- 阵。
+> 5. 如果 $A$ 是 H- 阵 (反 H- 阵)，那么 $iA$ 是反 H- 阵 (H- 阵)，这里 $i$ 是虚数单位。
+> 6. 如果 $A,B$ 都是 $H-$ 阵，那么 $kA+lB$ 也是 $H-$ 阵，这里 $k,l$ 均为实数。
+> 7. 如果 $A,B$ 都是 $H-$ 阵，那么 $AB$ 也是 $H-$ 阵的充分必要条件是 $AB=BA$。
+
+> [!definition|Definition] H- 阵的结构定理
+> 设 $A\in C^{n\times n}$，则 $A$ 是 H- 阵的充分必要条件是存在一个酉矩阵 $U\in U^{n\times n}$ 使得
+> $$
+> U^{H}AU=\begin{bmatrix}
+> \lambda_{1} \\ &\lambda_{2} \\ && \ddots \\ &&&\lambda_{n}
+> \end{bmatrix}
+> $$
+> 其中 $\lambda_{1},\lambda_{2},\cdots,\lambda_{n}\in R$。也就是，**H- 阵酉相似于实对角矩阵**。
+
+> [!tip] 推论：实对称矩阵正交相似于实对角矩阵。也就是 [[02_Areas/线性代数/特征值与特征向量#实对称矩阵的相似对角化|线性代数中对于实对称矩阵相似对角化的描述]]。
+
+> [!definition|Definition] Hermite 二次型
+> 由 $n$ 个复变量 $x_{1},x_{2},\cdots,x_{n}$，系数为复数的二次齐次多项式
+> $$
+> f(x_{1},x_{2},\cdots,x_{n})=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}a_{ij}\overline{x}_{i}x_{j}
+> $$
+> 称为**Hermite 二次型**，这里
+> $$
+> a_{ji}=\overline{a}_{ij}
+> $$
+> 如果记
+> $$
+> X=\left[ x_{1},x_{2},\cdots,x_{n} \right] ^{T}\in C^{n}\quad A=\begin{bmatrix}
+> a_{11} & a_{12} & \cdots & a_{1n} \\
+> a_{21} & a_{22} & \cdots & a_{2n} \\
+> \vdots & \vdots & \ddots & \vdots \\
+> a_{n1} & a_{n2} & \cdots & a_{nn}
+> \end{bmatrix}
+> $$
+> 则上面的 Hermite 二次型可以记为
+> $$
+> f(x_{1},x_{2},\cdots,x_{n})=X^{H}AX
+> $$
+> 称为 Hermite 二次型对应的矩阵，并称 $A$ 的秩为 Hermite 二次型的秩。
+
+> [!tip] 对于线性代数中的定义，见 [[02_Areas/线性代数/二次型|二次型]]。
+
+对 Hermite 二次型作可逆的线性替换
+$$
+X=CY
+$$
+可以得到
+$$
+f(x_{1},x_{2},\cdots,x_{n})=X^{H}AX=Y^{H}(C^{H}AC)Y=Y^{H}BY
+$$
+
+Hermite 二次型中最简单的一种是只含有纯平方项而无交叉项的二次型，称为**标准形的 Hermite 二次型**。其形式为
+$$
+f(y_{1},y_{2},\cdots,y_{n})=\lambda_{1}\overline{y}_{1}y_{1}+\lambda_{2}\overline{y}_{2}y_{2}+\cdots+\lambda_{n}\overline{y}_{n}y_{n}
+$$
+
+> [!definition|定理] 对于任何 Hermite 二次型，必然存在一个酉线性变换可以将 Hermite 二次型化为标准形。
+
+> [!tip] 关于二次型的标准形、规范形及其计算，见 [[02_Areas/线性代数/二次型|二次型]]。
+
+### 正定 Hermite 二次型
+
+> [!definition|Definition] 正定二次型
+> 对于给定的 Hermite 二次型
+> $$
+> f(X)=X^{H}AX
+> $$
+> 如果对于任意的一组不全为零复数都有
+> $$
+> f(x_{1},x_{2},\cdots,x_{n})> 0(\geqslant 0)
+> $$
+> 则称该 Hermite 二次型是正定的（半正定的），并且相应的 $H-$ 矩阵 $A$ 是正定的（半正定的）。
+
+> [!note]
+> 对于给定的 Hermite 二次型 $f(X)=X^{H}AX$，下列描述是等价的
+> 1. $f(X)$ 是正定的
+> 2. 对于任何 $n$ 阶可逆矩阵 $P$ 都有 $P^{H}AP$ 为正定矩阵
+> 3. $A$ 的 $n$ 个特征值都大于 0
+> 4. 存在 $n$ 阶可逆矩阵 $P$ 使得 $P^{H}AP=I$
+> 5. 存在 $n$ 阶可逆矩阵 $Q$ 使得 $A=Q^{H}Q$
+> 6. 存在正线上三角矩阵 $R$ 使得 $A=R^{H}R$，且此分解是唯一的
+
+> [!note] 判定方式
+> 1. $n$ 阶 Hermite 矩阵 $A$ 为正定的充要条件是 $A$ 的 $n$ 个顺序主子式都大于 0。
+> 2. $n$ 阶 Hermite 矩阵 $A$ 为负定的充要条件是 $A$ 的 $n$ 个顺序主子式正负相间。
