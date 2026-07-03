@@ -30,10 +30,10 @@ ICML-2026
 
 **直觉**：作者认为记忆检索应该像侦查线索一样推进。先拿到一部分证据，再根据证据决定下一步查哪里。
 
-作者先把外部记忆写成 memory units $V={v_1,\dots,v_N}$。给定 query $x$，memory access 要在 $T$ 步内选择若干记忆单元。传统 passive retrieval 的形式是：
+作者先把外部记忆写成 memory units $V=\{v_1,\dots,v_N\}$。给定 query $x$，memory access 要在 $T$ 步内选择若干记忆单元。传统 passive retrieval 的形式是：
 
 $$
-{v^{(1)}, \dots, v^{(T)}} = \pi_p(x)
+\{v^{(1)}, \dots, v^{(T)}\} = \pi_p(x)
 $$
 
 这里 $\pi_p$ 只依赖 query。也就是说，系统在看到任何中间证据之前，就已经决定了要取回哪些 memory units。作者认为这就是 static retrieve-then-reason 的根本限制。
@@ -46,7 +46,7 @@ $$
 
 这里 $S^{(t-1)}$ 是前面已经积累的证据。新的记忆选择依赖 query，也依赖已检索证据。这个公式的含义很直接：每一步检索都允许被前一步结果影响。
 
-![[Figure 1.png]]
+![[98_Assets/Memory Is Reconstructed.png|500]]
 
 Figure 1 的作用是建立核心对比：passive retrieval 把 memory 当成静态数据库，active reconstruction 把 memory 当成可探索空间。我注意到，这个图其实在暗示一个更大的变化：retriever 从一个相似度函数变成了一个带状态的 controller。
 
@@ -81,7 +81,7 @@ $$
 
 这种方法比纯向量检索多了图邻居扩展，但它仍然使用固定规则。只要相关证据没有连在 top-k seed 的邻域中，系统仍然找不到。固定 N-hop 扩展还会带来大量无关节点。
 
-![[Figure 2.png]]
+![[98_Assets/Memory Is Reconstructed-1.png]]
 
 Figure 2 是这篇论文最关键的直觉图。左边的 similarity retrieval 只围绕 video game tournament 找，召回噪声很多。中间的 graph-based retrieval 多走了一些 neighbor，但仍然没有找到 Caroline 的 July 活动。右边的 active reconstruction 先从已检索内容中推理出 July，再把 July 当成新的检索约束去查 Caroline。这里的关键不是图本身，而是**中间证据能不能转化成新 query cue**。
 
@@ -112,16 +112,16 @@ tag 的作用是做中间语义桥。作者让 LLM 先选 tag，再根据 cue-ta
 核心映射是：
 
 $$
-\phi_{c\rightarrow g}(c) \triangleq {g \mid (c,g,\cdot)\in R}
+\phi_{c\rightarrow g}(c) \triangleq \{g \mid (c,g,\cdot)\in R\}
 $$
 
 $$
-\phi_{(c,g)\rightarrow v}(c,g) \triangleq {v \mid (c,g,v)\in R}
+\phi_{(c,g)\rightarrow v}(c,g) \triangleq \{v \mid (c,g,v)\in R\}
 $$
 
 第一行表示：给定 cue，激活候选 tags。第二行表示：给定 cue 和选中的 tag，再取对应 contents。作者把 associative reasoning 和 content retrieval 拆开，目的是让 LLM 先在便宜的 tag 层做路由，减少读取完整 episodic content 的成本。
 
-![[Figure 4.png]]
+![[98_Assets/Memory Is Reconstructed-2.png]]
 
 Figure 4 上半部分展示了从 dialogue 到 associative memory system 的构建流程。dialogue 先经过 element generation，抽取 cues、tags、episodes、semantic memories，再构成图。右侧的 semantic memory 说明作者不只存事件，还存稳定属性。下半部分展示 active reconstruction：query 初始化 cue，LLM 选择 action，memory traversal 产生候选节点，再由 LLM routing 保留有用证据。
 
@@ -151,7 +151,7 @@ Semantic memory 存稳定知识 $s_i \in V_s$，比如个人属性、偏好、�
 
 Topic nodes $\tau \in V_\tau$ 总结多个 episodes 的共同模式。Agent 可以先定位 topic，再向下找到相关 episodes。作者把这个叫 top-down transition $\phi_{\tau\rightarrow e}$。
 
-![[Figure 4.png]]
+![[98_Assets/Memory Is Reconstructed-2.png]]
 
 Figure 4 里左上角的 episodic memory 和右上角的 semantic memory 是两个互补分支。episodic layer 保留细节，semantic layer 保留稳定抽象，topic layer 负责更粗粒度的入口。我注意到，作者在结构上其实做了一个 memory routing hierarchy：topic 负责粗定位，tag 负责路径选择，content 负责证据落地。
 
@@ -282,9 +282,9 @@ $$
 H^{(t+1)} = H^{(t)} \cup Z^{(t+1)}
 $$
 
-$ f_{route}$ 用 LLM 判断哪些候选节点真正有用，并剪掉无关分支。更新后，系统再判断当前 evidence 是否足够回答问题。
+$f_{route}$ 用 LLM 判断哪些候选节点真正有用，并剪掉无关分支。更新后，系统再判断当前 evidence 是否足够回答问题。
 
-![[Figure 8.png]]
+![[98_Assets/Memory Is Reconstructed-3.png]]
 
 Figure 8 对应的是可执行算法。伪代码中，系统先 `EXTRACTCUES`，再 `ACTIVESETINIT`，然后循环执行 `fselect`、traversal、`froute`、`STOP`，最后用 `ANSWERLLM` 基于重建证据回答。作者还把运行分成 `Navigate` 和 `Answer` 两种模式：证据不足时调用 memory tools，证据足够时生成最终答案。
 
@@ -315,7 +315,7 @@ $$
 表示 $T$ 次 retrieval calls 必须提前固定，只能作为 query 的函数。主定理是：
 
 $$
-\mathcal{H}^{LM}*{passive}(T) \subsetneq \mathcal{H}^{LM}*{active}(T), \quad T\geq 2
+\mathcal{H}^{LM}_{passive}(T) \subsetneq \mathcal{H}^{LM}_{active}(T), \quad T\geq 2
 $$
 
 作者的意思是，active retrieval 能模拟 passive retrieval，因为它可以选择忽略历史；但 passive retrieval 不能模拟所有 active retrieval，因为它不能根据已返回节点决定下一步。
@@ -325,7 +325,7 @@ $$
 active retrieval 可以做到零错误：
 
 $$
-opt(\mathcal{H}^{LM}*{active}(d+1);D*{n,d})=0
+opt(\mathcal{H}^{LM}_{active}(d+1);D*{n,d})=0
 $$
 
 因为它按路径提示逐层走到目标 leaf。
@@ -361,7 +361,7 @@ Baselines 包括 RAG、LangMem、A-Mem、MemoryOS、Mem0。作者使用 Gemini-2
 
 ### Main Results
 
-![[Table 1.png]]
+![[98_Assets/Memory Is Reconstructed-4.png]]
 
 Table 1 显示，在 LoCoMo 上，MRAgent 在 Gemini backbone 下把 overall LLM-Judge 从最强 baseline Mem0 的 68.31 提升到 84.21；在 Claude backbone 下从 LangMem 的 78.61 提升到 88.32。multi-hop、temporal、open-domain、single-hop 几类问题上整体都有提升。
 
@@ -370,7 +370,7 @@ Table 1 显示，在 LoCoMo 上，MRAgent 在 Gemini backbone 下把 overall LLM
 - CTC memory 用 tag 显式编码 associative relations，使系统可以基于语义方向选择路径。
 - 多轮 memory access 让检索方向随着 accumulated evidence 调整，逐步形成 coherent reasoning chains。
 
-![[Table 2.png]]
+![[98_Assets/Memory Is Reconstructed-5.png]]
 
 Table 2 显示 LongMemEval 上 MRAgent 的 overall LLM-Judge 为 72.95，高于所有 Gemini-backbone baseline；当使用 Claude 做 retrieval 时，MRAgent* 达到 86.76。
 
@@ -381,7 +381,7 @@ Table 2 显示 LongMemEval 上 MRAgent 的 overall LLM-Judge 为 72.95，高于�
 
 ### Cost Analysis
 
-![[Table 3.png]]
+![[98_Assets/Memory Is Reconstructed-6.png]]
 
 Table 3 显示 MRAgent 的 token consumption 是 118k，低于 A-Mem 的 632k、MemoryOS 的 273k、LangMem 的 3268k、Mem0 的 245k。runtime 是 586.11 秒，比 Mem0 的 533.29 秒略慢，但明显低于 A-Mem、MemoryOS、LangMem。
 
@@ -393,7 +393,7 @@ Table 3 显示 MRAgent 的 token consumption 是 118k，低于 A-Mem 的 632k、
 
 ### Ablation Study
 
-![[Figure 5.png]]
+![[98_Assets/Memory Is Reconstructed-7.png]]
 
 Figure 5 比较了三种结构：
 
