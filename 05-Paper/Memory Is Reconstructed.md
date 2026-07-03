@@ -417,7 +417,7 @@ Figure 5 比较了三种结构：
 
 ### Multi-turn Reasoning Analysis
 
-![[Figure 6.png]]
+![[98_Assets/Memory Is Reconstructed-8.png]]
 
 Figure 6(a) 展示 evidence recall 随 reasoning turns 增长的趋势。single-hop 和 temporal 大约三轮内接近高 recall；multi-hop 需要更多轮，recall 随步骤提升超过 30%。Figure 6(b) 对比 Average Turns 和 Max Valid Turns，作者据此认为 LLM 能较好判断什么时候继续搜索、什么时候停止。
 
@@ -430,7 +430,7 @@ Appendix D.6 进一步分析 budget sensitivity。结果显示，提高每轮并
 
 ### Case Study
 
-![[Figure 7.png]]
+![[98_Assets/Memory Is Reconstructed-9.png]]
 
 Figure 7 展示一个多 session 查询：用户问 Joanna 的哪些 screenplay 被 production companies 拒绝。MRAgent 从 Joanna 这个 cue 出发，沿着 associative tags 找到 screenplay submission 和 rejection events，再查询 event context、keywords、semantic information 和 temporal information，最后对齐提交和拒绝事件，得出 first 和 third screenplays 被拒绝。
 
