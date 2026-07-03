@@ -223,7 +223,7 @@ Figure 4a 显示，用 GPT-4o-mini 数据训练的 ParamMem diversity 最高，�
 
 Table 2 中，Llama-3.1-8B 同时作为 agent 和数据生成器。ParamAgent-plus 在 HumanEval 上达到 86.59，在 HotpotQA 上达到 83.33，超过 DoT-bank。作者据此认为 ParamMem 可以在没有 stronger external model 的情况下增强 reasoning。
 
-![[98_Assets/ParamMem-6.png]]
+![[98_Assets/ParamMem-8.png]]
 
 我注意到这个结果对 Agent 研究很有价值，因为它避开了一个常见问题：方法提升是否只是因为背后用了更强的 teacher。这里至少说明，ParamMem 不完全依赖 GPT-4o-mini 这类外部模型。
 
@@ -251,7 +251,7 @@ Table 2 中，Llama-3.1-8B 同时作为 agent 和数据生成器。ParamAgent-pl
 
 Table 3 中，agent 使用 Qwen3-Next-80B-A3B-Instruct，ParamMem 分别使用 Llama-3.1-8B 或 Qwen3-Next-30B-A3B-Instruct。结果显示两种 ParamMem 配置都能超过 baseline。代码任务上 30B ParamMem 更强，multi-hop QA 中较小的 Llama-3.1-8B ParamMem 反而优于 30B 版本。
 
-![[Table 3.png]]
+![[98_Assets/ParamMem-6.png]]
 
 > [!tip] 这个结果很有意思
 > 它暗示 ParamMem 的价值不完全由模型能力决定。只要它能提供与 actor 不同的反思分布，就可能帮助更强 actor。这里的关键词是互补性，而不是 teacher 能力。
@@ -267,7 +267,7 @@ Table 3 中，agent 使用 Qwen3-Next-80B-A3B-Instruct，ParamMem 分别使用 L
 
 作者用 K-means 从 GPT-4o-mini 合成数据中选 500 个多样样本进行微调。Table 4 显示，ParamAgent 500 samples 在 HumanEval 上达到 81.71，接近 8000 samples 的 82.93；ParamAgent-plus 500 samples 达到 86.59，甚至超过 ParamAgent 8000 samples。
 
-![[Table 4.png]]
+![[98_Assets/ParamMem-9.png]]
 
 > [!tip] 这个结果对实践很重要
 > ParamMem 不需要大规模训练。它更像一个轻量 task adapter，用少量多样反思样本就能提供可用的反思分布。
