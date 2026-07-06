@@ -290,12 +290,7 @@ $$
 相对 advantage：
 
 $$
-\tilde{A}^{(i)}
-===============
-
-## J(\tau^{(i)})
-
-\frac{1}{G}\sum_{i'=1}^{G}J(\tau^{(i')})
+\tilde{A}^{(i)} =J(\tau^{(i)}) - \frac{1}{G}\sum_{i'=1}^{G}J(\tau^{(i')})
 $$
 
 这一步把同一个 query 下的轨迹分数做零均值化，减少 judge 标度和 query 难度带来的偏差。
@@ -303,12 +298,7 @@ $$
 策略目标：
 
 $$
-L_{GR}(\theta)
-==============
-
--\sum_{i=1}^{G}\tilde{A}^{(i)}
-\sum_t
-\log\pi_\theta(a_t^{(i)}\mid s_t^{(i)})
+L_{GR}(\theta)= -\sum_{i=1}^{G}\tilde{A}^{(i)} \sum_t \log\pi_\theta(a_t^{(i)}\mid s_t^{(i)})
 $$
 
 如果某条轨迹优于同组平均值，$\tilde{A}^{(i)}>0$，训练会提高这条轨迹中动作的概率；如果低于平均值，则降低这些动作的概率。
@@ -316,13 +306,7 @@ $$
 带 KL 正则的最终目标：
 
 $$
-L(\theta)
-=========
-
-L_{GR}(\theta)
-+
-\beta\sum_t
-KL(\pi_\theta(\cdot\mid s_t)\Vert\pi_{ref}(\cdot\mid s_t))
+L(\theta) = L_{GR}(\theta) + \beta\sum_t KL(\pi_\theta(\cdot\mid s_t)\Vert\pi_{ref}(\cdot\mid s_t))
 $$
 
 KL 项限制新策略偏离 reference policy 太远。
@@ -338,7 +322,7 @@ $$
 > [!question] GRPO 在这篇论文中是核心吗
 > 我认为它更像增强模块。主结果中的 MEMORA Semantic 和 MEMORA Policy 已经很强，GRPO 部分只在 LoCoMo 70/30 划分上验证了 Qwen 2.5 1.5B 的策略可学习性。它说明 policy 可以被训练，但论文的主贡献仍然是记忆表示结构。
 
-![[Figure2_GRPO_Training.png]]
+![[98_Assets/Memora-1.png]]
 
 Figure 2 显示 GRPO 训练后的 Qwen 2.5 1.5B overall LLM judge score 为 0.841，base 为 0.829，提升存在但幅度有限。作者据此认为检索策略可以蒸馏到小模型。
 
@@ -383,12 +367,7 @@ $$
 作者给出的关键形式是 mixed key retrieval：
 
 $$
-R_\cap(q)
-=========
-
-{m\in M:\alpha(m)\in A_q}
-\cap
-{m\in M:\Gamma(m)\cap C_q\neq\varnothing}
+R_\cap(q) = \{m\in M:\alpha(m)\in A_q\} \cap \{m\in M:\Gamma(m)\cap C_q\neq\varnothing\}
 $$
 
 它同时要求满足 abstraction 条件和 cue 条件。作者认为 flat top k 检索只能按单一分数排序，KG seed expand 在固定单 attachment 下不能同时表达两个维度的约束，因此 MEMORA 的表达能力更强。
@@ -434,11 +413,11 @@ Baseline 包括：
 
 ### Main Results
 
-![[Table1_LoCoMo_Results.png]]
+![[98_Assets/Memora-2.png]]
 
 LoCoMo 上，MEMORA Policy Retriever overall LLM score 为 0.863，Semantic Retriever 为 0.849。Full Context 为 0.825，RAG 为 0.633，Mem0 为 0.653，Nemori 为 0.794。作者认为超过 Full Context 的原因是减少了 context noise，让模型看到更清晰的结构化上下文。
 
-![[Table2_LongMemEval_Results.png]]
+![[98_Assets/Memora-3.png]]
 
 LongMemEval 上，MEMORA Policy Retriever 平均 87.4%，Semantic Retriever 83.8%，Nemori 74.6%，Full Context 65.6%。值得注意的是 Full Context 上下文长度是 115k，而 MEMORA Policy 使用 2.9k，MEMORA Semantic 使用 2.1k。
 
@@ -452,7 +431,7 @@ LongMemEval 上，MEMORA Policy Retriever 平均 87.4%，Semantic Retriever 83.8
 
 ### Ablation Study：有效性来自哪里
 
-![[Table3_Component_Buildup_Ablation.png]]
+![[98_Assets/Memora-4.png]]
 
 组件逐步叠加结果很清楚：
 
@@ -467,7 +446,7 @@ LongMemEval 上，MEMORA Policy Retriever 平均 87.4%，Semantic Retriever 83.8
 > [!tip] 最关键的消融
 > primary abstraction 从 0.653 拉到 0.795，这说明论文主要收益来自表示结构，而非后面的 policy retriever。policy retriever 的提升是锦上添花。
 
-![[Table4_Retrieval_Granularity_Ablation.png]]
+![[98_Assets/Memora-5.png]]
 
 Table 4 有两个重要结论：
 
@@ -482,18 +461,18 @@ Table 4 有两个重要结论：
 
 ### Latency 与 Construction Cost
 
-![[Table5_Latency.png]]
+![[98_Assets/Memora-6.png]]
 
 Policy Retriever 的检索延迟明显高于 Semantic Retriever。以 Episodic Segment + Factual 为例，policy search latency mean 为 4.609s，semantic search latency mean 为 0.235s；policy 平均需要 3.45 步，而 semantic 只有 1 步。
 
 > [!warning] 真实部署时的瓶颈
 > policy retrieval 的性能提升和延迟成本需要一起看。LoCoMo 上 0.849 到 0.863 的提升，对某些应用值得，对低延迟场景未必值得。作者虽然报告 latency，但没有给出性能延迟 Pareto 选择策略。
 
-![[Table6_Construction_Time.png]]
+![[98_Assets/Memora-7.png]]
 
 Memory construction 也不便宜。MEMORA 每个 conversation 平均 1322.0s，Mem0 是 1350.9s。作者提出 offset 优化，把 construction time 降到 739.9s，同时性能从 0.863 小幅降到 0.860。
 
-![[Table7_Smaller_Construction_Model.png]]
+![[98_Assets/Memora-8.png]]
 
 作者还测试了更小的 construction LLM。使用 gpt 5.4 nano 加 semantic retriever 得到 0.763，加 policy retriever 得到 0.851，接近 gpt 4.1 mini 加 semantic retriever 的 0.849。作者据此说明结构本身比 construction model 能力更关键。
 
@@ -516,19 +495,19 @@ Case 3 中，问题问孩子用 clay 做了什么 pot。RAG 被另一个 colorfu
 
 ## Critical Thinking
 
-> [!warning] 1. RAG baseline 可能偏弱
+> [!warning] RAG baseline 可能偏弱
 > 主文中 RAG 设置为 chunk size 500、top k 3。这个设置很常见，但对长期对话记忆未必是最优。主文没有展示 RAG 的 chunk size、top k、reranker、query rewriting 等调参结果。因此 MEMORA 对 RAG 的优势可信，但优势上限可能受到 baseline 配置影响。
 
-> [!warning] 2. 主实验仍然偏对话记忆
+> [!warning] 主实验仍然偏对话记忆
 > 问题形式化里 $D$ 包括 documents、logs、code、tables、agentic interaction traces，但实验主要是 LoCoMo 和 LongMemEval 这类长期交互问答。方法声称适用于异构数据流，实验覆盖还不充分。
 
-> [!warning] 3. 记忆更新错误缺少恢复机制
+> [!warning] 记忆更新错误缺少恢复机制
 > MEMORA 的 update 依赖 abstraction similarity 和 LLM selection。如果错合并，memory value 和 cue anchors 都会被污染。作者分析了阈值和线性扩展成本，但没有充分展示错误合并后的回滚、分裂或审计机制。
 
-> [!warning] 4. Policy retriever 的实际收益要和延迟一起评估
+> [!warning] Policy retriever 的实际收益要和延迟一起评估
 > Policy Retriever 确实提高结果，但 latency 明显增加。对于线上 Agent，4 秒级 search latency 可能会成为主要成本。作者报告了延迟，却没有给出成本约束下的自动策略选择。
 
-> [!warning] 5. 理论表达力强，但依赖抽象质量
+> [!warning] 理论表达力强，但依赖抽象质量
 > 理论上 mixed key retrieval 很漂亮。但实际系统能否选出正确 $A_q$ 和 $C_q$，取决于 LLM 生成的 primary abstraction 和 cue anchors。理论证明的是结构表达能力，不等于生成过程一定稳定。
 
 ---
@@ -562,9 +541,3 @@ Case 3 中，问题问孩子用 clay 做了什么 pot。RAG 被另一个 colorfu
 6. **与形式化记忆系统结合**
 
    primary abstraction 和 cue anchors 可以被看作结构化索引层。后续可以引入类型系统或逻辑约束，例如 entity type、temporal relation、causal relation，让隐式图具有部分可验证语义。
-
----
-
-## 一句话复盘
-
-MEMORA 的核心贡献是把 Agent 记忆从**存什么内容**推进到**如何组织可检索结构**。primary abstraction 解决碎片化，cue anchors 解决多入口检索，policy retriever 解决多跳搜索。论文最强的证据来自 ablation：单独加入 primary abstraction 就带来大幅提升。最大的隐患是索引生成和记忆合并仍然依赖 LLM 判断，错误一旦进入结构层，会影响后续整个检索过程。
