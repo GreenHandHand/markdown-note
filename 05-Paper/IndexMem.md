@@ -354,7 +354,7 @@ m(q) = \frac{\phi(q)^\top M}
 {\left(\phi(q)^{\odot2}\right)^\top b+\epsilon}
 $$
 
-其中：$M\in\mathbb R^{d_{\text{mem}}\times d_{\text{model}}},b\in\mathbb R^{d_{\text{mem}}},\phi(q)$
+其中：$M\in\mathbb R^{d_{\text{mem}}\times d_{\text{model}}},b\in\mathbb R^{d_{\text{mem}}},\phi(q)^{\odot 2}=\text{Linear}_{\theta}(q) \odot\text{Linear}_{\theta}(q)$。
 
 分子 $\phi(q)^\top M$ 根据当前 Query 从关联状态中读取 Value 信息；分母使用平方特征和 $b$ 对读出幅度进行归一化，避免频繁写入的特征方向产生过大输出。
 
@@ -415,12 +415,7 @@ $$
 完整注意力输出为 $o$，压缩 KV 后的注意力输出为 $o_{\text{attn}}$。潜在记忆需要拟合两者之间的差：
 
 $$
-\mathcal L_{\text{mem}}
-=======================
-
-\left|
-o-o_{\text{attn}}-g(q)m(q)
-\right|_2^2
+\mathcal L_{\text{mem}}= \left| o-o_{\text{attn}}-g(q)m(q) \right|_2^2
 $$
 
 目标残差为：
@@ -437,24 +432,16 @@ $$
 > 原文没有给出最终联合 Loss，例如：
 >
 > $$
-> \mathcal L
-> ==========
->
-> \mathcal L_{\text{index}}
-> +
-> \beta\mathcal L_{\text{mem}}
+> \mathcal L= \mathcal L_{\text{index}} + \beta\mathcal L_{\text{mem}}
 > $$
 >
 > 也没有说明两个目标是否同时优化、权重如何设置，以及第二阶段是否继续使用 Indexer KL。这会直接影响复现。
 
 > [!warning] 参数量与公式维度难以对齐
-> 作者设置 $d_{\text{mem}}=d_{\text{model}}/8$，并将 $\operatorname{Linear}*\theta$ 写成从 $d*{\text{model}}$ 到 $d_{\text{mem}}$ 的投影。按稠密矩阵理解，单层投影参数量为：
+> 作者设置 $d_{\text{mem}}=d_{\text{model}}/8$，并将 $\operatorname{Linear}_{\theta}$ 写成从 $d_{\text{model}}$ 到 $d_{\text{mem}}$ 的投影。按稠密矩阵理解，单层投影参数量为：
 >
 > $$
-> d_{\text{model}}d_{\text{mem}}
-> ==============================
->
-> \frac{d_{\text{model}}^2}{8}
+> d_{\text{model}}d_{\text{mem}}=\frac{d_{\text{model}}^2}{8}
 > $$
 >
 > 论文随后报告整个 Memory Module 只增加 0.52M 参数。
@@ -515,10 +502,7 @@ $$
 对于第 $\ell$ 层的 token 分数 $s_\ell$：
 
 $$
-\bar s_m^{\text{naive}}
-=======================
-
-\frac1m
+\bar s_m^{\text{naive}}=\frac1m
 \sum_{\ell=1}^m s_\ell
 $$
 
@@ -529,12 +513,7 @@ $$
 作者使用归一化熵衡量当前 Layer 的评分是否具有区分度：
 
 $$
-H(p)
-====
-
--\frac1{\log T}
-\sum_{t=1}^T
-p_t\log(p_t+\epsilon)
+H(p) = -\frac1{\log T} \sum_{t=1}^T p_t\log(p_t+\epsilon)
 $$
 
 - 高熵表示分数接近均匀，当前层缺少明确选择。
@@ -543,26 +522,17 @@ $$
 通过阈值 $\gamma$ 决定是否纳入平均：
 
 $$
-\alpha_\ell
-===========
-
-\mathbb I[H_\ell\le\gamma]
+\alpha_\ell = \mathbb I[H_\ell\le\gamma]
 $$
 
 $$
-\bar s^{\text{skip-high}}
-=========================
-
-\frac{
-\sum_{\ell=1}^{N_{\text{layer}}}\alpha_\ell s_\ell
-}{
-\sum_{\ell=1}^{N_{\text{layer}}}\alpha_\ell+\delta
-}
+\bar s^{\text{skip-high}}= \frac{ \sum_{\ell=1}^{N_{\text{layer}}}\alpha_\ell s_\ell }{ \sum_{\ell=1}^{N_{\text{layer}}}\alpha_\ell+\delta }
 $$
 
 该策略在多个压缩率下优于直接 Layer Mean。
 
-![[IndexMem-Table-2-and-Table-3.png]]
+![[98_Assets/IndexMem-2.png]]
+![[98_Assets/IndexMem-3.png]]
 
 #### IndexCache-style Reuse
 
@@ -615,7 +585,7 @@ $$
 
 RULER 使用 String Match 对各子任务评分，最终结果是所有子任务的无权平均。
 
-![[IndexMem-Table-1.png]]
+![[98_Assets/IndexMem-4.png]]
 
 主要趋势很清楚：
 
@@ -645,7 +615,7 @@ RULER 使用 String Match 对各子任务评分，最终结果是所有子任务
 
 ### Needle-in-a-Haystack
 
-![[IndexMem-Figure-3.png]]
+![[98_Assets/IndexMem-5.png]]
 
 Figure 3 在 Llama-3.1-8B、50% eviction 下改变上下文长度和 Needle 位置。
 
@@ -667,7 +637,7 @@ Figure 3 在 Llama-3.1-8B、50% eviction 下改变上下文长度和 Needle 位�
 
 ### LongBench
 
-![[IndexMem-Figure-4.png]]
+![[98_Assets/IndexMem-6.png]]
 
 LongBench 更接近整体长上下文理解。作者在 HotpotQA、MultiFieldQA、TriviaQA、TREC 等任务上绘制 Accuracy-Compression Curve。
 
@@ -701,7 +671,7 @@ IndexMem 在多数任务上随压缩率增加缓慢下降。TriviaQA 中，中�
 
 ### Decoding-time Compression
 
-![[IndexMem-Figure-6.png]]
+![[98_Assets/IndexMem-7.png]]
 
 作者每生成 128 个 token 执行一次压缩，并在 AIME25 和 Math500 上设置：
 
@@ -717,7 +687,7 @@ $$
 
 ### Memory Ablation
 
-![[IndexMem-Figure-5.png]]
+![[98_Assets/IndexMem-8.png]]
 
 作者进行了两类关键对比：
 
@@ -751,7 +721,7 @@ $$
 
 ### Efficiency
 
-![[IndexMem-Figure-7.png]]
+![[98_Assets/IndexMem-9.png]]
 
 作者在 32K Prefill 和 1K Decoding 条件下测量效率：
 
@@ -797,7 +767,7 @@ $$
 
 IndexMem 在 WikiQA、HotpotQA、TriviaQA 和 MultiFieldQA 上更强；Locret 在 Passage Retrieval EN 上达到 85.07，显著高于 IndexMem 的 40.00。作者据此承认单一局部答案检索可能更适合另一类保留机制。
 
-![[IndexMem-Table-5.png]]
+![[98_Assets/IndexMem-10.png]]
 
 > [!warning] 最相关的学习式 Baseline 没有进入主实验
 > 主表主要比较启发式方法。Locret 和 AdaKV 与 IndexMem 的问题设定更加接近，却只在附录的部分任务或不同训练配置下出现。
@@ -836,8 +806,6 @@ IndexMem 在 WikiQA、HotpotQA、TriviaQA 和 MultiFieldQA 上更强；Locret �
 > 正文注意力公式和附录记号都使用 $\sqrt{d_{\text{model}}}$ 作为缩放项。缓存张量则按 Head 表示，Key 和 Query 的内积维度是 $d_{\text{head}}$。
 >
 > 如果实现执行标准的逐 Head Attention，缩放项通常需要与实际内积维度一致。论文应说明这里采用了特殊定义，还是存在记号错误。
-
----
 
 ## Future
 
