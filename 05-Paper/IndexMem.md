@@ -108,7 +108,7 @@ $$
 
 #### 轻量 Query-Key 表示
 
-Indexer 首先压缩主模型的多头 Query，利用线性层将原来的 `num_head * d_head` 压缩到 `num_index * d_index` 数量。
+Indexer 首先压缩主模型的多头 Query：
 
 $$
 q_s=U_q\operatorname{flatten}(Q_s)
@@ -170,9 +170,7 @@ $$
 并通过门控加权：
 
 $$
-A_{s,t}
-=======
-
+A_{s,t}=
 \alpha_s^\top z_{s,t}
 +
 \operatorname{Mask}_{s,t}
@@ -196,10 +194,7 @@ $$
 作者将查询维度上的评分取最大值：
 
 $$
-\operatorname{imp}_t
-====================
-
-\max_{s\in\mathcal Q}A_{s,t}
+\operatorname{imp}_t= \max_{s\in\mathcal Q}A_{s,t}
 $$
 
 prefill 阶段的 $\mathcal Q$ 包含 prompt 中的全部查询；decoding 阶段则包含当前压缩区间内产生的查询。
@@ -228,20 +223,14 @@ $$
 教师和 Indexer 都先在 Query 维度上取最大值，再在 Key 维度归一化：
 
 $$
-p_T
-===
-
-\operatorname{softmax}
+p_T= \operatorname{softmax}
 \left(
 \max_qT(q,\cdot)
 \right)
 $$
 
 $$
-p_A
-===
-
-\operatorname{softmax}
+p_A= \operatorname{softmax}
 \left(
 \max_qA(q,\cdot)
 \right)
@@ -250,10 +239,7 @@ $$
 Indexer 的训练目标为：
 
 $$
-\mathcal L_{\text{index}}
-=========================
-
-D_{\mathrm{KL}}(p_T\Vert p_A)
+\mathcal L_{\text{index}}= D_{\mathrm{KL}}(p_T\Vert p_A)
 $$
 
 训练时冻结主模型，只更新 Indexer。作者还将前几个 Attention Sink 位置从 KL Loss 中排除，防止这些固定高注意力 token 主导梯度。
@@ -358,27 +344,17 @@ $$
 令：
 
 $$
-\phi(q)=\operatorname{Linear}*\theta(q)
-\in\mathbb R^{d*{\text{mem}}}
+\phi(q)=\operatorname{Linear}_\theta(q) \in\mathbb R^{d_{\text{mem}}}
 $$
 
 潜在记忆读出为：
 
 $$
-m(q)
-====
-
-\frac{\phi(q)^\top M}
+m(q) = \frac{\phi(q)^\top M}
 {\left(\phi(q)^{\odot2}\right)^\top b+\epsilon}
 $$
 
-其中：
-
-$$
-M\in\mathbb R^{d_{\text{mem}}\times d_{\text{model}}},
-\qquad
-b\in\mathbb R^{d_{\text{mem}}}
-$$
+其中：$M\in\mathbb R^{d_{\text{mem}}\times d_{\text{model}}},b\in\mathbb R^{d_{\text{mem}}},\phi(q)$
 
 分子 $\phi(q)^\top M$ 根据当前 Query 从关联状态中读取 Value 信息；分母使用平方特征和 $b$ 对读出幅度进行归一化，避免频繁写入的特征方向产生过大输出。
 
