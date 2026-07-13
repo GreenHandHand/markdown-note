@@ -281,15 +281,13 @@ $$
 完整候选特征为：
 
 $$
-x_{q,i}
-=======
-
-[
+x_{q,i} =
+\left[  
 s(q,c_i),
 s(q,c_1)-s(q,c_i),
 H_{q,i}^{(1)},
 h_{q,i}^{(1)}
-]
+\right]
 $$
 
 两层 MLP 对每个候选独立打分：
@@ -301,14 +299,11 @@ $$
 最终选择：
 
 $$
-\Delta\theta^*
-==============
-
-\arg\max_{\Delta\theta_i\in S_{\mathrm{topK}}}
+\Delta\theta^* = \arg\max_{\Delta\theta_i\in S_{\mathrm{topK}}}
 r_\phi(x_{q,i})
 $$
 
-![[Figure-5.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-3.png]]
 
 Figure 5 上半部分是标准 Dense Retrieval，下半部分才是参数记忆特有的内部路由。各候选 LoRA 共享查询缓存，只需要分别执行一次首 token 前向。
 
@@ -329,7 +324,7 @@ Figure 5 上半部分是标准 Dense Retrieval，下半部分才是参数记忆�
 
 **作者的直觉是：相关 LoRA 面对自己负责的问题时，首 token 分布更集中；遇到无关问题时，首 token 分布更分散。**
 
-![[Figure-4.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-4.png]]
 
 Figure 4 显示：
 
@@ -352,20 +347,14 @@ $$
 计算 Shannon Entropy：
 
 $$
-\mathcal H(p_1)
-===============
-
--\sum_{v\in\mathcal V}p_1(v)\log p_1(v)
+\mathcal H(p_1) = -\sum_{v\in\mathcal V}p_1(v)\log p_1(v)
 $$
 
 随后按照阈值 $\lambda$ 路由：
 
 $$
-g(q,\Delta\theta_i)
-===================
-
-\begin{cases}
-1,& \mathcal H(p_1)<\lambda\
+g(q,\Delta\theta_i) = \begin{cases}
+1,& \mathcal H(p_1)<\lambda \\
 0,& \mathcal H(p_1)\geq\lambda
 \end{cases}
 $$
@@ -373,7 +362,7 @@ $$
 - $g=1$：保留 LoRA 并继续解码。
 - $g=0$：卸载 LoRA，基础模型复用 $KV_q$ 继续生成。
 
-![[Figure-3.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-5.png]]
 
 Figure 3 的设计非常简洁。系统只为 LoRA 多计算一个 token，回退时无需重新 Prefill。
 
@@ -424,7 +413,7 @@ LoRA 使用 rank 64、scaling factor 128，作用于注意力和 MLP 的主要�
 
 ### 2. How to Store：独立存储是否优于累积写入
 
-![[Figure-6.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-6.png]]
 
 作者设置三种测试方式：
 
@@ -434,7 +423,7 @@ LoRA 使用 rank 64、scaling factor 128，作用于注意力和 MLP 的主要�
 
 Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累积方法在这两种设置下明显退化，说明最新参数状态没有稳定保存此前上下文。
 
-![[Table-1.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-7.png]]
 
 主要结果显示：
 
@@ -458,9 +447,9 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 ### 3. Which to Use：两阶段路由是否有效
 
-![[Table-6.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-8.png]]
 
-![[Table-7.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-9.png]]
 
 内部路由在不同模型和数据集上普遍带来提升，但增幅有限：
 
@@ -478,7 +467,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 ### 4. Whether to Activate：Self-Gating 是否保护基础能力
 
-![[Table-2.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-10.png]]
 
 作者将 NarrativeQA 与 CommonsenseQA 混合，用于测试系统是否会在无关问题上错误激活 LoRA。
 
@@ -501,7 +490,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 #### 阈值敏感性
 
-![[Figure-11.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-11.png]]
 
 作者在 $\lambda\in[3.5,4.5]$ 范围内扫描阈值。$\lambda$ 从 3.75 到 4.25 时，Balanced Accuracy 保持在 77.65% 至 79.00%，最优点位于 4.05。
 
@@ -514,7 +503,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 #### 训练效率
 
-![[Figure-8.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-12.png]]
 
 上下文长度达到 4000 tokens 时，完整缓存方案相较于无缓存方案获得：
 
@@ -526,7 +515,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 #### 检索效率
 
-![[Figure-7.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-13.png]]
 
 在 4000 tokens 下：
 
@@ -536,7 +525,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 #### Gating 效率
 
-![[Figure-9.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-14.png]]
 
 在 4000 tokens 下：
 
@@ -555,7 +544,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 ### 6. Cache-Sharing 消融
 
-![[Table-8.png]]
+![[98_Assets/Context Distillation as Latent Memory Management-15.png]]
 
 在推理时直接让 LoRA 使用基础模型缓存，但训练阶段没有加入 Cache-Sharing 约束，会造成明显性能下降：
 
@@ -573,23 +562,7 @@ Latest 和 Shift 用于模拟无法提前知道正确记忆的真实场景。累
 
 ---
 
-### 7. 跨模型结果
-
-![[Figure-12.png]]
-
-作者在 Qwen2.5-0.5B、Qwen2.5-7B 和 Llama3.1-8B 上进行测试。Llama3.1-8B 的 Oracle 结果达到：
-
-- NarrativeQA：43.82 ROUGE-1、42.77 ROUGE-L
-- SQuAD：42.47 EM、60.79 F1
-
-这说明方法可以应用于不同模型家族和参数规模。
-
-> [!warning] 泛化实验覆盖仍然有限
-> Figure 12 展示的是不同 Backbone 下的任务性能，没有展示检索、Router 和 Gating 是否能跨模型复用。更换基础模型后，每个文档 LoRA 通常需要重新蒸馏，Memory Bank 本身并不具备跨模型可移植性。
-
----
-
-### 8. 实验中的主要漏洞
+### 7. 实验中的主要漏洞
 
 > [!warning] Baseline 覆盖不足
 >
@@ -706,12 +679,10 @@ $$
 
 $$
 \max
-;
+\;
 \mathbb E[
 R_{\mathrm{answer}}
--------------------
-
-## \beta C_{\mathrm{compute}}
+-\beta C_{\mathrm{compute}}
 
 \gamma R_{\mathrm{wrong\ memory}}
 ]
