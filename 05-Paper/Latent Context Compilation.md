@@ -95,7 +95,7 @@ $$
 
 **作者的直觉是：只要查询还能直接看到原始上下文，优化器就没有动力把信息真正写进 Buffer，因此必须从注意力结构上切断这条捷径。**
 
-![[Figure1.png]]
+![[98_Assets/Latent Context Compilation.png]]
 
 图一包含两个阶段。
 
@@ -298,7 +298,7 @@ $$
 \mathcal{L}_{\mathrm{self}} = \lambda_{\mathrm{recon}}
 \mathcal{L}_{\mathrm{recon}}
 +
-\lambda*{\mathrm{reg}}
+\lambda_{\mathrm{reg}}
 \mathcal{L}_{\mathrm{reg}}
 $$
 
@@ -398,7 +398,7 @@ $$
 
 #### Main Results
 
-![[Table2.png]]
+![[98_Assets/Latent Context Compilation-1.png]]
 
 在 16× 压缩下，Latent Context Compilation 的主要结果为：
 
@@ -480,7 +480,7 @@ $$
 
 #### Reconstruction 与 Regularization 的协同
 
-![[Figure2.png]]
+![[98_Assets/Latent Context Compilation-2.png]]
 
 图二固定重构数据，增加 Context-Agnostic Queries 数量：
 
@@ -490,7 +490,7 @@ $$
 
 作者认为，没有通用指令约束时，Buffer 会退化为只能逐字复述的表示。它能够生成上下文，却无法根据问题选择和组织信息。
 
-![[Figure3.png]]
+![[98_Assets/Latent Context Compilation-3.png]]
 
 图三进一步显示重构监督和正则化强度之间的交互：
 
@@ -516,7 +516,7 @@ $$
 
 #### Compression Ratio
 
-![[Figure4.png]]
+![[98_Assets/Latent Context Compilation-4.png]]
 
 CoQA 上的结果为：
 
@@ -535,7 +535,7 @@ CoQA 上的结果为：
 
 #### KL Divergence 与 MSE
 
-![[Figure5.png]]
+![[98_Assets/Latent Context Compilation-5.png]]
 
 作者比较了两个蒸馏目标：
 
