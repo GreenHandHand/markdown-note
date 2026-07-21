@@ -46,7 +46,7 @@ ICLR 2026
 
    历史经验先被 Weaver 吸收到辅助参数中。推理过程中，Weaver 根据当前 hidden states 生成 latent tokens，并直接插入 Reasoner 的计算上下文。
 
-![[Figure 1.png]]
+![[98_Assets/MemGen.png]]
 
 Figure 1 想强调两个维度：
 
@@ -56,40 +56,40 @@ Figure 1 想强调两个维度：
 > [!tip] 关键立意
 > MemGen 最值得关注的地方是将记忆读出建模成一个条件生成过程：
 >
-> [
+> $$
 > \text{当前推理状态}
 > \rightarrow
 > \text{重新构造记忆}
 > \rightarrow
 > \text{继续推理}
-> ]
+> $$
 >
 > 记忆不再对应固定文本片段，而是当前认知状态下的一次动态投影。
 
 作者用统一函数描述不同记忆系统：
 
-[
+$$
 m_t=f_{\mathcal M}(s_t,\mathcal H,m_{<t})
-]
+$$
 
 其中：
 
-- (s_t) 是当前环境状态。
-- (\mathcal H) 是历史经验集合。
-- (m_{<t}) 是之前已经生成或调用的记忆。
-- (f_{\mathcal M}) 决定如何构造当前记忆 (m_t)。
+- $s_t$ 是当前环境状态。
+- $\mathcal H$ 是历史经验集合。
+- $m_{<t}$ 是之前已经生成或调用的记忆。
+- $f_{\mathcal M}$ 决定如何构造当前记忆 $m_t$。
 
-对于任务级记忆，(f_{\mathcal M}) 只在任务开始时调用。对于 step-level memory，它在每次 Agent 与环境交互时调用。MemGen 将调用粒度推进到 token generation 内部。
+对于任务级记忆，$f_{\mathcal M}$ 只在任务开始时调用。对于 step-level memory，它在每次 Agent 与环境交互时调用。MemGen 将调用粒度推进到 token generation 内部。
 
 > [!warning] 范式划分存在一定包装成分
 > 从长期存储角度看，MemGen 仍然将经验写入了 Weaver 的参数。它规避的是对核心 Reasoner 的直接修改，而非完全摆脱参数化记忆。
 >
 > 更准确的结构描述是：
 >
-> [
+> $$
 > \text{辅助参数化长期记忆}
 > \text{动态 latent readout}
-> ]
+> $$
 >
 > 因此，论文与传统 parametric memory 的主要区别在于参数隔离和动态读出位置。
 
@@ -99,115 +99,99 @@ m_t=f_{\mathcal M}(s_t,\mathcal H,m_{<t})
 
 **直觉**：Reasoner 正常生成文本；Trigger 持续观察生成状态；遇到需要经验支持的位置时，Weaver 临时生成 latent memory，随后 Reasoner 带着这段记忆继续生成。
 
-![[Figure 2.png]]
+![[98_Assets/MemGen-1.png]]
 
 Figure 2 将系统分成三层：
 
-- **Reasoner (\pi_\theta)**：冻结的基础 LLM，负责显式推理和动作生成。
-- **Trigger (\mathcal T)**：判断当前是否需要调用记忆。
-- **Weaver (\mathcal W)**：根据当前 hidden states 生成固定长度的 latent memory。
+- **Reasoner $\pi_\theta$**：冻结的基础 LLM，负责显式推理和动作生成。
+- **Trigger $\mathcal T$**：判断当前是否需要调用记忆。
+- **Weaver $\mathcal W$**：根据当前 hidden states 生成固定长度的 latent memory。
 
-设 Agent 在环境状态 (s_t) 下生成一个动作：
+设 Agent 在环境状态 $s_t$ 下生成一个动作：
 
-[
+$$
 a_t=(z_{t,1},z_{t,2},\ldots,z_{t,L_t})
-]
+$$
 
-在生成第 (j) 个 token 之前，Reasoner 已经产生 hidden-state sequence：
+在生成第 $j$ 个 token 之前，Reasoner 已经产生 hidden-state sequence：
 
-[
-H_{t,<j}
-========
-
-(h_{t,1},h_{t,2},\ldots,h_{t,j-1})
-]
+$$
+H_{t,<j}= (h_{t,1},h_{t,2},\ldots,h_{t,j-1})
+$$
 
 Trigger 根据这些 hidden states 计算调用概率：
 
-[
-p_j
-===
-
-\sigma\left(
+$$
+p_j = \sigma\left(
 T_{\text{trigger}}(h_{t,1},\ldots,h_{t,j-1})
 \right)
-]
+$$
 
 随后采样二元决策：
 
-[
+$$
 d_j\sim\operatorname{Bernoulli}(p_j)
-]
+$$
 
 其中：
 
-- (d_j=0) 表示 `SKIP`。
-- (d_j=1) 表示 `INVOKE`。
+- $d_j=0$ 表示 `SKIP`。
+- $d_j=1$ 表示 `INVOKE`。
 
 当 Trigger 选择 `SKIP` 时，Reasoner 按照常规方式继续生成：
 
-[
+$$
 z_{t,j}
 \sim
 \pi_\theta(\cdot\mid s_t,z_{t,<j})
-]
+$$
 
 当 Trigger 选择 `INVOKE` 时，生成过程暂时停止，Weaver 接收相同的 hidden states：
 
-[
-M_t
-===
-
-# W_{\text{weaver}}(H_{t,<j})
-
-[m_{t,1},m_{t,2},\ldots,m_{t,K}]
-]
+$$
+M_t=W_{\text{weaver}}(H_{t,<j})= [m_{t,1},m_{t,2},\ldots,m_{t,K}]
+$$
 
 其中：
 
-[
+$$
 M_t\in\mathbb R^{K\times d_{\text{model}}}
-]
+$$
 
-- (K) 是 latent memory token 的数量。
-- (d_{\text{model}}) 与 Reasoner 的 hidden dimension 一致。
-- 每个 (m_{t,k}) 可以被理解为一个无法直接阅读的 soft token。
+- $K$ 是 latent memory token 的数量。
+- $d_{\text{model}}$ 与 Reasoner 的 hidden dimension 一致。
+- 每个 $m_{t,k}$ 可以被理解为一个无法直接阅读的 soft token。
 
-生成的 (M_t) 被加入 Reasoner 当前的计算上下文：
+生成的 $M_t$ 被加入 Reasoner 当前的计算上下文：
 
-[
-z_{t,j}
-\sim
-\pi_\theta(
-\cdot\mid
-s_t,z_{t,<j},M_t
-)
-]
+$$
+z_{t,j} \sim \pi_\theta( \cdot\mid s_t,z_{t,<j},M_t )
+$$
 
 此后，Reasoner 继续生成文本，Trigger 继续监控，整个过程可以在单次推理中重复发生。
 
 > [!tip] Aha Moment
 > Weaver 生成的不是任务开始前就确定的经验摘要。它接收的是当前推理轨迹形成的 hidden states，因此记忆内容会随着推理进度变化。
 >
-> 这相当于把记忆读出写成：
+> 这相当于把记忆读出写成
 >
-> [
+> $$
 > M_t=g(\text{经验参数},\text{当前思考状态})
-> ]
+> $$
 >
 > 当前问题、已经尝试过的步骤和局部失败都可以影响最终生成的记忆。
 
 > [!question] Latent token 的生成机制缺少关键细节
 > 论文将 Weaver 定义为：
 >
-> [
+> $$
 > W:\mathbb R^{j\times D}\rightarrow\mathbb R^{K\times D}
-> ]
+> $$
 >
 > 并说明它由挂载在基础 LLM 上的 LoRA 实现，但没有完整说明：
 >
-> - (K) 个输出位置由什么输入 token 或 learnable queries 初始化。
-> - Weaver 是一次前向传播并行产生 (K) 个向量，还是进行 (K) 步自回归生成。
+> - $K$ 个输出位置由什么输入 token 或 learnable queries 初始化。
+> - Weaver 是一次前向传播并行产生 $K$ 个向量，还是进行 $K$ 步自回归生成。
 > - 输出取自哪些层。
 > - Weaver 与 Reasoner 是否共享 KV cache。
 > - latent tokens 插入后，原有 hidden states 是否重新计算。
@@ -222,15 +206,15 @@ s_t,z_{t,<j},M_t
 
 ### 3.1 句子边界上的触发
 
-作者没有让 Trigger 在每个 token 后运行，而是定义分隔符集合 (\mathcal D)，例如逗号和句号。只有生成到这些位置时，Trigger 才能调用记忆：
+作者没有让 Trigger 在每个 token 后运行，而是定义分隔符集合 $\mathcal D$，例如逗号和句号。只有生成到这些位置时，Trigger 才能调用记忆：
 
-[
+$$
 p_j=
 \begin{cases}
 0, & z_j\notin\mathcal D\
 T_{\text{trigger}}(H_{t,<j}), & z_j\in\mathcal D
 \end{cases}
-]
+$$
 
 这个设计有两个目的：
 
@@ -238,9 +222,9 @@ T_{\text{trigger}}(H_{t,<j}), & z_j\in\mathcal D
 - 尽量在语义单元结束后介入，减少 latent memory 对局部句法生成的破坏。
 
 > [!note] 实际调用时间
-> 公式使用当前 token (z_j) 是否属于分隔符来决定调用，因此从因果执行顺序看，应当是先生成分隔符，再判断是否为后续 token 注入记忆。
+> 公式使用当前 token $z_j$ 是否属于分隔符来决定调用，因此从因果执行顺序看，应当是先生成分隔符，再判断是否为后续 token 注入记忆。
 >
-> 论文在部分描述中将其称为生成第 (j) 个 token 前的决策，索引存在轻微混乱。更合理的理解是记忆在分隔符之后、下一段推理开始之前插入。
+> 论文在部分描述中将其称为生成第 $j$ 个 token 前的决策，索引存在轻微混乱。更合理的理解是记忆在分隔符之后、下一段推理开始之前插入。
 
 > [!question] 为什么限定在标点位置
 > 作者引用了句子边界干预更有效的相关研究，但没有比较其他候选粒度，例如：
@@ -257,63 +241,49 @@ T_{\text{trigger}}(H_{t,<j}), & z_j\in\mathcal D
 
 Trigger 需要同时优化任务奖励和调用成本：
 
-[
-\max_{\phi}
-\mathbb E_{\tau_i,\tilde d}
-\left[
-R(\tau_i)
----------
+$$
+\max_{\phi} \mathbb E_{\tau_i,\tilde d} \left[ R(\tau_i)- \lambda \sum_{i,j} \max(0,\tilde d_{i,j}-\bar p) \right]
+$$
 
-\lambda
-\sum_{i,j}
-\max(0,\tilde d_{i,j}-\bar p)
-\right]
-]
-
-其中 (\tilde d_{i,j}\in{0,1}) 是 Trigger 的调用决策。
+其中 $\tilde d_{i,j}\in{0,1}$ 是 Trigger 的调用决策。
 
 作者从 batch 中选择奖励不低于中位数的轨迹，并统计这些高奖励轨迹的平均调用率：
 
-[
-\bar p
-======
+$$
+\bar p =
 
 \frac{1}{|\mathcal H_{\text{high}}|}
 \sum_{i\in\mathcal H_{\text{high}}}
 \frac{1}{|\tau_i|}
 \sum_j \tilde d_{i,j}
-]
+$$
 
-[
-\mathcal H_{\text{high}}
-========================
-
-\left{
-i:
-R(\tau_i)
+$$
+\mathcal H_{\text{high}} =
+\left\{ i: R(\tau_i)
 \ge
 \operatorname{median}_k R(\tau_k)
-\right}
-]
+\right\}
+$$
 
-因为 (\tilde d) 是二元变量，所以单次调用对应的惩罚可以写成：
+因为 $\tilde d$ 是二元变量，所以单次调用对应的惩罚可以写成：
 
-[
+$$
 \max(0,1-\bar p)=1-\bar p
-]
+$$
 
-高奖励轨迹普遍需要频繁调用时，(\bar p) 较大，调用惩罚会减小。高奖励轨迹通常很少调用时，额外调用会承担更高成本。
+高奖励轨迹普遍需要频繁调用时，$\bar p$ 较大，调用惩罚会减小。高奖励轨迹通常很少调用时，额外调用会承担更高成本。
 
 我认为作者的直觉是合理的：**调用预算应当由成功轨迹中实际需要的记忆频率决定，而不是预先固定一个统一稀疏率。**
 
 > [!warning] 自适应惩罚可能形成移动目标
-> (\bar p) 同时由当前策略产生的高奖励轨迹决定。Trigger 改变调用频率后，成功轨迹集合和平均调用率也会变化。
+> $\bar p$ 同时由当前策略产生的高奖励轨迹决定。Trigger 改变调用频率后，成功轨迹集合和平均调用率也会变化。
 >
 > 论文没有分析：
 >
 > - 这一目标是否容易形成高频调用的自增强状态。
 > - batch median 在奖励分布较离散时是否稳定。
-> - (\lambda) 对调用频率和性能的敏感性。
+> - $\lambda$ 对调用频率和性能的敏感性。
 > - Trigger 具体使用了哪一种 policy-gradient estimator。
 > - 是否加入了熵正则、value baseline 或 KL 约束。
 
@@ -325,54 +295,47 @@ R(\tau_i)
 
 作者将 Weaver 实现为挂载在 Reasoner 上的另一组 LoRA 参数：
 
-[
-M_t
-===
-
+$$
+M_t=
 W_{\theta'}(H_{t,<j})
 \in
 \mathbb R^{K\times d_{\text{model}}}
-]
+$$
 
 训练过程中：
 
-- Reasoner 参数 (\theta) 始终冻结。
+- Reasoner 参数 $\theta$ 始终冻结。
 - Trigger 在 Weaver 训练阶段保持固定。
-- 梯度只更新 Weaver 参数 (\theta')。
+- 梯度只更新 Weaver 参数 $\theta'$。
 
 ### 4.1 SFT 训练
 
 **直觉**：让 Weaver 生成的 latent memory 帮助冻结的 Reasoner 更容易复现高质量示范轨迹。
 
-对于专家 token (z^*_{i,t,j})，SFT 损失为：
+对于专家 token $z^*_{i,t,j}$，SFT 损失为：
 
-[
-\mathcal L_{\text{SFT}}(\theta')
-================================
-
+$$
+\mathcal L_{\text{SFT}}(\theta') =
 \mathbb E_{(x_i,\tau_i^*)\sim\mathcal H}
 \left[
 \sum_t\sum_j
 \log
 \pi_\theta
 \left(
-z^**{i,t,j}
+z^*_{i,t,j}
 \mid
-s*{i,t},
-z^**{i,t,<j},
-M*{i,t,j}
+s_{i,t},
+z^*_{i,t,<j},
+M_{i,t,j}
 \right)
 \right]
-]
+$$
 
 其中：
 
-[
-M_{i,t,j}
-=========
-
-W_{\theta'}(H_{i,t,<j})
-]
+$$
+M_{i,t,j} = W_{\theta'}(H_{i,t,<j})
+$$
 
 虽然 Reasoner 被冻结，token prediction loss 仍然可以穿过 Reasoner 的计算图，将梯度传回 Weaver。Weaver 因而学习生成能够推动正确 token 概率上升的 latent vectors。
 
@@ -381,9 +344,9 @@ W_{\theta'}(H_{i,t,<j})
 >
 > 因此，latent memory 的语义由功能决定：
 >
-> [
+> $$
 > \text{什么向量能让后续输出更接近示范}
-> ]
+> $$
 >
 > 这解释了为什么强制解码 latent tokens 后得到的文本通常不可读。
 
@@ -391,70 +354,35 @@ W_{\theta'}(H_{i,t,<j})
 
 **直觉**：当没有唯一专家轨迹时，直接根据最终任务奖励判断 Weaver 生成的记忆是否有效。
 
-对于任务 (x_i)，系统采样一组轨迹：
+对于任务 $x_i$，系统采样一组轨迹：
 
-[
-G_i
-===
-
-{
-\tau_{i,1},
-\tau_{i,2},
-\ldots,
-\tau_{i,K}
-}
-]
+$$
+G_i= \{ \tau_{i,1}, \tau_{i,2}, \ldots, \tau_{i,K} \}
+$$
 
 组内平均奖励为：
 
-[
-\bar R(G_i)
-===========
-
-\frac{1}{K}
-\sum_{k=1}^K R(\tau_{i,k})
-]
+$$
+\bar R(G_i) = \frac{1}{K} \sum_{k=1}^K R(\tau_{i,k})
+$$
 
 轨迹优势为：
 
-[
-A(\tau_{i,k})
-=============
-
-R(\tau_{i,k})-\bar R(G_i)
-]
+$$
+A(\tau_{i,k}) = R(\tau_{i,k})-\bar R(G_i)
+$$
 
 随后通过组内相对优势更新 Weaver：
 
-[
-J_{\text{GRPO}}(\theta')
-========================
-
-\mathbb E
-\left[
-\frac{1}{K}
-\sum_k
-A(\tau_{i,k})
-\log
-\Pi_{\theta}^{W_{\theta'},T}
-(\tau_{i,k}\mid x_i)
---------------------
-
-\beta
-D_{\mathrm{KL}}
-\right]
-]
+$$
+J_{\text{GRPO}}(\theta') = \mathbb E \left[ \frac{1}{K} \sum_k A(\tau_{i,k}) \log \Pi_{\theta}^{W_{\theta'},T} (\tau_{i,k}\mid x_i) - \beta D_{\mathrm{KL}} \right]
+$$
 
 这里的联合策略由三个组件组成：
 
-[
-\Pi_{\theta}^{W_{\theta'},T}
-============================
-
-\text{Reasoner}
-\text{Weaver}
-\text{Trigger}
-]
+$$
+\Pi_{\theta}^{W_{\theta'},T} = \text{Reasoner},\text{Weaver},\text{Trigger}
+$$
 
 实际梯度只更新 Weaver。
 
