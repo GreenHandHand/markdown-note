@@ -387,11 +387,11 @@ $$
 实际梯度只更新 Weaver。
 
 > [!warning] GRPO 描述经过明显简化
-> 公式中没有展示常见 GRPO 实现中的 probability ratio、clipping 或 token-level advantage 分配。实验超参数还将 (\beta) 设置为 0。
+> 公式中没有展示常见 GRPO 实现中的 probability ratio、clipping 或 token-level advantage 分配。实验超参数还将 $\beta$ 设置为 0。
 >
 > 因此，这部分更接近组相对奖励的 policy-gradient 表述。论文没有提供足够细节判断其与标准 GRPO 实现是否完全一致。
 >
-> 此外，符号 (K) 同时用于 latent memory 长度和每组 rollout 数量，容易引起混淆。
+> 此外，符号 $K$ 同时用于 latent memory 长度和每组 rollout 数量，容易引起混淆。
 
 ### 4.3 长期记忆与动态记忆的边界
 
@@ -403,15 +403,15 @@ $$
 
 2. **即时记忆构造**
 
-   Weaver 根据当前 hidden states 产生 (K) 个 latent tokens。
+   Weaver 根据当前 hidden states 产生 $K$ 个 latent tokens。
 
 因此，可以将 MemGen 写成：
 
-[
-\underbrace{\theta'}*{\text{长期经验}}
-\xrightarrow[\text{当前状态 }H*{<j}]{W}
+$$
+\underbrace{\theta'}_{\text{长期经验}}
+\xrightarrow[\text{当前状态 }H_{<j}]{W}
 \underbrace{M_t}_{\text{即时记忆}}
-]
+$$
 
 这个分解很重要。论文的动态性主要发生在读出阶段，经验写入仍然依赖离线或阶段性的参数训练。
 
@@ -420,7 +420,7 @@ $$
 >
 > 当前流程更接近：
 >
-> [
+> $$
 > \text{收集轨迹}
 > \rightarrow
 > \text{训练 Weaver}
@@ -428,7 +428,7 @@ $$
 > \text{训练 Trigger}
 > \rightarrow
 > \text{部署推理}
-> ]
+> $$
 >
 > 它支持基于新数据继续训练，但尚未形成完整的在线 memory write、验证、修正与遗忘机制。
 
@@ -457,10 +457,10 @@ Weaver 因而能够接触不同推理位置，学习如何根据局部 hidden st
 
 主要训练配置包括：
 
-- LoRA rank (r=16)
-- LoRA alpha (=32)
+- LoRA rank $r=16$
+- LoRA alpha $=32$
 - target modules 为 `q_proj` 和 `v_proj`
-- learning rate (=10^{-5})
+- learning rate $=10^{-5}$
 - 训练 2 epochs
 - SFT batch size 为 4
 - GRPO rollout batch size 和 train batch size 为 8
@@ -488,33 +488,21 @@ Weaver 因而能够接触不同推理位置，学习如何根据局部 hidden st
 
 当 Trigger 决定调用记忆时，系统将当前已经生成的文本解码为查询：
 
-[
-q_{t,j}
-=======
+$$
+q_{t,j} = \operatorname{Decode}(z_{t,<j})
+$$
 
-\operatorname{Decode}(z_{t,<j})
-]
+从外部数据库 $\mathcal M_{\text{ext}}$ 检索文本片段：
 
-从外部数据库 (\mathcal M_{\text{ext}}) 检索文本片段：
+$$
+C_t = \mathcal R(q_{t,j};\mathcal M_{\text{ext}})
+$$
 
-[
-C_t
-===
+将检索文本编码为 embedding sequence $E_t$，并与当前 hidden states 拼接：
 
-\mathcal R(q_{t,j};\mathcal M_{\text{ext}})
-]
-
-将检索文本编码为 embedding sequence (E_t)，并与当前 hidden states 拼接：
-
-[
-M_t
-===
-
-W_{\text{weaver}}
-\left(
-[H_{t,<j};E_t]
-\right)
-]
+$$
+M_t = W_{\text{weaver}} \left( [H_{t,<j};E_t] \right)
+$$
 
 Figure 2 右侧展示了这一过程：Weaver 可以同时读取自身参数中保存的内部经验，以及 ExpeL 等系统检索到的外部文本。
 
