@@ -97,7 +97,7 @@ arXiv-2026
 2. **Steer**：用读出向量修正当前 attention
 3. **Write**：根据当前信息更新状态，得到 $S_t$
 
-![[figure1.png]]
+![[98_Assets/DeltaMem.png]]
 
 图 1 中可以看到两条并行路径。
 
@@ -167,26 +167,13 @@ $$
 作者将状态学习写成在线回归：
 
 $$
-\mathcal{L}_t(S)
-================
-
-\frac{1}{2}
-\left|Sk_t-v_t\right|_2^2
+\mathcal{L}_t(S) = \frac{1}{2} \left|Sk_t-v_t\right|_2^2
 $$
 
 对该损失执行一步梯度下降，可以得到：
 
 $$
-S_t
-===
-
-S_{t-1}
-+
-\beta_t
-\left(
-v_t-S_{t-1}k_t
-\right)
-k_t^\top
+S_t = S_{t-1} + \beta_t \left( v_t-S_{t-1}k_t \right) k_t^\top
 $$
 
 这里的更新是一个外积：
@@ -239,30 +226,15 @@ $$
 作者生成三种 memory representation：
 
 $$
-q_t^m
-=====
-
-\operatorname{L2Norm}
-\left(
-\tanh(W_q^m x_t)
-\right)
+q_t^m = \operatorname{L2Norm} \left( \tanh(W_q^m x_t) \right)
 $$
 
 $$
-k_t^m
-=====
-
-\operatorname{L2Norm}
-\left(
-\tanh(W_k^m x_t)
-\right)
+k_t^m = \operatorname{L2Norm} \left( \tanh(W_k^m x_t) \right)
 $$
 
 $$
-v_t^m
-=====
-
-W_v^m x_t
+v_t^m = W_v^m x_t
 $$
 
 其中：
@@ -301,10 +273,7 @@ $$
 作者从当前 hidden state 生成写入门：
 
 $$
-\beta_t
-=======
-
-\sigma(W_\beta x_t+b)
+\beta_t = \sigma(W_\beta x_t+b)
 $$
 
 并定义保留门：
@@ -322,16 +291,7 @@ $$
 完整更新公式为：
 
 $$
-S_t
-===
-
-\operatorname{Diag}(\lambda_t)S_{t-1}
-+
-\operatorname{Diag}(\beta_t)
-\left(
-v_t^m-S_{t-1}k_t^m
-\right)
-(k_t^m)^\top
+S_t = \operatorname{Diag}(\lambda_t)S_{t-1} + \operatorname{Diag}(\beta_t) \left( v_t^m-S_{t-1}k_t^m \right) (k_t^m)^\top
 $$
 
 展开后：
@@ -340,10 +300,10 @@ $$
 \begin{aligned}
 S_t
 ={}&
-\operatorname{Diag}(\lambda_t)S_{t-1} \
+\operatorname{Diag}(\lambda_t)S_{t-1} \\
 &-
 \operatorname{Diag}(\beta_t)
-S_{t-1}k_t^m(k_t^m)^\top \
+S_{t-1}k_t^m(k_t^m)^\top \\
 &+
 \operatorname{Diag}(\beta_t)
 v_t^m(k_t^m)^\top
@@ -359,16 +319,7 @@ $$
 按状态矩阵的第 $i$ 行展开：
 
 $$
-s_t^{(i)}
-=========
-
-\lambda_{t,i}s_{t-1}^{(i)}
-+
-\beta_{t,i}
-\left(
-v_{t,i}^m-s_{t-1}^{(i)}k_t^m
-\right)
-(k_t^m)^\top
+s_t^{(i)} = \lambda_{t,i}s_{t-1}^{(i)} + \beta_{t,i} \left( v_{t,i}^m-s_{t-1}^{(i)}k_t^m \right) (k_t^m)^\top
 $$
 
 每一行都有独立的 $\beta_{t,i}$，因此不同记忆维度可以表现出不同更新速度。
@@ -409,10 +360,7 @@ $$
 读取过程为：
 
 $$
-r_t
-===
-
-S_{t-1}q_t^m
+r_t = S_{t-1}q_t^m
 $$
 
 其中：
@@ -483,31 +431,19 @@ $$
 加入记忆修正后：
 
 $$
-\tilde q_t
-==========
-
-q_t^0+\frac{\alpha}{r}\Delta q_t
+\tilde q_t = q_t^0+\frac{\alpha}{r}\Delta q_t
 $$
 
 随后使用冻结的 key 和 value 执行 attention：
 
 $$
-a_t
-===
-
-\operatorname{Attn}
-\left(
-\tilde q_t,K_{\leq t},V_{\leq t}
-\right)
+a_t = \operatorname{Attn} \left( \tilde q_t,K_{\leq t},V_{\leq t} \right)
 $$
 
 最后在 attention 输出端加入另一项修正：
 
 $$
-\tilde y_t
-==========
-
-a_t+\frac{\alpha}{r}\Delta o_t
+\tilde y_t = a_t+\frac{\alpha}{r}\Delta o_t
 $$
 
 其中 $\alpha/r$ 类似 LoRA 中的缩放项，用于控制低秩分支的幅度。
@@ -538,10 +474,7 @@ $$
 > 因此，同一套参数会随历史不同生成不同的修正量：
 >
 > $$
-> \Delta q_t
-> ==========
->
-> W_q^\Delta S_{t-1}q_t^m
+> \Delta q_t = W_q^\Delta S_{t-1}q_t^m
 > $$
 >
 > 这可以理解为一种由在线状态条件化的低秩 attention adapter。
@@ -571,17 +504,14 @@ $$
 
 作者考察三种写入策略。
 
-![[figure1.png]]
+![[98_Assets/DeltaMem.png]]
 
 #### Token-State Write
 
 每个 token 都更新一次状态：
 
 $$
-S_t
-===
-
-\operatorname{Update}(S_{t-1},x_t)
+S_t = \operatorname{Update}(S_{t-1},x_t)
 $$
 
 优点：
@@ -604,23 +534,13 @@ $$
 作者将一个消息或语义段内的 hidden state 平均：
 
 $$
-\bar x^{(j)}
-============
-
-\frac{1}{|M^{(j)}|}
-\sum_{t\in M^{(j)}}x_t
+\bar x^{(j)} = \frac{1}{|M^{(j)}|} \sum_{t\in M^{(j)}}x_t
 $$
 
 随后每个 segment 只更新一次：
 
 $$
-S^{(j)}
-=======
-
-\operatorname{Update}
-\left(
-S^{(j-1)},\bar x^{(j)}
-\right)
+S^{(j)} = \operatorname{Update} \left( S^{(j-1)},\bar x^{(j)} \right)
 $$
 
 它减少了重复写入，并让状态变化更平滑。
@@ -639,45 +559,25 @@ SSW 在 Qwen3-8B 上表现最好。作者推测，大模型已有较强推理能
 作者维护多个并行子状态：
 
 $$
-\mathcal{S}_t
-=============
-
-\left{
-S_t^{(1)},\ldots,S_t^{(N)}
-\right}
+\mathcal{S}_t = \left\{ S_t^{(1)},\ldots,S_t^{(N)} \right\}
 $$
 
 每个状态独立更新：
 
 $$
-S_t^{(i)}
-=========
-
-\operatorname{Update}^{(i)}
-\left(
-S_{t-1}^{(i)},x_t
-\right)
+S_t^{(i)} = \operatorname{Update}^{(i)} \left( S_{t-1}^{(i)},x_t \right)
 $$
 
 各子状态分别读出：
 
 $$
-r_t^{(i)}
-=========
-
-S_{t-1}^{(i)}q_t^{m,(i)}
+r_t^{(i)} = S_{t-1}^{(i)}q_t^{m,(i)}
 $$
 
 最后拼接：
 
 $$
-r_t
-===
-
-\operatorname{Concat}
-\left(
-r_t^{(1)},\ldots,r_t^{(N)}
-\right)
+r_t = \operatorname{Concat} \left( r_t^{(1)},\ldots,r_t^{(N)} \right)
 $$
 
 作者希望不同状态分别承载事实、偏好、任务进度或局部事件，从而降低单一状态内的干涉。
@@ -721,19 +621,7 @@ $$
 训练目标为：
 
 $$
-\mathcal{L}_{\mathrm{SFT}}
-==========================
-
-*
-
-\sum_{j=1}^{|Y|}
-\log
-p_{\phi,\theta}
-\left(
-y_j
-\mid
-Q,y_{<j},S_C
-\right)
+\mathcal{L}_{\mathrm{SFT}} = -\sum_{j=1}^{|Y|} \log p_{\phi,\theta} \left( y_j \mid Q,y_{<j},S_C \right)
 $$
 
 其中：
@@ -844,9 +732,9 @@ $$
 这意味着模型实际维护的并非一个全局 $8\times8$ 状态，而是每个插入层各自维护一个状态：
 
 $$
-\left{
+\left\{
 S_t^{(1)},S_t^{(2)},\ldots,S_t^{(L)}
-\right}
+\right\}
 $$
 
 如果 Qwen3-4B 含多个 Transformer 层，那么总动态状态容量约为：
@@ -1014,7 +902,7 @@ $$
 - 只保留压缩后的在线状态
 - 模型使用 query 和状态进行回答
 
-![[figure2.png]]
+![[98_Assets/DeltaMem-1.png]]
 
 在 HotpotQA 上：
 
@@ -1139,7 +1027,7 @@ $$
 
 ### Inference Efficiency
 
-![[figure3.png]]
+![[98_Assets/DeltaMem-2.png]]
 
 作者比较不同 prompt length 和 decoding length 下的：
 
@@ -1187,16 +1075,16 @@ $$
 
 ### Parameter Overhead
 
-![[figure4.png]]
+![[98_Assets/DeltaMem-3.png]]
 
 在 Qwen3-4B 上：
 
-- δ-mem SSW：$4.87$M，约 $0.12%$
-- δ-mem TSW：$4.87$M，约 $0.12%$
-- δ-mem MSW：$19.47$M，约 $0.48%$
-- Context2LoRA：$5.90$M，约 $0.15%$
-- MemGen：$46.20$M，约 $1.13%$
-- MLP Memory：$3078$M，约 $76.40%$
+- δ-mem SSW：$4.87$M，约 $0.12\%$
+- δ-mem TSW：$4.87$M，约 $0.12\%$
+- δ-mem MSW：$19.47$M，约 $0.48\%$
+- Context2LoRA：$5.90$M，约 $0.15\%$
+- MemGen：$46.20$M，约 $1.13\%$
+- MLP Memory：$3078$M，约 $76.40\%$
 
 δ-mem 的参数效率确实较高，尤其相对于大型外部 memory network。
 
@@ -1381,28 +1269,15 @@ $$
 > δ-mem 的核心可以写成：
 >
 > $$
-> \text{Memory Read}
-> ==================
->
-> S_{t-1}q_t
+> \text{Memory Read} = S_{t-1}q_t
 > $$
 >
 > $$
-> \text{Model Steering}
-> =====================
->
-> f(S_{t-1}q_t)
+> \text{Model Steering} = f(S_{t-1}q_t)
 > $$
 >
 > $$
-> \text{Memory Update}
-> ====================
->
-> S_{t-1}
-> +
-> \text{prediction error}
-> \times
-> \text{address}
+> \text{Memory Update}= S_{t-1} + \text{prediction error} \times \text{address}
 > $$
 >
 > 这个结构将记忆抽象为一个可在线学习的函数：
@@ -1452,10 +1327,7 @@ $$
 让写入门同时观察当前输入和旧状态：
 
 $$
-\beta_t
-=======
-
-g(x_t,S_{t-1})
+\beta_t = g(x_t,S_{t-1})
 $$
 
 控制器需要判断：
@@ -1480,17 +1352,11 @@ $$
 改为：
 
 $$
-\lambda_t
-=========
-
-\sigma(W_\lambda x_t+b_\lambda)
+\lambda_t = \sigma(W_\lambda x_t+b_\lambda)
 $$
 
 $$
-\beta_t
-=======
-
-\sigma(W_\beta x_t+b_\beta)
+\beta_t = \sigma(W_\beta x_t+b_\beta)
 $$
 
 这样模型可以分别控制：
@@ -1507,25 +1373,13 @@ $$
 为 MSW 添加显式路由器：
 
 $$
-\pi_t
-=====
-
-\operatorname{softmax}
-\left(
-g(x_t,S_{t-1}^{(1:N)})
-\right)
+\pi_t = \operatorname{softmax} \left( g(x_t,S_{t-1}^{(1:N)}) \right)
 $$
 
 更新时：
 
 $$
-S_t^{(i)}
-=========
-
-\operatorname{Update}
-\left(
-S_{t-1}^{(i)},x_t,\pi_{t,i}
-\right)
+S_t^{(i)} = \operatorname{Update} \left( S_{t-1}^{(i)},x_t,\pi_{t,i} \right)
 $$
 
 路由可以是：
@@ -1602,10 +1456,7 @@ $$
 可以引入时间、实体或关系条件：
 
 $$
-k_t^m
-=====
-
-f(x_t,\text{time},\text{entity},\text{relation})
+k_t^m = f(x_t,\text{time},\text{entity},\text{relation})
 $$
 
 并保存更新来源，使状态具备更明确的版本控制能力。
