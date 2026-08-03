@@ -256,7 +256,7 @@ $$
 
 **作者的直觉是：在每层 Transformer 中增加一个固定大小的历史信息通道，让当前 token 同时关注当前上下文和压缩后的历史状态。**
 
-![[Figure 2.png]]
+![[98_Assets/Metis-1.png]]
 
 Figure 2 包含三个层次：
 
@@ -266,17 +266,9 @@ Figure 2 包含三个层次：
 
 每层计算存在三条主要路径：
 
-1. **Original Attention**
-
-   处理当前步骤内部的 token 关系。
-
-2. **Memory Attention**
-
-   根据当前隐藏状态从历史记忆矩阵中读取信息。
-
-3. **Native Storage**
-
-   从当前步骤隐藏状态中挑选信息，更新下一步骤使用的记忆状态。
+1. **Original Attention**：处理当前步骤内部的 token 关系。
+2. **Memory Attention**：根据当前隐藏状态从历史记忆矩阵中读取信息。
+3. **Native Storage**：从当前步骤隐藏状态中挑选信息，更新下一步骤使用的记忆状态。
 
 ---
 
@@ -378,30 +370,13 @@ $$
 对第 $l$ 层隐藏状态进行归一化：
 
 $$
-\widetilde H_t^{(l)}
-====================
-
-\operatorname{PreNorm}
-\left(
-H_t^{(l-1)}
-\right)
+\widetilde H_t^{(l)} = \operatorname{PreNorm} \left( H_t^{(l-1)} \right)
 $$
 
 为每个 token 计算重要性：
 
 $$
-p_t^{(l)}
-=========
-
-\operatorname{Softmax}
-\left(
-\frac{
-\widetilde H_t^{(l)}
-\widetilde w_{\mathrm{agg}}^{(l)}
-}{
-\tau
-}
-\right)
+p_t^{(l)} = \operatorname{Softmax} \left( \frac{ \widetilde H_t^{(l)} \widetilde w_{\mathrm{agg}}^{(l)} }{ \tau } \right)
 $$
 
 其中 $\tau$ 控制分布尖锐程度。
@@ -409,20 +384,7 @@ $$
 作者按照概率从大到小排序，选择累计概率达到 $\rho$ 的最短前缀：
 
 $$
-L_t'
-====
-
-\operatorname{clip}
-\left(
-\min
-\left{
-k:
-\sum_{r=1}^{k}p_{(r)}
-\geq \rho
-\right},
-K_{\min},
-L
-\right)
+L_t' = \operatorname{clip} \left( \min \left\{ k: \sum_{r=1}^{k}p_{(r)} \geq \rho \right\}, K_{\min}, L \right)
 $$
 
 这一设计与固定 Top-$k$ 不同。信息集中时选择较少 token，信息分散时选择更多 token。
@@ -432,11 +394,7 @@ $$
 选中的表示为：
 
 $$
-\overline H_t^{(l)}
-===================
-
-\Pi_t^{(l)}
-\widetilde H_t^{(l)}
+\overline H_t^{(l)} = \Pi_t^{(l)} \widetilde H_t^{(l)}
 $$
 
 其中 $\Pi_t^{(l)}$ 是选择矩阵。
@@ -458,19 +416,11 @@ $$
 选中隐藏状态后，生成记忆 Key 和 Value：
 
 $$
-\widetilde K_t^{(l)}
-====================
-
-\overline H_t^{(l)}
-\widetilde W_K^{(l)}
+\widetilde K_t^{(l)} = \overline H_t^{(l)} \widetilde W_K^{(l)}
 $$
 
 $$
-\widetilde V_t^{(l)}
-====================
-
-\overline H_t^{(l)}
-\widetilde W_V^{(l)}
+\widetilde V_t^{(l)} = \overline H_t^{(l)} \widetilde W_V^{(l)}
 $$
 
 Key 决定未来查询如何找到信息，Value 决定被找到后向当前推理注入什么内容。
@@ -490,32 +440,11 @@ $$
 论文先给出线性更新形式：
 
 $$
-M_{t+1}^{(l)}
-=============
-
-\lambda M_t^{(l)}
-+
-\frac{1-\lambda}{L_t'}
-\frac{
-\widetilde K_t^{(l)\top}
-}{
-\sqrt{d_k}
-}
-\widetilde V_t^{(l)}
+M_{t+1}^{(l)} = \lambda M_t^{(l)} + \frac{1-\lambda}{L_t'} \frac{ \widetilde K_t^{(l)\top} }{ \sqrt{d_k} } \widetilde V_t^{(l)}
 $$
 
 $$
-S_{t+1}^{(l)}
-=============
-
-\lambda S_t^{(l)}
-+
-\frac{1-\lambda}{L_t'}
-\frac{
-\widetilde K_t^{(l)\top}\mathbf 1
-}{
-\sqrt{d_k}
-}
+S_{t+1}^{(l)} = \lambda S_t^{(l)} + \frac{1-\lambda}{L_t'} \frac{ \widetilde K_t^{(l)\top}\mathbf 1 }{ \sqrt{d_k} }
 $$
 
 各项含义：
@@ -529,18 +458,7 @@ $$
 将更新递归展开后：
 
 $$
-M_t^{(l)}
-=========
-
-\sum_{j=1}^{t-1}
-\lambda^{t-(j+1)}
-\frac{1-\lambda}{L_j'}
-\frac{
-\widetilde K_j^{(l)\top}
-}{
-\sqrt{d_k}
-}
-\widetilde V_j^{(l)}
+M_t^{(l)} = \sum_{j=1}^{t-1} \lambda^{t-(j+1)} \frac{1-\lambda}{L_j'} \frac{ \widetilde K_j^{(l)\top} }{ \sqrt{d_k} } \widetilde V_j^{(l)}
 $$
 
 因此，旧信息会受到指数衰减，同时所有历史事实被叠加在同一个固定大小矩阵中。
@@ -579,26 +497,13 @@ $$
 Memory Query 为：
 
 $$
-\widetilde Q_t^{(l)}
-====================
-
-\widetilde H_t^{(l)}
-\widetilde W_Q^{(l)}
+\widetilde Q_t^{(l)} = \widetilde H_t^{(l)} \widetilde W_Q^{(l)}
 $$
 
 记忆读取结果为：
 
 $$
-\widetilde A_t^{(l)}
-====================
-
-\operatorname{diag}
-\left(
-\widetilde Q_t^{(l)}
-S_t^{(l)}
-\right)^{-1}
-\widetilde Q_t^{(l)}
-M_t^{(l)}
+\widetilde A_t^{(l)} = \operatorname{diag} \left( \widetilde Q_t^{(l)} S_t^{(l)} \right)^{-1} \widetilde Q_t^{(l)} M_t^{(l)}
 $$
 
 可以把它拆成两步理解。
@@ -633,18 +538,11 @@ $S_t$ 对加权和进行归一化。
 普通 Attention Query 与 Memory Query 使用不同投影：
 
 $$
-Q_t^{(l)}
-=========
-
-\widetilde H_t^{(l)}W_Q^{(l)}
+Q_t^{(l)} = \widetilde H_t^{(l)}W_Q^{(l)}
 $$
 
 $$
-\widetilde Q_t^{(l)}
-====================
-
-\widetilde H_t^{(l)}
-\widetilde W_Q^{(l)}
+\widetilde Q_t^{(l)} = \widetilde H_t^{(l)} \widetilde W_Q^{(l)}
 $$
 
 普通 Query 学习当前上下文内部的 token-token 关系，Memory Query 学习跨交互步骤的相关性。
@@ -671,27 +569,7 @@ $$
 最终输出将当前上下文 Attention 和 Memory Attention 相加：
 
 $$
-A_t^{(l)}
-=========
-
-\gamma
-\operatorname{Softmax}
-\left(
-\frac{
-Q_t^{(l)}K_t^{(l)\top}
-}{
-\sqrt{d_k}
-}
-+
-\operatorname{Mask}(L)
-\right)
-V_t^{(l)}
-+
-(1-\gamma)
-\operatorname{Norm}
-\left(
-\widetilde A_t^{(l)}
-\right)
+A_t^{(l)} = \gamma \operatorname{Softmax} \left( \frac{ Q_t^{(l)}K_t^{(l)\top} }{ \sqrt{d_k} } + \operatorname{Mask}(L) \right) V_t^{(l)} + (1-\gamma) \operatorname{Norm} \left( \widetilde A_t^{(l)} \right)
 $$
 
 其中：
@@ -719,42 +597,19 @@ $$
 假设在当前层输入前添加虚拟前缀：
 
 $$
-\widehat H_t^{(l)}
-==================
-
-\begin{bmatrix}
-P_t^{(l)}\
-\widetilde H_t^{(l)}
-\end{bmatrix}
+\widehat H_t^{(l)} = \begin{bmatrix} P_t^{(l)}\ \widetilde H_t^{(l)} \end{bmatrix}
 $$
 
 标准 Attention 可以拆成：
 
 $$
-A_t^{(l)}
-=========
-
-A_{\mathrm{original}}^{(l)}
-+
-A_{\mathrm{memory}}^{(l)}
+A_t^{(l)} = A_{\mathrm{original}}^{(l)} + A_{\mathrm{memory}}^{(l)}
 $$
 
 其中 Memory 部分为：
 
 $$
-A_{\mathrm{memory}}
-===================
-
-\operatorname{Softmax}
-\left(
-\frac{
-Q_t
-(P_tW_K)^\top
-}{
-\sqrt{d_k}
-}
-\right)
-P_tW_V
+A_{\mathrm{memory}} = \operatorname{Softmax} \left( \frac{ Q_t (P_tW_K)^\top }{ \sqrt{d_k} } \right) P_tW_V
 $$
 
 作者随后将指数相似度近似成线性内积，把 Memory Prefix 的计算重新排列为：
@@ -791,16 +646,7 @@ $$
 读取结果可以表示为目标项和三个误差项：
 
 $$
-\widetilde A_t
-\approx
-\check A_t
-+
-\epsilon_1
-----------
-
-## \epsilon_2
-
-\epsilon_3
+\widetilde A_t \approx \check A_t + \epsilon_1 - \epsilon_2 - \epsilon_3
 $$
 
 其中：
@@ -940,20 +786,7 @@ $$
 只对查询步骤集合 $Q_s$ 计算监督损失：
 
 $$
-\ell(s,t)
-=========
-
-*
-
-\frac{1}{|Y_t|}
-\sum_{k=1}^{|Y_t|}
-\log
-P
-\left(
-y_{t,k}
-\mid
-X_t,Y_{t,<k};\theta_t
-\right)
+\ell(s,t) = - \frac{1}{|Y_t|} \sum_{k=1}^{|Y_t|} \log P \left( y_{t,k} \mid X_t,Y_{t,<k};\theta_t \right)
 $$
 
 训练阶段：
@@ -979,15 +812,7 @@ $$
 训练样本先提供一段参考内容，后续要求模型完整重建：
 
 $$
-\mathcal L_{\mathrm{rec}}
-=========================
-
-\pi_{\mathrm{rec}}(e)
-\mathbb E_{s\sim D_{\mathrm{rec}}}
-\left[
-\sum_{t\in Q_s}
-\ell(s,t)
-\right]
+\mathcal L_{\mathrm{rec}} = \pi_{\mathrm{rec}}(e) \mathbb E_{s\sim D_{\mathrm{rec}}} \left[ \sum_{t\in Q_s} \ell(s,t) \right]
 $$
 
 该目标逼迫记忆状态尽可能无损地保留来源内容。
@@ -1013,20 +838,7 @@ $$
 **让模型根据语义指令改变状态，使后续答案反映正确的净状态。**
 
 $$
-\mathcal L_{\mathrm{op}}
-========================
-
-\pi_{e/i}(e)
-\mathbb E_{s\sim D_{\mathrm{op}}^{e/i}}
-\left[
-\sum_{t\in Q_s}\ell(s,t)
-\right]
-+
-\pi_d(e)
-\mathbb E_{s\sim D_{\mathrm{op}}^d}
-\left[
-\sum_{t\in Q_s}\ell(s,t)
-\right]
+\mathcal L_{\mathrm{op}} = \pi_{e/i}(e) \mathbb E_{s\sim D_{\mathrm{op}}^{e/i}} \left[ \sum_{t\in Q_s}\ell(s,t) \right] + \pi_d(e) \mathbb E_{s\sim D_{\mathrm{op}}^d} \left[ \sum_{t\in Q_s}\ell(s,t) \right]
 $$
 
 其中：
@@ -1050,20 +862,7 @@ $$
 **约束模型不要混淆相似事实，也不要在无关回答中泄漏记忆。**
 
 $$
-\mathcal L_{\mathrm{reg}}
-=========================
-
-\pi_{\mathrm{mf}}(e)
-\mathbb E_{s\sim D_{\mathrm{mf}}}
-\left[
-\sum_{t\in Q_s}\ell(s,t)
-\right]
-+
-\pi_{\mathrm{mp}}(e)
-\mathbb E_{s\sim D_{\mathrm{mp}}}
-\left[
-\sum_{t\in Q_s}\ell(s,t)
-\right]
+\mathcal L_{\mathrm{reg}} = \pi_{\mathrm{mf}}(e) \mathbb E_{s\sim D_{\mathrm{mf}}} \left[ \sum_{t\in Q_s}\ell(s,t) \right] + \pi_{\mathrm{mp}}(e) \mathbb E_{s\sim D_{\mathrm{mp}}} \left[ \sum_{t\in Q_s}\ell(s,t) \right]
 $$
 
 - $D_{\mathrm{mf}}$：Multi-Fact 数据；
@@ -1072,30 +871,13 @@ $$
 作者没有直接给三类损失设置固定系数，而是调整各数据子集的采样概率：
 
 $$
-\pi_\tau(e)
-===========
-
-\frac{
-w_\tau(e)
-}{
-\sum_{\tau'\in\mathcal T}w_{\tau'}(e)
-}
+\pi_\tau(e) = \frac{ w_\tau(e) }{ \sum_{\tau'\in\mathcal T}w_{\tau'}(e) }
 $$
 
 采样权重随 epoch 线性变化：
 
 $$
-w_\tau(e)
-=========
-
-w_\tau^s
-+
-(w_\tau^e-w_\tau^s)
-\min
-\left(
-\frac{e}{E-1},
-1
-\right)
+w_\tau(e) = w_\tau^s + (w_\tau^e-w_\tau^s) \min \left( \frac{e}{E-1}, 1 \right)
 $$
 
 训练前期偏向 Reconstruction，后期逐渐增加长距离操作和正则数据。
@@ -1235,7 +1017,7 @@ Metis 在 HotpotQA、LongMemEval、LoCoMo 和多跳任务上相对基线提升�
 
 ## Ablation Study
 
-![[Table 7.png]]
+![[98_Assets/Metis-2.png]]
 
 关键结果：
 
@@ -1339,7 +1121,7 @@ Metis 在 MemDaily 上没有稳定领先，9B 甚至弱于 4B。
 
 作者将前 $t$ 条人物事实拼接成一次输入，随后查询最早、中间和最后一条事实。
 
-![[Figure 3.png]]
+![[98_Assets/Metis-3.png]]
 
 Figure 3 左侧显示：
 
@@ -1399,26 +1181,16 @@ Figure 3 右侧显示：
 作者对每层记忆矩阵执行 SVD：
 
 $$
-M_t^{(l)}
-=========
-
-U_t^{(l)}
-\Sigma_t^{(l)}
-V_t^{(l)\top}
+M_t^{(l)} = U_t^{(l)} \Sigma_t^{(l)} V_t^{(l)\top}
 $$
 
 只保留前 $k$ 个奇异方向：
 
 $$
-\widehat M_t^{(l)}
-==================
-
-\widehat U_t^{(l)}
-\widehat\Sigma_t^{(l)}
-\widehat V_t^{(l)\top}
+\widehat M_t^{(l)} = \widehat U_t^{(l)} \widehat\Sigma_t^{(l)} \widehat V_t^{(l)\top}
 $$
 
-![[Figure 4.png]]
+![[98_Assets/Metis-4.png]]
 
 总体结果：
 
@@ -1448,7 +1220,7 @@ $$
 
 ## Case Studies
 
-![[Figure 5.png]]
+![[98_Assets/Metis-5.png]]
 
 案例展示四类行为：
 
@@ -1490,17 +1262,7 @@ Original Attention、Memory Attention 和 Native Storage 都使用同一层隐�
 理论层延迟为：
 
 $$
-T_{\mathrm{parallel}}^{(l)}
-===========================
-
-\max
-\left(
-T_{\mathrm{orig}}^{(l)},
-T_{\mathrm{util}}^{(l)},
-T_{\mathrm{store}}^{(l)}
-\right)
-+
-T_{\mathrm{fuse}}^{(l)}
+T_{\mathrm{parallel}}^{(l)} = \max \left( T_{\mathrm{orig}}^{(l)}, T_{\mathrm{util}}^{(l)}, T_{\mathrm{store}}^{(l)} \right) + T_{\mathrm{fuse}}^{(l)}
 $$
 
 不过最终实现没有启用 CUDA Stream 异步重叠，因为细粒度 Kernel Launch 和同步开销可能抵消收益。
@@ -1524,7 +1286,7 @@ Metis 相对 Full Context 将 P95 降低 **69.3%**。
 
 ### 长上下文扩展
 
-![[Figure 7.png]]
+![[98_Assets/Metis-6.png]]
 
 - 32K 及以下，Metis 端到端延迟略高于 Full Context；
 - 64K 首次超过 Full Context；
@@ -1538,7 +1300,7 @@ Metis 相对 Full Context 将 P95 降低 **69.3%**。
 
 ### 持久化存储
 
-![[Figure 9.png]]
+![[98_Assets/Metis-7.png]]
 
 32K 历史下：
 
@@ -1613,59 +1375,6 @@ Metis Full State 相比 Full Context 小约 **67×**，Rank 64 小约 **529×**�
 ---
 
 ## Future
-
-### 作者提出的五级 Roadmap
-
-![[Figure 6.png]]
-
-### Level 1: Stateful Capability
-
-从静态条件预测器变为跨交互保持状态的系统：
-
-$$
-(Y_t,M_{t+1})
-=============
-
-f_\Phi(X_t,M_t)
-$$
-
-Metis 主要完成了这一层，并初步涉及第二层。
-
-### Level 2: Self-Managing Capability
-
-模型根据：
-
-- 信息重要性；
-- 有效期；
-- 未来用途；
-- 抽象层级；
-- 隐私和安全要求；
-
-自主决定记住、更新、巩固和遗忘。
-
-### Level 3: Experience-Learning Capability
-
-记忆开始改变模型能力。模型从成功、失败、反馈和环境变化中提取可复用经验，使交互历史转化为学习信号。
-
-### Level 4: Persistent Cognitive Capability
-
-模型长期维护关于以下对象的内部表示：
-
-- 世界；
-- 用户；
-- 任务；
-- 时间；
-- 自身状态。
-
-这些表示需要处理因果关系、不确定性、冲突和持续变化。
-
-### Level 5: Self-Evolving Capability
-
-模型能够从长期经验中抽象新的知识结构和学习策略，并将其用于未来能力发展。
-
----
-
-## 我认为最值得继续研究的方向
 
 ### 1. 从单一共享矩阵转向可扩展状态结构
 
