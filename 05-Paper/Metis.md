@@ -1393,10 +1393,7 @@ Metis Full State 相比 Full Context 小约 **67×**，Rank 64 小约 **529×**�
 当前信息在未来查询出现前已经被固定压缩。可以让模型保留较低成本的中间痕迹，并在查询到来后重新组织：
 
 $$
-M_t'
-====
-
-\operatorname{Consolidate}(M_t,q_t)
+M_t' = \operatorname{Consolidate}(M_t,q_t)
 $$
 
 这样能够缓解写入时不知道未来用途的问题。
@@ -1406,22 +1403,11 @@ $$
 为 Memory Attention 增加独立门控：
 
 $$
-g_t
-===
-
-\sigma
-\left(
-f_{\mathrm{gate}}(H_t,M_t)
-\right)
+g_t = \sigma \left( f_{\mathrm{gate}}(H_t,M_t) \right)
 $$
 
 $$
-A_t
-===
-
-A_{\mathrm{orig}}
-+
-g_t\cdot A_{\mathrm{mem}}
+A_t = A_{\mathrm{orig}} + g_t\cdot A_{\mathrm{mem}}
 $$
 
 并使用无关任务、对抗记忆和通用能力保持目标训练 $g_t$。这一机制直接针对 Active Stage 的能力下降。
@@ -1497,10 +1483,7 @@ $$
 Rank 64 已保留约 99.9% 性能，可以在训练中直接参数化：
 
 $$
-M_t
-===
-
-U_tV_t^\top
+M_t = U_tV_t^\top
 $$
 
 使更新只作用于低秩因子，降低状态存储和读写成本，也可能减少无关方向带来的干扰。
