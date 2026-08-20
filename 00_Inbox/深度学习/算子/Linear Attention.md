@@ -13,7 +13,7 @@ Transformer 中的自注意力通过显式计算任意两个 token 之间的相�
 
 一切要从标准的 Softmax Attention 开始说起。标准的单头 Attention 可以写作
 $$
-\operatorname{Attention}(Q, K, V) = \operatorname{softmax}(\dfrac{QK^{\top}}{\sqrt{ d }})V
+\operatorname{Attention}(Q, K, V) = \operatorname{softmax}\left(  \dfrac{QK^{\top}}{\sqrt{ d }} \right)V
 $$
 其中
 $$
@@ -48,7 +48,7 @@ $$
 > $$
 > 这里省略了缩放因子 $1/\sqrt{ d }$，因为它总可以被吸收到 $Q,K$ 里面，$\operatorname{softmax}$ 是对第二个维度进行指数归一化，其中的 $M\in \mathbb{R}^{n\times n}$ 是一个掩码矩阵。
 >
-> Softmax Attention 用分量的形式写出来则是
+> Softmax Attention 用分量的形式^[这里实际包含了注意力掩码，也就是求和只到当前时间 $t$] 写出来则是
 > $$
 > o_{t}=\dfrac{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})v_{j}}{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})}
 > $$
@@ -79,7 +79,7 @@ $$
 
 从前面的分析可以看出来，Softmax Attention 关于序列长度 $n$ 是平方时间复杂度的。Linear Attention 想要降低这个计算复杂度，将整体时间复杂度降低到序列长度 $n$ 的量级。
 
-## 早期工作
+## Linear Attention 的形式化
 
 最初的 Linear Attention 的思路只是简单的改变 Attention 的计算顺序。为了描述清晰，这里重复一下每个矩阵的形状：
 $$
@@ -104,3 +104,54 @@ O=\exp(QK^{\top})V
 $$
 矩阵结合律只能调整矩阵乘法的顺序，无法穿过 Softmax。于是后续的研究方向就变成了找到一个方式将
 $\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习中常利用核方法解决。关于机器学习中使用的核方法，见 [[00_Inbox/机器学习/支持向量机#核函数|核方法]]。
+
+> [!note] Causal 形式
+> 我们之前描述的 Softmax Attention 中的核心是
+> $$
+> O=(\exp(QK^{\top}) \odot M) V
+> $$
+> 上面的分析忽略了注意力掩码 $M$。按照分量形式展开，如下：
+> $$
+> o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=q_{t}\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}
+> $$
+> 如果我们记 $S_{t}=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}$，则可以得到递推形式
+> $$
+> o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top}
+> $$
+> 于是 casual 形式的 Attention 可以写为一个以 $S_{t}$ 为 State 的线性 RNN，递推每一步的复杂度都为 $\mathcal{O}(dd_{v})$，总的复杂度为 $\mathcal{O}(ndd_{v})$，这和我们之前的分析一致。
+
+### Kernelized Attention
+
+将 Casual Attention 写为更加一般的归一化核平滑形式：
+$$
+o_{t}=\dfrac{\sum\limits_{j=1}^{t}\kappa(q_{t},k_{j})v_{j}}{\sum\limits_{j=1}^{t}\kappa(q_{t},k_{j})}
+$$
+其中 $\kappa(q,k)$ 是 Query 和 Key 之间的相似度函数。标准的 Softmax Attention 对应的相似度函数为
+$$
+\kappa_{\text{softmax}}(q,k)=\exp \left( \dfrac{q^{T}k}{\sqrt{ d }} \right) 
+$$
+该函数不是数学定义上的核函数，它不能转换为 $\braket{ \phi(q), \phi(k) }$ 的形式，因此需要找到一个替代品。
+
+现在假设存在有限维特征映射
+$$
+\phi:\mathbb{R}^{d}\to \mathbb{R}^{r}
+$$
+使得
+$$
+\kappa(q,k)=\braket{ \phi(q), \phi(k) } =\phi(q)^{\top}\phi(k)=\phi(k)^{\top}\phi(q)
+$$
+于是可以对 Causal Attention 进行一些变换
+$$
+o_{t}=\dfrac{\sum\limits_{j=0}^{t}\phi(k_{j})^{\top}\phi(q_{t})v_{j}}{\sum\limits_{j=0}^{t}\phi(k_{j})^{\top}\phi(q_{t})}=\dfrac{\left( \sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top} \right)\phi(q_{t}) }{\left( \sum\limits_{j=0}^{t}\phi(k_{j})^{\top} \right)\phi(q_{t}) }
+$$
+记
+$$
+\begin{align}
+S&=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}&\in \mathbb{R}^{d\times r} \\
+z&=\sum\limits_{j=0}^{t}\phi(k_{j})&\in \mathbb{R}^{d\times 1}
+\end{align}
+$$
+于是输出变成了
+$$
+o_{t}=\dfrac{S\phi(q_{t})}{z\phi(q_{t})}
+$$
