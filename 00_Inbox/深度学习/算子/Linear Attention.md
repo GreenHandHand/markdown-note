@@ -147,11 +147,67 @@ $$
 记
 $$
 \begin{align}
-S&=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}&\in \mathbb{R}^{d\times r} \\
-z&=\sum\limits_{j=0}^{t}\phi(k_{j})&\in \mathbb{R}^{d\times 1}
+S_{t}&=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}&\in \mathbb{R}^{d\times r} \\
+z_{t}&=\sum\limits_{j=0}^{t}\phi(k_{j})^{\top}&\in \mathbb{R}^{1\times r}
 \end{align}
 $$
 于是输出变成了
 $$
-o_{t}=\dfrac{S\phi(q_{t})}{z\phi(q_{t})}
+o_{t}=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
 $$
+这里分母依旧是保持数值稳定。关键是分母，我们可以将其写作矩阵的形式
+$$
+O=\left( \left( V\phi(K)^{\top} \right) \odot M \right) \phi(Q)
+$$
+这里的计算复杂度变为了 $\mathcal{O}(nrd)$，其中 $r,d$ 都是事先确定的常数，Attention 变成了线性复杂度，相应的递推表达式为
+$$
+\begin{align}
+S_{t}&=S_{t-1}+v_{t}\phi(k_{t})^{\top} \\
+z_{t}&=z_{t-1}+\phi(k_{t})^{\top} \\
+o_{t}&=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
+\end{align}
+$$
+
+> [!info] 2020, Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention 系统提出了这种 Kernelized attention 形式。
+
+#### 选择新的有限维映射
+
+一些研究尝试直接换掉 softmax，选择一个有限维 Kernel。这样对于新 Kernel 的计算是精确的，但是它不再是标准的 Softmax Attention 了。在 *Transformers are RNNs* 原始论文中，采用如下特征映射
+
+$$
+\phi(x)=\operatorname{ELU}(x)+1
+$$
+
+从设计思路上看，为了模仿 Softmax Attention 的特点，需要加入分母来归一化，而为了归一化，采用了非负的核函数与映射。为了避免负输入区域直接产生零梯度，采用了平滑有梯度的 ELU 激活函数。
+
+> [!info] ELU
+> $$
+> \operatorname{ELU}(x)=\begin{cases}
+> x, & x>0 \\
+> e^{x}-1, & x \leqslant 0
+> \end{cases}
+> $$
+
+#### 近似 softmax
+
+一部分研究坚持近似标准的 softmax，例如 *Performer, RFA* 等工作就属于这条路线。这条路线希望
+$$
+\phi(q)^{\top}\phi(k)\approx \exp(q^{\top}k)
+$$
+这里简单介绍一下 *Performer* 的思路，由于 softmax 所使用的指数函数被理解为无限维的，因此无法构造出完整的特征映射，因此 Performer 构造了一个有限维随机特征映射 $\phi(x)\in \mathbb{R}^{r\times 1}$ 使得 $\phi(q)^{\top}\phi(k)$ 成为 $\exp(q^{\top}k)$ 的随机近似。
+
+具体的方法类似蒙特卡洛法，只随机采样一组有限特征。随着采样次数 $r$ 的增大，近似会更加准确，但是复杂度也相应上升。
+
+> [!note] 为什么 softmax 被看作无限维度的 Linear Attention
+> Softmax Attention 计算的指数注意力分数 $\exp(q^{\top}k)$ 根据泰勒级数展开，可以得到
+> $$
+> \exp(q^{\top}k)=\sum\limits_{n=0}^{\infty}\dfrac{(q^{\top}k)^{n}}{n!}=\sum\limits_{n=0}^{\infty}\dfrac{\braket{ q^{\otimes n}, k^{\otimes n}} }{n!}
+> $$
+> 于是可以构造一个无限维特征映射
+> $$
+> \Phi(q)=\left[ 1,q,\dfrac{q^{\otimes 2}}{\sqrt{ 2! }},\dfrac{q^{\otimes 3}}{\sqrt{ 3! }},\cdots \right] 
+> $$
+> 使得
+> $$
+> \exp(q^{\top}k)=\Phi(q)^{\top}\phi(k)
+> $$
