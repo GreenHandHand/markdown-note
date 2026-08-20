@@ -79,7 +79,7 @@ $$
 
 从前面的分析可以看出来，Softmax Attention 关于序列长度 $n$ 是平方时间复杂度的。Linear Attention 想要降低这个计算复杂度，将整体时间复杂度降低到序列长度 $n$ 的量级。
 
-## Linear Attention 的形式化
+## Softmax Attention 的线性复杂度形式
 
 最初的 Linear Attention 的思路只是简单的改变 Attention 的计算顺序。为了描述清晰，这里重复一下每个矩阵的形状：
 $$
@@ -100,7 +100,7 @@ $$
 
 回到 Softmax Attention 上，标准的 Attention 中实际计算的是
 $$
-O=\exp(QK^{\top})V
+O=\exp(QK^{\top})V \tag{1}
 $$
 矩阵结合律只能调整矩阵乘法的顺序，无法穿过 Softmax。于是后续的研究方向就变成了找到一个方式将
 $\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习中常利用核方法解决。关于机器学习中使用的核方法，见 [[00_Inbox/机器学习/支持向量机#核函数|核方法]]。
@@ -108,7 +108,7 @@ $\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习�
 > [!note] Causal 形式
 > 我们之前描述的 Softmax Attention 中的核心是
 > $$
-> O=(\exp(QK^{\top}) \odot M) V
+> O=(\exp(QK^{\top}) \odot M) V \tag{2}
 > $$
 > 上面的分析忽略了注意力掩码 $M$。按照分量形式展开，如下：
 > $$
@@ -116,7 +116,7 @@ $\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习�
 > $$
 > 如果我们记 $S_{t}=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}$，则可以得到递推形式
 > $$
-> o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top}
+> o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top} \tag{3}
 > $$
 > 于是 casual 形式的 Attention 可以写为一个以 $S_{t}$ 为 State 的线性 RNN，递推每一步的复杂度都为 $\mathcal{O}(dd_{v})$，总的复杂度为 $\mathcal{O}(ndd_{v})$，这和我们之前的分析一致。
 
@@ -157,7 +157,7 @@ o_{t}=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
 $$
 这里分母依旧是保持数值稳定。关键是分母，我们可以将其写作矩阵的形式
 $$
-O=\left( \left( V\phi(K)^{\top} \right) \odot M \right) \phi(Q)
+O=\left( \left( V\phi(K)^{\top} \right) \odot M \right) \phi(Q) \tag{5}
 $$
 这里的计算复杂度变为了 $\mathcal{O}(nrd)$，其中 $r,d$ 都是事先确定的常数，Attention 变成了线性复杂度，相应的递推表达式为
 $$
@@ -165,7 +165,7 @@ $$
 S_{t}&=S_{t-1}+v_{t}\phi(k_{t})^{\top} \\
 z_{t}&=z_{t-1}+\phi(k_{t})^{\top} \\
 o_{t}&=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
-\end{align}
+\end{align} \tag{6}
 $$
 
 > [!info] 2020, Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention 系统提出了这种 Kernelized attention 形式。
@@ -211,3 +211,18 @@ $$
 > $$
 > \exp(q^{\top}k)=\Phi(q)^{\top}\phi(k)
 > $$
+
+## 重新理解 Linear Attention
+
+从式 $(3)$ 和 $(6)$ 可以看出来，Linear Attention 的内涵似乎不止线性复杂度、改变计算顺序这么简单。到了因果场景，它变成了一个状态更新公式。这意味着历史信息不再以 token 列表而存在，而是不断被压缩进一个矩阵状态中。
+
+> [!note] 为什么早期 Linear Attention 没有替代 Softmax?
+> 1. **表达能力不足**：Softmax 具有很强的选择性，会在同一行内进行归一化斗争，一个位置的权重上升，其他位置的相对权重都会下降。指数归一化的性质又导致它非常容易产生尖锐、低熵的注意力分布。而简单的正值内积 Kernel 则无法产生尖锐的分布，输出容易变成许多 value 的平滑混合。
+> 	- 之后的研究，例如 *cosFormer*、*Hedgehog* 等都尝试保留了 Softmax 的非负性、单调性等行为。
+> 2. **状态管理缺失**：Linear Attention 将无限维度的 softmax 压缩到固定的 $r$ 状态维度，随着历史的增长，不同的信息会共享有限的状态维度。模型虽然仍然可以学习有效的压缩策略，但是很难保证所有细节都独立可寻址。
+> 3. **并行度**：Linear Attention 的计算存在严格的时间依赖，GPU 更加擅长大规模规则矩阵乘法，而不擅长大量串行小矩阵更新。早期的 Linear Attention 实现缺乏并行度，理论上更低的复杂度并没有带来更高的实际速度。
+
+基于这个认知，后续研究 Fast Weight、Delta Rule、gating 和 state-model 等方法，针对 Linear Attention 的表达能力、状态管理、硬件并行方面进行了研究。
+
+### Fast Weight
+
