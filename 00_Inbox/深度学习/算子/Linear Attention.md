@@ -53,17 +53,54 @@ $$
 > o_{t}=\dfrac{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})v_{j}}{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})}
 > $$
 >
-> 其中分母的作用主要是保持数值稳定性，另外就是如果我们给 $O$ 加上 RMSNorm，那么分母也会自动消去，所以 Softmax Attention 的核心是分子部分，即
+> 其中分母的作用主要是保持数值稳定性，另外就是如果我们给 $O$ 加上 RMSNorm^[关于这里自动消去的原因，RMSNorm 具有尺度不变性，而 softmax 计算得到的分母是对于分量来说是常数，因此在考虑 Softmax 后立即跟 RMSNorm 的情况，Softmax 的分母在数学上是可以消去的]，那么分母也会自动消去，所以 Softmax Attention 的核心是分子部分（即 Attention 中真正负责信息混合的核心算子），即
 > $$
 > O=\exp(QK^{\top}+\log M)V=(\exp(QK^{\top}) \odot M)V
 > $$
 > 其中 $\odot$ 是 Hadamard 积，$\exp$ 是逐分量取指数。
 
-从计算复杂度的角度来看 Attention 部分，计算量主要来自中间的矩阵计算
+从计算复杂度的角度来看 Attention，计算量主要来自中间的两个矩阵计算
 $$
 \begin{align}
 QK^{\top}\in \mathbb{R}^{n\times n}:\quad & \mathcal{O}(n^{2}d) \\
-\operatorname{softmax}(QK^{\top})V\in \mathbb{R}^{n\times d_{v}}: \quad & \mathcal{O}(n^{2}d_{v})
+(\exp(QK^{\top}) \odot M)V\in \mathbb{R}^{n\times d_{v}}: \quad & \mathcal{O}(n^{2}d_{v})
 \end{align}
 $$
-这里的 $QK^{\top}$ 有明确的含义，即注意力分数。它保存了所有 Query 到 Key 的相关性。标准 Attention 获得强大的检索能力正是因为它保留了这种细粒度的关系。
+这里的 $QK^{\top}$ 有明确的含义，它保存了所有 Query 到 Key 的相关性。标准 Attention 获得强大的检索能力正是因为它保留了这种细粒度的关系。
+
+由于标准实现的 Softmax Attention 需要将这两个矩阵都算出来，计算两个矩阵乘法，因此时间复杂度和空间复杂度均为 $\mathcal{O}(n^{2})$。[[Flash Attention]] 的提出降低了空间的需求，但是平方的时间复杂度依然无法避免。
+
+> [!note] 关于 GPU 计算特性
+> 然而，上面得到的 $O(n^{2})$ 表示的是总的计算量，而并非并行硬件上的关键路径长度。对于 $QK^{\top}$，不同的 $(q_{i},k_{i})$ 内积之间彼此独立，因此 Attention 具有极高的计算并行度。
+>
+> 在具有固定计算资源的 GPU 上，随着 $n$ 的增长，Softmax Attention 实际运行时间最终仍然服从平方增长。但是大量的独立计算可以被组织为规则的矩阵乘法，并充分利用 Tensor Core，因此其硬件执行小路非常高。
+>
+> 这也解释了 Linear Attention 不一定会比 Softmax Attention 更快。
+
+从前面的分析可以看出来，Softmax Attention 关于序列长度 $n$ 是平方时间复杂度的。Linear Attention 想要降低这个计算复杂度，将整体时间复杂度降低到序列长度 $n$ 的量级。
+
+## 早期工作
+
+最初的 Linear Attention 的思路只是简单的改变 Attention 的计算顺序。为了描述清晰，这里重复一下每个矩阵的形状：
+$$
+Q,K\in \mathbb{R}^{n\times d}\quad V\in \mathbb{R}^{n\times d_{v}}
+$$
+从 Attention 的计算过程中，我们可以看到计算主要是针对 $Q,K,V$ 三个矩阵来进行的。暂时去掉 Softmax：
+$$
+O=(QK^{\top})V
+$$
+由于矩阵乘法满足结合律，因此可以修改计算的顺序，这会引发显著的区别：
+$$
+\begin{align}
+O&=(QK^{\top})V \implies QK^{\top}\in \mathbb{R}^{n\times n}\\
+&=Q(K^{\top}V) \implies K^{\top}V\in \mathbb{R}^{d\times d_{v}}
+\end{align}
+$$
+于是第二种算法的时间复杂度变化为 $\mathcal{O}(dd_{v}n)$，由于 $d,d_{v}$ 都是相对于 $n$ 而言很小的常数，因此该算法为线性复杂度的。
+
+回到 Softmax Attention 上，标准的 Attention 中实际计算的是
+$$
+O=\exp(QK^{\top})V
+$$
+矩阵结合律只能调整矩阵乘法的顺序，无法穿过 Softmax。于是后续的研究方向就变成了找到一个方式将
+$\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习中常利用核方法解决。关于机器学习中使用的核方法，见 [[00_Inbox/机器学习/支持向量机#核函数|核方法]]。
