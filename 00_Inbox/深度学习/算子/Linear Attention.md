@@ -112,13 +112,15 @@ $\exp(QK^{\top})$ 转换为两个矩阵的乘积。这个问题在机器学习�
 > $$
 > 上面的分析忽略了注意力掩码 $M$。按照分量形式展开，如下：
 > $$
-> o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=q_{t}\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}
+> o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=\left( \sum\limits_{j=1}^{t}v_{j}k_{j}^{\top} \right) q_{t}
 > $$
 > 如果我们记 $S_{t}=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}$，则可以得到递推形式
 > $$
 > o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top} \tag{3}
 > $$
 > 于是 casual 形式的 Attention 可以写为一个以 $S_{t}$ 为 State 的线性 RNN，递推每一步的复杂度都为 $\mathcal{O}(dd_{v})$，总的复杂度为 $\mathcal{O}(ndd_{v})$，这和我们之前的分析一致。
+>
+> *之后本文的讨论都是基于 Causal 的*。
 
 ### Kernelized Attention
 
@@ -136,7 +138,7 @@ $$
 
 现在假设存在有限维特征映射
 $$
-\phi:\mathbb{R}^{d}\to \mathbb{R}^{r}
+\phi \in \mathbb{R}^{r\times d}:\mathbb{R}^{d}\to \mathbb{R}^{r}
 $$
 使得
 $$
@@ -157,10 +159,8 @@ $$
 $$
 o_{t}=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
 $$
-这里分母依旧是保持数值稳定。关键是分母，我们可以将其写作矩阵的形式
-$$
-O=\left( \left( V\phi(K)^{\top} \right) \odot M \right) \phi(Q) \tag{5}
-$$
+这里分母依旧是归一化系数，用于保持数值稳定。
+
 这里的计算复杂度变为了 $\mathcal{O}(nrd)$，其中 $r,d$ 都是事先确定的常数，Attention 变成了线性复杂度，相应的递推表达式为
 $$
 \begin{align}
@@ -170,24 +170,15 @@ o_{t}&=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
 \end{align} \tag{6}
 $$
 
-> [!info] 2020, Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention 系统提出了这种 Kernelized attention 形式。
+> [!info]
+> *2020, Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention* 系统提出了这种 Kernelized attention 形式。
+>
 > 这样对于新 Kernel 的计算是精确的，但是它不再是标准的 Softmax Attention 了。在 *Transformers are RNNs* 原始论文中，采用如下特征映射
-
-$$
-\phi(x)=\operatorname{ELU}(x)+1
-$$
-
-从设计思路上看，为了模仿 Softmax Attention 的特点，需要加入分母来归一化，而为了归一化，采用了非负的核函数与映射。为了避免负输入区域直接产生零梯度，采用了平滑有梯度的 ELU 激活函数。
-
-
-
-> [!info] ELU
 > $$
-> \operatorname{ELU}(x)=\begin{cases}
-> x, & x>0 \\
-> e^{x}-1, & x \leqslant 0
-> \end{cases}
+> \phi(x)=\operatorname{ELU}(x)+1
 > $$
+>
+> 从设计思路上看，为了模仿 Softmax Attention 的特点，需要加入分母来归一化，而为了归一化，采用了非负的核函数与映射。为了避免负输入区域直接产生零梯度，采用了平滑有梯度的 ELU^[$\operatorname{ELU}(x)=\begin{cases} x, & x>0 \\ e^{x}-1, & x \leqslant 0 \end{cases}$] 激活函数。
 
 #### 近似 softmax
 
@@ -210,7 +201,7 @@ $$
 > $$
 > 使得
 > $$
-> \exp(q^{\top}k)=\Phi(q)^{\top}\phi(k)
+> \exp(q^{\top}k)=\Phi(q)^{\top}\Phi(k)
 > $$
 
 ## 重新理解 Linear Attention
@@ -225,4 +216,21 @@ $$
 
 基于这个认知，后续研究 Fast Weight、Delta Rule、gating 和 state-model 等方法，针对 Linear Attention 的表达能力、状态管理、硬件并行方面进行了研究。
 
-### Fast Weight
+为什么说**重新理解 Linear Attention**？现代的 Linear Attention 研究基本围绕一个统一的状态更新：
+$$
+\begin{align}
+S_{t}&=\mathcal{T}_{t}(S_{t-1})+B_{t}  \\
+o_{t}&=S_{t}q_{t}
+\end{align}
+$$
+其中 $S_{t}$ 是当前矩阵状态，$\mathcal{T}_{t}$ 决定旧状态如何被保留、衰减或修改，$B_{t}$ 表示当前 token 写入的新内容。最后的输出由 Query 读取。从形态上看，Linear Attention 几乎已经偏离了原始 Attention 的形态。
+
+对于很多的现代方法，状态转移可以进一步写成
+$$
+S_{t}=S_{t-1}A_{t}+B_{t}
+$$
+
+其中 $A_{t}\in \mathbb{R}^{d\times d}$。
+
+> [!note]
+> 让我们在回到 Softmax Attention 的视角来看这个式子。Softmax Attention 是该式子的一个特例，根据前面的推导，我们知道 $S_{t} \in \mathbb{R}^{r\times d}$。于是
