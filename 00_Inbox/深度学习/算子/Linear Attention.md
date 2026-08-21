@@ -29,7 +29,7 @@ $$
 > [!tip] 这里全部采用列向量
 
 > [!note]
-> 一般只考虑 Causal 场景，意味着 $o_{t}$ 至多和 $Q_{[:t]},K_{[:t]},V_{[:t]}$ 相关。在这种情况下，Attention 公式可以写作 $O=\operatorname{softmax}(QK^{\top}/\sqrt{ d }+\log M)V$。其中注意力掩码矩阵 $\log M\in \mathbb{R}^{n\times n}$ 是一个下三角矩阵，对角线之下的元素使用 $-\infty$ 来屏蔽。
+> 一般只考虑 Causal 场景，意味着 $o_{t}$ 至多和 $Q_{[:t]},K_{[:t]},V_{[:t]}$ 相关。在这种情况下，Attention 公式可以写作 $O=\operatorname{softmax}(QK^{\top}/\sqrt{ d }+\log M)V$。其中注意力掩码矩阵 $\log M\in \mathbb{R}^{n\times n}$ 是一个严格上三角矩阵，对角线之上的元素使用 $-\infty$，从而屏蔽未来 token。
 
 > [!info]- Softmax
 > 为了方便推导，这里给出 Softmax 的公式。Softmax 即指数归一化，对于某一个维度中的一个向量的一个分量来说，就是
@@ -53,7 +53,7 @@ $$
 > o_{t}=\dfrac{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})v_{j}}{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})}
 > $$
 >
-> 其中分母的作用主要是保持数值稳定性，另外就是如果我们给 $O$ 加上 RMSNorm^[关于这里自动消去的原因，RMSNorm 具有尺度不变性，而 softmax 计算得到的分母是对于分量来说是常数，因此在考虑 Softmax 后立即跟 RMSNorm 的情况，Softmax 的分母在数学上是可以消去的]，那么分母也会自动消去，所以 Softmax Attention 的核心是分子部分（即 Attention 中真正负责信息混合的核心算子），即
+> 其中分母的作用主要是权重归一化，保持数值稳定性。另外就是如果我们给 $O$ 加上 RMSNorm^[关于这里自动消去的原因，RMSNorm 具有尺度不变性，而 softmax 计算得到的分母是对于分量来说是常数，因此在考虑 Softmax 后立即跟 RMSNorm 的情况，当忽略 $\epsilon$ 时 Softmax 的分母在数学上是可以消去的。]，那么分母也会自动消去，所以 Softmax Attention 的核心是分子部分（即 Attention 中真正负责信息混合的核心算子），即
 > $$
 > O=\exp(QK^{\top}+\log M)V=(\exp(QK^{\top}) \odot M)V
 > $$
@@ -130,7 +130,9 @@ $$
 $$
 \kappa_{\text{softmax}}(q,k)=\exp \left( \dfrac{q^{T}k}{\sqrt{ d }} \right) 
 $$
-该函数不是数学定义上的核函数，它不能转换为 $\braket{ \phi(q), \phi(k) }$ 的形式，因此需要找到一个替代品。
+该函数虽然在数学一样上是一个正定核，但是其对应的映射是无限维度的，通常不可直接计算。因此 Linear Attention 要么更换有限维度 Kernel，要么使用随机特征近似指数核。
+
+#### 选择有限维特征映射
 
 现在假设存在有限维特征映射
 $$
@@ -169,16 +171,15 @@ o_{t}&=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
 $$
 
 > [!info] 2020, Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention 系统提出了这种 Kernelized attention 形式。
-
-#### 选择新的有限维映射
-
-一些研究尝试直接换掉 softmax，选择一个有限维 Kernel。这样对于新 Kernel 的计算是精确的，但是它不再是标准的 Softmax Attention 了。在 *Transformers are RNNs* 原始论文中，采用如下特征映射
+> 这样对于新 Kernel 的计算是精确的，但是它不再是标准的 Softmax Attention 了。在 *Transformers are RNNs* 原始论文中，采用如下特征映射
 
 $$
 \phi(x)=\operatorname{ELU}(x)+1
 $$
 
 从设计思路上看，为了模仿 Softmax Attention 的特点，需要加入分母来归一化，而为了归一化，采用了非负的核函数与映射。为了避免负输入区域直接产生零梯度，采用了平滑有梯度的 ELU 激活函数。
+
+
 
 > [!info] ELU
 > $$
@@ -225,4 +226,3 @@ $$
 基于这个认知，后续研究 Fast Weight、Delta Rule、gating 和 state-model 等方法，针对 Linear Attention 的表达能力、状态管理、硬件并行方面进行了研究。
 
 ### Fast Weight
-
