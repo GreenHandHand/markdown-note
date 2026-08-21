@@ -233,4 +233,8 @@ $$
 其中 $A_{t}\in \mathbb{R}^{d\times d}$。
 
 > [!note]
-> 让我们在回到 Softmax Attention 的视角来看这个式子。Softmax Attention 是该式子的一个特例，根据前面的推导，我们知道 $S_{t} \in \mathbb{R}^{r\times d}$。于是
+> 让我们在回到 Softmax Attention 的视角来看这个式子。Softmax Attention 是该式子的一个特例，根据前面的推导，我们知道 $S_{t} \in \mathbb{R}^{r\times d}$，其中 $r$ 是特征映射的目标维度。对于 softmax 而言，使用了一个无限维的特征映射 $\exp$，即
+> $$
+> \exp(x^{\top}y)=\Phi(x)\Phi(y)
+> $$
+> 于是可以得到 $S_{t}=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}\in \mathbb{R}^{d\times \infty}$
