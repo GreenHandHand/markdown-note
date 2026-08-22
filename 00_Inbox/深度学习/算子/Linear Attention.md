@@ -227,34 +227,72 @@ $$
 
 对于很多的现代方法，状态转移可以进一步写成
 $$
-S_{t}=S_{t-1}A_{t}+B_{t}
+S_{t}=S_{t-1}A_{t}+B_{t}\tag{7}
 $$
 
-其中 $A_{t}\in \mathbb{R}^{d\times d}$。
+其中 $A_{t}\in \mathbb{R}^{d\times d}$，也就是利用一个线性映射来处理状态转移。
 
-> [!note]
-> 让我们在回到 Softmax Attention 的视角来看这个式子。Softmax Attention 是该式子的一个特例，根据前面的推导，我们知道 $S_{t} \in \mathbb{R}^{r\times d}$，其中 $r$ 是特征映射的目标维度。对于 softmax 而言，使用了一个无限维的特征映射 $\exp$，即
+> [!note] 一个理解 $(7)$ 的角度
+> $A_{t}$ 决定了旧信息到达未来时还剩多少，位于什么方向，是否被覆盖。我们将式 $(7)$ 展开，可以得到
 > $$
-> \exp(x^{\top}y)=\Phi(x)\Phi(y)
+> \begin{align}
+> A_{[j:t]}&=A_{i}A_{j+1}\cdots A_{t} \\
+> S_{t}&=S_{0}A_{[1:t]} + \sum\limits_{j=1}^{t}B_{i}A_{[j+1:t]}
+> \end{align}
 > $$
-> 于是可以得到 $S_{t}=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}\in \mathbb{R}^{d\times \infty}$。
->
-> 一个非常有意思的视角是，这个无限维状态还有另一种表示方式，虽然
+> 对于 Linear Attention，$B_{t}$ 一般取 $\eta_{t}v_{t}k_{t}^{\top}$，我们假设初始状态 $S_{0}=0$，那么
 > $$
-> S_{t}=\sum\limits_{j=1}^{t}v_{j}\Phi(k_{j})^{\top}
+> o_{t}=\sum\limits_{j=1}^{t}\eta_{j}v_{j}\left( k_{j}^{\top}A_{[j+1:t]}q_{t} \right) 
 > $$
-> 处于无限维空间中，但是读取它的时候有
+> 根据 Softmax Attention 中对于注意力分数的定义，可以发现 $k_{j}^{\top}A_{[j+1:t]}q_{t}$ 就表示了 token $j$ 在时刻 $t$ 的有效注意力分数，对于 Softmax Attention 而言，$A_{t}=I$，所以注意力对于历史 key 而言是永远不变的。如果考虑 $A_{t}$ 的影响，那么可以进行如下变换：
 > $$
-> S_{t}\Phi(q)=\sum\limits_{j=1}^{t}v_{j}
-> \underbrace{\Phi(k_{j})^{\top}\Phi(q)}_{e^{k_{j}^{\top}q}}
+> k_{j}^{\top}A_{[j+1:t]}q_{t}=\left( A_{[j+1:t]}^{\top}k_{j} \right)^{\top}q_{t} 
 > $$
-> 这实际上是非常漂亮的一个对偶表示
+> 也就是第 $j$ 个 token 的 key 随时间逐渐变成了
 > $$
-> \begin{array}{ccc}
-> \text{Feature-space memory} & \iff & \text{Sample-space memory} \\
-> S_{t}=\sum_{j}v_{j}\Phi(k_{j})^{T} && \left\{ (k_{j},v_{j}) \right\} _{j=1}^{t}
-> \end{array}
+> \tilde{k}_{j\to t}=A_{[j+1:t]}^{\top}k_{j}
 > $$
-> 当 feature dimension 非常小的时候，使用前者非常划算。当 feature dimension 是无限的时候，反而只有后者是可行的，可以通过存储所有可用 token 来避免进入无限维空间。
-> 
-> 关于 Softmax Attention 的表达能力有一点非常有意思，
+> 所以 $A_{t}$ 实际上是在改变**历史信息如何被寻址**的问题。
+
+### 遗忘门
+
+由于 Softmax Attention 
+
+### Softmax Attention
+
+ 让我们在回到 Softmax Attention 的视角来看这个式子。Softmax Attention 是该式子的一个特例，根据前面的推导，我们知道 $S_{t} \in \mathbb{R}^{r\times d}$，其中 $r$ 是特征映射的目标维度。对于 softmax 而言，使用了一个无限维的特征映射 $\exp$，即
+ $$
+ \exp(x^{\top}y)=\Phi(x)\Phi(y)
+ $$
+ 于是可以得到 $S_{t}=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}\in \mathbb{R}^{d\times \infty}$。
+
+ 一个非常有意思的视角是，这个无限维状态还有另一种表示方式，虽然
+ $$
+ S_{t}=\sum\limits_{j=1}^{t}v_{j}\Phi(k_{j})^{\top}
+ $$
+ 处于无限维空间中，但是读取它的时候有
+ $$
+ S_{t}\Phi(q)=\sum\limits_{j=1}^{t}v_{j}
+ \underbrace{\Phi(k_{j})^{\top}\Phi(q)}_{e^{k_{j}^{\top}q}}
+ $$
+ 这实际上是非常漂亮的一个对偶表示
+ $$
+ \begin{array}{ccc}
+ \text{Feature-space memory} & \iff & \text{Sample-space memory} \\
+ S_{t}=\sum_{j}v_{j}\Phi(k_{j})^{T} && \left\{ (k_{j},v_{j}) \right\} _{j=1}^{t}
+ \end{array}
+ $$
+ 当 feature dimension 非常小的时候，使用前者非常划算。当 feature dimension 是无限的时候，反而只有后者是可行的，可以通过存储所有可用 token 来避免进入无限维空间。
+
+ 关于 Softmax Attention 的表达能力有一点非常有意思，对于 $\exp$ 核而言，它从一开始就是无限维度的，并没有随着输入 token 的增长而变多。真正随输入增长的，是输入表示形成的子空间维数，也就是
+ $$
+ \operatorname{span}\left\{ \Phi(k_{1}),\Phi(k_{2}),\cdots,\Phi(k_{t}) \right\} 
+ $$
+ 从这个角度看，如果一个 token 带来了一个新的独立方向，那么就会导致输入的子空间维数增长，信息容量也就增加。这就是为什么 Softmax Attention 的模型参数固定，但是却能处理无限长度的输入。
+
+> [!todo]
+> 从这个视角看，我们真的需要无限维度的表示能力吗？对于一个长度为 $t$ 的 token 序列，真正被使用的子空间维度最多只有 $t$ 维。这给出了一个新的研究方向，即无需固定 $r$ 也无需永久保留全部的 $t$ 个 token，而是维护一个自适应增长的基底：
+> $$
+> U_{t}=\left\{ u_{1},u_{2},\cdots,u_{m_{t}} \right\} 
+> $$
+> 其中基底的维数由数据决定。当新的 token 到来时，尝试在当前表示空间中进行描述。如果已经基本冗余，则增加基底维数。
