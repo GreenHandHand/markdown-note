@@ -260,12 +260,16 @@ $$
 
 为了缓解这个问题，RetNet 为 Linear Attention 引入了遗忘效应：
 $$
-o_{t}=S_{t}q_{t},\qquad S_{t}=\gamma S_{t-1}+v_{t}k_{t}^{\top}
+o_{t}=S_{t}q_{t},\qquad S_{t}=\gamma S_{t-1}+v_{t}k_{t}^{\top}\tag{8}
 $$
 其中衰减因子 $\gamma \in(0,1)$，在 RetNet 中被设置为常数。除了这样做的，也有设置为可训练参数的，以及将 $\gamma$ 改为对角矩阵的。
 
-> [!note] 
+> [!note]
 > 这样的衰减因子在 RetNet 以前也有，不过多以线性 RNN 的形式出现，例如 LRU、SSM 等。RetNet 是首次将其与 Linear Attention 结合起来的。加入了衰减因子后，模型倾向于遗忘更为久远的历史，从而保证最近 token 的分辨率。
+
+此外，还有一个值得关注的细节是 RetNet 还为 $Q,K$ 加上了 RoPE，这相当于将衰减因子推广到了复数 $\gamma e^{i\theta}$，从 LRU 的角度看是考虑了复数的特征值。
+
+对于式 $(8)$ 的一个简单推广是将 $\gamma$ 替换为位置 $t$ 的函数 $\gamma_{t}$，这在 SSM 中就已经有所体现。后来，DFW、Mamba、Mamba2 等工作将它推广成跟输入相关，这就和 GRU、LSTM 等非线性 RNN 的遗忘门就已经非常相似了。不过为了保持模型的线性性，去掉了遗忘门对 $S_{t}$ 的依赖。
 
 ### Softmax Attention
 
