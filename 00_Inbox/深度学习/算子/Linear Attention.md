@@ -256,7 +256,16 @@ $$
 
 ### 遗忘门
 
-由于 Softmax Attention 
+先被提出来的是被称为遗忘门的机制。最开始的 Linear Attention 本质上是一个 `cumsum` 计算，将所有的历史都等权地叠加，即式 $(3)$。不难想象，当叠加的 token 足够多时，每个 token 的信息占比都会变得极小，于是单靠固定大小的 $S_{t}$ 矩阵甚至无法准确重建任意一个 token，直观类比就是每个 token 的记忆都变得模糊不清。
+
+为了缓解这个问题，RetNet 为 Linear Attention 引入了遗忘效应：
+$$
+o_{t}=S_{t}q_{t},\qquad S_{t}=\gamma S_{t-1}+v_{t}k_{t}^{\top}
+$$
+其中衰减因子 $\gamma \in(0,1)$，在 RetNet 中被设置为常数。除了这样做的，也有设置为可训练参数的，以及将 $\gamma$ 改为对角矩阵的。
+
+> [!note] 
+> 这样的衰减因子在 RetNet 以前也有，不过多以线性 RNN 的形式出现，例如 LRU、SSM 等。RetNet 是首次将其与 Linear Attention 结合起来的。加入了衰减因子后，模型倾向于遗忘更为久远的历史，从而保证最近 token 的分辨率。
 
 ### Softmax Attention
 
