@@ -237,4 +237,24 @@ $$
 > $$
 > \exp(x^{\top}y)=\Phi(x)\Phi(y)
 > $$
-> 于是可以得到 $S_{t}=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}\in \mathbb{R}^{d\times \infty}$
+> 于是可以得到 $S_{t}=\sum\limits_{j=0}^{t}v_{j}\phi(k_{j})^{\top}\in \mathbb{R}^{d\times \infty}$。
+>
+> 一个非常有意思的视角是，这个无限维状态还有另一种表示方式，虽然
+> $$
+> S_{t}=\sum\limits_{j=1}^{t}v_{j}\Phi(k_{j})^{\top}
+> $$
+> 处于无限维空间中，但是读取它的时候有
+> $$
+> S_{t}\Phi(q)=\sum\limits_{j=1}^{t}v_{j}
+> \underbrace{\Phi(k_{j})^{\top}\Phi(q)}_{e^{k_{j}^{\top}q}}
+> $$
+> 这实际上是非常漂亮的一个对偶表示
+> $$
+> \begin{array}{ccc}
+> \text{Feature-space memory} & \iff & \text{Sample-space memory} \\
+> S_{t}=\sum_{j}v_{j}\Phi(k_{j})^{T} && \left\{ (k_{j},v_{j}) \right\} _{j=1}^{t}
+> \end{array}
+> $$
+> 当 feature dimension 非常小的时候，使用前者非常划算。当 feature dimension 是无限的时候，反而只有后者是可行的，可以通过存储所有可用 token 来避免进入无限维空间。
+> 
+> 关于 Softmax Attention 的表达能力有一点非常有意思，
