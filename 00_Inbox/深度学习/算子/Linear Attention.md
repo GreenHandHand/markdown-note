@@ -111,7 +111,7 @@ $$
 > $$
 > O=(\exp(QK^{\top}) \odot M) V 
 > $$
-> 上面的分析忽略了注意力掩码 $M$。按照分量形式展开，如下：
+> 上面的分析忽略了注意力掩码 $M$。将朴素 Linear Attention 按照分量形式展开，如下：
 > $$
 > o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=\left( \sum\limits_{j=1}^{t}v_{j}k_{j}^{\top} \right) q_{t} \tag{1}
 > $$
@@ -332,15 +332,13 @@ $$
 o_{t}=\dfrac{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})v_{j}}{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})} 
 $$
 
-因此，对于 Softmax 而言状态是一个随序列增长的 KV 列表。
+因此，对于 Softmax Attention 而言状态是一个随序列增长的 KV 列表。
 
 而对于 Linear Attention 而言，状态就是式 $(7)$ 所定义的那样，是一个固定维度的矩阵。TTT 原文用类似的方法比较了 Self-Attention、普通 RNN 和 TTT，其中:
 - Self-Attention 保留了一个不断增长的 KV 列表。
 - 固定状态 RNN 和参数化 TTT 会把历史压缩到固定大小的状态中。
 
 > [!note] Softmax Attention 效果好的一大原因就是历史数据基本原样保留，读取时再决定什么重要。
-
-> [!info] TTT 的思想
 
 为什么说 TTT 这么重要？这里需要先介绍一下 TTT 的思想。传统的 Linear Attention 认为
 $$
@@ -401,15 +399,15 @@ $$
 > - 预训练数据 $\implies$ LLM 参数 $\theta$
 > - 当前 context $\implies$ TTT 状态 $S_{t}$
 
-TTT 给出的框架不仅可以解释 Softmax Attention，甚至 Linear Attention 也是框架中的一个特例！令内部的 learner 是最简的线性模型，即
+TTT 给出的框架不仅可以解释 Softmax Attention，甚至之前的朴素 Linear Attention 也是框架中的一个非常简化的特例。令内部的 learner 是最简的线性模型，即
 $$
 f(S;k)=Sk 
 $$
-考虑初始状态 $S_{0}=0$ 的情况，使用平方损失
+考虑初始状态 $S_{0}=0$ 的情况，使用平方损失，只对整个上下文做一次批量随机梯度下降 (Batch SGD)
 $$
 \mathcal{L}(S)=\dfrac{1}{2}\sum\limits_{j=1}^{t}\lVert Sk_{j}-v_{j} \rVert ^{2} 
 $$
-利用 SGD 作为 TTT 的优化器，做一步梯度下降，则我们可以得到 $S_{t}$ 的状态更新公式（忽略可以被吸收近学习率的常数）：
+则我们可以得到 $S_{t}$ 的状态更新公式（忽略可以被吸收近学习率的常数）：
 $$
 \begin{align}
 S_{t} &= S_{0}-\eta \nabla_{S} \mathcal{L}(S_{0})  \\
@@ -422,8 +420,44 @@ $$
 $$
 o_{t}=f(S_{t};q_{t})=S_{t}q_{t}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t}) 
 $$
-可以发现这就是式 $\ref{eq:1}$，即 Linear Attention 的朴素形式。于是 TTT 告诉我们，Linear Attention 的 $S_{t}$ 不再是一个被碰巧设计出来的 Attention 公式，而是线性回归在 context 上进行了一步学习后得到的参数。
+可以发现这就是式 $\ref{eq:1}$，即 Linear Attention 的朴素形式。从 TTT 的角度看，朴素 Linear Attention 实际上是一种极为粗糙的学习。它并不关系当前状态已经学习到了什么，所有的梯度都是固定在 $S_{0}$ 处计算的。
 
-从 TTT 框架上出发，DeltaNet、GLA 等设计也就是顺理成章，从不同的目标形式推导而来了。
+站在 TTT 的角度，Linear Attention 的 $S_{t}$ 不再是一个被碰巧设计出来的 Attention 公式，而是线性回归在 context 上进行了一步学习后得到的参数。
+
+从 TTT 框架上出发，DeltaNet、GLA 等设计也就是顺理成章，从不同的目标形式推导而来了。这个在后文介绍。
 
 > [!tip] 实际上，DeltaNet 等改进是在 TTT 之前被提出的，但是后来的 TTT 却从完全不同的角度，从理论上给出了 DeltaNet 的另一种形式。
+
+> [!note] 从 TTT 的角度理解 Softmax Attention
+> 之前我们描述过 Softmax Attention 的状态就是没有经过压缩 $\left\{ (k_{1},v_{1}),\cdots,(k_{t},v_{t}) \right\}$。换句话说，模型在运行时直接保存所有的数据，到测试时才利用训练的数据计算需要的输出，这个定义正好符合[[00_Inbox/机器学习/机器学习概述#参数化模型和非参数化模型|非参数估计]]！
+>
+> 对应的，Linear Attention 这样将状态压到一个参数矩阵中的方法就是参数化估计方法。
+>
+> TTT 论文中指出，参数化方法的 token 成本可以保持与上下文长度无关，而非参数化方法的状态和计算会随着训练样本数增长。这也提供了理解 Self-Attention 的二次复杂度的另一种方式。
+
+> [!note] 关于 Test Time Training 名字的理解
+> TTT 提供了一种在推理过程中学习的视角，但是 TTT 的名字还不止于此，这里还有一种不同的视角。TTT 将参数分为了完全不同的两种：
+> - $S_{t}$：当前输入序列内部的参数，这些参数在推理时也不断在改变。它们是推理时的 Hidden State，而不和模型正常训练的固定参数混为一谈。在推理过程中改变 $S_{t}$ 的过程成为 Inner Loop。
+> - 模型参数 $\theta=\left\{  W_{q},W_{k},W_{v},W_{\text{MLP}},\cdots\right\}$ 等：它们通过预训练获得，在推理的过程中固定。利用优化器在预训练数据集上优化模型参数 $\theta$ 的过程称为 Outer Loop。
+> 
+> 这样的视角使得 TTT 成为了一种 meta-learning 方法，它不是简单的训练 $f$ 来做某个固定的任务，而是**怎样构造一个 Inner Loop，使得模型在上下文内进行若干次学习后，在损失函数规定的任务上表现最好**。也就是说，
+> - Outer Loop 可以学习 Inner Loop 的损失函数、学习率、优化器，也就是在推理过程中如何优化 $S_{t}$。
+> - Inner Loop 才是真正学习在上下文中解决问题的过程。
+> 
+> 因此，TTT 的另一层意思是，**模型在训练阶段学到的不仅是知识，还包括了在测试时如何从上下文中学习**。如此，TTT 和 ICL(In-Context Learning) 自然的联系到了一起。
+
+TTT 提供了一个非常有价值的思想，对于传统路线中的：
+1. 我要设计一个好的 RNN
+2. 猜 recurrence $S_{t}=\mathcal{F}(S_{t-1}, x_{t})$
+3. 实验
+4. 增加 decay / gate / delta rule
+
+转变为了
+1. 我要让 state 学会当前的 context
+2. 定义 model $f$
+3. 定义 training examples $(k, v)$
+4. 定义损失 $\mathscr{l}$
+5. 定义优化器
+6. 自然的得到 $S_{t}=\mathcal{F}(S_{t-1},x_{t})$
+
+问题从**设计动力学**提升到了**设计学习问题**上。
