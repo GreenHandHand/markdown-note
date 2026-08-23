@@ -233,7 +233,7 @@ $$
 
 其中 $A_{t}\in \mathbb{R}^{d\times d}$，也就是利用一个线性映射来处理状态转移。
 
-> [!note] 一个理解 $(7)$ 的角度
+> [!note] 一个理解 $\ref{eq:5}$ 的角度
 > $A_{t}$ 决定了旧信息到达未来时还剩多少，位于什么方向，是否被覆盖。我们将式 $(7)$ 展开，可以得到
 > $$
 > \begin{align}
@@ -254,6 +254,11 @@ $$
 > \tilde{k}_{j\to t}=A_{[j+1:t]}^{\top}k_{j} 
 > $$
 > 所以 $A_{t}$ 实际上是在改变**历史信息如何被寻址**的问题。
+
+> [!tip]
+> 从上面的推导可以看到，不同时间的转移矩阵在递归过程中是连乘起来的，所以为了避免数值爆炸，转移矩阵不能出现大于 1 或者小于 -1 的特征值。
+
+^9968fa
 
 ### 遗忘门
 
@@ -478,7 +483,11 @@ S_{t}&=S_{t-1} - \eta \nabla_{S}\mathcal{L}(S_{t-1}) \\
 &=S_{t-1}\left( I-\eta k_{t}k_{t}^{\top} \right)+\eta v_{t}k_{t}^{\top}
 \end{align}
 $$
-这就是 DeltaNet 的状态更新公式。
+这就是 DeltaNet 的状态更新公式。在实际的 DeltaNet 中，这里的学习率 $\eta$ 也是一个依赖序列长度的变量，我们使用 $\beta_{t}$ 或者 $\eta_{t}$ 描述。DeltaNet 使用一个 MLP 来进行更新
+$$
+\beta_{t}=\sigma(W_{\beta}x_{t})
+$$
+生成它的参数由正常的 outer loop 训练学习。
 
 > [!info] Delta Rule
 > Delta Rule 的名字出自 *Parallelizing Linear Transformers with the Delta Rule over Sequence Length*，更早由 *Linear Transformers Are Secretly Fast Weight Programmers* 提出。
@@ -498,6 +507,16 @@ $$
 > 站在现在的视角看，Delta Rule 也不是过时的尝试。它依然是现在我们理解 Linear Attention 的一个非常好的语义层。只不过 TTT 在它之上提供了一个更强设计原则。
 
 > [!note] DeltaNet 的 L2 Normalization
-> 这里介绍一点技术细节，主要内容来自 [为什么 DeltaNet 要加 L2 Normalize?](https://kexue.fm/archives/11486)。
-> 
-> 由于不同时间的转移矩阵在递归过程中是连乘起来的，所以为了避免数值爆炸，转移矩阵不能出现大于 1 或者小于 -1 的特征值。
+> 这里介绍一点技术细节，主要内容来自 [为什么 DeltaNet 要加 L2 Normalize?](https://kexue.fm/archives/11486)。不过这里的介绍没有原文详细。
+>
+> 根据 [[#^9968fa|Linear Attention]] 的形式，我们需要保证转移矩阵的特征值处于 $[-1, 1]$ 区间内，否则会出现数值爆炸的问题。让我们对 DeltaNet 的转移矩阵 $A_{t}=I-\eta_{t}k_{t}k_{t}^{\top}$ 进行一些简单的分析。
+>
+> 首先，$k_{t}k_{t}^{\top}$ 是一个秩一矩阵，其特征值有一个 $k_{t}^{\top}k_{t}=\lVert k_{t} \rVert^{2}$，其余特征值全为零。于是可以得到 $A_{t}$ 的特征值为一个 $1-\eta_{t}\lVert k_{t} \rVert^{2}$，其余全为 1。于是有约束：
+> $$
+> -1 \leqslant 1 - \eta \lVert k_{t} \rVert ^{2} \leqslant 1 \iff 0 \leqslant \eta_{t}\lVert k_{t} \rVert ^{2} \leqslant 1
+> $$
+> 为了保证满足这个约束，一般使用的方式是对 $k_{t}$ 进行 L2 Normalize，并为 $\eta_{t}$ 添加 Sigmoid。
+>
+> 这里的 L2 Normalize 只是一种解决方式，没有严谨的理论推导。在原文中，给出了一种从微分方程的角度推导的方式，并提供了有关解的稳定性的一些观点。
+
+虽然 Delta Rule 在理论上非常好，但是原始的 DeltaNet 将模型视为了一个纯 RNN 模型，这需要 $\mathcal{O}(n)$ 的序列处理步骤。在具有大规模并行处理的现代硬件设备上，这种处理方式效率很低，难以在 GPU 上高效训练。24 年提出的 DeltaNet 则解决了这个问题。
