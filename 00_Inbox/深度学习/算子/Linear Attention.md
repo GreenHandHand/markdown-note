@@ -313,3 +313,4 @@ $$
 > **实验表明，维数 $t$ 基本与 token 长度线性增长，在加上了 RoPE 之后这一点尤为明显**。
 
 > [!todo] <https://kexue.fm/archives/8601>
+
