@@ -113,11 +113,11 @@ $$
 > $$
 > 上面的分析忽略了注意力掩码 $M$。按照分量形式展开，如下：
 > $$
-> o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=\left( \sum\limits_{j=1}^{t}v_{j}k_{j}^{\top} \right) q_{t} 
+> o_{t}=\sum\limits_{j=1}^{t}(q_{t}^{\top}k_{j})v_{j}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t})=\sum\limits_{j=1}^{t}(v_{j}k_{j}^{\top})q_{t}=\left( \sum\limits_{j=1}^{t}v_{j}k_{j}^{\top} \right) q_{t} \tag{1}
 > $$
 > 如果我们记 $S_{t}=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}$，则可以得到递推形式
 > $$
-> o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top} \tag{1}
+> o_{t}=S_{t}q_{t},\quad S_{t}=S_{t-1}+v_{t}k_{t}^{\top} \tag{2}
 > $$
 > 于是 casual 形式的 Attention 可以写为一个以 $S_{t}$ 为 State 的线性 RNN，递推每一步的复杂度都为 $\mathcal{O}(dd_{v})$，总的复杂度为 $\mathcal{O}(ndd_{v})$，这和我们之前的分析一致。
 >
@@ -168,7 +168,7 @@ $$
 S_{t}&=S_{t-1}+v_{t}\phi(k_{t})^{\top} \\
 z_{t}&=z_{t-1}+\phi(k_{t})^{\top} \\
 o_{t}&=\dfrac{S_{t}\phi(q_{t})}{z_{t}\phi(q_{t})}
-\end{align} \tag{2}
+\end{align} \tag{3}
 $$
 
 > [!info]
@@ -207,7 +207,7 @@ $$
 
 ## 重新理解 Linear Attention
 
-从式 $\ref{eq:1}$ 和 $\ref{eq:2}$ 可以看出来，Linear Attention 的内涵似乎不止线性复杂度、改变计算顺序这么简单。到了因果场景，它变成了一个状态更新公式。这意味着历史信息不再以 token 列表而存在，而是不断被压缩进一个矩阵状态中。
+从式 $\ref{eq:2}$ 和 $\ref{eq:3}$ 可以看出来，Linear Attention 的内涵似乎不止线性复杂度、改变计算顺序这么简单。到了因果场景，它变成了一个状态更新公式。这意味着历史信息不再以 token 列表而存在，而是不断被压缩进一个矩阵状态中。
 
 > [!note] 为什么早期 Linear Attention 没有替代 Softmax?
 > 1. **表达能力不足**：Softmax 具有很强的选择性，会在同一行内进行归一化斗争，一个位置的权重上升，其他位置的相对权重都会下降。指数归一化的性质又导致它非常容易产生尖锐、低熵的注意力分布。而简单的正值内积 Kernel 则无法产生尖锐的分布，输出容易变成许多 value 的平滑混合。
@@ -222,13 +222,13 @@ $$
 \begin{align}
 S_{t}&=\mathcal{T}_{t}(S_{t-1})+B_{t}  \\
 o_{t}&=S_{t}q_{t}
-\end{align} \tag{3}
+\end{align} \tag{4}
 $$
 其中 $S_{t}$ 是当前矩阵状态，$\mathcal{T}_{t}$ 决定旧状态如何被保留、衰减或修改，$B_{t}$ 表示当前 token 写入的新内容。最后的输出由 Query 读取。从形态上看，Linear Attention 几乎已经偏离了原始 Attention 的形态。
 
 对于很多的现代方法，状态转移可以进一步写成
 $$
-S_{t}=S_{t-1}A_{t}+B_{t} \tag{4}
+S_{t}=S_{t-1}A_{t}+B_{t} \tag{5}
 $$
 
 其中 $A_{t}\in \mathbb{R}^{d\times d}$，也就是利用一个线性映射来处理状态转移。
@@ -257,7 +257,7 @@ $$
 
 ### 遗忘门
 
-先被提出来的是被称为遗忘门的机制。最开始的 Linear Attention 本质上是一个 `cumsum` 计算，将所有的历史都等权地叠加，即式 $\ref{eq:1}$。不难想象，当叠加的 token 足够多时，每个 token 的信息占比都会变得极小，于是单靠固定大小的 $S_{t}$ 矩阵甚至无法准确重建任意一个 token，直观类比就是每个 token 的记忆都变得模糊不清。
+先被提出来的是被称为遗忘门的机制。最开始的 Linear Attention 本质上是一个 `cumsum` 计算，将所有的历史都等权地叠加，即式 $\ref{eq:2}$。不难想象，当叠加的 token 足够多时，每个 token 的信息占比都会变得极小，于是单靠固定大小的 $S_{t}$ 矩阵甚至无法准确重建任意一个 token，直观类比就是每个 token 的记忆都变得模糊不清。
 
 为了缓解这个问题，RetNet 为 Linear Attention 引入了遗忘效应：
 $$
@@ -270,7 +270,7 @@ $$
 
 此外，还有一个值得关注的细节是 RetNet 还为 $Q,K$ 加上了 RoPE，这相当于将衰减因子推广到了复数 $\gamma e^{i\theta}$，从 LRU 的角度看是考虑了复数的特征值。
 
-对于式 $\ref{eq:4}$ 的一个简单推广是将 $\gamma$ 替换为位置 $t$ 的函数 $\gamma_{t}$，这在 SSM 中就已经有所体现。后来，DFW、Mamba、Mamba2 等工作将它推广成跟输入相关，这就和 GRU、LSTM 等非线性 RNN 的遗忘门就已经非常相似了。不过为了保持模型的线性性，去掉了遗忘门对 $S_{t}$ 的依赖。
+对于式 $\ref{eq:5}$ 的一个简单推广是将 $\gamma$ 替换为位置 $t$ 的函数 $\gamma_{t}$，这在 SSM 中就已经有所体现。后来，DFW、Mamba、Mamba2 等工作将它推广成跟输入相关，这就和 GRU、LSTM 等非线性 RNN 的遗忘门就已经非常相似了。不过为了保持模型的线性性，去掉了遗忘门对 $S_{t}$ 的依赖。
 
 ### Softmax Attention
 
@@ -355,9 +355,75 @@ $$
 S_{t}=S_{t-1}A_{t}+B_{t}\qquad A_{t}=\alpha_{t}(I-\beta_{t}k_{t}k_{t}^{\top})+\beta_{t}v_{t}k_{t}^{\top} 
 $$
 
-从历史的发展来看，研究者就是在不断发明**一个更好的 recurrence**，也就是式 $\ref{eq:3}$。然而，这些进展多数是靠人工凭借经验设计出来的，TTT 则给出了一种更上层的原则，让这些 recurrence 自己被推导出来。
+从历史的发展来看，研究者就是在不断发明**一个更好的 recurrence**，也就是式 $\ref{eq:4}$。然而，这些进展多数是靠人工凭借经验设计出来的，TTT 则给出了一种更上层的原则，让这些 recurrence 自己被推导出来。
 
-简单来讲，TTT 不再将历史数据视为 KV Cache，而是视为一个在线xue
+简单来讲，TTT 不再将历史数据视为 KV Cache，而是视为一个在线学习数据集：
 $$
-(k_{1},v_{2}),\cdots,(k_{t},v_{t})
+(k_{1},v_{2}),\cdots,(k_{t},v_{t})\iff \mathcal{D}_{t}=\left\{ k_{j} \mapsto v_{j} \right\} _{j=1}^{t} 
 $$
+现在定义一个模型：
+$$
+v=f(S_{t};k) 
+$$
+其中 $S_{t}$ 表示该模型的参数，至于模型结构很大程度上是任意的。目标就是让
+$$
+f(S_{t};k_{j})\approx v_{j} 
+$$
+于是可以定义损失函数
+$$
+\mathcal{L}_{t}(S_{t})=\sum\limits_{j\leqslant t}\mathscr{l}\left( f(S_{t};k_{j}),v_{j} \right) 
+$$
+然后有
+$$
+S_{t}\approx \operatorname{Learn}(\mathcal{D}_{t}) 
+$$
+读取 query 时有
+$$
+o_{t}=f(S_{t};q_{t}) 
+$$
+
+> [!example] 一个非常形象的理解
+> 我们可以将 TTT 理解为一个压缩过程，其中
+> $$
+> \begin{align}
+> \text{历史数据} \left\{ (k_{1},v_{1}),\cdots,(k_{t},v_{t}) \right\} &\iff \text{待压缩数据} \\
+> S_{t} &\iff \text{压缩后的模型权重} \\
+> f(S_{t};\cdot) &\iff \text{解码/读取器} \\
+> \text{SGD} &\iff \text{压缩算法} \\
+> \mathcal{L} &\iff \text{规定什么信息必须保留下来}
+> \end{align} 
+> $$
+
+> [!note] TTT 框架对比预训练
+> 一个 LLM 的预训练就是将几个 TB 的训练语料写入模型的参数 $\theta$，训练完成后，语料本身不在模型参数里逐条保存，但是 $\theta$ 捕获了数据中的大量统计结构和规律。
+>
+> TTT 提出了这样的 insight：如果训练一个 neural network 本来就是把一种 dataset 的规律编码进入 parameter 的过程，那么能不能把同样的事情缩小到一个 context window 内部？于是就得到了一个非常漂亮的关系：
+> - 预训练数据 $\implies$ LLM 参数 $\theta$
+> - 当前 context $\implies$ TTT 状态 $S_{t}$
+
+TTT 给出的框架不仅可以解释 Softmax Attention，甚至 Linear Attention 也是框架中的一个特例！令内部的 learner 是最简的线性模型，即
+$$
+f(S;k)=Sk 
+$$
+考虑初始状态 $S_{0}=0$ 的情况，使用平方损失
+$$
+\mathcal{L}(S)=\dfrac{1}{2}\sum\limits_{j=1}^{t}\lVert Sk_{j}-v_{j} \rVert ^{2} 
+$$
+利用 SGD 作为 TTT 的优化器，做一步梯度下降，则我们可以得到 $S_{t}$ 的状态更新公式（忽略可以被吸收近学习率的常数）：
+$$
+\begin{align}
+S_{t} &= S_{0}-\eta \nabla_{S} \mathcal{L}(S_{0})  \\
+&=-\eta \sum\limits_{j=1}^{t}(Sk_{j}-v_{j})k_{j} \\
+&=\left. -\sum\limits_{j=1}^{t}(Sk_{j}-v_{j})k_{j}^{\top} \right| _{S=S_{0}}  \\
+&=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}
+\end{align} 
+$$
+把 query 加上，得到
+$$
+o_{t}=f(S_{t};q_{t})=S_{t}q_{t}=\sum\limits_{j=1}^{t}v_{j}(k_{j}^{\top}q_{t}) 
+$$
+可以发现这就是式 $\ref{eq:1}$，即 Linear Attention 的朴素形式。于是 TTT 告诉我们，Linear Attention 的 $S_{t}$ 不再是一个被碰巧设计出来的 Attention 公式，而是线性回归在 context 上进行了一步学习后得到的参数。
+
+从 TTT 框架上出发，DeltaNet、GLA 等设计也就是顺理成章，从不同的目标形式推导而来了。
+
+> [!tip] 实际上，DeltaNet 等改进是在 TTT 之前被提出的，但是后来的 TTT 却从完全不同的角度，从理论上给出了 DeltaNet 的另一种形式。
