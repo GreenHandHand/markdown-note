@@ -414,7 +414,7 @@ S_{t} &= S_{0}-\eta \nabla_{S} \mathcal{L}(S_{0})  \\
 &=-\eta \sum\limits_{j=1}^{t}(Sk_{j}-v_{j})k_{j} \\
 &=\left. -\sum\limits_{j=1}^{t}(Sk_{j}-v_{j})k_{j}^{\top} \right| _{S=S_{0}}  \\
 &=\sum\limits_{j=1}^{t}v_{j}k_{j}^{\top}
-\end{align} 
+\end{align} \tag{10}
 $$
 把 query 加上，得到
 $$
@@ -461,3 +461,43 @@ TTT 提供了一个非常有价值的思想，对于传统路线中的：
 6. 自然的得到 $S_{t}=\mathcal{F}(S_{t-1},x_{t})$
 
 问题从**设计动力学**提升到了**设计学习问题**上。
+
+## DeltaNet
+
+在 $\ref{eq:10}$ 中，我们推导了一种非常朴素的 Linear Attention。显然，从 $S_{0}$ 直接一步 SGD 得到结果简化过头了。考虑真正的 Online SGD 算法，每次只优化一步：
+$$
+\mathcal{L}_{t}(S)=\dfrac{1}{2}\lVert Sk_{t}-v_{t} \rVert^{2} 
+$$
+TTT 的形式应该是
+$$
+\begin{align}
+S_{t}&=S_{t-1} - \eta \nabla_{S}\mathcal{L}(S_{t-1}) \\
+&=S_{t-1}-\eta \left. (Sk_{t}-v_{t})k_{t}^{\top} \right| _{S=S_{t-1}} \\
+&=S_{t-1}-\eta (S_{t-1}k_{t}-v_{t})k_{t}^{\top} \\
+&=S_{t-1}-\eta S_{t-1}k_{t}k_{t}^{\top}+\eta v_{t}k_{t}^{\top} \\
+&=S_{t-1}\left( I-\eta k_{t}k_{t}^{\top} \right)+\eta v_{t}k_{t}^{\top}
+\end{align}
+$$
+这就是 DeltaNet 的状态更新公式。
+
+> [!info] Delta Rule
+> Delta Rule 的名字出自 *Parallelizing Linear Transformers with the Delta Rule over Sequence Length*，更早由 *Linear Transformers Are Secretly Fast Weight Programmers* 提出。
+>
+> 从 TTT 的视角得到上面的式子非常自然，但是 DeltaNet 的提出时间实际上早于 TTT。关于早期的视角，实际上是从 Fast Weight/Slow Weight 来进行解读的。早在 90 年代，*Fast Weight Programmer* 文章就提出了该思想，认为网络学习中实际上有两个网络：
+> - Slow Network：根据当前输入生成 $a_{t},b_{t}$，然后根据外积修改 fast weights：$W_{t}^{\text{fast}}=W_{t-1}^{\text{fast}}+a_{t}b_{t}^{\top}$
+> - Fast Network：使用 $W_{t}^{\text{fast}}$ 计算输出。
+> 
+> 21 年的 *Linear Transformers Are Secretly Fast Weight Programmers* 明确证明了 Linear Attention 与早期的 Fast Weight Programmer 形式等价。该文章把 Linear Attention 解释成了一个动态编程临时权重矩阵的网络。这个视角直接导致了 Delta Rule 的产生。
+>
+> 如果只从核方法的角度看，$S_{t}=S_{t-1}+v_{t}k_{t}^{\top}$ 似乎已经很自然了，但是在 Fast Weight 视角看，这实际上就是简单的把所有输入直接写入权重矩阵中的一个纯 additive update 操作。于是 Delta Rule 提出了
+> $$
+> S_{t}=S_{t-1}-\beta_{t}(S_{t-1}k_{t}-v_{t})k_{t}^{\top}
+> $$
+> 这实际上就是我们通过 TTT 推导得到的等价形式。它的语义就是**先修正旧映射，再写入新映射**。
+>
+> 站在现在的视角看，Delta Rule 也不是过时的尝试。它依然是现在我们理解 Linear Attention 的一个非常好的语义层。只不过 TTT 在它之上提供了一个更强设计原则。
+
+> [!note] DeltaNet 的 L2 Normalization
+> 这里介绍一点技术细节，主要内容来自 [为什么 DeltaNet 要加 L2 Normalize?](https://kexue.fm/archives/11486)。
+> 
+> 由于不同时间的转移矩阵在递归过程中是连乘起来的，所以为了避免数值爆炸，转移矩阵不能出现大于 1 或者小于 -1 的特征值。
