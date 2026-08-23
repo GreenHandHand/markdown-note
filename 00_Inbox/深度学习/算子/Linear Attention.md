@@ -314,3 +314,29 @@ $$
 
 > [!todo] <https://kexue.fm/archives/8601>
 
+### Test Time Training
+
+TTT(Test Time Training) 将序列模型的构建视为一个在线学习 (Online Learning ) 问题，并提出了利用优化器来构建 RNN 的做法，为 Linear Attention 甚至是一般的序列模型 (Token-Mixer) 的设计提供了一个更加上层的视角。
+
+具体来说，任何的 Sequence Layer 都可以看作 (状态，更新，读取) 三个部分。对于 Softmax Attention 来说，状态就是
+$$
+\mathcal{H}_{t}=\left\{ (k_{1},v_{1}),(k_{2},v_{2}),\cdots,(k_{t},v_{t}) \right\}
+$$
+而状态更新就是追加
+$$
+\mathcal{H}_{t}=\mathcal{H}_{t-1}\cup \left\{ (k_{t},v_{t}) \right\} 
+$$
+读取时扫描全部历史
+$$
+o_{t}=\dfrac{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})v_{j}}{\sum\limits_{j=1}^{t}\exp(q_{t}^{\top}k_{j})}
+$$
+
+因此，对于 Softmax 而言状态是一个随序列增长的 KV 列表。
+
+而对于 Linear Attention 而言，状态就是式 $(7)$ 所定义的那样，是一个固定维度的矩阵。TTT 原文用类似的方法比较了 Self-Attention、普通 RNN 和 TTT，其中:
+- Self-Attention 保留了一个不断增长的 KV 列表。
+- 固定状态 RNN 和参数化 TTT 会把历史压缩到固定大小的状态中。
+
+> [!note] Softmax Attention 效果好的一大原因就是历史数据基本原样保留，读取时再决定什么重要。
+
+为什么说 TTT
