@@ -3,6 +3,7 @@
 .callout[data-callout="title"] {
     --callout-color: transparent;
     --callout-icon: none;
+    --callout-title-color: var(--text-normal);
     box-shadow: none !important;
     border-style: none !important;
 }
