@@ -154,7 +154,48 @@ $$
 $$
 p_{r}(y_{w}\succ y_{l}\mid x)=\sigma \left( \beta \log\dfrac{\pi_{r}^{*}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{r}^{*}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right) \tag{4}
 $$
-至此，我们得到了一个重要的结果，**奖励函数对应的最优策略，可以直接用于表示人类偏好概率**。
+式 $\ref{eq:4}$ 建立了**奖励函数、最优策略与人类偏好概率之间的关系**。对于给定的奖励函数 $r$，其对应的最优策略 $\pi_{r}^{*}$ 可以用于计算 Bradley-Terry 模型中的偏好概率。换句话说，我们可以通过最优策略与参考策略的概率比，来表示原本由奖励函数决定的偏好概率。
 
-在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，在通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:4}$ 为我们提供了另外一种可能：**直接将策略作为参数化模型，通过人类偏好数据学习它**。
+在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，在通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:4}$ 为我们提供了另外一种思路：**既然最优策略本身就能够表示偏好概率，那么能否直接通过偏好数据学习最优策略？**
 
+### DPO 损失
+
+式 $\ref{eq:4}$ 中的 $\pi_{r}^{*}$ 是未知奖励函数 $r$ 对应的最优策略，我们无法直接计算它。DPO 引入了一个可训练的参数化策略模型 $\pi_{\theta}$，用它来估计未知的 $\pi_{r}^{*}$。具体而言，DPO 将式 $\ref{eq:4}$ 中的最优策略替换为当前策略模型，构造参数化的偏好概率：
+$$
+p_{\theta}(y_{w}\succ y_{l}\mid x) = \sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right)\tag{5} 
+$$
+其中 $\pi_{\theta}$ 是需要训练的策略模型，$\pi_{\text{ref}}$ 是固定的参考策略，$p_{\theta}$ 是由当前策略预测的人类偏好概率。这样，我们就将策略模型 $\pi_{\theta}$ 转换为一个可以预测人类偏好的二分类模型，然后沿用之前奖励模型训练的方法，利用偏好数据进行极大似然估计。
+
+对于偏好数据 $\mathcal{D}=\left\{ (x_{i},y_{w,i},y_{l,i}) \right\}_{i=1}^{N}$，每个样本都表示了人类选择 $y_{w}$ (Accept) 而拒绝 $y_{l}$ (Reject)。因此，我们希望最大化模型对这些已观测偏好的预测概率：
+$$
+\max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right]
+$$
+也就是说，DPO 的损失函数为
+$$
+\mathcal{L}_{\text{DPO}}(\theta)=-\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[ 
+\log\sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} \right) - \beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)} 
+ \right] 
+$$
+通过最小化这一损失，模型会倾向于提高被选择回答相对于参考策略的概率优势，同时降低未被选择回答的相对优势。因此，DPO 可以直接利用偏好数据，通过常规的梯度下降优化生成策略，无需显示训练奖励模型，也无须使用 PPO 等强化学习算法。
+
+> [!note] 为什么要最大化 log?
+> 实际上就是交叉熵损失（或者 BCELoss），由于是二分类问题，且 $p_{\theta}(y_{w}\succ y_{l}\mid x)$ 的标签永远是 1，因此写成交叉熵损失就是
+> $$
+> \begin{align}
+> &\min_{\theta} \mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[ -1 \cdot \log p_{\theta}(y_{w}\succ y_{l}\mid x) - 0 \cdot \log p_{\theta}(y_{l}\succ y_{w}\mid x)  \right] \\
+> \iff &\max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right]
+> \end{align}
+> $$
+
+### 收敛性证明
+
+到这里，我们已经得到了完整的 DPO 算法，但是还有一个理论问题：**将式 $\ref{eq:4}$ 中的 $\pi_{r}^{*}$ 替换为 $\pi_{\theta}$ 为什么能够帮助我们学习原本的最优策略？**
+
+根据二分类的最大似然估计的性质，在模型表达能力充分的条件下，最小化期望交叉熵可以使得模型预测的偏好概率趋近于真实偏好概率，也就是
+$$
+p_{\theta}(y_{1}\succ y_{2}\mid x) \to p_{r}(y_{1}\succ y_{2}\mid x)
+$$
+由于 Sigmoid 函数严格单调，因此当二者相等时，有
+$$
+\dfrac{\pi_{\theta}(y_{1}\mid x)}{\pi_{\theta}(y_{2}\mid x)}=\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{r}^{*}(y_{2}\mid x)}
+$$
