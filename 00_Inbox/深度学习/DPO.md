@@ -17,14 +17,14 @@ $$
 $$
 \max_{\pi}\mathbb{E}_{x\sim \mathcal{D},y\sim \pi(\cdot\mid x)}\left[ r_{\phi}(x,y) \right] -\beta \mathbb{E}_{x\sim \mathcal{D}}\left[ D_{\text{KL}}(\pi(\cdot\mid x)\Vert \pi_{\text{ref}}(\cdot\mid x)) \right] \tag{1}
 $$
-其中，$\pi_{\text{ref}}$ 为固定的参考测量，通常由 SFT 模型提供；KL 正则化用于控制优化后的测量相对于参考测量的偏移。该优化目标明确描述了 RLHF 希望得到的结果：**在控制策略偏移的条件下，使模型生成的回答获得更高的人类偏好奖励**。
+其中，$\pi_{\text{ref}}$ 为固定的参考策略，通常由 SFT 模型提供；KL 正则化用于控制优化后的策略相对于参考策略的偏移。该优化目标明确描述了 RLHF 希望得到的结果：**在控制策略偏移的条件下，使模型生成的回答获得更高的人类偏好奖励**。
 
 > [!note]- 优化目标的解释
 > 其中
-> - $x$ 表述输入 prompt
+> - $x$ 表示输入 prompt
 > - $y\in \mathcal{Y}$ 表示一个完整的候选回答，其中 $\mathcal{Y}$ 为回答空间
 > - $r(x,y)$ 为固定的奖励函数，在传统 RLHF 中对应训练完成的 $r_{\phi}$
-> - $\pi_{\text{ref}}(y\mid x)$ 为固定的参考测量
+> - $\pi_{\text{ref}}(y\mid x)$ 为固定的参考策略
 > - $\pi(y\mid x)$ 为需要优化的概率分布
 > - $\beta > 0$ 为 KL 正则化系数
 
@@ -40,7 +40,7 @@ RLHF 的最终目标是得到符合人类偏好的语言模型策略。那么，
 
 在进一步讨论 DPO 之前，需要明确 RLHF 如何从人类偏好数据中学习奖励函数。经典 RLHF 使用 PPO 等强化学习算法优化语言模型策略。在训练过程中，策略会不断生成新的回答，而强化学习算法需要根据这些回答的质量获得奖励信号。然而，人类偏好数据通常只包含同一个 prompt 下两个回答的比较结果，这类数据能够反映回答之间的相对质量，却没有直接提供具体的奖励数值。因此，RLHF 希望从有限的偏好数据中学习一个奖励函数 $r_{\phi}(x,y)$，使其能够对任意给定的 prompt 和候选回答输出标量评分，为候选的策略优化提供奖励信号。
 
-为了从相对偏好中学习奖励函数，我们首先需要建立奖励值与人类偏好之间的概率关系。Bradly-Terry 模型是一种经典的成对比较概率模型。它假设每个候选回答有一个正的潜在强度 $s(x,y)>0$，并将某个回答被偏好的概率表示为其强度在两个候选回答总强度中的占比：
+为了从相对偏好中学习奖励函数，我们首先需要建立奖励值与人类偏好之间的概率关系。Bradley-Terry 模型是一种经典的成对比较概率模型。它假设每个候选回答有一个正的潜在强度 $s(x,y)>0$，并将某个回答被偏好的概率表示为其强度在两个候选回答总强度中的占比：
 $$
 p(y_{1} \succ y_{2}\mid x)=\dfrac{s(x,y_{1})}{s(x,y_{1})+s(x,y_{2})}
 $$
@@ -102,17 +102,17 @@ $$
 > - $x$ 表述输入 prompt
 > - $y\in \mathcal{Y}$ 表示一个完整的候选回答，其中 $\mathcal{Y}$ 为回答空间
 > - $r(x,y)$ 为固定的奖励函数，在传统 RLHF 中对应训练完成的 $r_{\phi}$
-> - $\pi_{\text{ref}}(y\mid x)$ 为固定的参考测量
+> - $\pi_{\text{ref}}(y\mid x)$ 为固定的参考策略
 > - $\pi(y\mid x)$ 为需要优化的概率分布
 > - $\beta > 0$ 为 KL 正则化系数
 > 
 > 将 KL 散度展开
 > $$
-> D_{\text{KL}}(\pi \Vert \pi_{\text{ref}}) = \sum\limits_{y'\in \mathcal{Y}}\pi(y\mid x)\log \dfrac{\pi(y\mid x)}{\pi_{\text{ref}}(y\mid x)}
+> D_{\text{KL}}(\pi \Vert \pi_{\text{ref}}) = \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)}
 > $$
 > 代入优化目标中得到
 > $$
-> \mathcal{J}_{x}(\pi)=\sum\limits_{y'\in \mathcal{Y}}\pi(y\mid x)r(x, y) - \beta \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)}
+> \mathcal{J}_{x}(\pi)=\sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)r(x, y) - \beta \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)}
 > $$
 > 这是一个关于概率分布 $\pi(\cdot\mid x)$ 的优化问题。我们可以使用拉格朗日乘数法求解，使用等式约束 $\sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)=1$，于是可以得到：
 > $$
@@ -134,7 +134,7 @@ $$
 > $$
 > \pi_{r}^{*}(y\mid x)=\dfrac{1}{Z(x)}\pi_{\text{ref}}(y\mid x)\exp(\dfrac{r(x,y)}{\beta})
 > $$
-> 即于是得到式 $\ref{eq:2}$。$\mathcal{J}_{x}(\pi)$ 是关于 $\pi$ 的一个严格凸函数，在全正的 $\pi$ 支持下，求得的驻点是唯一最大值。
+> 于是得到式 $\ref{eq:2}$。$\mathcal{J}_{x}(\pi)$ 是关于 $\pi$ 的一个严格凹函数，在全正的 $\pi$ 支持下，求得的驻点是唯一最大值。
 
 对式 $\ref{eq:2}$ 进行变换，可以得到
 $$
@@ -156,7 +156,7 @@ p_{r}(y_{w}\succ y_{l}\mid x)=\sigma \left( \beta \log\dfrac{\pi_{r}^{*}(y_{w}\m
 $$
 式 $\ref{eq:4}$ 建立了**奖励函数、最优策略与人类偏好概率之间的关系**。对于给定的奖励函数 $r$，其对应的最优策略 $\pi_{r}^{*}$ 可以用于计算 Bradley-Terry 模型中的偏好概率。换句话说，我们可以通过最优策略与参考策略的概率比，来表示原本由奖励函数决定的偏好概率。
 
-在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，在通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:4}$ 为我们提供了另外一种思路：**既然最优策略本身就能够表示偏好概率，那么能否直接通过偏好数据学习最优策略？**
+在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，再通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:4}$ 为我们提供了另外一种思路：**既然最优策略本身就能够表示偏好概率，那么能否直接通过偏好数据学习最优策略？**
 
 ### DPO 损失
 
@@ -166,17 +166,17 @@ p_{\theta}(y_{w}\succ y_{l}\mid x) = \sigma \left( \beta \log\dfrac{\pi_{\theta}
 $$
 其中 $\pi_{\theta}$ 是需要训练的策略模型，$\pi_{\text{ref}}$ 是固定的参考策略，$p_{\theta}$ 是由当前策略预测的人类偏好概率。这样，我们就将策略模型 $\pi_{\theta}$ 转换为一个可以预测人类偏好的二分类模型，然后沿用之前奖励模型训练的方法，利用偏好数据进行极大似然估计。
 
-对于偏好数据 $\mathcal{D}=\left\{ (x_{i},y_{w,i},y_{l,i}) \right\}_{i=1}^{N}$，每个样本都表示了人类选择 $y_{w}$ (Accept) 而拒绝 $y_{l}$ (Reject)。因此，我们希望最大化模型对这些已观测偏好的预测概率：
+对于偏好数据 $\mathcal{D}=\left\{ (x_{i},y_{w,i},y_{l,i}) \right\}_{i=1}^{N}$，每个样本都表示了人类选择 $y_{w}$ (chosen) 而拒绝 $y_{l}$ (rejected)。因此，我们希望最大化模型对这些已观测偏好的预测概率：
 $$
 \max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right]
 $$
 也就是说，DPO 的损失函数为
 $$
 \mathcal{L}_{\text{DPO}}(\theta)=-\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[ 
-\log\sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} \right) - \beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)} 
+\log\sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} - \beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right)  
  \right] 
 $$
-通过最小化这一损失，模型会倾向于提高被选择回答相对于参考策略的概率优势，同时降低未被选择回答的相对优势。因此，DPO 可以直接利用偏好数据，通过常规的梯度下降优化生成策略，无需显示训练奖励模型，也无须使用 PPO 等强化学习算法。
+通过最小化这一损失，模型会倾向于提高被选择回答相对于参考策略的概率优势，同时降低未被选择回答的相对优势。因此，DPO 可以直接利用偏好数据，通过常规的梯度下降优化生成策略，无需显式训练奖励模型，也无须使用 PPO 等强化学习算法。
 
 > [!note] 为什么要最大化 log?
 > 实际上就是交叉熵损失（或者 BCELoss），由于是二分类问题，且 $p_{\theta}(y_{w}\succ y_{l}\mid x)$ 的标签永远是 1，因此写成交叉熵损失就是
@@ -187,7 +187,10 @@ $$
 > \end{align}
 > $$
 
-### 收敛性证明
+> [!tip]
+> 准确来说，DPO 希望当前 chosen 与 rejected 的相对偏好，强于参考策略对这两个回答的相对偏好。即使 chosen 的绝对生成概率下降，只要 rejected 的概率下降得更多，DPO 损失仍然可能减小。
+
+### 学习最优策略的证明
 
 到这里，我们已经得到了完整的 DPO 算法，但是还有一个理论问题：**将式 $\ref{eq:4}$ 中的 $\pi_{r}^{*}$ 替换为 $\pi_{\theta}$ 为什么能够帮助我们学习原本的最优策略？**
 
@@ -199,3 +202,30 @@ $$
 $$
 \dfrac{\pi_{\theta}(y_{1}\mid x)}{\pi_{\theta}(y_{2}\mid x)}=\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{r}^{*}(y_{2}\mid x)}
 $$
+因此，相同偏好概率意味着两个策略对同一组回答具有相同的生成概率比。基于概率分布的归一化性质，只要能够恢复足够多回答对的真实偏好概率，使这些比较关系连接整个回答空间，就可以唯一确定相应的最优策略。
+
+> [!note]- 相等的证明
+> 固定一个回答 $y_{0}$，那么对于其他任意回答 $y$ 都有
+> $$
+> \dfrac{\pi_{\theta}(y\mid x)}{\pi_{\theta}(y_{0}\mid x)}=\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{r}^{*}(y_{0}\mid x)}
+> $$
+> 整理得到
+> $$
+> \pi_{\theta}(y\mid x)=\dfrac{\pi_{\theta}(y_{0}\mid x)}{\pi_{r}^{*}(y_{0}\mid x)}\pi_{r}^{*}(y\mid x)
+> $$
+> 记 $c(x)=\pi_{\theta}(y_{0}\mid x)/\pi_{r}^{*}(y_{0}\mid x)$，于是得到
+> $$
+> \pi_{\theta}(y\mid x)=c(x)\pi_{r}^{*}(y\mid x)
+> $$
+> 由于它们都是概率分布，有
+> $$
+> \sum\limits_{y}\pi_{\theta}(y\mid x)=\sum\limits_{y}\pi_{r}^{*}(y\mid x)=1
+> $$
+> 因此，两边求和可以得到
+> $$
+> 1=c(x)\sum\limits_{y}\pi_{r}^{*}(y\mid x)=c(x)
+> $$
+> 即 $c(x)=1$，于是得到
+> $$
+> \pi_{\theta}(y\mid x)=\pi_{r}^{*}(y\mid x)
+> $$
