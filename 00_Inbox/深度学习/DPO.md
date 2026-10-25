@@ -50,7 +50,7 @@ $$
 p(y_{1} \succ y_{2}\mid x) &= \dfrac{\exp(r(x,y_{1}))}{\exp(r(x,y_{1}))+\exp(r(x,y_{2}))} \\
 &=\dfrac{1}{1+\exp(-(r(x,y_{1})-r(x,y_{2})))}\\
 &=\sigma \left( r(x,y_{1})-r(x,y_{2}) \right) 
-\end{align}
+\end{align}\tag{7}
 $$
 其中 $\sigma(z)=1/(1+e^{ -z })$ 是 Sigmoid 函数。
 
@@ -138,7 +138,7 @@ $$
 
 对式 $\ref{eq:2}$ 进行变换，可以得到
 $$
-r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} + \beta \log Z(x)
+r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} + \beta \log Z(x)\tag{9}
 $$
 这意味着，给定一个奖励函数及其对应的最优策略，我们可以通过**最优策略**与**参考策略**的对数概率比，重新表示该奖励函数。
 
@@ -190,32 +190,54 @@ $$
 > [!tip]
 > 准确来说，DPO 希望当前 chosen 与 rejected 的相对偏好，强于参考策略对这两个回答的相对偏好。即使 chosen 的绝对生成概率下降，只要 rejected 的概率下降得更多，DPO 损失仍然可能减小。
 
-
 ### 隐式奖励和 DPO 的优化本质
 
-回顾 DPO 的推导，从式 $\ref{eq:5}$，根据 Bradley-Terry 模型，可以定义有策略模型和参考模型共同决定的奖励函数：
+回顾 Bradley-Terry 模型 $\ref{eq:7}$ 与 DPO 的偏好概率表达式 $\ref{eq:5}$，可以发现，两者均使用两个回答的奖励差作为 Sigmoid 函数的输入。对于 DPO，这个奖励函数可以表示为
 $$
-\hat{r}_{\theta}(x,y)=\beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)}
+\hat{r}_{\theta}(x,y)=\beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)}\tag{8}
 $$
-这个函数称为**隐式奖励** (Implicit Reward)。它衡量当前策略相对于参考策略，对回答 $y$ 的生成概率进行了多大程度的调整。具体而言：
-- 当 $\pi_{\theta}(y\mid x)>\pi_{\text{ref}}(y\mid x)$ 时，隐式奖励为正。
-- 当 $\pi_{\theta}(y\mid x)<\pi_{\text{ref}}(y\mid x)$ 时，隐式奖励为负。
-- 两者相等时，隐式奖励为零。
+这个函数称为**隐式奖励 (Implicit Reward)**。从这个角度看，DPO 仍然使用 Bradley-Terry 模型描述人类偏好，只是将原本由独立奖励模型产生的评分，替换为了策略模型与参考模型之间的对数概率比。
 
-在 DPO 算法中，语言模型同时承担了两个角色：**它即是需要优化的生成策略，也通过与参考策略的对数概率比，定义了一个隐式奖励模型**。这正是 DPO 原论文标题 *Your Language Model Is Secretly a Reward Model* 的含义。
+> [!note]
+> 这一表示的合理性来自前面的 KL 正则化最优策略。对于原始奖励函数 $r$，有
+>
+> $$
+> r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x}{\pi_{\text{ref}}(y\mid x)}+\beta \log Z(x)
+> $$
+> 因此，当 $\pi_{\theta}=\pi_{r}^{*}$ 时，隐式奖励与原始奖励满足
+> $$
+> \hat{r}_{\theta}(x,y)=r(x,y)-\beta \log Z(x)
+> $$
+> 由于 $\beta \log Z(x)$ 仅依赖 Prompt $x$，在两个回答的奖励差中会相互低消，因此不会改变 Bradley-Terry 模型的偏好概率，也不会改变对应的 KL 正则化最优策略。
+>
+> 所以，**隐式奖励可以理解为原始奖励函数的一种等价表示，它保留了偏好学习所需要的相对奖励信息，同时避免了难以计算的归一化常数**。
 
-从另一个角度看，隐式奖励与策略之间还存在如下的恒等关系：
+在 DPO 算法中，语言模型同时承担了两个角色：**它即是需要优化的生成策略，也通过与参考策略的对数概率比，定义了一个隐式奖励函数**。这正是 DPO 原论文标题 *Your Language Model Is Secretly a Reward Model* 的含义。
+
+但是，这里存在一个值得进一步思考的问题：既然隐式奖励由策略本身决定，那么我们是否可以像传统的 RLHF 一样，通过最大化隐式奖励来优化当前策略？
+
+首先，回顾 RLHF 的 KL 正则化优化目标 $\ref{eq:1}$，对于固定的 Prompt $x$ 和奖励函数 $r$，有
+$$
+\mathcal{J}_{x}(\pi;r)=\mathbb{E}_{y\sim \pi}[r(x,y)]-\beta D_{\text{KL}}(\pi\Vert \pi_{\text{ref}})
+$$
+其中，$\pi$ 为需要优化的候选策略，$r$ 为固定的奖励函数。
+
+现在考虑任意策略 $\pi_{\theta}$，根据它构造隐式奖励函数 $\hat{r}_{\theta}$。我们首先固定参数 $\theta$，将 $\hat{r}_{\theta}$ 视为一个已经确定的奖励函数，再考虑优化另一个候选策略 $\pi$。将隐式奖励 $\ref{eq:8}$ 代入 RLHF 目标中，得到
 $$
 \begin{align}
-\mathbb{E}_{y\sim \pi_{\theta}}\left[ \hat{r}_{\theta}(x,y) \right] &= \beta \mathbb{E}_{y\sim \pi_{\theta}}\left[ \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \right]  \\
-&=\beta D_{KL}(\pi_{\theta}(\cdot\mid x)\Vert \pi_{\text{ref}}(\cdot \mid x))
+\mathcal{J}_{x}(\pi;\hat{r}_{\theta})&=\mathbb{E}_{y\sim \pi}\left[ \beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \right] -\beta D_{\text{KL}}(\pi\Vert \pi_{\text{ref}}) \\
+&=\beta \mathbb{E}_{y\sim \pi}\left[ \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)}-D_{\text{KL}}(\pi\Vert\pi_{\text{ref}}) \right]  \\
+&=\beta \mathbb{E}_{y\sim \pi}\left[ \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \right]  \\
+&=-\beta D_{\text{KL}}(\pi\Vert \pi_{\theta})
 \end{align}
 $$
-也就是说，隐式奖励在当前策略分布下的期望，等于当前策略到参考策略的 KL 散度乘以 $\beta$。我们可以从两个尺度理解隐式奖励：
-- 对于单个回答，$\hat{r}_{\theta}(x,y)$ 描述其概率相对于参考策略的变化。
-- 对于整个策略分布，$\mathbb{E}_{\pi_{\theta}}[\hat{r}_{\theta}]$ 衡量策略整体偏离参考策略的程度。
+由于 KL 散度非负，并且当且仅当 $\pi=\pi_{\theta}$ 时等于 $\mathcal{L}_{x}(\pi;\hat{r}_{\theta})=0$，因此上式有最大值，且
+$$
+\arg\max_{\pi}\mathcal{J}(\pi;\hat{r}_{\theta})=\pi_{\theta}
+$$
+这个结果说明，**对于任意合法的策略 $\pi_{\theta}$，其自身恰好就是对应隐式奖励 $\hat{r}_{\theta}$ 下，KL 正则化奖励最大化问题的最优策略**。
 
-既然 DPO 可以从策略中定义一个隐式奖励，那么它究竟是在最大化这个奖励，还是在学习某个由人类偏好决定的奖励函数？
+这个性质实际上和我们在式 $\ref{eq:9}$ 得到的结论是一致的，这里只不过从 KL 散度的角度重新证明了它。这意味着，当我们根据当前策略定义隐式奖励时，其期望即奖励恰好低消了 RLHF 目标中的 KL 正则化项。无论当前策略如何变化，只要隐式奖励也按照相同的定义更新，这个目标就始终为零。 这里可以发现一个重要的问题：**这种最优性关系对任意策略都成立，即使当前策略完全不符合人类的偏好**。换句话说，我们总能找到一个由当前策略定义的隐式奖励，使得该策略成为对应的最优策略。
 
 ### 学习最优策略的证明
 
