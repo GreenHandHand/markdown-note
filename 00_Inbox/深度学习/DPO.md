@@ -42,25 +42,25 @@ RLHF 的最终目标是得到符合人类偏好的语言模型策略。那么，
 
 为了从相对偏好中学习奖励函数，我们首先需要建立奖励值与人类偏好之间的概率关系。Bradley-Terry 模型是一种经典的成对比较概率模型。它假设每个候选回答有一个正的潜在强度 $s(x,y)>0$，并将某个回答被偏好的概率表示为其强度在两个候选回答总强度中的占比：
 $$
-p(y_{1} \succ y_{2}\mid x)=\dfrac{s(x,y_{1})}{s(x,y_{1})+s(x,y_{2})}
+p(y_{1} \succ y_{2}\mid x)=\dfrac{s(x,y_{1})}{s(x,y_{1})+s(x,y_{2})} 
 $$
 为了使用实数值奖励函数描述回答的潜在质量，我们通常使用指数函数 $s(x,y)=\exp(r(x,y))$，从而得到
 $$
 \begin{align}
 p(y_{1} \succ y_{2}\mid x) &= \dfrac{\exp(r(x,y_{1}))}{\exp(r(x,y_{1}))+\exp(r(x,y_{2}))} \\
 &=\dfrac{1}{1+\exp(-(r(x,y_{1})-r(x,y_{2})))}\\
-&=\sigma \left( r(x,y_{1})-r(x,y_{2}) \right) 
-\end{align}\tag{7}
+&=\sigma \left( r(x,y_{1})-r(x,y_{2}) \right)
+\end{align} \tag{2}
 $$
 其中 $\sigma(z)=1/(1+e^{ -z })$ 是 Sigmoid 函数。
 
 在 Bradley-Terry 模型中，两个回答的奖励差决定了人类偏好其中一个回答的概率。奖励差越大，模型预测高奖励回答被选择的概率越高。于是，我们可以通过这个关系从人类偏好数据中学习奖励函数。具体而言，我们构造一个参数化奖励模型 $r_{\phi}(x,y)$。对于偏好数据中的样本 $(x,y_{w},y_{l})$，分别计算两个回答的奖励：
 $$
-r_{w}=r_{\phi}(x,y_{w}),\qquad r_{l}=r_{\phi}(x,y_{l})
+r_{w}=r_{\phi}(x,y_{w}),\qquad r_{l}=r_{\phi}(x,y_{l}) 
 $$
 基于 Bradley-Terry 模型，奖励模型预测人类选择 $y_{w}$ 的概率为
 $$
-p_{\phi}(y_{w} \succ y_{l}\mid x)=\sigma(r_{w}-r_{l})
+p_{\phi}(y_{w} \succ y_{l}\mid x)=\sigma(r_{w}-r_{l}) 
 $$
 而偏好数据则告诉我们人类实际上选择了 $y_{w}$。因此，可以将这个观测结果视为一个二分类任务中的正标签，通过最大化其概率来学习奖励模型。使用极大似然估计，相当于优化：
 $$
@@ -71,11 +71,11 @@ $$
 > [!note] 一个小的理解
 > Bradley-Terry 模型可以看成是一种特殊的二分类，普通的二分类通常学习
 > $$
-> p(c=1\mid z) = \sigma(f_{\phi}(z))
+> p(c=1\mid z) = \sigma(f_{\phi}(z)) 
 > $$
 > 其中 $f_{\phi}(z)$ 是分类的 logit，Sigmoid 将其转换为类别概率。而 Bradley-Terry 模型采用了类似的形式
 > $$
-> p(y_{1}\succ y_{2}\mid x)=\sigma(r_{\phi}(x,y_{1})-r_{\phi}(x,y_{2}))
+> p(y_{1}\succ y_{2}\mid x)=\sigma(r_{\phi}(x,y_{1})-r_{\phi}(x,y_{2})) 
 > $$
 > 因此，从二分类角度看，我们 Bradley-Terry 本质上是在判断**模型在 prompt $x$ 下相较于 $y_{2}$ 更加偏向 $y_{1}$。** 其输出就是选择 $y_{1}$ 的概率。因此，BT 模型可以理解为一个具有特殊结构的二分类模型：**先分别计算两个样本的分数，再通过分数差进行二分类**。
 >
@@ -87,15 +87,15 @@ $$
 
 RLHF 的最终目的是获得一个最大化人类偏好奖励的策略。DPO (Direct Preference Optimization, 直接偏好优化) 重新审视了奖励函数和最优策略之间的关系，并尝试直接从偏好数据中学习最优策略。对于式 $\ref{eq:1}$ 而言，最优策略实际上具有一个解析形式的解：
 $$
-\pi_{r}^{*}(y\mid x) = \dfrac{1}{Z(x)}\pi_{\text{ref}}(y\mid x)\exp \left( \dfrac{r(x,y)}{\beta} \right) \tag{2}
+\pi_{r}^{*}(y\mid x) = \dfrac{1}{Z(x)}\pi_{\text{ref}}(y\mid x)\exp \left( \dfrac{r(x,y)}{\beta} \right) \tag{3}
 $$
-其中 $Z(x)$ 是归一化常数，具体形式见推导。式 $\ref{eq:2}$ 表明，**给定奖励函数和参考策略，最优策略在数学上就已经被唯一确定**。这一结果建立了奖励函数到最优策略的对应关系。DPO 进一步考虑，既然 RLHF 的目标是学习最优策略，那么能否利用这一对应关系，将奖励函数表示为策略的函数，从而直接优化策略？
+其中 $Z(x)$ 是归一化常数，具体形式见推导。式 $\ref{eq:3}$ 表明，**给定奖励函数和参考策略，最优策略在数学上就已经被唯一确定**。这一结果建立了奖励函数到最优策略的对应关系。DPO 进一步考虑，既然 RLHF 的目标是学习最优策略，那么能否利用这一对应关系，将奖励函数表示为策略的函数，从而直接优化策略？
 
-> [!note]- 关于式 $\ref{eq:2}$ 的推导
+> [!note]- 关于式 $\ref{eq:3}$ 的推导
 > 考虑 RLHF 的优化目标
 >
 > $$
-> \max_{\pi}\mathbb{E}_{x\sim \mathcal{D},y\sim \pi(\cdot\mid x)}\left[ r_{\phi}(x,y) \right] -\beta \mathbb{E}_{x\sim \mathcal{D}}\left[ D_{\text{KL}}(\pi(\cdot\mid x)\Vert \pi_{\text{ref}}(\cdot\mid x)) \right]
+> \max_{\pi}\mathbb{E}_{x\sim \mathcal{D},y\sim \pi(\cdot\mid x)}\left[ r_{\phi}(x,y) \right] -\beta \mathbb{E}_{x\sim \mathcal{D}}\left[ D_{\text{KL}}(\pi(\cdot\mid x)\Vert \pi_{\text{ref}}(\cdot\mid x)) \right] 
 > $$
 >
 > 其中
@@ -108,11 +108,11 @@ $$
 > 
 > 将 KL 散度展开
 > $$
-> D_{\text{KL}}(\pi \Vert \pi_{\text{ref}}) = \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)}
+> D_{\text{KL}}(\pi \Vert \pi_{\text{ref}}) = \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)} 
 > $$
 > 代入优化目标中得到
 > $$
-> \mathcal{J}_{x}(\pi)=\sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)r(x, y) - \beta \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)}
+> \mathcal{J}_{x}(\pi)=\sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)r(x, y) - \beta \sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)\log \dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)} 
 > $$
 > 这是一个关于概率分布 $\pi(\cdot\mid x)$ 的优化问题。我们可以使用拉格朗日乘数法求解，使用等式约束 $\sum\limits_{y'\in \mathcal{Y}}\pi(y'\mid x)=1$，于是可以得到：
 > $$
@@ -120,7 +120,7 @@ $$
 > $$
 > 对于 $y' \in \mathcal{Y}$, 对 $\pi(y'\mid x)$ 求导并令导数为零得到
 > $$
-> r(x,y')-\beta \left( \log\dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)} + 1 \right) + \lambda(x)=0
+> r(x,y')-\beta \left( \log\dfrac{\pi(y'\mid x)}{\pi_{\text{ref}}(y'\mid x)} + 1 \right) + \lambda(x)=0 
 > $$
 > 整理得到
 > $$
@@ -132,49 +132,49 @@ $$
 > $$
 > 于是带回原式得到
 > $$
-> \pi_{r}^{*}(y\mid x)=\dfrac{1}{Z(x)}\pi_{\text{ref}}(y\mid x)\exp(\dfrac{r(x,y)}{\beta})
+> \pi_{r}^{*}(y\mid x)=\dfrac{1}{Z(x)}\pi_{\text{ref}}(y\mid x)\exp(\dfrac{r(x,y)}{\beta}) 
 > $$
-> 于是得到式 $\ref{eq:2}$。$\mathcal{J}_{x}(\pi)$ 是关于 $\pi$ 的一个严格凹函数，在全正的 $\pi$ 支持下，求得的驻点是唯一最大值。
+> 于是得到式 $\ref{eq:3}$。$\mathcal{J}_{x}(\pi)$ 是关于 $\pi$ 的一个严格凹函数，在全正的 $\pi$ 支持下，求得的驻点是唯一最大值。
 
-对式 $\ref{eq:2}$ 进行变换，可以得到
+对式 $\ref{eq:3}$ 进行变换，可以得到
 $$
-r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} + \beta \log Z(x)\tag{9}
+r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} + \beta \log Z(x) \tag{4}
 $$
 这意味着，给定一个奖励函数及其对应的最优策略，我们可以通过**最优策略**与**参考策略**的对数概率比，重新表示该奖励函数。
 
 然而，这一表达式仍然存在问题，归一化常数 $Z(x)$ 需要对整个回答空间求和，实际计算起来非常困难。虽然 $Z(x)$ 难以计算，但这个有一个值得利用的性质：**对于同一个 prompt 而言，所有回答的 $Z(x)$ 是相同的**。因此，对于两个回答 $y_{1},y_{2}$ 而言，计算奖励差可以消去这一项：
 $$
-r(x,y_{1})-r(x,y_{2})=\beta \log\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{\text{ref}}(y_{1}\mid x)}-\beta \log\dfrac{\pi_{r}^{*}(y_{2}\mid x)}{\pi_{\text{ref}}(y_{2}\mid x)}\tag{3}
+r(x,y_{1})-r(x,y_{2})=\beta \log\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{\text{ref}}(y_{1}\mid x)}-\beta \log\dfrac{\pi_{r}^{*}(y_{2}\mid x)}{\pi_{\text{ref}}(y_{2}\mid x)} \tag{5}
 $$
-回顾前面的 Bradley-Terry 模型，可以发现式 $\ref{eq:3}$ 恰好可以在不计算 $Z(x)$ 的情况下表示奖励差。因此，我们可以在不计算归一化常数的情况下，直接通过最优策略和参考策略表示 Bradley-Terry 模型所需要的奖励差。这为直接使用偏好数据优化策略提供了可能。
+回顾前面的 Bradley-Terry 模型，可以发现式 $\ref{eq:5}$ 恰好可以在不计算 $Z(x)$ 的情况下表示奖励差。因此，我们可以在不计算归一化常数的情况下，直接通过最优策略和参考策略表示 Bradley-Terry 模型所需要的奖励差。这为直接使用偏好数据优化策略提供了可能。
 
 ## 从最优策略到 DPO 损失
 
-将式 $\ref{eq:3}$ 代入 Bradley-Terry 偏好模型中，可以得到
+将式 $\ref{eq:5}$ 代入 Bradley-Terry 偏好模型中，可以得到
 $$
-p_{r}(y_{w}\succ y_{l}\mid x)=\sigma \left( \beta \log\dfrac{\pi_{r}^{*}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{r}^{*}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right) \tag{4}
+p_{r}(y_{w}\succ y_{l}\mid x)=\sigma \left( \beta \log\dfrac{\pi_{r}^{*}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{r}^{*}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right) \tag{6}
 $$
-式 $\ref{eq:4}$ 建立了**奖励函数、最优策略与人类偏好概率之间的关系**。对于给定的奖励函数 $r$，其对应的最优策略 $\pi_{r}^{*}$ 可以用于计算 Bradley-Terry 模型中的偏好概率。换句话说，我们可以通过最优策略与参考策略的概率比，来表示原本由奖励函数决定的偏好概率。
+式 $\ref{eq:6}$ 建立了**奖励函数、最优策略与人类偏好概率之间的关系**。对于给定的奖励函数 $r$，其对应的最优策略 $\pi_{r}^{*}$ 可以用于计算 Bradley-Terry 模型中的偏好概率。换句话说，我们可以通过最优策略与参考策略的概率比，来表示原本由奖励函数决定的偏好概率。
 
-在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，再通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:4}$ 为我们提供了另外一种思路：**既然最优策略本身就能够表示偏好概率，那么能否直接通过偏好数据学习最优策略？**
+在传统的 RLHF 中，我们首先通过偏好数据学习奖励函数 $r_{\phi}$，再通过强化学习求解对应的最优策略 $\pi_{r}^{*}$。现在，式 $\ref{eq:6}$ 为我们提供了另外一种思路：**既然最优策略本身就能够表示偏好概率，那么能否直接通过偏好数据学习最优策略？**
 
 ### DPO 损失
 
-式 $\ref{eq:4}$ 中的 $\pi_{r}^{*}$ 是未知奖励函数 $r$ 对应的最优策略，我们无法直接计算它。DPO 引入了一个可训练的参数化策略模型 $\pi_{\theta}$，用它来估计未知的 $\pi_{r}^{*}$。具体而言，DPO 将式 $\ref{eq:4}$ 中的最优策略替换为当前策略模型，构造参数化的偏好概率：
+式 $\ref{eq:6}$ 中的 $\pi_{r}^{*}$ 是未知奖励函数 $r$ 对应的最优策略，我们无法直接计算它。DPO 引入了一个可训练的参数化策略模型 $\pi_{\theta}$，用它来估计未知的 $\pi_{r}^{*}$。具体而言，DPO 将式 $\ref{eq:6}$ 中的最优策略替换为当前策略模型，构造参数化的偏好概率：
 $$
-p_{\theta}(y_{w}\succ y_{l}\mid x) = \sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right)\tag{5} 
+p_{\theta}(y_{w}\succ y_{l}\mid x) = \sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} -\beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right) \tag{7}
 $$
 其中 $\pi_{\theta}$ 是需要训练的策略模型，$\pi_{\text{ref}}$ 是固定的参考策略，$p_{\theta}$ 是由当前策略预测的人类偏好概率。这样，我们就将策略模型 $\pi_{\theta}$ 转换为一个可以预测人类偏好的二分类模型，然后沿用之前奖励模型训练的方法，利用偏好数据进行极大似然估计。
 
 对于偏好数据 $\mathcal{D}=\left\{ (x_{i},y_{w,i},y_{l,i}) \right\}_{i=1}^{N}$，每个样本都表示了人类选择 $y_{w}$ (chosen) 而拒绝 $y_{l}$ (rejected)。因此，我们希望最大化模型对这些已观测偏好的预测概率：
 $$
-\max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right]
+\max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right] 
 $$
 也就是说，DPO 的损失函数为
 $$
-\mathcal{L}_{\text{DPO}}(\theta)=-\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[ 
-\log\sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} - \beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right)  \tag{6}
- \right] 
+\mathcal{L}_{\text{DPO}}(\theta)=-\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[
+\log\sigma \left( \beta \log\dfrac{\pi_{\theta}(y_{w}\mid x)}{\pi_{\text{ref}}(y_{w}\mid x)} - \beta \log\dfrac{\pi_{\theta}(y_{l}\mid x)}{\pi_{\text{ref}}(y_{l}\mid x)}\right)  
+\right] \tag{8}
 $$
 通过最小化这一损失，模型会倾向于提高被选择回答相对于参考策略的概率优势，同时降低未被选择回答的相对优势。因此，DPO 可以直接利用偏好数据，通过常规的梯度下降优化生成策略，无需显式训练奖励模型，也无须使用 PPO 等强化学习算法。
 
@@ -184,7 +184,7 @@ $$
 > \begin{align}
 > &\min_{\theta} \mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}}\left[ -1 \cdot \log p_{\theta}(y_{w}\succ y_{l}\mid x) - 0 \cdot \log p_{\theta}(y_{l}\succ y_{w}\mid x)  \right] \\
 > \iff &\max_{\theta}\mathbb{E}_{(x,y_{w},y_{l})\sim \mathcal{D}} \left[ \log p_{\theta}(y_{w}\succ y_{l}\mid x) \right]
-> \end{align}
+> \end{align} 
 > $$
 
 > [!tip]
@@ -192,9 +192,9 @@ $$
 
 ### 隐式奖励和 DPO 的优化本质
 
-回顾 Bradley-Terry 模型 $\ref{eq:7}$ 与 DPO 的偏好概率表达式 $\ref{eq:5}$，可以发现，两者均使用两个回答的奖励差作为 Sigmoid 函数的输入。对于 DPO，这个奖励函数可以表示为
+回顾 Bradley-Terry 模型 $\ref{eq:2}$ 与 DPO 的偏好概率表达式 $\ref{eq:7}$，可以发现，两者均使用两个回答的奖励差作为 Sigmoid 函数的输入。对于 DPO，这个奖励函数可以表示为
 $$
-\hat{r}_{\theta}(x,y)=\beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)}\tag{8}
+\hat{r}_{\theta}(x,y)=\beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \tag{9}
 $$
 这个函数称为**隐式奖励 (Implicit Reward)**。它衡量当前策略相对于参考策略，对回答 $y$ 的生成概率进行了多大程度的调整。从这个角度看，DPO 仍然使用 Bradley-Terry 模型描述人类偏好，只是将原本由独立奖励模型产生的评分，替换为了策略模型与参考模型之间的对数概率比。
 
@@ -202,36 +202,36 @@ $$
 > 这一表示的合理性来自前面的 KL 正则化最优策略。对于原始奖励函数 $r$，有
 >
 > $$
-> r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x}{\pi_{\text{ref}}(y\mid x)}+\beta \log Z(x)
+> r(x,y)=\beta \log\dfrac{\pi_{r}^{*}(y\mid x}{\pi_{\text{ref}}(y\mid x)}+\beta \log Z(x) 
 > $$
 > 因此，当 $\pi_{\theta}=\pi_{r}^{*}$ 时，隐式奖励与原始奖励满足
 > $$
-> \hat{r}_{\theta}(x,y)=r(x,y)-\beta \log Z(x)
+> \hat{r}_{\theta}(x,y)=r(x,y)-\beta \log Z(x) 
 > $$
 > 由于 $\beta \log Z(x)$ 仅依赖 Prompt $x$，在两个回答的奖励差中会相互抵消，因此不会改变 Bradley-Terry 模型的偏好概率，也不会改变对应的 KL 正则化最优策略。
 >
 > 所以，**隐式奖励可以理解为原始奖励函数的一种等价表示，它保留了偏好学习所需要的相对奖励信息，同时避免了难以计算的归一化常数**。
 
-在传统的 RLHF 中，我们首先学习固定的奖励函数，再通过强化学习求解其对应的最优策略。而 DPO 的隐式奖励由策略本身定义，这引入了一个问题：**当我们通过偏好数据学习隐式奖励时，是否仍然需要额外求解该奖励对应的最优策略？
+在传统的 RLHF 中，我们首先学习固定的奖励函数，再通过强化学习求解其对应的最优策略。而 DPO 的隐式奖励由策略本身定义，这引入了一个问题：**当我们通过偏好数据学习隐式奖励时，是否仍然需要额外求解该奖励对应的最优策略？**
 
 为了理解这一点，我们需要先研究隐式奖励与原式 RLHF 优化目标之间的关系。回顾 RLHF 的 KL 正则化优化目标 $\ref{eq:1}$，对于固定的 Prompt $x$ 和奖励函数 $r$，有
 $$
-\mathcal{J}_{x}(\pi;r)=\mathbb{E}_{y\sim \pi}[r(x,y)]-\beta D_{\text{KL}}(\pi\Vert \pi_{\text{ref}})
+\mathcal{J}_{x}(\pi;r)=\mathbb{E}_{y\sim \pi}[r(x,y)]-\beta D_{\text{KL}}(\pi\Vert \pi_{\text{ref}}) 
 $$
 其中，$\pi$ 为需要优化的候选策略，$r$ 为固定的奖励函数。在 RLHF 中，我们的目标就是最大化 $\mathcal{J}_{x}(\pi;r)$ 这个正则化目标。
 
-现在考虑任意策略 $\pi_{\theta}$，根据它构造隐式奖励函数 $\hat{r}_{\theta}$。我们首先固定参数 $\theta$，将 $\hat{r}_{\theta}$ 视为一个已经确定的奖励函数，再考虑优化另一个候选策略 $\pi$。将隐式奖励 $\ref{eq:8}$ 代入 RLHF 目标中，得到
+现在考虑任意策略 $\pi_{\theta}$，根据它构造隐式奖励函数 $\hat{r}_{\theta}$。我们首先固定参数 $\theta$，将 $\hat{r}_{\theta}$ 视为一个已经确定的奖励函数，再考虑优化另一个候选策略 $\pi$。将隐式奖励 $\ref{eq:9}$ 代入 RLHF 目标中，得到
 $$
 \begin{align}
 \mathcal{J}_{x}(\pi;\hat{r}_{\theta})&=\mathbb{E}_{y\sim \pi}\left[ \beta \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \right] -\beta D_{\text{KL}}(\pi\Vert \pi_{\text{ref}}) \\
 &=\beta \mathbb{E}_{y\sim \pi}\left[ \log\dfrac{\pi_{\theta}(y\mid x)}{\pi_{\text{ref}}(y\mid x)}-\log\dfrac{\pi(y\mid x)}{\pi_{\text{ref}}(y\mid x)} \right]  \\
 &=\beta \mathbb{E}_{y\sim \pi}\left[ \log\dfrac{\pi_{\theta}(y\mid x)}{\pi(y\mid x)} \right]  \\
 &=-\beta D_{\text{KL}}(\pi\Vert \pi_{\theta})
-\end{align}
+\end{align} 
 $$
 由于 KL 散度非负，因此当且仅当 $\pi=\pi_{\theta}$ 时 $\mathcal{J}_{x}(\pi;\hat{r}_{\theta})=0$，因此该优化问题有唯一最优策略为
 $$
-\arg\max_{\pi}\mathcal{J}_{x}(\pi;\hat{r}_{\theta})=\pi_{\theta}
+\arg\max_{\pi}\mathcal{J}_{x}(\pi;\hat{r}_{\theta})=\pi_{\theta} 
 $$
 这说明，**由策略构造的隐式奖励，其最优策略就是构造奖励时使用的策略本身。** 因此，如果我们通过偏好数据学习这个隐式奖励，其对应的策略也已经随之确定，无需再单独求解一次 KL 正则化奖励最大化问题。
 
@@ -246,42 +246,42 @@ $$
 
 ### 学习最优策略的证明
 
-到这里，我们已经得到了完整的 DPO 算法，但是还有一个理论问题：**将式 $\ref{eq:4}$ 中的 $\pi_{r}^{*}$ 替换为 $\pi_{\theta}$ 为什么能够帮助我们学习原本的最优策略？**
+到这里，我们已经得到了完整的 DPO 算法，但是还有一个理论问题：**将式 $\ref{eq:6}$ 中的 $\pi_{r}^{*}$ 替换为 $\pi_{\theta}$ 为什么能够帮助我们学习原本的最优策略？**
 
 根据二分类的最大似然估计的性质，在模型表达能力充分的条件下，最小化期望交叉熵可以使得模型预测的偏好概率趋近于真实偏好概率，也就是
 $$
-p_{\theta}(y_{1}\succ y_{2}\mid x) \to p_{r}(y_{1}\succ y_{2}\mid x)
+p_{\theta}(y_{1}\succ y_{2}\mid x) \to p_{r}(y_{1}\succ y_{2}\mid x) 
 $$
 由于 Sigmoid 函数严格单调，因此当二者相等时，有
 $$
-\dfrac{\pi_{\theta}(y_{1}\mid x)}{\pi_{\theta}(y_{2}\mid x)}=\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{r}^{*}(y_{2}\mid x)}
+\dfrac{\pi_{\theta}(y_{1}\mid x)}{\pi_{\theta}(y_{2}\mid x)}=\dfrac{\pi_{r}^{*}(y_{1}\mid x)}{\pi_{r}^{*}(y_{2}\mid x)} 
 $$
 因此，相同偏好概率意味着两个策略对同一组回答具有相同的生成概率比。基于概率分布的归一化性质，只要能够恢复足够多回答对的真实偏好概率，使这些比较关系连接整个回答空间，就可以唯一确定相应的最优策略。
 
 > [!note]- 相等的证明
 > 固定一个回答 $y_{0}$，那么对于其他任意回答 $y$ 都有
 > $$
-> \dfrac{\pi_{\theta}(y\mid x)}{\pi_{\theta}(y_{0}\mid x)}=\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{r}^{*}(y_{0}\mid x)}
+> \dfrac{\pi_{\theta}(y\mid x)}{\pi_{\theta}(y_{0}\mid x)}=\dfrac{\pi_{r}^{*}(y\mid x)}{\pi_{r}^{*}(y_{0}\mid x)} 
 > $$
 > 整理得到
 > $$
-> \pi_{\theta}(y\mid x)=\dfrac{\pi_{\theta}(y_{0}\mid x)}{\pi_{r}^{*}(y_{0}\mid x)}\pi_{r}^{*}(y\mid x)
+> \pi_{\theta}(y\mid x)=\dfrac{\pi_{\theta}(y_{0}\mid x)}{\pi_{r}^{*}(y_{0}\mid x)}\pi_{r}^{*}(y\mid x) 
 > $$
 > 记 $c(x)=\pi_{\theta}(y_{0}\mid x)/\pi_{r}^{*}(y_{0}\mid x)$，于是得到
 > $$
-> \pi_{\theta}(y\mid x)=c(x)\pi_{r}^{*}(y\mid x)
+> \pi_{\theta}(y\mid x)=c(x)\pi_{r}^{*}(y\mid x) 
 > $$
 > 由于它们都是概率分布，有
 > $$
-> \sum\limits_{y}\pi_{\theta}(y\mid x)=\sum\limits_{y}\pi_{r}^{*}(y\mid x)=1
+> \sum\limits_{y}\pi_{\theta}(y\mid x)=\sum\limits_{y}\pi_{r}^{*}(y\mid x)=1 
 > $$
 > 因此，两边求和可以得到
 > $$
-> 1=c(x)\sum\limits_{y}\pi_{r}^{*}(y\mid x)=c(x)
+> 1=c(x)\sum\limits_{y}\pi_{r}^{*}(y\mid x)=c(x) 
 > $$
 > 即 $c(x)=1$，于是得到
 > $$
-> \pi_{\theta}(y\mid x)=\pi_{r}^{*}(y\mid x)
+> \pi_{\theta}(y\mid x)=\pi_{r}^{*}(y\mid x) 
 > $$
 
 ^282459
@@ -302,7 +302,7 @@ $$
 
 DPO 通常从已经完成监督微调 (SFT) 的语言模型开始。预训练模型已经具备基础的语言生成能力，而 SFT 进一步使模型能够遵循指令、处理对话并按照期望的格式回答问题。在此基础上，DPO 利用偏好数据调整模型的生成行为。假设完成 SFT 后得到策略 $\pi_{\text{SFT}}$，通常将其同时用于初始化待训练策略和参考策略：
 $$
-\pi_{\theta}^{(0)}=\pi_{\text{ref}}=\pi_{\text{SFT}}
+\pi_{\theta}^{(0)}=\pi_{\text{ref}}=\pi_{\text{SFT}} 
 $$
 两者虽然有相同的权重，但在 DPO 训练中承担不同的作用。
 - **策略模型** $\pi_{\theta}$：实际上被优化的语言模型，其参数通过 DPO 损失不断更新。
@@ -374,13 +374,13 @@ DPO 的一条训练数据可以表示为 $(x,y_{w},y_{l})$，其中
 不同于 PPO 之类的在线强化学习算法，DPO 的训练比较直接，和预训练、SFT 的流程大致相同，差别只有数据和损失函数。对于一条样本 $(x,y_{w},y_{l})$，一次训练包含一下计算：
 1. 计算参考模型 $\pi_{\text{ref}}$、策略模型$\pi_{\theta}$ 对两个候选回答的概率，训练时一般采用 teach forcing。这一步对每个 token 都会计算四个条件概率：
 $$
-\log \pi_{\theta}(y_{w}\mid x),\quad \log \pi_{\theta}(y_{l}\mid x),\quad \log \pi_{\text{ref}}(y_{w}\mid x),\quad \log \pi_{\text{ref}}(y_{l}\mid x)
+\log \pi_{\theta}(y_{w}\mid x),\quad \log \pi_{\theta}(y_{l}\mid x),\quad \log \pi_{\text{ref}}(y_{w}\mid x),\quad \log \pi_{\text{ref}}(y_{l}\mid x) 
 $$
 而完整回答的概率则为
 $$
-\log \pi_{\theta}(y\mid x)=\sum\limits_{t=1}^{\left| y \right| }\log \pi_{\theta}(y_{t}\mid x,y_{<t})
+\log \pi_{\theta}(y\mid x)=\sum\limits_{t=1}^{\left| y \right| }\log \pi_{\theta}(y_{t}\mid x,y_{<t}) 
 $$
-2. 基于 $\ref{eq:6}$ 计算损失函数，随后通过反向传播更新 $\theta$。
+2. 基于 $\ref{eq:8}$ 计算损失函数，随后通过反向传播更新 $\theta$。
 
 > [!note]
 > 由于 DPO 直接优化的是两个回答之间的**相对偏好差异**，因此损失函数下降不一定意味着 $\pi_{\theta}(y_{w}\mid x)$ 的生成概率持续增加，也可能优选回答与劣选回答的概率同时下降，但是 $\pi_{\theta}(y_{l}\mid x)$ 的生成概率下降得更多。因此在实际训练中还需要评估模型的生成质量。
@@ -393,7 +393,7 @@ $$
 完成 DPO 训练后，我们需要通过评估检查模型是否真正学会了目标偏好，以及原有能力是否得到了保留。评估可以从两个方面进行：
 1. 偏好学习的训练指标：
 	- `loss`：DPO 损失，反映模型对训练数据中偏好关系的拟合情况。
-	- `reward/accuracies`：当前策略给优选回答的隐式奖励高于劣选回答的样本比例。
+	- `rewards/accuracies`：当前策略给优选回答的隐式奖励高于劣选回答的样本比例。
 	- `rewards/margins`：也就是 $\Delta$，优选回答和劣选回答之间的平均隐式奖励差距。
 2. 评估模型实际生成的回答：在独立的验证 prompt 上，分别让 SFT 模型和 DPO 模型生成回答，并根据任务目标进行比较，例如
 	- 偏好胜率：有人工或评审模型比较两个模型的回答。
