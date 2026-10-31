@@ -130,23 +130,51 @@ $$
 - **变换之前**：外部是关于 $\tau$ 的积分，需要考虑所有的轨迹，并以轨迹概率的梯度作为积分的权重。
 - **变换之后**：外层是关于轨迹分布的期望，我们可以直接从 $p_{\theta}$ 中采样，并利用样本平均估计期望。在这个过程中，**我们不需要显式计算每条采样轨迹的概率 $p_{\theta}(\tau)$。**
 
-原本我们需要计算的是概率分布的梯度 $\nabla_{\theta}p_{\theta}(\tau)$ 的积分，通过前面的推导，我们将它转换为了一个期望，期望中的梯度项变成了 $\nabla_{\theta}\log p_{\theta}(\tau)$。不过我们还没有完全解决问题，目前仍然需要计算整条轨迹的对数概率梯度 $\nabla_{\theta}\log p_{\theta}(\tau)$，而轨迹概率本身仍然包含未知的环境状态转移概率，因此我们接下来需要解决第二个困难：**能够在不知道环境转移概率的情况下，计算轨迹的对数概率梯度？**
+原本我们需要计算的是概率分布的梯度 $\nabla_{\theta}p_{\theta}(\tau)$ 的积分，通过前面的推导，我们将它转换为了一个期望，期望中的梯度项变成了 $\nabla_{\theta}\log p_{\theta}(\tau)$。
 
 ### 从轨迹概率到动作概率
 
+通过 Log-derivative Trick，我们已经将策略梯度改写为
+$$
+\nabla_{\theta}J(\theta)=\mathbb{E}_{\tau \sim p_{\theta}}[R(\tau)\nabla_{\theta}\log p_{\theta}(\tau)]
+$$
+这一结果使我们能够利用蒙特卡洛采样估计策略梯度。然而，想要真正计算这个期望，还需要解决一个问题：**对于一个已经采样得到的轨迹，如何计算其中的 $\nabla_{\theta}\log p_{\theta}(\tau)$?**
+
 回顾一条轨迹的生成过程。智能体从初始状态 $s_{0}$ 出发，根据策略 $p_{\theta}(a_{t}\mid s_{t})$ 采样动作，环境再根据状态转移概率 $P(s_{t+1}\mid s_{t},a_{t})$ 产生下一个状态。根据马尔可夫性质，整条轨迹的概率可以分解为
 $$
-p_{\theta}(\tau)=\rho_{0}s_{0}\prod\limits_{t=0}^{T-1}\pi_{\theta}(a_{t}\mid s_{t})P(s_{t+1}\mid s_{t},a_{t})
+p_{\theta}(\tau)=\rho_{0}s_{0}\prod\limits_{t=0}^{T-1}\pi_{\theta}(a_{t}\mid s_{t})P(s_{t+1},r_{t}\mid s_{t},a_{t})
 $$
 对其取对数，得到
 $$
 \log p_{\theta}(\tau)=\log \rho_{0}(s_{0})+\sum\limits_{t=0}^{T-1}\log \pi_{\theta}(a_{t}\mid s_{t})+\sum\limits_{t=0}^{T-1}\log P(s_{t+1}\mid s_{t},a_{t})
 $$
-在经典的策略梯度的设定中，初始状态分布和环境转移概率不直接依赖于策略参数 $\theta$。对上式求导，可以得到：
+在经典的强化学习问题中，我们假设初始状态分布 $\rho_{0}$ 、环境的状态转移和奖励机制 $P$ 不依赖于策略参数，只有策略 $\pi_{\theta}$ 显式依赖于参数 $\theta$。因此对轨迹的对数概率求梯度时，前两类与参数无关的项的梯度均为零：
 $$
 \nabla_{\theta}\log p_{\theta}(\tau)=\sum\limits_{t=0}^{T-1}\nabla_{\theta}\log \pi_{\theta}(a_{t}\mid s_{t})
 $$
-这意味着，**整条轨迹的对数概率梯度，等于轨迹中每一步动作的对数概率之和。** 由于 $\pi_{\theta}$ 是由神经网络等可微模型参数化的策略，yin'c
+这意味着，**整条轨迹的对数概率梯度，等于轨迹中每一步动作的对数概率之和。** 由于 $\pi_{\theta}$ 是由神经网络等可微模型参数化的策略，因此我们可以直接利用自动微分工具计算 $\nabla_{\theta}\log p_{\theta}(\tau)$。
+
+### 策略梯度公式
+
+现在回顾整个推导过程。我们最初希望计算期望累计回报关于策略参数的梯度 $\nabla_{\theta}J(\theta)$，但是直接求导面临两个困难：
+1. 期望涉及所有可能的轨迹的导数，无法直接枚举。
+2. 轨迹概率同时包含策略和环境动态，无法直接求导。
+
+为了解决第一个问题，我们利用 Log-derivative Trick 将梯度转换为关于轨迹分布的期望：
+$$
+\nabla_{\theta}J(\theta)=\mathbb{E}_{\tau \sim p_{\theta}}[R(\tau)\nabla_{\theta}\log p_{\theta}(\tau)]
+$$
+这样就可以利用蒙特卡洛方法估计期望。
+
+为了解决第二个问题，我们进一步分解了轨迹概率，发现：
+$$
+\nabla_{\theta}\log p_{\theta}(\tau)=\sum\limits_{t=0}^{T-1}\nabla_{\theta}\log \pi_{\theta}(a_{t}\mid s_{t})
+$$
+将其代入前面的表达式，最终得到：
+$$
+\nabla_{\theta}J(\theta)=\mathbb{E}_{\tau \sim p_{\theta}}\left[R(\tau) \sum\limits_{t=0}^{T-1}\nabla_{\theta}\log \pi_{\theta}(a_{t}\mid s_{t}) \right] 
+$$
+这就是最基本的策略梯度表达式。它表明，我们可以通过当前策略与环境交互，获得轨迹及其累计回报，再利用策略网络计算每一步所选动作的对数概率梯度，从而估计整个策略的优化方向。整个过程中，无需显式计算完整的轨迹概率，也无须指导环境的状态转移模型。
 
 ## Reward-to-go
 
