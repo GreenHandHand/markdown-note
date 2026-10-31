@@ -2,134 +2,64 @@
 tags:
   - 强化学习
 ---
+
 # REINFORCE 算法
 
-在强化学习中，除了 [[00_Inbox/强化学习/时序差分算法#Q-learning 算法|Q-learning]]、[[00_Inbox/强化学习/DQN算法|DQN]] 等学习价值函数的方法，还有一种直接学习策略的方法。Q-learning 系列方法被称为**基于价值** (value-based) 的方法，而这种直接学习策略的方法称为**基于策略** (policy-based) 的方法。策略梯度是基于策略的方法的基础。
+在强化学习中，[[00_Inbox/强化学习/时序差分算法#Q-learning 算法|Q-learning]]、[[00_Inbox/强化学习/DQN算法|DQN]] 等基于价值 (Value-based) 的方法通过学习状态或状态 - 动作的价值函数，评估不同动作能够带来的预期回报，并根据价值估计指导动作选择。这类方法将策略学习建立在价值函数之上：对于给定状态，智能体可以通过选择具有较高估计价值的动作来改善自身行为。
 
-## 策略梯度
+除了通过价值函数间接确定策略，我们还可以直接对策略进行参数化，学习一个从状态到动作的映射。例如，使用神经网络表示随机策略 $\pi_{\theta}(a\mid s)$，输入当前状态，输出各个动作的概率分布，再根据这个分布采样动作。这种直接学习策略的方法称为**基于策略 (Policy-basesd)** 的方法。它能够显式表示随机策略，也避免了在选择动作时必须对动作价值进行最大化搜索，对于连续或复杂动作空间具有重要意义。
 
-基于策略的方法需要首先将策略参数化。假设 $\pi_\theta$ 是一个随机性的策略，并且处处可微，其中 $\theta$ 是对应的参数，我们可以使用一个[[00_Inbox/机器学习/线性模型|线性模型]]或者神经网络模型来描述这样一个策略函数：_输入一个状态，然后输出动作的概率分布_。我们的目标是找到一个最优的策略，使得这个策略在环境中的期望回报最大，因此我们可以将目标函数定义为：
-$$
-J(\theta)=E_{s_0}[V^{\pi_{\theta}}(s_0)]
-$$
-其中，$s_0$ 表示初始状态，上面的式子表达了在策略 $\pi_\theta$ 下从状态 $s_0$ 出发所获得的回报的期望。为了最大化期望回报，我们对上面的式子进行求导
-$$
-\nabla_\theta J(\theta)=\frac{\partial J}{\partial \theta}=E_{s_0}[\nabla_\theta V^{\pi_\theta}(s_0)]
-$$
-于是我们先计算状态价值函数的梯度:
-$$
-\begin{align}
-\nabla_\theta V^{\pi_\theta}(s_0)&=\nabla_\theta\sum_{a\in \mathcal{A}}Q^{\pi_\theta}(s,a)\pi_\theta(a|s)
-\\&=\sum_{a\in\mathcal A}\nabla_\theta Q^{\pi_\theta}(s,a)\pi_\theta(a|s)+Q^{\pi_\theta}(s,a)\nabla_\theta\pi_\theta(a|s)
-\end{align}
-$$
-设 $\phi(s)=\sum_{a\in\mathcal A}\nabla_\theta\pi_\theta(s|a) Q^{\pi_\theta}(s,a)$，将动作价值函数展开有：
-$$
-\begin{align}
-\nabla_\theta V^{\pi_\theta}(s_0)&=\phi(s)+\sum_{a\in\mathcal A}\pi_\theta(a|s)\nabla_\theta\left(r(s,a)+\gamma\sum_{s'\in S}P(s'|s,a)V^{\pi_\theta}(s')\right)
-\\&=\phi(s)+\sum_{a\in\mathcal A}\pi_\theta(a|s)\gamma\sum_{s'\in\mathcal S}P(s'|s,a)\nabla_{\theta}V^{\pi_\theta}(s')
-\\&=\phi(s)+\gamma\sum_{a\in\mathcal A}\sum_{s'\in S}\pi_\theta(a|s)P(s'|s,a)\nabla_\theta V^{\pi_\theta}(s')
-\\&=\phi(s)+\gamma\sum_{s'\in S}\nabla_\theta V^{\pi_\theta}(s')\sum_{a\in\mathcal A}\pi_\theta(a|s)P(s'|s,a)
-\end{align}
-$$
-由于 $\sum_{a\in\mathcal A}\pi_\theta(a|s)P(x|s,a)$ 表示从状态 $s$ 在策略 $\pi_\theta$ 下下一步达到状态 $x$ 的概率，我们将其表示为 $d^{\pi_\theta}(s\to x,k)$ ，其中 $k$ 表示到达 $x$ 的步数，于是上式有：
-$$
-\begin{align}
-\nabla_\theta V^{\pi_\theta}(s_0)&=\phi(s)+\gamma\sum_{s'\in S}\nabla_{\theta}V^{\pi_\theta}(s')d^{\pi_\theta}(s\to s',1)
-\end{align}
-$$
-上式是一个迭代式，我们将其展开：
-$$
-\begin{align}
-\nabla_\theta V^{\pi_\theta}(s_0)&=\phi(s)+\gamma\sum_{s'\in S}d^{\pi_\theta}(s\to s',1)\cdot\\
-&\quad\left(\phi(s')+\gamma\sum_{s''\in\mathcal S}d^{\pi_\theta}(s'\to s'',1)\nabla_{\theta}V^{\pi_\theta}(s'')\right)
-\\&\begin{alignedat}{2}
-=\phi(s)&+\gamma\sum_{s'\in S}d^{\pi_\theta}(s\to s',1)\phi(s')
-\\&+\gamma^2\sum_{s''\in\mathcal S}\sum_{s'\in\mathcal S}d^{\pi_\theta}(s\to s',1)d^{\pi_\theta}(s'\to s'',1)\nabla_{\theta}V^{\pi_\theta}(s'')
-\end{alignedat}
-\\&\begin{alignedat}{2}
-=\phi(s)&+\gamma\sum_{s'\in S,1}d^{\pi_\theta}(s\to s',1)\phi(s')
-\\&+\gamma^2\sum_{s''\in\mathcal S}d^{\pi_\theta}(s\to s'',2)\nabla_{\theta}V^{\pi_\theta}(s'')
-\end{alignedat}
-\\&=\sum_{x\in\mathcal S}\sum_{k=0}^\infty\gamma^kd^{\pi_\theta}(s\to x,k)\phi(x)
-\end{align}
-$$
-我们令 $\eta(x)=E_{s_0}[\sum_{k=0}^\infty\gamma^kd^{\pi_\theta}(s_0\to x,k)]$，于是有
-$$
-\begin{align}
-\nabla_\theta J(\theta)&=E_{s_0}[\nabla_\theta V^{\pi_\theta}(s_0)]
-\\&=E_{s_0}[\sum_{x\in\mathcal S}\sum_{k=0}^\infty\gamma^kd^{\pi_\theta}(s_0\to x,k)\phi(x)]
-\\&=\sum_{x\in\mathcal S}\phi(x)E_{s_0}[\sum_{k=0}^\infty\gamma^kd^{\pi_\theta}(s_0\to x,k)]
-\\&=\sum_{x\in\mathcal S}\phi(x)\eta(x)
-\\&=\sum_x\frac{\sum_{x}\eta(x)}{\sum_x\eta(x)}\eta(x)\phi(s)
-\\&=\left(\sum_x\eta(x)\right)\sum_x\frac{\eta(x)}{\sum_x\eta(x)}\phi(x)
-\\&\propto \sum_x\frac{\eta(x)}{\sum_x\eta(x)}\phi(x),\quad (x\to s)
-\\&=\sum_{s}E_{s_0}[\sum_{k=0}^\infty\gamma^kd^{\pi_\theta}(s_0\to s,k)]\sum_{a\in\mathcal A}\nabla_\theta\pi_\theta(s|a) Q^{\pi_\theta}(s,a)
-\\&=\sum_s v^{\pi_\theta}(s)\sum_{a\in\mathcal A}\nabla_\theta\pi_\theta(s|a) Q^{\pi_\theta}(s,a)
-\\&=E_{\pi_\theta}[\sum_{a\in\mathcal A}\nabla_\theta\pi_\theta(a|s)Q^{\pi_\theta}(s,a)]
-\end{align}
-$$
-由于 $v^{\pi_\theta}(s)$ 为策略 $\pi_\theta$ 下的状态访问分布，即到达所有状态的概率，可以视为加权求和。上式便是策略梯度的损失函数，使用上式进行更新需要使用所有的动作状态函数的加权求和运算，过于繁琐，因此将上式进行修改，我们就可以得到：
-$$
-\begin{align}
-\nabla_\theta J(\theta)&\propto E_{\pi_\theta}\left[\sum_{a\in\mathcal A}\nabla_\theta\pi_\theta(a|s) Q^{\pi_\theta}(s,a)\right]
-\\&=E_{\pi_\theta}\left[\sum_{a\in\mathcal A}\pi_\theta(a|s)Q^{\pi_\theta}(s,a)\frac{\nabla_\theta\pi_\theta(a|s)}{\pi_\theta(a|s)}\right]
-\\&=E_{\pi_\theta}\Big[E\left[Q^{\pi_\theta}(s,a)\nabla_\theta\log\pi_\theta(a|s)\big|S=s\right]\Big]
-\\&=E_{\pi_\theta}[Q^{\pi_\theta}(s,a)\nabla_\theta\log\pi_\theta(a|s)]
-\end{align}
-$$
-使用该式常作为策略梯度算法的损失函数。需要注意的是，由于上式中的期望的变量是 $\pi_\theta$，因此策略梯度算法为在线算法，必须使用当前的策略进行采样。直观的理解策略梯度的更新公式，我们发现在每个状态下，梯度的修改都是让策略更多的采样到较高 $Q$ 值的动作，更少的采样到较低 $Q$ 值的动作。
+当策略由参数 $\theta$ 决定时，我们希望通过调整这些参数，使智能体与环境交互后获得更高的期望累计回报。然而，策略的动作来自概率采样，奖励可能在若干步之后才出现，环境的状态转移也通常具备已知的可微模型。因此，一个关键的问题是：**如何计算期望回报关于策略参数的梯度，从而直接优化策略？**
 
->简单说明一下 $\nabla_\theta\log\pi_\theta(a|s)$ 的含义，我在推导过程中对这个式子的含义一直不太明确。该式表示策略的输出的对数关于策略函数的参数 $\theta$ 的梯度。在策略梯度中，策略函数应当是输入一个状态，输出该状态对应的动作概率分布，例如，我们使用神经网络作为策略函数，那么 $\theta$ 指代的就是神经网络的参数。实际上我们在计算时使用的是下面的式子： 
+**策略梯度 (Policy Gradient)** 方法正是围绕这一问题建立的。它通过对参数化策略的期望回报求梯度，从而改善策略的更新方向。其中，REINFORE 是最基础的蒙特卡洛策略梯度算法之一：它利用策略生成的轨迹及实际获得的奖励，构造策略梯度的采样估计，从而直接更新策略参数。
+
+> [!note] 基于价值的方法与策略梯度方法
+> - **基于价值的方法** (Value-based)：以 Q-learning、DQN 为代表，主要学习状态 - 动作价值函数 $Q(s,a)$，估计在某个状态下采取不同动作能够获得的预期回报。动作通常根据价值估计进行选择，例如使用 $\arg\max_{a}Q(s,a)$，并通过 $\epsilon-$greedy 等机制进行探索。策略的改善主要通过价值函数的更新间接实现。
+> - **策略梯度方法** (Policy Gradient)：直接参数化策略 $\pi_{\theta}(a\mid s)$，使用梯度方法优化策略 $\theta$，使策略获得更高的期望累计回报。对于随机策略，模型输出动作的概率分布，并根据该分布采样动作，因此能够直接学习随机性的决策行为。
+
+## 策略优化的目标
+
+策略梯度方法直接优化参数化的策略。假设我们使用参数为 $\theta$ 的可微随机策略 $\pi_{\theta}$，其中 $\theta$ 是参数化模型的参数。对于给定状态 $s$，策略 $\pi_{\theta}(a\mid s)$ 描述智能体选择动作 $a$ 的概率。
+
+> [!note]
+这里最常见的方式是神经网络作为参数化策略：
+> - 对于离散动作空间，可以利用神经网络输出各个动作的概率分布；
+> - 对于连续动作空间，可以通过神经网络参数化一个连续概率分布，例如高斯分布。
+
+我们的目标是找到一组最优参数 $\theta^{*}$，使得策略在环境中能够获得尽可能高的期望累计回报。这里简单回顾累计回报的定义：
+
+> [!definition|Definition] 累计折扣回报 (Discounted Return)
+>  考虑智能体从初始状态 $s_{0}$开始与环境进行交互。每一步更具当前策略采样动作 $a_{t}$，环境执行动作后返回奖励 $r_{t}$，并转移到下一个状态 $s_{t+1}$。经过 $T$ 个时间步后，我们可以得到一条完整的轨迹 (trajectory)：
+>  $$
+> \tau=(s_{0},a_{0},r_{0},s_{1},a_{1},r_{1},\cdots,s_{T-1},a_{T-1},r_{T-1},s_{T})
+> $$
+> 对于这条轨迹，定义**折扣累计回报 (Discount Return)** 为
+> $$
+> R(\tau)=\sum\limits_{t=0}^{T-1}\gamma^{t}r_{t}
+> $$
+> 其中 $\gamma \in[0,1]$ 是折扣因子，用于控制未来奖励在当前优化目标中的权重。当 $\gamma=1$ 时，累计回报就是整条轨迹上所有即时奖励之和。
+
+由于策略通过概率分布采样动作，即时从相同状态出发，多次执行策略也可能得到不同的轨迹和累计回报。因此，我们需要考虑策略参数的所有可能轨迹和期望回报。假设 $p_{\theta}(\tau)$ 表示策略 $\pi_{\theta}$ 产生轨迹 $\tau$ 的概率分布。由于轨迹中的动作由策略决定，而状态转移由环境决定，因此这一分布同时受到策略和环境动态的影响。
+
+> [!definition|Definition] 策略优化的目标
+> 我们可以将策略的优化目标定义为：
+> $$
+> J(\theta)=\mathbb{E}_{\tau \sim p_{\theta}(\tau)}[R(\tau)]\tag{1}
+> $$
+> 其中 $\theta$ 是需要优化的策略参数，$p_{\theta}(\tau)$ 是当前策略与环境共同决定的轨迹概率分布，$R(\tau)$ 是轨迹 $\tau$ 的折扣累计回报，$J(\theta)$ 是策略在环境中能够获得的期望累计回报。
+>
+> 策略优化的目标可以定义为
+> $$
+> \theta^{*}=\arg\max_{\theta}J(\theta)
+> $$
+
+对于一个由神经网络参数化的策略，我们希望像普通深度学习任务一样通过计算目标函数关于参数的梯度来更新策略：
 $$
-\nabla_\theta J(\theta)=\nabla_\theta E[Q^{\pi_\theta}(s,a)\log\pi_\theta(a|s)]
+\theta \leftarrow \theta + \alpha \nabla_{\theta}J(\theta)
 $$
->由于对于参数 $\theta$ 而言 $Q$ 值为一个常数，因此在求梯度时可以直接将其放到到外面。因此在实际使用中，我们只需要计算 $J(\theta)$，然后使用优化器进行梯度下降即可。
+然而，式 $\ref{eq:1}$ 中的期望是关于轨迹 $p_{\theta}(\tau)$ 计算的，而这个分布本身也依赖于需要优化的参数 $\theta$。当策略参数发生变化时，智能体选择动作的概率会改变，进而影响后续状态的访问概率以及能够获得的奖励。因此，**策略参数通过改变轨迹的概率分布，间接影响期望累计回报**。这引出了策略梯度需要解决的核心问题：**如何计算一个依赖于策略参数的概率分布型，期望回报关于策略参数的梯度？**
 
-## REINFORCE 算法
-
-在策略梯度的更新公式中，我们需要用到 $Q^{\pi_\theta}(s,a)$，REINFORCE 算法就是使用蒙特卡洛方法对其进行估计，因此，对于有限步数的环境来说，REINFORCE 算法的策略梯度估计为：
-$$
-\nabla_\theta J(\theta)=E_{\pi_\theta}\left[\sum_{i=1}^T\left(\sum_{t'=t}^T\gamma^{t'-t}r_{t'}\right)\nabla_\theta\log\pi_\theta(a_t|s_t)\right]
-$$
-
-于是算法的具体流程为：
-```python
-# 初始化策略参数
-pi.init_theta()
-optim.init(pi.parameters(), learning_rate)
-for episode in range(num_episodes):
-	# 使用当前策略采样获得序列
-	state_list, action_list, reward_list = [], [], []
-	state = env.reset()
-	done = False
-	while not done:
-		action = agent.choice_action(state)
-		next_state, reward, done = env.step(action)
-		state_list.append(state)
-		action_list.append(action)
-		reward_list.append(reward)
-
-		state = next_state
-
-	# 计算当前序列每个时刻 t 往后的回报
-	G = 0
-	optim.zero_gard()
-	for i in range(reversed(0, len(state_list))):
-		G = G * gamma + reward[i]
-
-		# 对 theta 进行更新
-		log_prob = log(pi[state[i]][action[i]])
-		loss = - G * log_prob
-		loss.backward()
-	optim.step()
-```
-
-本算法相比于 DQN 算法的区别是：
-1. 在 choice_action 中，我们对获得的动作概率分布进行采样来获得当前状态下进行的动作。
-2. 在更新过程中，我们将损失函数设置为期望回报 $J(\theta)$ 的相反数 $-J(\theta)$，然后使用梯度下降法来对策略函数进行跟更新。
-3. 在定义策略网络 PolicyNet 时，其输入为某个状态，输出则是该状态下的动作概率分布，所以在输出层上我们使用 softmax 函数来将其输出转化为每个动作的概率。
-
-## 算法评估
-
-REINFORCE 算法是策略学习乃至强化学习的代表算法，该算法在理论上可以保证局部最优解，它使用蒙特卡洛方法估计动作价值，虽然可以得到无偏的梯度，但是梯度估计的方差却非常大，造成了一定程度上的不稳定性。这也是 [[00_Inbox/强化学习/Actor-Critic算法]] 要解决的问题。
+> [!note] 策略优化和监督学习的区别
+> 在常规监督学习中，训练数据通常来自一个固定的数据集，我们通过最小化模型预测与目标标签之间的损失函数来更新参数。
+>
+> 但是在策略优化中，训练样本由当前策略与环境交互产生，**数据的概率分布本身依赖于策略参数**。策略参数的更新不仅改变模型对已有状态的动作分布，也会改变未来采样得到的轨迹。因此，策略梯度需要考虑参数对采样分布的影响。
